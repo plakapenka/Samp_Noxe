@@ -1,4 +1,4 @@
-#include <YSI\y_hooks>
+#include <YSI_Coding\y_hooks>
 #include <a_mysql>
 
 new MySQL: g_sql; // идентификатор подключения

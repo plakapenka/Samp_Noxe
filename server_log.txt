@@ -20079,3 +20079,182 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [01:02:00] [connection] 127.0.0.1:57535 requests connection cookie.
 [01:02:01] [connection] incoming connection: 127.0.0.1:57535 id: 0
 [01:02:01] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:14:37] 
+[16:14:37] Server Plugins
+[16:14:37] --------------
+[16:14:37]  Loading plugin: streamer
+[16:14:37] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:14:37]   Loaded.
+[16:14:37]  Loading plugin: mysql
+[16:14:37]  >> plugin.mysql: R41-4 successfully loaded.
+[16:14:37]   Loaded.
+[16:14:37]  Loading plugin: sscanf
+[16:14:37] 
+
+[16:14:37]  ===============================
+
+[16:14:37]       sscanf plugin loaded.     
+
+[16:14:37]          Version:  2.8.3        
+
+[16:14:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:14:37]  ===============================
+
+[16:14:37]   Loaded.
+[16:14:37]  Loaded 3 plugins.
+
+[16:14:38] 
+[16:14:38] Filterscripts
+[16:14:38] ---------------
+[16:14:38]   Loading filterscript 'npc_record.amx'...
+[16:14:38]   Loaded 1 filterscripts.
+
+[16:14:38]  
+[16:14:38] --------------------------------------
+[16:14:38]  Античит Nex-AC загружен!
+[16:14:38]  Версия античита: 1.9.56
+[16:14:38]  Автор: Nexius
+[16:14:38] --------------------------------------
+
+[16:14:46] Подключение к базе MySQL успешно!
+[16:14:46] Number of vehicle models: 1
+[16:14:46] Курсы валют загружены! bitcoin - 3641, вклады - 3, базовая - 100
+[16:14:46] [connection] 127.0.0.1:60874 requests connection cookie.
+[16:14:47] [connection] incoming connection: 127.0.0.1:60874 id: 0
+[16:14:48] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:15:07] [connection] 127.0.0.1:51927 requests connection cookie.
+[16:15:08] [connection] incoming connection: 127.0.0.1:51927 id: 1
+[16:15:08] [join] plakapenka has joined the server (1:127.0.0.1)
+[16:16:18] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:17:29] 
+[16:17:29] Server Plugins
+[16:17:29] --------------
+[16:17:29]  Loading plugin: streamer
+[16:17:29] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:17:29]   Loaded.
+[16:17:29]  Loading plugin: mysql
+[16:17:29]  >> plugin.mysql: R41-4 successfully loaded.
+[16:17:29]   Loaded.
+[16:17:29]  Loading plugin: sscanf
+[16:17:29] 
+
+[16:17:29]  ===============================
+
+[16:17:29]       sscanf plugin loaded.     
+
+[16:17:29]          Version:  2.8.3        
+
+[16:17:29]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:17:29]  ===============================
+
+[16:17:29]   Loaded.
+[16:17:29]  Loaded 3 plugins.
+
+[16:17:29] 
+[16:17:29] Filterscripts
+[16:17:29] ---------------
+[16:17:29]   Loading filterscript 'npc_record.amx'...
+[16:17:29]   Loaded 1 filterscripts.
+
+[16:17:29]  
+[16:17:29] --------------------------------------
+[16:17:29]  Античит Nex-AC загружен!
+[16:17:29]  Версия античита: 1.9.56
+[16:17:29]  Автор: Nexius
+[16:17:29] --------------------------------------
+
+[16:17:37] Подключение к базе MySQL успешно!
+[16:17:37] Number of vehicle models: 1
+[16:17:37] Курсы валют загружены! bitcoin - 3641, вклады - 3, базовая - 100
+[16:17:37] [connection] 127.0.0.1:51510 requests connection cookie.
+[16:17:39] [connection] incoming connection: 127.0.0.1:51510 id: 0
+[16:17:39] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:17:58] [connection] 127.0.0.1:56703 requests connection cookie.
+[16:17:59] [connection] incoming connection: 127.0.0.1:56703 id: 1
+[16:18:00] [join] plakapenka has joined the server (1:127.0.0.1)
+[16:22:24] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:24:12] 
+[16:24:12] Server Plugins
+[16:24:12] --------------
+[16:24:12]  Loading plugin: streamer
+[16:24:12] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[16:24:12]   Loaded.
+[16:24:12]  Loading plugin: mysql
+[16:24:12]  >> plugin.mysql: R41-4 successfully loaded.
+[16:24:12]   Loaded.
+[16:24:12]  Loading plugin: sscanf
+[16:24:12] 
+
+[16:24:12]  ===============================
+
+[16:24:12]       sscanf plugin loaded.     
+
+[16:24:12]          Version:  2.8.3        
+
+[16:24:12]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:24:12]  ===============================
+
+[16:24:12]   Loaded.
+[16:24:12]  Loaded 3 plugins.
+
+[16:24:12] 
+[16:24:12] Filterscripts
+[16:24:12] ---------------
+[16:24:12]   Loading filterscript 'npc_record.amx'...
+[16:24:12]   Loaded 1 filterscripts.
+
+[16:24:12]  
+[16:24:12] --------------------------------------
+[16:24:12]  Античит Nex-AC загружен!
+[16:24:12]  Версия античита: 1.9.56
+[16:24:12]  Автор: Nexius
+[16:24:12] --------------------------------------
+
+[16:24:20] Подключение к базе MySQL успешно!
+[16:24:21] Number of vehicle models: 1
+[16:24:21] Курсы валют загружены! bitcoin - 3641, вклады - 3, базовая - 100
+[16:24:21] [connection] 127.0.0.1:55296 requests connection cookie.
+[16:24:22] [connection] incoming connection: 127.0.0.1:55296 id: 0
+[16:24:22] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:24:34] [connection] 127.0.0.1:60727 requests connection cookie.
+[16:24:35] [connection] incoming connection: 127.0.0.1:60727 id: 1
+[16:24:36] [join] plakapenka has joined the server (1:127.0.0.1)

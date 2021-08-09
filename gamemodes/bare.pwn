@@ -18,7 +18,7 @@
 // Don't check if this is the latest version of YSI.
 #define YSI_NO_VERSION_CHECK
 
-#include <YSI\y_hooks>
+#include <YSI_Coding\y_hooks>
 
 #include "/sourc/headers/variables.pwn" 	// все глобальные переменные
 #include "/sourc/headers/dialogs.pwn"		// список диалогов

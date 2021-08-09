@@ -13,5 +13,7 @@ enum
 	dBankBalance,
 	dBankBalanceDeposit,
 	dBankBalanceWithdraw,
-	dBankBalanceCheck
+	dBankBalanceCheck,
+
+	dBank_deposit_global,
 }

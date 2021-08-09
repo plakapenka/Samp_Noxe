@@ -3,6 +3,7 @@
 enum E_PLAYERS
 {
 	pMySQL_ID,
+	Cache: Cache_ID,
 	pName[MAX_PLAYER_NAME],
 	pPassword[25], 
 	pLogged,

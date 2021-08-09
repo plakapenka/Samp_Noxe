@@ -1,7 +1,7 @@
 #include "/sourc/objects/bank.pwn" // маппинг банка
 
 DEFINE_HOOK_REPLACEMENT__(OnPlayer    , Onp);
-#include <YSI\y_hooks>
+#include <YSI_Coding\y_hooks>
 
 #define TIME_UPDATE_BITCONE 30 // время в секундах за которое будет меняться курс биткоина
 new bank_timer;
@@ -136,20 +136,58 @@ stock show_bank_dialog(playerid, id)
 			"{ffffff}Введите сумму:", ">", "<");
 			return 1;
 		}
+		case dBank_deposit_global:
+		{
+			new query[103];
+			mysql_format(g_sql, query, sizeof query, "SELECT * FROM `bank_deposits` WHERE `player` = '%e'", pData[playerid][pName]);
+			mysql_tquery(g_sql, query, "mysql_show_deposits", "d", playerid);
+
+			ShowPlayerDialog(playerid, dBank_deposit_global, DIALOG_STYLE_TABLIST_HEADERS, \
+			"Вклады {01691b}| Ваши вклады",\
+			"Название\tСумма\tПроцент\tОсталось\n\
+			На дом\t100000$\t13%\t9 дней\n\
+			На машину\t5000000$\t25%\t22 дней\n\
+			> Создать депозит", ">", "<");
+
+	
+			return 1;
+		}
 		
 	}
 	return 1;
 }
-
+public mysql_show_deposits(playerid)
+{
+	
+}
 hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 {
 	if(dialogid == dBankGlobal)
 	{
-		if(!response) return Y_HOOKS_BREAK_RETURN_1;
+		if(!response) 
+		{ // удаление из очереди при закрытии окна
+			new id_window;
+			if ( IsPlayerInDynamicArea(playerid, a_bank_window[0])) id_window = 0;
+			if ( IsPlayerInDynamicArea(playerid, a_bank_window[1])) id_window = 1;
+			if ( IsPlayerInDynamicArea(playerid, a_bank_window[2])) id_window = 2;
+
+			strmid(bank_info_list[id_window],"Свободно",0,MAX_PLAYER_NAME,MAX_PLAYER_NAME);
+
+			new str_bank[150];
+			format(str_bank, sizeof str_bank, "Клиент\n{ffffff}%s\n%s\n%s", bank_info_list[0],bank_info_list[1],bank_info_list[2]);
+			UpdateDynamic3DTextLabelText(bank_label_info, 0x018a04FF, str_bank);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+
 
 		if(listitem == 0)
 		{
 			show_bank_dialog(playerid, dBankBalance);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+		if(listitem == 2)
+		{
+			show_bank_dialog(playerid, dBank_deposit_global);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 
@@ -264,6 +302,7 @@ hook OnpEnterDynamicArea(playerid, areaid)
 			show_bank_dialog(playerid, dBankGlobal);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
+
 		SendClientMessage(playerid, 0x8c373cFF, "Банковский работник занят! Дождитесь своей очереди");
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
