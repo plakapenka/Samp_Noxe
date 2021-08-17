@@ -1,13 +1,5 @@
-CMD:weather(playerid, params[])
-{
-	if(pData[playerid][pAdmin] < 5) return true;
-	if(sscanf(params, "d",params[0])) 
-		return	SendClientMessage(playerid, -1, " Введите: /weather [id]");
 
-	serv_weather = params[0];
-	SetWeather(serv_weather);
-	return true;
-}
+
 CMD:gggg(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) return true;
@@ -65,7 +57,7 @@ CMD:xyz(playerid,params[])
 		return SendClientMessage(playerid, 0xc92629, "Команда доступна со 2-го уровня администрирования!");
 
 	new Float:XXX, Float:YYY, Float:ZZZ;
-	if(sscanf(params,"<,>fff",XXX,YYY,ZZZ)) return SendClientMessage(playerid, -1,!" Введите /xyz [x,y,z]");
+	if(sscanf(params,"p<,>fff",XXX,YYY,ZZZ)) return SendClientMessage(playerid, -1,!" Введите /xyz [x,y,z]");
 
 	SetPlayerPos(playerid, XXX,YYY,ZZZ);
 	return 1;
@@ -92,8 +84,8 @@ CMD:int(playerid,params[])
 }
 CMD:world(playerid,params[])
 {
-	if(pData[playerid][pAdmin] < 2)
-		return SendClientMessage(playerid, 0xc92629, "Команда доступна со 2-го уровня администрирования!");
+	//if(pData[playerid][pAdmin] < 2)
+	//	return SendClientMessage(playerid, 0xc92629, "Команда доступна со 2-го уровня администрирования!");
 
 	new wrld;
 	if(sscanf(params,"d",wrld)) 

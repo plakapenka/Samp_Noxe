@@ -16,14 +16,14 @@ hook OnGameModeInit()
 
 hook OnPlayerSpawn(playerid)
 {
-    new bot_name[MAX_PLAYER_NAME];
-    GetPlayerName(playerid, bot_name, MAX_PLAYER_NAME);
+    //new bot_name[MAX_PLAYER_NAME];
+   // GetPlayerName(playerid, bot_name, MAX_PLAYER_NAME);
 
-    if(!strcmp(bot_name, "Antonio_Kortes", true))
+    if(!strcmp(pData[playerid][pName], "Antonio_Kortes", true))
     {
         PutPlayerInVehicle(playerid, bot_bus_ls_sf, 0);
-        return Y_HOOKS_BREAK_RETURN_0;
+        return Y_HOOKS_BREAK_RETURN_1;
     }
     //Место функциям для остольных игроков.
-    return 1;
+    return Y_HOOKS_CONTINUE_RETURN_1;
 }

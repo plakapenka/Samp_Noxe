@@ -3,9 +3,10 @@
 #include <streamer>
 #include <izcmd>
 #include <sscanf2>
+#include <nex-ac>
 
 #pragma warning disable 239, 214
-#include <nex-ac>
+//#include <nex-ac>
 
 
 
@@ -19,64 +20,41 @@
 #define YSI_NO_VERSION_CHECK
 
 #include <YSI_Coding\y_hooks>
+#include <YSI_Data\y_foreach>
 
-#include "/sourc/headers/variables.pwn" 	// РІСЃРµ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
-#include "/sourc/headers/dialogs.pwn"		// СЃРїРёСЃРѕРє РґРёР°Р»РѕРіРѕРІ
-#include "/sourc/headers/defines.pwn"		// РІСЃРµ РіР»РѕР±Р°Р»СЊРЅС‹Рµ РґРµС„Р°Р№РЅС‹
+#include "/sourc/headers/variables.pwn" 	// все глобальные переменные
+#include "/sourc/headers/dialogs.pwn"		// список диалогов
+#include "/sourc/headers/defines.pwn"		// все глобальные дефайны
 
 
-// =========== РўРµРєСЃС‚РґСЂР°РІС‹ ===========
+// =========== Текстдравы ===========
 #include "/sourc/textdraws/logo.pwn"
 #include "/sourc/textdraws/select_skin.pwn"
 // 
-#include "/sourc/system/mysql.pwn" 				// РїРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р±Р°Р·Рµ
-#include "/sourc/system/registration.pwn" 		// СЃРёСЃС‚РµРјР° СЂРµРіРёСЃС‚СЂР°С†РёРё
-#include "/sourc/system/authorization.pwn"		// СЃРёСЃС‚РµРјР° Р°РІС‚РѕСЂРёР·Р°С†РёРё
-#include "/sourc/system/time-wether.pwn" 		// СЃРёСЃС‚РµРјР° РІСЂРµРјРµРЅРё Рё РїРѕРіРѕРґС‹ 
-#include "/sourc/system/money.pwn" 				// СЃРёСЃС‚РµРјР° РґРµРЅРµРі
-#include "/sourc/system/bot_bus_ls_sf.pwn"		// Р‘РѕС‚ Р°РІС‚РѕР±СѓСЃРЅРёРє Р›РЎ
-#include "/sourc/system/bank.pwn"				// Р‘Р°РЅРє Р›РЎ
+#include "/sourc/system/mysql.pwn" 				// подключение к базе
+#include "/sourc/system/view_auth.pwn"			// Начало входа (вид)
+#include "/sourc/system/registration.pwn" 		// система регистрации
+#include "/sourc/system/authorization.pwn"		// система авторизации
+#include "/sourc/system/time-wether.pwn" 		// система времени и погоды 
+#include "/sourc/system/money.pwn" 				// система денег
+#include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
+#include "/sourc/system/bank.pwn"				// Банк ЛС
+#include "/sourc/system/cars.pwn"
+#include "/sourc/system/speedometr.pwn"				// Банк ЛС
+
 
 
 main() 
 { 
 	
-
-
 }
 
 
-public OnPlayerConnect(playerid)
-{
-	pData[playerid][pLogged] = LOGIN_STATUS_ENTER; 
-	GetPlayerIp(playerid, pData[playerid][pIP_cur], 15); // Р·Р°РїРёСЃС‹РІР°РµРј ip РІ РїРµСЂРµРјРµРЅРЅСѓСЋ, С‡С‚РѕР±С‹ РєР°Р¶РґС‹Р№ СЂР°Р· РЅРµ СЋР·Р°С‚СЊ GetPlayerIp
-	GetPlayerName(playerid, pData[playerid][pName], MAX_PLAYER_NAME); // Р·Р°РїРёСЃС‹РІР°РµРј РЅРёРє РІ РїРµСЂРµРјРµРЅРЅСѓСЋ, С‡С‚РѕР±С‹ РєР°Р¶РґС‹Р№ СЂР°Р· РЅРµ СЋР·Р°С‚СЊ GetPlayerName
 
-	new query[103];
-	mysql_format(g_sql, query, sizeof query, "SELECT `pPassword` FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
-	mysql_tquery(g_sql, query, "player_check_account", "d", playerid);
-	return 1;
-}
-
-forward player_check_account(playerid);
-public player_check_account(playerid)
-{
-	if(cache_num_rows() > 0)
-	{ // Р°РєРєР°СѓРЅС‚ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ
-		cache_get_value(0, "pPassword", pData[playerid][pPassword]);
-
-		show_login_dialog(playerid);
-	}
-	else
-	{ // СЂРµРіРёСЃС‚СЂР°С†РёСЏ РЅРѕРІРѕРіРѕ Р°РєРєР°СѓРЅС‚Р°
-		show_register_dialog(playerid,dReg_pas);
-	}
-	return 1;
-}
 
 public OnGameModeInit()
 {
-	SetTimer("OnSecondUpdate", 1000, 1); // С‚Р°Р№РјРµСЂ РєР°Р¶РґСѓСЋ СЃРµРєСѓРЅРґСѓ
+	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
 
 	SetGameModeText("Role Play");
 	ShowPlayerMarkers(1);
@@ -92,11 +70,11 @@ public OnPlayerDisconnect(playerid, reason)
 	return 1;
 }
 
-// РІСЃРµ РєРѕРјР°РЅРґС‹ РІ РѕС‚РґРµР»СЊРЅРѕРј С„Р°Р№Р»Рµ
+// все команды в отдельном файле
 #include "/sourc/commands.pwn" 
 
-// OnSecondUpdate РІ РѕС‚РґРµР»СЊРЅРѕРј С„Р°Р№Р»Рµ
+// OnSecondUpdate в отдельном файле
 #include "/sourc/callback/OnSecondUpdate.pwn" 
 
-// OnPlayerSpawn РІ РѕС‚РґРµР»СЊРЅРѕРј С„Р°Р№Р»Рµ
+// OnPlayerSpawn в отдельном файле
 #include "/sourc/callback/OnPlayerSpawn.pwn" 

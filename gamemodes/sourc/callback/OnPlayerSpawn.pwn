@@ -10,5 +10,5 @@ hook OnPlayerSpawn(playerid)
 		SetPlayerVirtualWorld(playerid, 0);
 		SetPlayerSkin(playerid, pData[playerid][pSkin]);
 	}
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }

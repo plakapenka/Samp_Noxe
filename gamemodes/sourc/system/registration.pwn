@@ -20,7 +20,6 @@ public query_create_new_account(playerid)
 stock create_new_account(playerid)
 {// все что происходит после нажатия на кнопку SELECT при регистрации
 	strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, 15, 15);
-	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
 
 	new query[512];
 	mysql_format(g_sql, query, sizeof query, "INSERT INTO accounts\
@@ -166,7 +165,22 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			pData[playerid][pSex] 		= response;
 			pData[playerid][pLogged] 	= LOGIN_STATUS_REG;
 
-			SpawnPlayer(playerid);
+			InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
+			InterpolateCameraLookAt(playerid, 2080.637451, 2090.162109, 27.209436, 2073.040771, 2091.703857, 27.107011, 2000);
+
+			if(pData[playerid][pSex] == SEX_MALE)
+			{// мужик
+				SetPlayerSkin(playerid, male_skin_reg[0]);
+			}
+			else
+			{// тянка
+				SetPlayerSkin(playerid, fem_skin_reg[0]);
+			}
+			
+
+			show_select_skin_td(playerid);
+			SelectTextDraw(playerid, 0x036bfcFF);
+			pData[playerid][pTDSelect] = SELECT_STATUS_SKIN_REG;
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}
@@ -249,33 +263,4 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
     	}
     }
     return 0;
-}
-
-hook OnPlayerSpawn(playerid)
-{
-	if(pData[playerid][pLogged] == LOGIN_STATUS_REG)
-	{// выбор скина при регистрации
-		if(pData[playerid][pSex] == SEX_MALE)
-		{// мужик
-			SetPlayerSkin(playerid, male_skin_reg[0]);
-		}
-		else
-		{// тянка
-			SetPlayerSkin(playerid, fem_skin_reg[0]);
-		}
-		SetPlayerInterior(playerid,14);
-		SetPlayerPos(playerid, 204.4013,-161.6297,1000.5234);
-		SetPlayerFacingAngle(playerid, 180.0);
-		TogglePlayerControllable(playerid, 0);
-		
-		SetPlayerCameraPos(playerid, 204.477111, -164.904418, 1001.154296);
-		SetPlayerCameraLookAt(playerid,204.368194, -159.926239, 1000.700561);
-
-		show_select_skin_td(playerid);
-		SelectTextDraw(playerid, 0x036bfcFF);
-		pData[playerid][pTDSelect] = SELECT_STATUS_SKIN_REG;
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-
-	return 1;
 }

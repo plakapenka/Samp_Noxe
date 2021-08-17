@@ -9,8 +9,16 @@ public OnSecondUpdate()
 	{
 		PayDay();
 	}
+	foreach (new playerid : Player)
+	{
+		OnSecondPlayerUpdate(playerid);
+	}
 }
 
+stock OnSecondPlayerUpdate(playerid)
+{
+	
+}
 stock PayDay()
 {
 	SendClientMessageToAll(-1, "PayDay");

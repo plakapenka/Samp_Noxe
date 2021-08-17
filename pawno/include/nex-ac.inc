@@ -5885,44 +5885,7 @@ public OnPlayerClickPlayer(playerid, clickedplayerid, source)
 	#endif
 #endif
 
-public OnPlayerCommandReceived(playerid, cmdtext[])
-{
-	if(ACInfo[playerid][acKicked] > 0) return 1;
-	#if AC_USE_NPC
-		if(!IsPlayerNPC(playerid))
-		{
-	#endif
-		new ac_gtc = GetTickCount();
-		if(ACInfo[playerid][acACAllow][49])
-		{
-			if(ac_gtc - ACInfo[playerid][acCall][5] < ac_Mtfc[5][0])
-			{
-				ac_FloodDetect(playerid, 5);
-				return 1;
-			}
-			if(ac_gtc - ACInfo[playerid][acCall][27] < ac_Mtfc[27][0]) ac_FloodDetect(playerid, 27);
-			else ACInfo[playerid][acFloodCount][5] = ACInfo[playerid][acFloodCount][27] = 0;
-		}
-		ACInfo[playerid][acCall][27] = ACInfo[playerid][acCall][5] = ac_gtc;
-	#if AC_USE_NPC
-		}
-	#endif
-	#if defined ac_OnPlayerCommandText
-		return ac_OnPlayerCommandText(playerid, cmdtext);
-	#else
-		return 0;
-	#endif
-}
 
-#if defined _ALS_OnPlayerCommandText
-	#undef OnPlayerCommandText
-#else
-	#define _ALS_OnPlayerCommandText
-#endif
-#define OnPlayerCommandText ac_OnPlayerCommandText
-#if defined ac_OnPlayerCommandText
-	forward ac_OnPlayerCommandText(playerid, cmdtext[]);
-#endif
 
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {

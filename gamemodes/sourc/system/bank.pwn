@@ -156,6 +156,7 @@ stock show_bank_dialog(playerid, id)
 	}
 	return 1;
 }
+forward mysql_show_deposits(playerid);
 public mysql_show_deposits(playerid)
 {
 	
