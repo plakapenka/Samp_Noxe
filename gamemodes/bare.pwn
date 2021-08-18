@@ -39,7 +39,7 @@
 #include "/sourc/system/money.pwn" 				// система денег
 #include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "/sourc/system/bank.pwn"				// Банк ЛС
-#include "/sourc/system/cars.pwn"
+#include "/sourc/system/cars.pwn"				// машины
 #include "/sourc/system/speedometr.pwn"				// Банк ЛС
 
 

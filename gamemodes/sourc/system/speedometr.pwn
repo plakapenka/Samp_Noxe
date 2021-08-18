@@ -2,7 +2,16 @@
 
 new PlayerText:td_speed[10][MAX_PLAYERS];
 new PlayerText:td_speed_fuelbar[20][MAX_PLAYERS];
+CMD:xxx(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 5) return true;
+	if(sscanf(params, "d",params[0])) 
+		return	SendClientMessage(playerid, -1, " Введите: /veh [id авто] [Цвет №1] [Цвет №2]");
 
+	new vehicleid = GetPlayerVehicleID(playerid);
+	vData[vehicleid][vFuell] = params[0];
+	return true;
+}
 hook OnSecondPlayerUpdate(playerid)
 {
 	if(GetPVarInt(playerid, "show_speedometr"))
@@ -32,8 +41,18 @@ stock show_speedometr(playerid)
 	{
 		PlayerTextDrawShow(playerid, td_speed[i][playerid]);
 	}
+
 	new vehicleid = GetPlayerVehicleID(playerid);
 	new str_speed[10];
+	new cnt_fuel_box = floatround(vData[vehicleid][vFuell]/10);
+	for(new xxx = 0; xxx <= 19; xxx++)
+		{
+			PlayerTextDrawHide(playerid, td_speed_fuelbar[xxx][playerid]);
+		}
+		for(new xxx = 0; xxx <= cnt_fuel_box && xxx <= 19; xxx++)
+		{
+			PlayerTextDrawShow(playerid, td_speed_fuelbar[xxx][playerid]);
+		}
 
 	PlayerTextDrawSetString(playerid, td_speed[4][playerid], "0");
 

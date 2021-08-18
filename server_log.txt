@@ -12559,3 +12559,731 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [11:21:37] [connection] incoming connection: 127.0.0.1:49860 id: 1
 [11:21:37] [join] plakapenka has joined the server (1:127.0.0.1)
 [11:35:29] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[01:23:53] 
+[01:23:53] Server Plugins
+[01:23:53] --------------
+[01:23:53]  Loading plugin: streamer
+[01:23:53] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[01:23:53]   Loaded.
+[01:23:53]  Loading plugin: mysql
+[01:23:53]  >> plugin.mysql: R41-4 successfully loaded.
+[01:23:53]   Loaded.
+[01:23:53]  Loading plugin: sscanf
+[01:23:53] 
+
+[01:23:53]  ===============================
+
+[01:23:53]       sscanf plugin loaded.     
+
+[01:23:53]          Version:  2.8.3        
+
+[01:23:53]   (c) 2018 Alex "Y_Less" Cole  
+
+[01:23:53]  ===============================
+
+[01:23:53]   Loaded.
+[01:23:53]  Loaded 3 plugins.
+
+[01:23:53] 
+[01:23:53] Filterscripts
+[01:23:53] ---------------
+[01:23:53]   Loading filterscript 'npc_record.amx'...
+[01:23:53]   Loading filterscript 'cameditor.amx'...
+[01:23:53] 
+--------------------------------------
+[01:23:53]  CamEditor by Drebin
+[01:23:53] --------------------------------------
+
+[01:23:53]   Loaded 2 filterscripts.
+
+[01:23:54]  
+[01:23:54] --------------------------------------
+[01:23:54]  Античит Nex-AC загружен!
+[01:23:54]  Версия античита: 1.9.56
+[01:23:54]  Автор: Nexius
+[01:23:54] --------------------------------------
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:38:26] 
+[02:38:26] Server Plugins
+[02:38:26] --------------
+[02:38:26]  Loading plugin: streamer
+[02:38:26] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:38:26]   Loaded.
+[02:38:26]  Loading plugin: mysql
+[02:38:26]  >> plugin.mysql: R41-4 successfully loaded.
+[02:38:26]   Loaded.
+[02:38:26]  Loading plugin: sscanf
+[02:38:26] 
+
+[02:38:26]  ===============================
+
+[02:38:26]       sscanf plugin loaded.     
+
+[02:38:26]          Version:  2.8.3        
+
+[02:38:26]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:38:26]  ===============================
+
+[02:38:26]   Loaded.
+[02:38:26]  Loaded 3 plugins.
+
+[02:38:26] 
+[02:38:26] Filterscripts
+[02:38:26] ---------------
+[02:38:26]   Loading filterscript 'npc_record.amx'...
+[02:38:26]   Loading filterscript 'cameditor.amx'...
+[02:38:26] 
+--------------------------------------
+[02:38:26]  CamEditor by Drebin
+[02:38:26] --------------------------------------
+
+[02:38:26]   Loaded 2 filterscripts.
+
+[02:38:26]  
+[02:38:26] --------------------------------------
+[02:38:26]  Античит Nex-AC загружен!
+[02:38:26]  Версия античита: 1.9.56
+[02:38:26]  Автор: Nexius
+[02:38:26] --------------------------------------
+
+[02:38:27] Ошибка подключения MySQL. Сервер выключается.
+[02:38:27] Number of vehicle models: 1
+[02:38:27] --- Server Shutting Down.
+[02:38:27]  
+[02:38:27] --------------------------------------
+[02:38:27]  Статистика античита Nex-AC
+[02:38:27]  Обнаружено и предотвращено:
+[02:38:27]   0 попыток читерства
+[02:38:27]   0 попыток взлома
+[02:38:27]   0 попыток краша
+[02:38:27]   0 попыток флуда
+[02:38:27]   0 атак
+[02:38:27]  Всего обнаружено и наказано 0 читеров
+[02:38:27] --------------------------------------
+
+[02:38:27] 
+
+*** Streamer Plugin v2.9.5 by Incognito unloaded ***
+
+[02:38:27] plugin.mysql: Unloading plugin...
+[02:38:27] plugin.mysql: Plugin unloaded.
+[02:38:27] 
+
+[02:38:27]  ===============================
+
+[02:38:27]      sscanf plugin unloaded.    
+
+[02:38:27]  ===============================
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:38:38] 
+[02:38:38] Server Plugins
+[02:38:38] --------------
+[02:38:38]  Loading plugin: streamer
+[02:38:38] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:38:38]   Loaded.
+[02:38:38]  Loading plugin: mysql
+[02:38:38]  >> plugin.mysql: R41-4 successfully loaded.
+[02:38:38]   Loaded.
+[02:38:38]  Loading plugin: sscanf
+[02:38:38] 
+
+[02:38:38]  ===============================
+
+[02:38:38]       sscanf plugin loaded.     
+
+[02:38:38]          Version:  2.8.3        
+
+[02:38:38]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:38:38]  ===============================
+
+[02:38:38]   Loaded.
+[02:38:38]  Loaded 3 plugins.
+
+[02:38:38] 
+[02:38:38] Filterscripts
+[02:38:38] ---------------
+[02:38:38]   Loading filterscript 'npc_record.amx'...
+[02:38:38]   Loading filterscript 'cameditor.amx'...
+[02:38:38] 
+--------------------------------------
+[02:38:38]  CamEditor by Drebin
+[02:38:38] --------------------------------------
+
+[02:38:38]   Loaded 2 filterscripts.
+
+[02:38:38]  
+[02:38:38] --------------------------------------
+[02:38:38]  Античит Nex-AC загружен!
+[02:38:38]  Версия античита: 1.9.56
+[02:38:38]  Автор: Nexius
+[02:38:38] --------------------------------------
+
+[02:38:38] Ошибка подключения MySQL. Сервер выключается.
+[02:38:38] Number of vehicle models: 1
+[02:38:38] --- Server Shutting Down.
+[02:38:38]  
+[02:38:38] --------------------------------------
+[02:38:38]  Статистика античита Nex-AC
+[02:38:38]  Обнаружено и предотвращено:
+[02:38:38]   0 попыток читерства
+[02:38:38]   0 попыток взлома
+[02:38:38]   0 попыток краша
+[02:38:38]   0 попыток флуда
+[02:38:38]   0 атак
+[02:38:38]  Всего обнаружено и наказано 0 читеров
+[02:38:38] --------------------------------------
+
+[02:38:38] 
+
+*** Streamer Plugin v2.9.5 by Incognito unloaded ***
+
+[02:38:38] plugin.mysql: Unloading plugin...
+[02:38:38] plugin.mysql: Plugin unloaded.
+[02:38:38] 
+
+[02:38:38]  ===============================
+
+[02:38:38]      sscanf plugin unloaded.    
+
+[02:38:38]  ===============================
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:40:35] 
+[02:40:35] Server Plugins
+[02:40:35] --------------
+[02:40:35]  Loading plugin: streamer
+[02:40:35] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:40:35]   Loaded.
+[02:40:35]  Loading plugin: mysql
+[02:40:35]  >> plugin.mysql: R41-4 successfully loaded.
+[02:40:35]   Loaded.
+[02:40:35]  Loading plugin: sscanf
+[02:40:35] 
+
+[02:40:35]  ===============================
+
+[02:40:35]       sscanf plugin loaded.     
+
+[02:40:35]          Version:  2.8.3        
+
+[02:40:35]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:40:35]  ===============================
+
+[02:40:36]   Loaded.
+[02:40:36]  Loaded 3 plugins.
+
+[02:40:36] 
+[02:40:36] Filterscripts
+[02:40:36] ---------------
+[02:40:36]   Loading filterscript 'npc_record.amx'...
+[02:40:36]   Loading filterscript 'cameditor.amx'...
+[02:40:36] 
+--------------------------------------
+[02:40:36]  CamEditor by Drebin
+[02:40:36] --------------------------------------
+
+[02:40:36]   Loaded 2 filterscripts.
+
+[02:40:36]  
+[02:40:36] --------------------------------------
+[02:40:36]  Античит Nex-AC загружен!
+[02:40:36]  Версия античита: 1.9.56
+[02:40:36]  Автор: Nexius
+[02:40:36] --------------------------------------
+
+[02:40:36] Подключение к базе MySQL успешно!
+[02:40:36] Number of vehicle models: 1
+[02:40:36] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[02:40:36] [connection] 127.0.0.1:62750 requests connection cookie.
+[02:40:37] [connection] incoming connection: 127.0.0.1:62750 id: 0
+[02:40:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:40:41] 
+[02:40:41] Server Plugins
+[02:40:41] --------------
+[02:40:41]  Loading plugin: streamer
+[02:40:41] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:40:41]   Loaded.
+[02:40:41]  Loading plugin: mysql
+[02:40:41]  >> plugin.mysql: R41-4 successfully loaded.
+[02:40:41]   Loaded.
+[02:40:41]  Loading plugin: sscanf
+[02:40:41] 
+
+[02:40:41]  ===============================
+
+[02:40:41]       sscanf plugin loaded.     
+
+[02:40:41]          Version:  2.8.3        
+
+[02:40:41]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:40:41]  ===============================
+
+[02:40:41]   Loaded.
+[02:40:41]  Loaded 3 plugins.
+
+[02:40:42] 
+[02:40:42] Filterscripts
+[02:40:42] ---------------
+[02:40:42]   Loading filterscript 'npc_record.amx'...
+[02:40:42]   Loading filterscript 'cameditor.amx'...
+[02:40:42] 
+--------------------------------------
+[02:40:42]  CamEditor by Drebin
+[02:40:42] --------------------------------------
+
+[02:40:42]   Loaded 2 filterscripts.
+
+[02:40:42]  
+[02:40:42] --------------------------------------
+[02:40:42]  Античит Nex-AC загружен!
+[02:40:42]  Версия античита: 1.9.56
+[02:40:42]  Автор: Nexius
+[02:40:42] --------------------------------------
+
+[02:40:42] Подключение к базе MySQL успешно!
+[02:40:42] Number of vehicle models: 1
+[02:40:42] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[02:40:42] [connection] 127.0.0.1:62751 requests connection cookie.
+[02:40:43] [connection] incoming connection: 127.0.0.1:62751 id: 0
+[02:40:43] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+Console input: exit
+[02:40:52] --- Server Shutting Down.
+[02:40:52]  
+[02:40:52] --------------------------------------
+[02:40:52]  Статистика античита Nex-AC
+[02:40:52]  Обнаружено и предотвращено:
+[02:40:52]   0 попыток читерства
+[02:40:52]   0 попыток взлома
+[02:40:52]   0 попыток краша
+[02:40:52]   0 попыток флуда
+[02:40:52]   0 атак
+[02:40:52]  Всего обнаружено и наказано 0 читеров
+[02:40:52] --------------------------------------
+
+[02:40:52] [npc:part] Antonio_Kortes has left the server (0:0)
+[02:40:52] 
+
+*** Streamer Plugin v2.9.5 by Incognito unloaded ***
+
+[02:40:52] plugin.mysql: Unloading plugin...
+[02:40:52] plugin.mysql: Plugin unloaded.
+[02:40:52] 
+
+[02:40:52]  ===============================
+
+[02:40:52]      sscanf plugin unloaded.    
+
+[02:40:52]  ===============================
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:40:54] 
+[02:40:54] Server Plugins
+[02:40:54] --------------
+[02:40:54]  Loading plugin: streamer
+[02:40:54] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:40:54]   Loaded.
+[02:40:54]  Loading plugin: mysql
+[02:40:54]  >> plugin.mysql: R41-4 successfully loaded.
+[02:40:54]   Loaded.
+[02:40:54]  Loading plugin: sscanf
+[02:40:54] 
+
+[02:40:54]  ===============================
+
+[02:40:54]       sscanf plugin loaded.     
+
+[02:40:54]          Version:  2.8.3        
+
+[02:40:54]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:40:54]  ===============================
+
+[02:40:54]   Loaded.
+[02:40:54]  Loaded 3 plugins.
+
+[02:40:54] 
+[02:40:54] Filterscripts
+[02:40:54] ---------------
+[02:40:54]   Loading filterscript 'npc_record.amx'...
+[02:40:54]   Loading filterscript 'cameditor.amx'...
+[02:40:54] 
+--------------------------------------
+[02:40:54]  CamEditor by Drebin
+[02:40:54] --------------------------------------
+
+[02:40:55]   Loaded 2 filterscripts.
+
+[02:40:55]  
+[02:40:55] --------------------------------------
+[02:40:55]  Античит Nex-AC загружен!
+[02:40:55]  Версия античита: 1.9.56
+[02:40:55]  Автор: Nexius
+[02:40:55] --------------------------------------
+
+[02:40:55] Подключение к базе MySQL успешно!
+[02:40:55] Number of vehicle models: 1
+[02:40:55] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[02:40:55] [connection] 127.0.0.1:65219 requests connection cookie.
+[02:40:56] [connection] incoming connection: 127.0.0.1:65219 id: 0
+[02:40:56] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+Console input: exit
+[02:41:02] --- Server Shutting Down.
+[02:41:02]  
+[02:41:03] --------------------------------------
+[02:41:03]  Статистика античита Nex-AC
+[02:41:03]  Обнаружено и предотвращено:
+[02:41:03]   0 попыток читерства
+[02:41:03]   0 попыток взлома
+[02:41:03]   0 попыток краша
+[02:41:03]   0 попыток флуда
+[02:41:03]   0 атак
+[02:41:03]  Всего обнаружено и наказано 0 читеров
+[02:41:03] --------------------------------------
+
+[02:41:03] [npc:part] Antonio_Kortes has left the server (0:0)
+[02:41:03] 
+
+*** Streamer Plugin v2.9.5 by Incognito unloaded ***
+
+[02:41:03] plugin.mysql: Unloading plugin...
+[02:41:03] plugin.mysql: Plugin unloaded.
+[02:41:03] 
+
+[02:41:03]  ===============================
+
+[02:41:03]      sscanf plugin unloaded.    
+
+[02:41:03]  ===============================
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[02:41:04] 
+[02:41:04] Server Plugins
+[02:41:04] --------------
+[02:41:04]  Loading plugin: streamer
+[02:41:04] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[02:41:04]   Loaded.
+[02:41:04]  Loading plugin: mysql
+[02:41:05]  >> plugin.mysql: R41-4 successfully loaded.
+[02:41:05]   Loaded.
+[02:41:05]  Loading plugin: sscanf
+[02:41:05] 
+
+[02:41:05]  ===============================
+
+[02:41:05]       sscanf plugin loaded.     
+
+[02:41:05]          Version:  2.8.3        
+
+[02:41:05]   (c) 2018 Alex "Y_Less" Cole  
+
+[02:41:05]  ===============================
+
+[02:41:05]   Loaded.
+[02:41:05]  Loaded 3 plugins.
+
+[02:41:05] 
+[02:41:05] Filterscripts
+[02:41:05] ---------------
+[02:41:05]   Loading filterscript 'npc_record.amx'...
+[02:41:05]   Loading filterscript 'cameditor.amx'...
+[02:41:05] 
+--------------------------------------
+[02:41:05]  CamEditor by Drebin
+[02:41:05] --------------------------------------
+
+[02:41:05]   Loaded 2 filterscripts.
+
+[02:41:05]  
+[02:41:05] --------------------------------------
+[02:41:05]  Античит Nex-AC загружен!
+[02:41:05]  Версия античита: 1.9.56
+[02:41:05]  Автор: Nexius
+[02:41:05] --------------------------------------
+
+[02:41:05] Подключение к базе MySQL успешно!
+[02:41:05] Number of vehicle models: 1
+[02:41:05] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[02:41:05] [connection] 127.0.0.1:65220 requests connection cookie.
+[02:41:06] [connection] incoming connection: 127.0.0.1:65220 id: 0
+[02:41:07] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:16:09] 
+[17:16:09] Server Plugins
+[17:16:09] --------------
+[17:16:09]  Loading plugin: streamer
+[17:16:09] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:16:09]   Loaded.
+[17:16:09]  Loading plugin: mysql
+[17:16:09]  >> plugin.mysql: R41-4 successfully loaded.
+[17:16:09]   Loaded.
+[17:16:09]  Loading plugin: sscanf
+[17:16:09] 
+
+[17:16:09]  ===============================
+
+[17:16:09]       sscanf plugin loaded.     
+
+[17:16:09]          Version:  2.8.3        
+
+[17:16:09]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:16:09]  ===============================
+
+[17:16:09]   Loaded.
+[17:16:09]  Loaded 3 plugins.
+
+[17:16:09] 
+[17:16:09] Filterscripts
+[17:16:09] ---------------
+[17:16:09]   Loading filterscript 'npc_record.amx'...
+[17:16:09]   Loading filterscript 'cameditor.amx'...
+[17:16:09] 
+--------------------------------------
+[17:16:09]  CamEditor by Drebin
+[17:16:09] --------------------------------------
+
+[17:16:09]   Loaded 2 filterscripts.
+
+[17:16:10]  
+[17:16:10] --------------------------------------
+[17:16:10]  Античит Nex-AC загружен!
+[17:16:10]  Версия античита: 1.9.56
+[17:16:10]  Автор: Nexius
+[17:16:10] --------------------------------------
+
+[17:16:10] Подключение к базе MySQL успешно!
+[17:16:10] Number of vehicle models: 1
+[17:16:10] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[17:16:10] [connection] 127.0.0.1:61586 requests connection cookie.
+[17:16:11] [connection] incoming connection: 127.0.0.1:61586 id: 0
+[17:16:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:16:42] [connection] 127.0.0.1:54761 requests connection cookie.
+[17:16:43] [connection] incoming connection: 127.0.0.1:54761 id: 1
+[17:16:43] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:19:58] 
+[17:19:58] Server Plugins
+[17:19:58] --------------
+[17:19:58]  Loading plugin: streamer
+[17:19:58] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:19:58]   Loaded.
+[17:19:58]  Loading plugin: mysql
+[17:19:58]  >> plugin.mysql: R41-4 successfully loaded.
+[17:19:58]   Loaded.
+[17:19:58]  Loading plugin: sscanf
+[17:19:58] 
+
+[17:19:58]  ===============================
+
+[17:19:58]       sscanf plugin loaded.     
+
+[17:19:58]          Version:  2.8.3        
+
+[17:19:58]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:19:58]  ===============================
+
+[17:19:58]   Loaded.
+[17:19:58]  Loaded 3 plugins.
+
+[17:19:58] 
+[17:19:58] Filterscripts
+[17:19:58] ---------------
+[17:19:58]   Loading filterscript 'npc_record.amx'...
+[17:19:58]   Loading filterscript 'cameditor.amx'...
+[17:19:58] 
+--------------------------------------
+[17:19:58]  CamEditor by Drebin
+[17:19:58] --------------------------------------
+
+[17:19:58]   Loaded 2 filterscripts.
+
+[17:19:58]  
+[17:19:58] --------------------------------------
+[17:19:58]  Античит Nex-AC загружен!
+[17:19:58]  Версия античита: 1.9.56
+[17:19:58]  Автор: Nexius
+[17:19:58] --------------------------------------
+
+[17:19:58] Подключение к базе MySQL успешно!
+[17:19:58] Number of vehicle models: 1
+[17:19:58] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[17:19:58] [connection] 127.0.0.1:64327 requests connection cookie.
+[17:19:59] [connection] incoming connection: 127.0.0.1:64327 id: 0
+[17:20:00] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:20:08] [connection] 127.0.0.1:50719 requests connection cookie.
+[17:20:09] [connection] incoming connection: 127.0.0.1:50719 id: 1
+[17:20:09] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:23:55] 
+[17:23:55] Server Plugins
+[17:23:55] --------------
+[17:23:55]  Loading plugin: streamer
+[17:23:55] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:23:55]   Loaded.
+[17:23:55]  Loading plugin: mysql
+[17:23:55]  >> plugin.mysql: R41-4 successfully loaded.
+[17:23:55]   Loaded.
+[17:23:55]  Loading plugin: sscanf
+[17:23:55] 
+
+[17:23:55]  ===============================
+
+[17:23:55]       sscanf plugin loaded.     
+
+[17:23:55]          Version:  2.8.3        
+
+[17:23:55]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:23:55]  ===============================
+
+[17:23:55]   Loaded.
+[17:23:55]  Loaded 3 plugins.
+
+[17:23:56] 
+[17:23:56] Filterscripts
+[17:23:56] ---------------
+[17:23:56]   Loading filterscript 'npc_record.amx'...
+[17:23:56]   Loading filterscript 'cameditor.amx'...
+[17:23:56] 
+--------------------------------------
+[17:23:56]  CamEditor by Drebin
+[17:23:56] --------------------------------------
+
+[17:23:56]   Loaded 2 filterscripts.
+
+[17:23:56]  
+[17:23:56] --------------------------------------
+[17:23:56]  Античит Nex-AC загружен!
+[17:23:56]  Версия античита: 1.9.56
+[17:23:56]  Автор: Nexius
+[17:23:56] --------------------------------------
+
+[17:23:56] Подключение к базе MySQL успешно!
+[17:23:56] Number of vehicle models: 1
+[17:23:56] Курсы валют загружены! bitcoin - 3917, вклады - 3, базовая - 100
+[17:23:56] [connection] 127.0.0.1:56500 requests connection cookie.
+[17:23:57] [connection] incoming connection: 127.0.0.1:56500 id: 0
+[17:23:57] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:23:58] [connection] 127.0.0.1:56501 requests connection cookie.
+[17:23:59] [connection] incoming connection: 127.0.0.1:56501 id: 1
+[17:23:59] [join] plakapenka has joined the server (1:127.0.0.1)
+[17:24:32] [part] plakapenka has left the server (1:1)
