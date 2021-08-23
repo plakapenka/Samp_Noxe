@@ -1,7 +1,8 @@
+
 #include "/sourc/objects/bank.pwn" // маппинг банка
 
-DEFINE_HOOK_REPLACEMENT__(OnPlayer    , Onp);
 #include <YSI_Coding\y_hooks>
+
 
 #define TIME_UPDATE_BITCONE 30 // время в секундах за которое будет меняться курс биткоина
 new bank_timer;
@@ -286,7 +287,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 }
 
 
-hook OnpEnterDynamicArea(playerid, areaid)
+hook OnPlayerEnterDynArea(playerid, areaid)
 {
 	if(areaid >= a_bank_window[0] && areaid <= a_bank_window[2])
 	{

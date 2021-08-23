@@ -2,6 +2,7 @@
 
 new PlayerText:td_speed[10][MAX_PLAYERS];
 new PlayerText:td_speed_fuelbar[20][MAX_PLAYERS];
+//GetVehicleParamsEx(vehicleid, engine, lights, alarm, doors, bonnet, boot, objective)
 CMD:xxx(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) return true;
@@ -28,7 +29,7 @@ hook OnSecondPlayerUpdate(playerid)
 		{
 			PlayerTextDrawShow(playerid, td_speed_fuelbar[xxx][playerid]);
 		}
-		valstr(str_speed, AntiCheatGetVehicleSpeed(vehicleid));
+		//valstr(str_speed, AntiCheatGetVehicleSpeed(vehicleid));
 		PlayerTextDrawSetString(playerid, td_speed[4][playerid], str_speed);
 
 		format(str_speed, sizeof str_speed, "%.1f", vData[vehicleid][vFuell]);
@@ -46,13 +47,13 @@ stock show_speedometr(playerid)
 	new str_speed[10];
 	new cnt_fuel_box = floatround(vData[vehicleid][vFuell]/10);
 	for(new xxx = 0; xxx <= 19; xxx++)
-		{
-			PlayerTextDrawHide(playerid, td_speed_fuelbar[xxx][playerid]);
-		}
-		for(new xxx = 0; xxx <= cnt_fuel_box && xxx <= 19; xxx++)
-		{
-			PlayerTextDrawShow(playerid, td_speed_fuelbar[xxx][playerid]);
-		}
+	{
+		PlayerTextDrawHide(playerid, td_speed_fuelbar[xxx][playerid]);
+	}
+	for(new xxx = 0; xxx <= cnt_fuel_box && xxx <= 19; xxx++)
+	{
+		PlayerTextDrawShow(playerid, td_speed_fuelbar[xxx][playerid]);
+	}
 
 	PlayerTextDrawSetString(playerid, td_speed[4][playerid], "0");
 

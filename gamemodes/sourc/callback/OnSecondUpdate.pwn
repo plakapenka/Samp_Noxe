@@ -15,10 +15,6 @@ public OnSecondUpdate()
 	}
 }
 
-stock OnSecondPlayerUpdate(playerid)
-{
-	
-}
 stock PayDay()
 {
 	SendClientMessageToAll(-1, "PayDay");

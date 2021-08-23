@@ -262,5 +262,5 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
     		return Y_HOOKS_BREAK_RETURN_1;
     	}
     }
-    return 0;
+    return Y_HOOKS_CONTINUE_RETURN_1;
 }

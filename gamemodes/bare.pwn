@@ -3,7 +3,7 @@
 #include <streamer>
 #include <izcmd>
 #include <sscanf2>
-#include <nex-ac>
+//#include <nex-ac>
 
 #pragma warning disable 239, 214
 //#include <nex-ac>
@@ -19,7 +19,10 @@
 // Don't check if this is the latest version of YSI.
 #define YSI_NO_VERSION_CHECK
 
+#define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
+
 #include <YSI_Coding\y_hooks>
+
 #include <YSI_Data\y_foreach>
 
 #include "/sourc/headers/variables.pwn" 	// все глобальные переменные
@@ -40,7 +43,7 @@
 #include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "/sourc/system/bank.pwn"				// Банк ЛС
 #include "/sourc/system/cars.pwn"				// машины
-#include "/sourc/system/speedometr.pwn"				// Банк ЛС
+#include "/sourc/system/speedometr.pwn"			// Спидометр
 
 
 

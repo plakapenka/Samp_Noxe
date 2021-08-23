@@ -43,11 +43,11 @@ CMD:veh(playerid, params[])
 	
 	SetPlayerArmedWeapon(playerid,0);
 	
-	SetVehicleParamsEx(vehicleid,true,true,false,false,false,false,false);
+	vehicle_params_set(vehicleid, VEHICLE_PARAMS_ENGINE, TRUE);
+	vehicle_params_set(vehicleid, VEHICLE_PARAMS_LIGHTS, TRUE);
+
 	LinkVehicleToInterior(vehicleid, intt);
 	
-	//format(cString, 32, "Машина установлена. ID: %i", vehicleid);
-	//SCM(playerid, COLOR_WHITE, cString);
 	PutPlayerInVehicle(playerid, vehicleid, 0);
 	return true;
 }
