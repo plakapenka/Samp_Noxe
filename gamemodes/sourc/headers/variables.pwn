@@ -22,6 +22,7 @@ enum E_PLAYERS
 	pBitcoin,
 	pDeposit,
 	pDeposit_time,
+	pLicenses,
 	gg
 };
 new pData[MAX_PLAYERS][E_PLAYERS];

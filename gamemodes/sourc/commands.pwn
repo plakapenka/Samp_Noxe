@@ -3,7 +3,9 @@
 CMD:gggg(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) return true;
-	SetPlayerPos(playerid, 592.7130,-1241.2738,17.9591);
+	SetPlayerPos(playerid, 2016.04,1017.97,996.875);
+	SetPlayerInterior(playerid, 10);
+	SetPlayerVirtualWorld(playerid, 1);
 	
 	return true;
 }

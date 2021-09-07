@@ -21,6 +21,11 @@
 
 #define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
 
+new str_global_chat_message[144];
+#define SendMes(%1,%2,%3)    format(str_global_chat_message,144,%3), SendClientMessage(%1,%2,str_global_chat_message)
+
+#define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
+
 #include <YSI_Coding\y_hooks>
 
 #include <YSI_Data\y_foreach>
@@ -40,16 +45,20 @@
 #include "/sourc/system/authorization.pwn"		// система авторизации
 #include "/sourc/system/time-wether.pwn" 		// система времени и погоды 
 #include "/sourc/system/money.pwn" 				// система денег
+#include "/sourc/system/licenses.pwn"			// Лицензии игрока
 #include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "/sourc/system/bank.pwn"				// Банк ЛС
-#include "/sourc/system/cars.pwn"				// машины
+#include "/sourc/system/cars.pwn"				// Машины
 #include "/sourc/system/speedometr.pwn"			// Спидометр
+#include "/sourc/system/casino_wheels.pwn"		// Игра колесо фортуны 
+#include "/sourc/system/driving_school.pwn"		// Автошкола
+
 
 
 
 main() 
 { 
-	
+
 }
 
 
@@ -62,7 +71,7 @@ public OnGameModeInit()
 	SetGameModeText("Role Play");
 	ShowPlayerMarkers(1);
 	ShowNameTags(1);
-
+	DisableInteriorEnterExits();
 	return 1;
 }
 

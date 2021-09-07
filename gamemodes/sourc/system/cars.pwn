@@ -22,7 +22,7 @@ enum e_vehicle
 	vDoor_FR,	// дверь передняя правая
 	vDoor_BL,	// дверь задняя левая
 	vDoor_BR,	// дверь задняя правая
-	vFuell
+	vFuell		// бензин
 };
 new vData[MAX_VEHICLES][e_vehicle];
 
@@ -42,7 +42,12 @@ stock OnSecondPlayerUpdate(playerid)
 		if(vData[vehicleid][vFuell] <= 0)
 		{
 			vehicle_params_set(vehicleid, VEHICLE_PARAMS_ENGINE, false); // глушим тачку
-			SendClientMessage(playerid, 0xab0000FF, "Двигатель заглох! Проверьте уровень топлива!");
+			ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, " ", "\
+			{ab0000} \t      Внимание!\n\
+			\tДвигатель заглох\n\n\n\
+			{d4d4d4}/call - {ffffff}вызвать механника\n\n\
+			{d4d4d4}/fill - {ffffff}воспользоваться канистрой\n\n", "Закрыть", "");
+			//SendClientMessage(playerid, 0xab0000FF, "Двигатель заглох! Проверьте уровень топлива!");
 		}
 	}
 }

@@ -310,7 +310,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	}
 	if(areaid == a_bank_enter)
 	{// вход в банк ЛС
-		Streamer_UpdateEx(playerid, 1523.1158,-1225.6727,1388.3552, 36, 8, 0, 1500);
+		Streamer_UpdateEx(playerid, 1523.1158,-1225.6727,1388.3552, 36, 8, 0, GetPlayerPing(playerid)*MULT_DELAY);
 		SetPlayerFacingAngle(playerid,270.0);
 		SetPlayerInterior(playerid, 8);
 		SetPlayerVirtualWorld(playerid, 36);
@@ -328,7 +328,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 		SetWeather(serv_weather);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 

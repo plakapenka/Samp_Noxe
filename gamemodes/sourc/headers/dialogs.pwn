@@ -16,4 +16,7 @@ enum
 	dBankBalanceCheck,
 
 	dBank_deposit_global,
+
+	d_casino_wheels_bet,
+	d_casino_wheels_bet_money
 }
