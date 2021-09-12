@@ -5,17 +5,21 @@ public OnSecondUpdate()
 {
 	
 	gettime(serv_hour, serv_minute, serv_second);
-	if(serv_minute == 0 && serv_second == 0)
-	{
-		PayDay();
-	}
 	foreach (new playerid : Player)
 	{
+		if(IsPlayerNPC(playerid))
+		{
+			continue;
+		}
+		if(serv_minute == 0 && serv_second == 0)
+		{
+			PayDay(playerid);
+		}
 		OnSecondPlayerUpdate(playerid);
 	}
 }
 
-stock PayDay()
+stock PayDay(playerid)
 {
-	SendClientMessageToAll(-1, "PayDay");
+	SendClientMessage(playerid, -1, "payday");
 }

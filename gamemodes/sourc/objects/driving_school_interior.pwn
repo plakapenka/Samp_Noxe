@@ -177,8 +177,6 @@ hook OnGameModeInit()
 	CreateDynamicObject(2309, -2031.695313, -105.585846, 1040.658447, 0.000021, 0.000000, 89.999954, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	tmp_obj = CreateDynamicObject(19383, -2028.405884, -109.841560, 1042.398438, 0.000000, -0.000044, 179.999725, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 8396, "sphinx01", "luxorceiling01_128", 0);
-	tmp_obj = CreateDynamicObject(19893, -2030.754395, -108.023720, 1041.460693, 0.000007, 0.000000, 84.599968, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 1952, "mixkb1", "mixer2", 0);
 	tmp_obj = CreateDynamicObject(19464, -2020.275757, -107.117043, 1042.058838, 0.000000, 0.000000, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterialText(tmp_obj, 0, "f", 140, "Webdings", 60, 0, 0xFFFFFFFF, 0, 1);
 	tmp_obj = CreateDynamicObject(19383, -2028.396729, -109.838570, 1040.337402, 0.000000, 179.999969, 179.997635, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
@@ -289,8 +287,6 @@ hook OnGameModeInit()
 	CreateDynamicObject(2166, -2033.790161, -105.728828, 1040.658447, 0.000000, -0.000007, 179.999954, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	tmp_obj = CreateDynamicObject(2258, -2033.642212, -102.398186, 1043.013794, -0.000000, 0.000007, -0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 2577, "cj_sex", "CJ_PORN_SIGNS2", 0);
-	tmp_obj = CreateDynamicObject(19893, -2032.715088, -108.762062, 1041.460693, 0.000007, -0.000001, 97.699966, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 1952, "mixkb1", "mixer1", 0);
 	CreateDynamicObject(2654, -2017.643921, -102.713737, 1042.768433, 0.000007, 0.000000, 89.999977, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	tmp_obj = CreateDynamicObject(1897, -2028.382813, -112.450485, 1041.648438, -0.000006, 900.000000, 0.000013, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "cof_wood2", 0xFFFFFFFF);
@@ -306,8 +302,6 @@ hook OnGameModeInit()
 	tmp_obj = CreateDynamicObject(19383, -2020.212891, -110.743896, 1040.347412, 0.000000, 179.999969, 179.997635, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "cof_wood2", 0xFFFFFFFF);
 	CreateDynamicObject(19961, -2033.771851, -107.421127, 1040.448486, 0.000000, 0.000007, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
-	tmp_obj = CreateDynamicObject(19893, -2030.656982, -111.512367, 1041.460693, 0.000007, -0.000001, 100.799965, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 1952, "mixkb1", "mixer1", 0);
 	tmp_obj = CreateDynamicObject(19426, -2023.376709, -111.647423, 1045.638428, 0.000000, 0.000083, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "cof_wood2", 0xFFFFFFFF);
 	tmp_obj = CreateDynamicObject(19426, -2023.333862, -111.645409, 1045.638428, 0.000000, 0.000083, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
@@ -358,8 +352,6 @@ hook OnGameModeInit()
 	tmp_obj = CreateDynamicObject(1495, -2020.190918, -111.510933, 1040.638428, 0.000007, 0.000000, 89.999977, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 2
 	SetDynamicObjectMaterial(tmp_obj, 2, 14581, "ab_mafiasuitea", "cof_wood2", 0);
 	SetDynamicObjectMaterial(tmp_obj, 1, 18646, "matcolours", "grey-80-percent", 0xA9F0F0F0);
-	tmp_obj = CreateDynamicObject(19893, -2032.457764, -110.664757, 1041.460693, 0.000007, 0.000001, 75.799965, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 2967, "mobile93a", "mobile93a", 0);
 	CreateDynamicObject(2162, -2021.408081, -112.395416, 1042.488403, -0.000000, 0.000007, -0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	CreateDynamicObject(3519, -2032.917847, -109.646881, 1044.188477, 0.000000, 0.000007, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	CreateDynamicObject(2374, -2016.557739, -103.819740, 1041.947754, -0.000007, -0.000000, -89.999977, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
@@ -379,8 +371,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "cof_wood2", 0xFFFFFFFF);
 	CreateDynamicObject(2309, -2021.325195, -112.765808, 1040.658447, 0.000006, -0.000000, 179.999802, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
 	CreateDynamicObject(2002, -2019.373291, -111.620407, 1040.642090, 0.000000, -0.000007, 179.999954, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 0
-	tmp_obj = CreateDynamicObject(1317, -2033.803711, -109.804604, 1039.858398, 0.000000, 0.000000, 0.000000, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 18646, "matcolours", "white", 0x99FF6500);
 	tmp_obj = CreateDynamicObject(19426, -2020.061890, -112.322815, 1042.398438, 0.000007, 0.000000, 89.999977, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 8396, "sphinx01", "luxorceiling01_128", 0);
 	tmp_obj = CreateDynamicObject(19426, -2020.061890, -112.302856, 1040.349487, 0.000014, 0.000000, 89.999954, -1, 3, -1, STREAMER_OBJECT_SD, STREAMER_OBJECT_DD); // 1

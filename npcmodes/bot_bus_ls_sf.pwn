@@ -4,7 +4,15 @@
 main(){}
 
 public OnRecordingPlaybackEnd()               StartRecordingPlayback(1, RECORDING);
-public OnNPCEnterVehicle(vehicleid, seatid)   StartRecordingPlayback(1, RECORDING);
-public OnNPCExitVehicle()                     StopRecordingPlayback();
+public OnNPCEnterVehicle(vehicleid, seatid)
+{
+	printf("okkkk");
+	StartRecordingPlayback(1, RECORDING);
+}   
+public OnNPCExitVehicle() 
+{
+	printf("wtf");
+	StopRecordingPlayback();
+}                    
 
 

@@ -3,7 +3,6 @@
 enum E_PLAYERS
 {
 	pMySQL_ID,
-	Cache: Cache_ID,
 	pName[MAX_PLAYER_NAME],
 	pPassword[25], 
 	pLogged,
@@ -20,8 +19,6 @@ enum E_PLAYERS
 	pCash,
 	pBank,
 	pBitcoin,
-	pDeposit,
-	pDeposit_time,
 	pLicenses,
 	gg
 };

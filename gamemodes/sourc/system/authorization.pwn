@@ -72,28 +72,28 @@ public player_load_account(playerid)
 	if(cache_num_rows() > 0)
 	{ // аккаунт зарегистрирован
 		pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
-		cache_get_value_int(0, "pMySQL_ID", pData[playerid][pMySQL_ID]);
-		//cache_get_value(0, "pName", Player[playerid][pName]);// ?? идиот???
-		//cache_get_value(0, "pPassword", pData[playerid][pPassword]);
-		cache_get_value(0, "pIP_reg", pData[playerid][pIP_reg]);
-		cache_get_value(0, "pIP_last", pData[playerid][pIP_last]);
-		cache_get_value(0, "pEmail", pData[playerid][pEmail]);
-		cache_get_value(0, "pPromocode", pData[playerid][pPromocode]);
-		cache_get_value_int(0, "pSex", pData[playerid][pSex]);
-		cache_get_value_int(0, "pLvl", pData[playerid][pLvl]);
-		cache_get_value_int(0, "pSkin", pData[playerid][pSkin]);
-		cache_get_value_int(0, "pAdmin", pData[playerid][pAdmin]);
-		cache_get_value_int(0, "pCash", pData[playerid][pCash]);
-		cache_get_value_int(0, "pBank", pData[playerid][pBank]);
-		cache_get_value_int(0, "pBitcoin", pData[playerid][pBitcoin]);
-		cache_get_value_int(0, "pDeposit", pData[playerid][pDeposit]);
-		cache_get_value_int(0, "pDeposit_time", pData[playerid][pDeposit_time]);
+
+		cache_get_value_int(0, 	"pMySQL_ID", 	pData[playerid][pMySQL_ID]);
+		cache_get_value(0, 		"pIP_reg", 		pData[playerid][pIP_reg]);
+		cache_get_value(0, 		"pIP_last", 	pData[playerid][pIP_last]);
+		cache_get_value(0, 		"pEmail", 		pData[playerid][pEmail]);
+		cache_get_value(0, 		"pPromocode", 	pData[playerid][pPromocode]);
+		cache_get_value_int(0, 	"pSex", 		pData[playerid][pSex]);
+		cache_get_value_int(0, 	"pLvl", 		pData[playerid][pLvl]);
+		cache_get_value_int(0, 	"pSkin", 		pData[playerid][pSkin]);
+		cache_get_value_int(0, 	"pAdmin", 		pData[playerid][pAdmin]);
+		cache_get_value_int(0, 	"pCash", 		pData[playerid][pCash]);
+		cache_get_value_int(0, 	"pBank", 		pData[playerid][pBank]);
+		cache_get_value_int(0, 	"pBitcoin", 	pData[playerid][pBitcoin]);
+		cache_get_value_int(0, 	"pLicenses", 	pData[playerid][pLicenses]);
 
 		SetPlayerSkin(playerid,pData[playerid][pSkin]);
 		
-		SetCameraBehindPlayer(playerid);
-		CancelSelectTextDraw(playerid);
-		SpawnPlayer(playerid);
+		destroy_auth_actor(playerid); 		// удаление актеров при авторизации
+		SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
+		CancelSelectTextDraw(playerid);		// убираем курсор
+
+		SpawnPlayer(playerid);				
 		return 1;
 	}
 	Kick(playerid);

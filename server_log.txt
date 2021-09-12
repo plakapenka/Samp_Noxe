@@ -19214,3 +19214,6214 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [22:29:31] [connection] incoming connection: 127.0.0.1:52927 id: 1
 [22:29:32] [join] plakapenka has joined the server (1:127.0.0.1)
 [22:50:56] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:32:22] 
+[15:32:22] Server Plugins
+[15:32:22] --------------
+[15:32:22]  Loading plugin: streamer
+[15:32:22] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:32:22]   Loaded.
+[15:32:22]  Loading plugin: mysql
+[15:32:22]  >> plugin.mysql: R41-4 successfully loaded.
+[15:32:22]   Loaded.
+[15:32:22]  Loading plugin: sscanf
+[15:32:22] 
+
+[15:32:22]  ===============================
+
+[15:32:22]       sscanf plugin loaded.     
+
+[15:32:22]          Version:  2.8.3        
+
+[15:32:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:32:22]  ===============================
+
+[15:32:22]   Loaded.
+[15:32:22]  Loaded 3 plugins.
+
+[15:32:22] 
+[15:32:22] Filterscripts
+[15:32:22] ---------------
+[15:32:22]   Loading filterscript 'ntd.amx'...
+[15:32:24] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:32:24] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:32:24] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:32:24]   Loaded 1 filterscripts.
+
+[15:32:32] Ошибка подключения MySQL. Сервер выключается.
+[15:32:32] Number of vehicle models: 1
+[15:32:32] --- Server Shutting Down.
+[15:32:32] 
+
+*** Streamer Plugin v2.9.5 by Incognito unloaded ***
+
+[15:32:32] plugin.mysql: Unloading plugin...
+[15:32:32] plugin.mysql: Plugin unloaded.
+[15:32:32] 
+
+[15:32:32]  ===============================
+
+[15:32:32]      sscanf plugin unloaded.    
+
+[15:32:32]  ===============================
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:17:08] 
+[16:17:08] Server Plugins
+[16:17:08] --------------
+[16:17:08]  Loading plugin: streamer
+[16:17:08] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:17:08]   Loaded.
+[16:17:08]  Loading plugin: mysql
+[16:17:08]  >> plugin.mysql: R41-4 successfully loaded.
+[16:17:08]   Loaded.
+[16:17:08]  Loading plugin: sscanf
+[16:17:08] 
+
+[16:17:08]  ===============================
+
+[16:17:08]       sscanf plugin loaded.     
+
+[16:17:08]          Version:  2.8.3        
+
+[16:17:08]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:17:08]  ===============================
+
+[16:17:08]   Loaded.
+[16:17:08]  Loaded 3 plugins.
+
+[16:17:08] 
+[16:17:08] Filterscripts
+[16:17:08] ---------------
+[16:17:08]   Loading filterscript 'ntd.amx'...
+[16:17:09] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:17:09] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:17:09] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:17:09]   Loaded 1 filterscripts.
+
+[16:17:09] Подключение к базе MySQL успешно!
+[16:17:09] Number of vehicle models: 1
+[16:17:09] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:17:10] [connection] 127.0.0.1:55117 requests connection cookie.
+[16:17:11] [connection] incoming connection: 127.0.0.1:55117 id: 0
+[16:17:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:17:44] [connection] 127.0.0.1:52769 requests connection cookie.
+[16:17:45] [connection] incoming connection: 127.0.0.1:52769 id: 1
+[16:17:45] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:19:47] 
+[16:19:47] Server Plugins
+[16:19:47] --------------
+[16:19:47]  Loading plugin: streamer
+[16:19:47] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:19:47]   Loaded.
+[16:19:47]  Loading plugin: mysql
+[16:19:47]  >> plugin.mysql: R41-4 successfully loaded.
+[16:19:47]   Loaded.
+[16:19:47]  Loading plugin: sscanf
+[16:19:47] 
+
+[16:19:47]  ===============================
+
+[16:19:47]       sscanf plugin loaded.     
+
+[16:19:47]          Version:  2.8.3        
+
+[16:19:47]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:19:47]  ===============================
+
+[16:19:47]   Loaded.
+[16:19:47]  Loaded 3 plugins.
+
+[16:19:47] 
+[16:19:47] Filterscripts
+[16:19:47] ---------------
+[16:19:47]   Loading filterscript 'ntd.amx'...
+[16:19:48] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:19:48] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:19:48] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:19:48]   Loaded 1 filterscripts.
+
+[16:19:48] Подключение к базе MySQL успешно!
+[16:19:49] Number of vehicle models: 1
+[16:19:49] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:19:49] [connection] 127.0.0.1:57321 requests connection cookie.
+[16:19:50] [connection] incoming connection: 127.0.0.1:57321 id: 0
+[16:19:50] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:19:59] [connection] 127.0.0.1:57322 requests connection cookie.
+[16:20:00] [connection] incoming connection: 127.0.0.1:57322 id: 1
+[16:20:00] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:34:04] 
+[16:34:04] Server Plugins
+[16:34:04] --------------
+[16:34:04]  Loading plugin: streamer
+[16:34:04] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:34:04]   Loaded.
+[16:34:04]  Loading plugin: mysql
+[16:34:04]  >> plugin.mysql: R41-4 successfully loaded.
+[16:34:04]   Loaded.
+[16:34:04]  Loading plugin: sscanf
+[16:34:04] 
+
+[16:34:04]  ===============================
+
+[16:34:04]       sscanf plugin loaded.     
+
+[16:34:04]          Version:  2.8.3        
+
+[16:34:04]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:34:04]  ===============================
+
+[16:34:04]   Loaded.
+[16:34:04]  Loaded 3 plugins.
+
+[16:34:04] 
+[16:34:04] Filterscripts
+[16:34:04] ---------------
+[16:34:04]   Loading filterscript 'ntd.amx'...
+[16:34:05] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:34:05] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:34:05] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:34:05]   Loaded 1 filterscripts.
+
+[16:34:05] Подключение к базе MySQL успешно!
+[16:34:05] Number of vehicle models: 1
+[16:34:05] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:34:06] [connection] 127.0.0.1:58260 requests connection cookie.
+[16:34:07] [connection] incoming connection: 127.0.0.1:58260 id: 0
+[16:34:07] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:34:14] [connection] 127.0.0.1:55897 requests connection cookie.
+[16:34:15] [connection] incoming connection: 127.0.0.1:55897 id: 1
+[16:34:15] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:36:09] 
+[16:36:09] Server Plugins
+[16:36:09] --------------
+[16:36:09]  Loading plugin: streamer
+[16:36:09] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:36:09]   Loaded.
+[16:36:09]  Loading plugin: mysql
+[16:36:09]  >> plugin.mysql: R41-4 successfully loaded.
+[16:36:09]   Loaded.
+[16:36:09]  Loading plugin: sscanf
+[16:36:09] 
+
+[16:36:09]  ===============================
+
+[16:36:09]       sscanf plugin loaded.     
+
+[16:36:09]          Version:  2.8.3        
+
+[16:36:09]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:36:09]  ===============================
+
+[16:36:09]   Loaded.
+[16:36:09]  Loaded 3 plugins.
+
+[16:36:09] 
+[16:36:09] Filterscripts
+[16:36:09] ---------------
+[16:36:10]   Loading filterscript 'ntd.amx'...
+[16:36:11] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:36:11] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:36:11] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:36:11]   Loaded 1 filterscripts.
+
+[16:36:11] Подключение к базе MySQL успешно!
+[16:36:11] Number of vehicle models: 1
+[16:36:11] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:36:11] [connection] 127.0.0.1:61119 requests connection cookie.
+[16:36:12] [connection] incoming connection: 127.0.0.1:61119 id: 0
+[16:36:12] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:36:16] [connection] 127.0.0.1:61120 requests connection cookie.
+[16:36:17] [connection] incoming connection: 127.0.0.1:61120 id: 1
+[16:36:17] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:38:08] 
+[16:38:08] Server Plugins
+[16:38:08] --------------
+[16:38:08]  Loading plugin: streamer
+[16:38:08] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:38:08]   Loaded.
+[16:38:08]  Loading plugin: mysql
+[16:38:08]  >> plugin.mysql: R41-4 successfully loaded.
+[16:38:08]   Loaded.
+[16:38:08]  Loading plugin: sscanf
+[16:38:08] 
+
+[16:38:08]  ===============================
+
+[16:38:08]       sscanf plugin loaded.     
+
+[16:38:08]          Version:  2.8.3        
+
+[16:38:08]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:38:08]  ===============================
+
+[16:38:08]   Loaded.
+[16:38:08]  Loaded 3 plugins.
+
+[16:38:08] 
+[16:38:08] Filterscripts
+[16:38:08] ---------------
+[16:38:08]   Loading filterscript 'ntd.amx'...
+[16:38:09] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:38:09] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:38:09] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:38:09]   Loaded 1 filterscripts.
+
+[16:38:09] Подключение к базе MySQL успешно!
+[16:38:10] Number of vehicle models: 1
+[16:38:10] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:38:10] [connection] 127.0.0.1:58112 requests connection cookie.
+[16:38:11] [connection] incoming connection: 127.0.0.1:58112 id: 0
+[16:38:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:38:12] [connection] 127.0.0.1:58113 requests connection cookie.
+[16:38:13] [connection] incoming connection: 127.0.0.1:58113 id: 1
+[16:38:13] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:40:48] 
+[16:40:48] Server Plugins
+[16:40:48] --------------
+[16:40:48]  Loading plugin: streamer
+[16:40:48] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:40:48]   Loaded.
+[16:40:48]  Loading plugin: mysql
+[16:40:48]  >> plugin.mysql: R41-4 successfully loaded.
+[16:40:48]   Loaded.
+[16:40:48]  Loading plugin: sscanf
+[16:40:48] 
+
+[16:40:48]  ===============================
+
+[16:40:48]       sscanf plugin loaded.     
+
+[16:40:48]          Version:  2.8.3        
+
+[16:40:48]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:40:48]  ===============================
+
+[16:40:48]   Loaded.
+[16:40:48]  Loaded 3 plugins.
+
+[16:40:48] 
+[16:40:48] Filterscripts
+[16:40:48] ---------------
+[16:40:48]   Loading filterscript 'ntd.amx'...
+[16:40:49] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:40:49] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:40:49] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:40:49]   Loaded 1 filterscripts.
+
+[16:40:50] Подключение к базе MySQL успешно!
+[16:40:50] Number of vehicle models: 1
+[16:40:50] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:40:50] [connection] 127.0.0.1:52186 requests connection cookie.
+[16:40:51] [connection] incoming connection: 127.0.0.1:52186 id: 0
+[16:40:51] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:40:54] [connection] 127.0.0.1:55188 requests connection cookie.
+[16:40:55] [connection] incoming connection: 127.0.0.1:55188 id: 1
+[16:40:55] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:44:19] 
+[16:44:19] Server Plugins
+[16:44:19] --------------
+[16:44:19]  Loading plugin: streamer
+[16:44:19] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:44:19]   Loaded.
+[16:44:19]  Loading plugin: mysql
+[16:44:19]  >> plugin.mysql: R41-4 successfully loaded.
+[16:44:19]   Loaded.
+[16:44:19]  Loading plugin: sscanf
+[16:44:19] 
+
+[16:44:19]  ===============================
+
+[16:44:19]       sscanf plugin loaded.     
+
+[16:44:19]          Version:  2.8.3        
+
+[16:44:19]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:44:19]  ===============================
+
+[16:44:19]   Loaded.
+[16:44:19]  Loaded 3 plugins.
+
+[16:44:19] 
+[16:44:19] Filterscripts
+[16:44:19] ---------------
+[16:44:19]   Loading filterscript 'ntd.amx'...
+[16:44:20] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:44:20] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:44:20] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:44:20]   Loaded 1 filterscripts.
+
+[16:44:20] Подключение к базе MySQL успешно!
+[16:44:20] Number of vehicle models: 1
+[16:44:20] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:44:20] [connection] 127.0.0.1:58974 requests connection cookie.
+[16:44:21] [connection] incoming connection: 127.0.0.1:58974 id: 0
+[16:44:21] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:44:27] [connection] 127.0.0.1:58975 requests connection cookie.
+[16:44:28] [connection] incoming connection: 127.0.0.1:58975 id: 1
+[16:44:29] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:11:57] 
+[17:11:57] Server Plugins
+[17:11:57] --------------
+[17:11:57]  Loading plugin: streamer
+[17:11:57] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:11:57]   Loaded.
+[17:11:57]  Loading plugin: mysql
+[17:11:57]  >> plugin.mysql: R41-4 successfully loaded.
+[17:11:57]   Loaded.
+[17:11:57]  Loading plugin: sscanf
+[17:11:57] 
+
+[17:11:57]  ===============================
+
+[17:11:57]       sscanf plugin loaded.     
+
+[17:11:57]          Version:  2.8.3        
+
+[17:11:57]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:11:57]  ===============================
+
+[17:11:57]   Loaded.
+[17:11:57]  Loaded 3 plugins.
+
+[17:11:58] 
+[17:11:58] Filterscripts
+[17:11:58] ---------------
+[17:11:58]   Loading filterscript 'ntd.amx'...
+[17:11:59] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:11:59] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:11:59] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:11:59]   Loaded 1 filterscripts.
+
+[17:12:00] Подключение к базе MySQL успешно!
+[17:12:00] Number of vehicle models: 1
+[17:12:00] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:12:00] [connection] 127.0.0.1:61489 requests connection cookie.
+[17:12:01] [connection] incoming connection: 127.0.0.1:61489 id: 0
+[17:12:01] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:12:02] [connection] 127.0.0.1:62903 requests connection cookie.
+[17:12:03] [connection] incoming connection: 127.0.0.1:62903 id: 1
+[17:12:03] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:13:49] 
+[17:13:49] Server Plugins
+[17:13:49] --------------
+[17:13:49]  Loading plugin: streamer
+[17:13:49] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:13:49]   Loaded.
+[17:13:49]  Loading plugin: mysql
+[17:13:49]  >> plugin.mysql: R41-4 successfully loaded.
+[17:13:49]   Loaded.
+[17:13:49]  Loading plugin: sscanf
+[17:13:49] 
+
+[17:13:49]  ===============================
+
+[17:13:49]       sscanf plugin loaded.     
+
+[17:13:49]          Version:  2.8.3        
+
+[17:13:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:13:49]  ===============================
+
+[17:13:49]   Loaded.
+[17:13:49]  Loaded 3 plugins.
+
+[17:13:50] 
+[17:13:50] Filterscripts
+[17:13:50] ---------------
+[17:13:50]   Loading filterscript 'ntd.amx'...
+[17:13:51] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:13:51] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:13:51] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:13:51]   Loaded 1 filterscripts.
+
+[17:13:51] Подключение к базе MySQL успешно!
+[17:13:51] Number of vehicle models: 1
+[17:13:51] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:13:51] [connection] 127.0.0.1:63014 requests connection cookie.
+[17:13:52] [connection] incoming connection: 127.0.0.1:63014 id: 0
+[17:13:52] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:13:53] [connection] 127.0.0.1:63015 requests connection cookie.
+[17:13:54] [connection] incoming connection: 127.0.0.1:63015 id: 1
+[17:13:54] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:14:57] 
+[17:14:57] Server Plugins
+[17:14:57] --------------
+[17:14:57]  Loading plugin: streamer
+[17:14:58] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:14:58]   Loaded.
+[17:14:58]  Loading plugin: mysql
+[17:14:58]  >> plugin.mysql: R41-4 successfully loaded.
+[17:14:58]   Loaded.
+[17:14:58]  Loading plugin: sscanf
+[17:14:58] 
+
+[17:14:58]  ===============================
+
+[17:14:58]       sscanf plugin loaded.     
+
+[17:14:58]          Version:  2.8.3        
+
+[17:14:58]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:14:58]  ===============================
+
+[17:14:58]   Loaded.
+[17:14:58]  Loaded 3 plugins.
+
+[17:14:58] 
+[17:14:58] Filterscripts
+[17:14:58] ---------------
+[17:14:58]   Loading filterscript 'ntd.amx'...
+[17:14:59] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:14:59] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:14:59] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:14:59]   Loaded 1 filterscripts.
+
+[17:14:59] Подключение к базе MySQL успешно!
+[17:14:59] Number of vehicle models: 1
+[17:14:59] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:14:59] [connection] 127.0.0.1:54251 requests connection cookie.
+[17:15:00] [connection] incoming connection: 127.0.0.1:54251 id: 0
+[17:15:00] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:15:01] ok
+[17:15:01] ok
+[17:15:12] [connection] 127.0.0.1:57332 requests connection cookie.
+[17:15:13] [connection] incoming connection: 127.0.0.1:57332 id: 1
+[17:15:14] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:16:51] 
+[17:16:51] Server Plugins
+[17:16:51] --------------
+[17:16:51]  Loading plugin: streamer
+[17:16:51] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:16:51]   Loaded.
+[17:16:51]  Loading plugin: mysql
+[17:16:51]  >> plugin.mysql: R41-4 successfully loaded.
+[17:16:51]   Loaded.
+[17:16:51]  Loading plugin: sscanf
+[17:16:51] 
+
+[17:16:51]  ===============================
+
+[17:16:51]       sscanf plugin loaded.     
+
+[17:16:51]          Version:  2.8.3        
+
+[17:16:51]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:16:51]  ===============================
+
+[17:16:51]   Loaded.
+[17:16:51]  Loaded 3 plugins.
+
+[17:16:51] 
+[17:16:51] Filterscripts
+[17:16:51] ---------------
+[17:16:51]   Loading filterscript 'ntd.amx'...
+[17:16:52] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:16:52] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:16:52] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:16:52]   Loaded 1 filterscripts.
+
+[17:16:52] Script[gamemodes/bare.amx]: Run time error 17: "Invalid/unsupported P-code file format"
+[17:16:52] Failed to load 'gamemodes/bare.amx' script.
+[17:16:52] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:17:09] 
+[17:17:09] Server Plugins
+[17:17:09] --------------
+[17:17:09]  Loading plugin: streamer
+[17:17:09] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:17:09]   Loaded.
+[17:17:09]  Loading plugin: mysql
+[17:17:09]  >> plugin.mysql: R41-4 successfully loaded.
+[17:17:09]   Loaded.
+[17:17:09]  Loading plugin: sscanf
+[17:17:09] 
+
+[17:17:09]  ===============================
+
+[17:17:09]       sscanf plugin loaded.     
+
+[17:17:09]          Version:  2.8.3        
+
+[17:17:09]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:17:09]  ===============================
+
+[17:17:09]   Loaded.
+[17:17:09]  Loaded 3 plugins.
+
+[17:17:09] 
+[17:17:09] Filterscripts
+[17:17:09] ---------------
+[17:17:09]   Loading filterscript 'ntd.amx'...
+[17:17:10] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:17:10] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:17:10] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:17:10]   Loaded 1 filterscripts.
+
+[17:17:10] Подключение к базе MySQL успешно!
+[17:17:10] Number of vehicle models: 1
+[17:17:10] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:17:10] [connection] 127.0.0.1:59207 requests connection cookie.
+[17:17:11] [connection] incoming connection: 127.0.0.1:59207 id: 0
+[17:17:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:17:12] ok
+[17:17:12] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:17:51] 
+[17:17:51] Server Plugins
+[17:17:51] --------------
+[17:17:51]  Loading plugin: streamer
+[17:17:51] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:17:51]   Loaded.
+[17:17:51]  Loading plugin: mysql
+[17:17:51]  >> plugin.mysql: R41-4 successfully loaded.
+[17:17:51]   Loaded.
+[17:17:51]  Loading plugin: sscanf
+[17:17:51] 
+
+[17:17:51]  ===============================
+
+[17:17:51]       sscanf plugin loaded.     
+
+[17:17:51]          Version:  2.8.3        
+
+[17:17:51]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:17:51]  ===============================
+
+[17:17:51]   Loaded.
+[17:17:51]  Loaded 3 plugins.
+
+[17:17:52] 
+[17:17:52] Filterscripts
+[17:17:52] ---------------
+[17:17:52]   Loading filterscript 'ntd.amx'...
+[17:17:53] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:17:53] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:17:53] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:17:53]   Loaded 1 filterscripts.
+
+[17:17:53] Подключение к базе MySQL успешно!
+[17:17:53] Number of vehicle models: 1
+[17:17:53] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:17:53] [connection] 127.0.0.1:59208 requests connection cookie.
+[17:17:54] [connection] incoming connection: 127.0.0.1:59208 id: 0
+[17:17:54] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:17:55] ok
+[17:17:55] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:18:51] 
+[17:18:51] Server Plugins
+[17:18:51] --------------
+[17:18:51]  Loading plugin: streamer
+[17:18:51] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:18:51]   Loaded.
+[17:18:51]  Loading plugin: mysql
+[17:18:51]  >> plugin.mysql: R41-4 successfully loaded.
+[17:18:51]   Loaded.
+[17:18:51]  Loading plugin: sscanf
+[17:18:51] 
+
+[17:18:51]  ===============================
+
+[17:18:51]       sscanf plugin loaded.     
+
+[17:18:51]          Version:  2.8.3        
+
+[17:18:51]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:18:51]  ===============================
+
+[17:18:51]   Loaded.
+[17:18:51]  Loaded 3 plugins.
+
+[17:18:51] 
+[17:18:51] Filterscripts
+[17:18:51] ---------------
+[17:18:51]   Loading filterscript 'ntd.amx'...
+[17:18:52] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:18:52] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:18:52] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:18:52]   Loaded 1 filterscripts.
+
+[17:18:52] Подключение к базе MySQL успешно!
+[17:18:52] Number of vehicle models: 1
+[17:18:52] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:18:52] [connection] 127.0.0.1:51371 requests connection cookie.
+[17:18:53] [connection] incoming connection: 127.0.0.1:51371 id: 0
+[17:18:53] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:18:54] ok
+[17:18:54] ok
+[17:19:02] [connection] 127.0.0.1:51372 requests connection cookie.
+[17:19:03] [connection] incoming connection: 127.0.0.1:51372 id: 1
+[17:19:13] [connection] incoming connection: 127.0.0.1:51373 id: 1
+[17:19:13] [join] plakapenka has joined the server (1:127.0.0.1)
+[17:19:41] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:19:46] 
+[17:19:46] Server Plugins
+[17:19:46] --------------
+[17:19:46]  Loading plugin: streamer
+[17:19:46] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:19:46]   Loaded.
+[17:19:46]  Loading plugin: mysql
+[17:19:46]  >> plugin.mysql: R41-4 successfully loaded.
+[17:19:46]   Loaded.
+[17:19:46]  Loading plugin: sscanf
+[17:19:46] 
+
+[17:19:46]  ===============================
+
+[17:19:46]       sscanf plugin loaded.     
+
+[17:19:46]          Version:  2.8.3        
+
+[17:19:46]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:19:46]  ===============================
+
+[17:19:46]   Loaded.
+[17:19:46]  Loaded 3 plugins.
+
+[17:19:46] 
+[17:19:46] Filterscripts
+[17:19:46] ---------------
+[17:19:46]   Loading filterscript 'ntd.amx'...
+[17:19:47] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:19:47] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:19:47] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:19:47]   Loaded 1 filterscripts.
+
+[17:19:47] Подключение к базе MySQL успешно!
+[17:19:47] Number of vehicle models: 1
+[17:19:47] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:19:48] [connection] 127.0.0.1:51374 requests connection cookie.
+[17:19:49] [connection] incoming connection: 127.0.0.1:51374 id: 0
+[17:19:49] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:19:49] ok
+[17:19:49] ok
+[17:20:26] [connection] 127.0.0.1:51487 requests connection cookie.
+[17:20:27] [connection] incoming connection: 127.0.0.1:51487 id: 1
+[17:20:28] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:22:55] 
+[17:22:55] Server Plugins
+[17:22:55] --------------
+[17:22:55]  Loading plugin: streamer
+[17:22:55] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:22:55]   Loaded.
+[17:22:55]  Loading plugin: mysql
+[17:22:55]  >> plugin.mysql: R41-4 successfully loaded.
+[17:22:55]   Loaded.
+[17:22:55]  Loading plugin: sscanf
+[17:22:55] 
+
+[17:22:55]  ===============================
+
+[17:22:55]       sscanf plugin loaded.     
+
+[17:22:55]          Version:  2.8.3        
+
+[17:22:55]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:22:55]  ===============================
+
+[17:22:55]   Loaded.
+[17:22:55]  Loaded 3 plugins.
+
+[17:22:55] 
+[17:22:55] Filterscripts
+[17:22:55] ---------------
+[17:22:55]   Loading filterscript 'ntd.amx'...
+[17:22:57] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:22:57] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:22:57] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:22:57]   Loaded 1 filterscripts.
+
+[17:22:58] Подключение к базе MySQL успешно!
+[17:22:58] Number of vehicle models: 1
+[17:22:58] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:22:58] [connection] 127.0.0.1:51533 requests connection cookie.
+[17:22:59] [connection] incoming connection: 127.0.0.1:51533 id: 0
+[17:22:59] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:22:59] ok
+[17:22:59] ok
+[17:23:00] [connection] 127.0.0.1:51534 requests connection cookie.
+[17:23:01] [connection] incoming connection: 127.0.0.1:51534 id: 1
+[17:23:01] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:26:43] 
+[17:26:43] Server Plugins
+[17:26:43] --------------
+[17:26:43]  Loading plugin: streamer
+[17:26:43] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:26:43]   Loaded.
+[17:26:43]  Loading plugin: mysql
+[17:26:43]  >> plugin.mysql: R41-4 successfully loaded.
+[17:26:43]   Loaded.
+[17:26:43]  Loading plugin: sscanf
+[17:26:43] 
+
+[17:26:43]  ===============================
+
+[17:26:43]       sscanf plugin loaded.     
+
+[17:26:43]          Version:  2.8.3        
+
+[17:26:43]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:26:43]  ===============================
+
+[17:26:43]   Loaded.
+[17:26:43]  Loaded 3 plugins.
+
+[17:26:43] 
+[17:26:43] Filterscripts
+[17:26:43] ---------------
+[17:26:43]   Loading filterscript 'ntd.amx'...
+[17:26:44] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:26:44] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:26:44] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:26:44]   Loaded 1 filterscripts.
+
+[17:26:45] Подключение к базе MySQL успешно!
+[17:26:45] Number of vehicle models: 1
+[17:26:45] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:26:45] [connection] 127.0.0.1:57113 requests connection cookie.
+[17:26:46] [connection] incoming connection: 127.0.0.1:57113 id: 0
+[17:26:46] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:26:46] [connection] 127.0.0.1:57114 requests connection cookie.
+[17:26:47] ok
+[17:26:47] ok
+[17:26:47] [connection] incoming connection: 127.0.0.1:57114 id: 1
+[17:26:48] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:30:24] 
+[17:30:24] Server Plugins
+[17:30:24] --------------
+[17:30:24]  Loading plugin: streamer
+[17:30:24] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:30:24]   Loaded.
+[17:30:24]  Loading plugin: mysql
+[17:30:24]  >> plugin.mysql: R41-4 successfully loaded.
+[17:30:24]   Loaded.
+[17:30:24]  Loading plugin: sscanf
+[17:30:24] 
+
+[17:30:24]  ===============================
+
+[17:30:24]       sscanf plugin loaded.     
+
+[17:30:24]          Version:  2.8.3        
+
+[17:30:24]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:30:24]  ===============================
+
+[17:30:24]   Loaded.
+[17:30:24]  Loaded 3 plugins.
+
+[17:30:24] 
+[17:30:24] Filterscripts
+[17:30:24] ---------------
+[17:30:24]   Loading filterscript 'ntd.amx'...
+[17:30:26] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:30:26] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:30:26] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:30:26]   Loaded 1 filterscripts.
+
+[17:30:26] Подключение к базе MySQL успешно!
+[17:30:26] Number of vehicle models: 1
+[17:30:26] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:30:27] [connection] 127.0.0.1:64799 requests connection cookie.
+[17:30:28] [connection] incoming connection: 127.0.0.1:64799 id: 0
+[17:30:28] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:30:28] ok
+[17:30:28] ok
+[17:32:18] [connection] 127.0.0.1:50101 requests connection cookie.
+[17:32:19] [connection] incoming connection: 127.0.0.1:50101 id: 1
+[17:32:19] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:35:08] 
+[17:35:08] Server Plugins
+[17:35:08] --------------
+[17:35:08]  Loading plugin: streamer
+[17:35:08] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:35:08]   Loaded.
+[17:35:08]  Loading plugin: mysql
+[17:35:08]  >> plugin.mysql: R41-4 successfully loaded.
+[17:35:08]   Loaded.
+[17:35:08]  Loading plugin: sscanf
+[17:35:08] 
+
+[17:35:08]  ===============================
+
+[17:35:08]       sscanf plugin loaded.     
+
+[17:35:08]          Version:  2.8.3        
+
+[17:35:08]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:35:08]  ===============================
+
+[17:35:08]   Loaded.
+[17:35:08]  Loaded 3 plugins.
+
+[17:35:08] 
+[17:35:08] Filterscripts
+[17:35:08] ---------------
+[17:35:08]   Loading filterscript 'ntd.amx'...
+[17:35:09] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:35:09] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:35:09] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:35:09]   Loaded 1 filterscripts.
+
+[17:35:09] Подключение к базе MySQL успешно!
+[17:35:09] Number of vehicle models: 1
+[17:35:09] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:35:09] [connection] 127.0.0.1:56451 requests connection cookie.
+[17:35:10] [connection] incoming connection: 127.0.0.1:56451 id: 0
+[17:35:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:35:11] ok
+[17:35:11] ok
+[17:35:17] [connection] 127.0.0.1:56452 requests connection cookie.
+[17:35:18] [connection] incoming connection: 127.0.0.1:56452 id: 1
+[17:35:19] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:38:11] 
+[17:38:11] Server Plugins
+[17:38:11] --------------
+[17:38:11]  Loading plugin: streamer
+[17:38:11] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:38:11]   Loaded.
+[17:38:11]  Loading plugin: mysql
+[17:38:11]  >> plugin.mysql: R41-4 successfully loaded.
+[17:38:11]   Loaded.
+[17:38:11]  Loading plugin: sscanf
+[17:38:11] 
+
+[17:38:11]  ===============================
+
+[17:38:11]       sscanf plugin loaded.     
+
+[17:38:11]          Version:  2.8.3        
+
+[17:38:11]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:38:11]  ===============================
+
+[17:38:11]   Loaded.
+[17:38:11]  Loaded 3 plugins.
+
+[17:38:11] 
+[17:38:11] Filterscripts
+[17:38:11] ---------------
+[17:38:11]   Loading filterscript 'ntd.amx'...
+[17:38:13] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:38:13] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:38:13] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:38:13]   Loaded 1 filterscripts.
+
+[17:38:13] Подключение к базе MySQL успешно!
+[17:38:13] Number of vehicle models: 1
+[17:38:13] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:38:13] [connection] 127.0.0.1:60314 requests connection cookie.
+[17:38:14] [connection] incoming connection: 127.0.0.1:60314 id: 0
+[17:38:14] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:38:15] ok
+[17:38:15] ok
+[17:38:25] [connection] 127.0.0.1:54492 requests connection cookie.
+[17:38:26] [connection] incoming connection: 127.0.0.1:54492 id: 1
+[17:38:26] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:39:42] 
+[17:39:42] Server Plugins
+[17:39:42] --------------
+[17:39:42]  Loading plugin: streamer
+[17:39:42] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:39:42]   Loaded.
+[17:39:42]  Loading plugin: mysql
+[17:39:42]  >> plugin.mysql: R41-4 successfully loaded.
+[17:39:42]   Loaded.
+[17:39:42]  Loading plugin: sscanf
+[17:39:42] 
+
+[17:39:42]  ===============================
+
+[17:39:42]       sscanf plugin loaded.     
+
+[17:39:42]          Version:  2.8.3        
+
+[17:39:42]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:39:42]  ===============================
+
+[17:39:42]   Loaded.
+[17:39:42]  Loaded 3 plugins.
+
+[17:39:42] 
+[17:39:42] Filterscripts
+[17:39:42] ---------------
+[17:39:42]   Loading filterscript 'ntd.amx'...
+[17:39:44] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:39:44] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:39:44] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:39:44]   Loaded 1 filterscripts.
+
+[17:39:45] Подключение к базе MySQL успешно!
+[17:39:45] Number of vehicle models: 1
+[17:39:45] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:39:45] [connection] 127.0.0.1:62826 requests connection cookie.
+[17:39:46] [connection] incoming connection: 127.0.0.1:62826 id: 0
+[17:39:46] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:39:46] ok
+[17:39:46] ok
+[17:39:46] [connection] 127.0.0.1:62827 requests connection cookie.
+[17:39:47] [connection] incoming connection: 127.0.0.1:62827 id: 1
+[17:39:57] [connection] incoming connection: 127.0.0.1:62828 id: 1
+[17:39:58] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:56:50] 
+[17:56:50] Server Plugins
+[17:56:50] --------------
+[17:56:50]  Loading plugin: streamer
+[17:56:50] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:56:50]   Loaded.
+[17:56:50]  Loading plugin: mysql
+[17:56:50]  >> plugin.mysql: R41-4 successfully loaded.
+[17:56:50]   Loaded.
+[17:56:50]  Loading plugin: sscanf
+[17:56:50] 
+
+[17:56:50]  ===============================
+
+[17:56:50]       sscanf plugin loaded.     
+
+[17:56:50]          Version:  2.8.3        
+
+[17:56:50]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:56:50]  ===============================
+
+[17:56:50]   Loaded.
+[17:56:50]  Loaded 3 plugins.
+
+[17:56:50] 
+[17:56:50] Filterscripts
+[17:56:50] ---------------
+[17:56:50]   Loading filterscript 'ntd.amx'...
+[17:56:52] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:56:52] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:56:52] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:56:52]   Loaded 1 filterscripts.
+
+[17:56:53] Подключение к базе MySQL успешно!
+[17:56:53] Number of vehicle models: 1
+[17:56:53] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:56:53] [connection] 127.0.0.1:55285 requests connection cookie.
+[17:56:53] [connection] 127.0.0.1:55286 requests connection cookie.
+[17:56:54] [connection] incoming connection: 127.0.0.1:55285 id: 0
+[17:56:54] [connection] incoming connection: 127.0.0.1:55286 id: 1
+[17:56:54] [join] plakapenka has joined the server (0:127.0.0.1)
+[17:56:54] [npc:join] Antonio_Kortes has joined the server (1:127.0.0.1)
+[17:56:55] ok
+[17:56:55] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:01:10] 
+[18:01:10] Server Plugins
+[18:01:10] --------------
+[18:01:10]  Loading plugin: streamer
+[18:01:10] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:01:10]   Loaded.
+[18:01:10]  Loading plugin: mysql
+[18:01:10]  >> plugin.mysql: R41-4 successfully loaded.
+[18:01:10]   Loaded.
+[18:01:10]  Loading plugin: sscanf
+[18:01:10] 
+
+[18:01:10]  ===============================
+
+[18:01:10]       sscanf plugin loaded.     
+
+[18:01:10]          Version:  2.8.3        
+
+[18:01:10]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:01:10]  ===============================
+
+[18:01:10]   Loaded.
+[18:01:10]  Loaded 3 plugins.
+
+[18:01:10] 
+[18:01:10] Filterscripts
+[18:01:10] ---------------
+[18:01:10]   Loading filterscript 'ntd.amx'...
+[18:01:11] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:01:11] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:01:11] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:01:11]   Loaded 1 filterscripts.
+
+[18:01:12] Подключение к базе MySQL успешно!
+[18:01:12] Number of vehicle models: 1
+[18:01:12] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:01:12] [connection] 127.0.0.1:65372 requests connection cookie.
+[18:01:13] [connection] incoming connection: 127.0.0.1:65372 id: 0
+[18:01:13] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:01:14] ok
+[18:01:14] ok
+[18:01:22] [connection] 127.0.0.1:65373 requests connection cookie.
+[18:01:23] [connection] incoming connection: 127.0.0.1:65373 id: 1
+[18:01:23] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:02:34] 
+[18:02:34] Server Plugins
+[18:02:34] --------------
+[18:02:34]  Loading plugin: streamer
+[18:02:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:02:34]   Loaded.
+[18:02:34]  Loading plugin: mysql
+[18:02:34]  >> plugin.mysql: R41-4 successfully loaded.
+[18:02:34]   Loaded.
+[18:02:34]  Loading plugin: sscanf
+[18:02:34] 
+
+[18:02:34]  ===============================
+
+[18:02:34]       sscanf plugin loaded.     
+
+[18:02:34]          Version:  2.8.3        
+
+[18:02:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:02:34]  ===============================
+
+[18:02:34]   Loaded.
+[18:02:34]  Loaded 3 plugins.
+
+[18:02:34] 
+[18:02:34] Filterscripts
+[18:02:34] ---------------
+[18:02:34]   Loading filterscript 'ntd.amx'...
+[18:02:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:02:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:02:36] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:02:36]   Loaded 1 filterscripts.
+
+[18:02:36] Подключение к базе MySQL успешно!
+[18:02:36] Number of vehicle models: 1
+[18:02:36] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:02:36] [connection] 127.0.0.1:63999 requests connection cookie.
+[18:02:37] [connection] 127.0.0.1:64000 requests connection cookie.
+[18:02:37] [connection] incoming connection: 127.0.0.1:63999 id: 0
+[18:02:38] [connection] incoming connection: 127.0.0.1:64000 id: 1
+[18:02:38] [join] plakapenka has joined the server (0:127.0.0.1)
+[18:02:38] [npc:join] Antonio_Kortes has joined the server (1:127.0.0.1)
+[18:02:38] ok
+[18:02:38] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:03:20] 
+[18:03:20] Server Plugins
+[18:03:20] --------------
+[18:03:20]  Loading plugin: streamer
+[18:03:20] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:03:20]   Loaded.
+[18:03:20]  Loading plugin: mysql
+[18:03:20]  >> plugin.mysql: R41-4 successfully loaded.
+[18:03:20]   Loaded.
+[18:03:20]  Loading plugin: sscanf
+[18:03:20] 
+
+[18:03:20]  ===============================
+
+[18:03:20]       sscanf plugin loaded.     
+
+[18:03:20]          Version:  2.8.3        
+
+[18:03:20]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:03:20]  ===============================
+
+[18:03:20]   Loaded.
+[18:03:20]  Loaded 3 plugins.
+
+[18:03:20] 
+[18:03:20] Filterscripts
+[18:03:20] ---------------
+[18:03:20]   Loading filterscript 'ntd.amx'...
+[18:03:22] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:03:22] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:03:22] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:03:22]   Loaded 1 filterscripts.
+
+[18:03:22] Подключение к базе MySQL успешно!
+[18:03:23] Number of vehicle models: 1
+[18:03:23] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:03:23] [connection] 127.0.0.1:64002 requests connection cookie.
+[18:03:24] [connection] incoming connection: 127.0.0.1:64002 id: 0
+[18:03:24] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:03:24] ok
+[18:03:25] ok
+[18:03:25] [connection] 127.0.0.1:64003 requests connection cookie.
+[18:03:26] [connection] incoming connection: 127.0.0.1:64003 id: 1
+[18:03:26] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:04:25] 
+[18:04:25] Server Plugins
+[18:04:25] --------------
+[18:04:25]  Loading plugin: streamer
+[18:04:25] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:04:25]   Loaded.
+[18:04:25]  Loading plugin: mysql
+[18:04:25]  >> plugin.mysql: R41-4 successfully loaded.
+[18:04:25]   Loaded.
+[18:04:25]  Loading plugin: sscanf
+[18:04:25] 
+
+[18:04:25]  ===============================
+
+[18:04:25]       sscanf plugin loaded.     
+
+[18:04:25]          Version:  2.8.3        
+
+[18:04:25]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:04:25]  ===============================
+
+[18:04:25]   Loaded.
+[18:04:25]  Loaded 3 plugins.
+
+[18:04:25] 
+[18:04:25] Filterscripts
+[18:04:25] ---------------
+[18:04:25]   Loading filterscript 'ntd.amx'...
+[18:04:27] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:04:27] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:04:27] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:04:27]   Loaded 1 filterscripts.
+
+[18:04:27] Подключение к базе MySQL успешно!
+[18:04:28] Number of vehicle models: 1
+[18:04:28] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:04:28] [connection] 127.0.0.1:62068 requests connection cookie.
+[18:04:28] [connection] 127.0.0.1:62069 requests connection cookie.
+[18:04:29] [connection] incoming connection: 127.0.0.1:62068 id: 0
+[18:04:29] [connection] incoming connection: 127.0.0.1:62069 id: 1
+[18:04:29] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:04:29] [join] plakapenka has joined the server (1:127.0.0.1)
+[18:04:30] ok
+[18:04:30] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:07:20] 
+[18:07:20] Server Plugins
+[18:07:20] --------------
+[18:07:20]  Loading plugin: streamer
+[18:07:20] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:07:20]   Loaded.
+[18:07:20]  Loading plugin: mysql
+[18:07:20]  >> plugin.mysql: R41-4 successfully loaded.
+[18:07:20]   Loaded.
+[18:07:20]  Loading plugin: sscanf
+[18:07:20] 
+
+[18:07:20]  ===============================
+
+[18:07:20]       sscanf plugin loaded.     
+
+[18:07:20]          Version:  2.8.3        
+
+[18:07:20]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:07:20]  ===============================
+
+[18:07:20]   Loaded.
+[18:07:20]  Loaded 3 plugins.
+
+[18:07:20] 
+[18:07:20] Filterscripts
+[18:07:20] ---------------
+[18:07:20]   Loading filterscript 'ntd.amx'...
+[18:07:21] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:07:21] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:07:21] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:07:21]   Loaded 1 filterscripts.
+
+[18:07:21] Подключение к базе MySQL успешно!
+[18:07:21] Number of vehicle models: 1
+[18:07:21] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:07:21] [connection] 127.0.0.1:49685 requests connection cookie.
+[18:07:22] [connection] incoming connection: 127.0.0.1:49685 id: 0
+[18:07:23] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:07:23] ok
+[18:07:23] ok
+[18:07:30] [connection] 127.0.0.1:60546 requests connection cookie.
+[18:07:31] [connection] incoming connection: 127.0.0.1:60546 id: 1
+[18:07:31] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:08:55] 
+[18:08:55] Server Plugins
+[18:08:55] --------------
+[18:08:55]  Loading plugin: streamer
+[18:08:55] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:08:55]   Loaded.
+[18:08:55]  Loading plugin: mysql
+[18:08:55]  >> plugin.mysql: R41-4 successfully loaded.
+[18:08:55]   Loaded.
+[18:08:55]  Loading plugin: sscanf
+[18:08:55] 
+
+[18:08:55]  ===============================
+
+[18:08:55]       sscanf plugin loaded.     
+
+[18:08:55]          Version:  2.8.3        
+
+[18:08:55]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:08:55]  ===============================
+
+[18:08:55]   Loaded.
+[18:08:55]  Loaded 3 plugins.
+
+[18:08:55] 
+[18:08:55] Filterscripts
+[18:08:55] ---------------
+[18:08:55]   Loading filterscript 'ntd.amx'...
+[18:08:57] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:08:57] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:08:57] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:08:57]   Loaded 1 filterscripts.
+
+[18:08:57] Подключение к базе MySQL успешно!
+[18:08:57] Number of vehicle models: 1
+[18:08:57] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:08:57] [connection] 127.0.0.1:52054 requests connection cookie.
+[18:08:58] [connection] incoming connection: 127.0.0.1:52054 id: 0
+[18:08:58] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:08:59] ok
+[18:08:59] ok
+[18:08:59] [connection] 127.0.0.1:52056 requests connection cookie.
+[18:09:00] [connection] incoming connection: 127.0.0.1:52056 id: 1
+[18:09:00] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:11:17] 
+[18:11:17] Server Plugins
+[18:11:17] --------------
+[18:11:17]  Loading plugin: streamer
+[18:11:17] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:11:17]   Loaded.
+[18:11:17]  Loading plugin: mysql
+[18:11:17]  >> plugin.mysql: R41-4 successfully loaded.
+[18:11:17]   Loaded.
+[18:11:17]  Loading plugin: sscanf
+[18:11:17] 
+
+[18:11:17]  ===============================
+
+[18:11:17]       sscanf plugin loaded.     
+
+[18:11:17]          Version:  2.8.3        
+
+[18:11:17]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:11:17]  ===============================
+
+[18:11:17]   Loaded.
+[18:11:17]  Loaded 3 plugins.
+
+[18:11:17] 
+[18:11:17] Filterscripts
+[18:11:17] ---------------
+[18:11:17]   Loading filterscript 'ntd.amx'...
+[18:11:18] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:11:18] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:11:18] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:11:18]   Loaded 1 filterscripts.
+
+[18:11:19] Подключение к базе MySQL успешно!
+[18:11:19] Number of vehicle models: 1
+[18:11:19] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:11:19] [connection] 127.0.0.1:60270 requests connection cookie.
+[18:11:20] [connection] incoming connection: 127.0.0.1:60270 id: 0
+[18:11:20] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:11:21] ok
+[18:11:21] ok
+[18:11:29] [connection] 127.0.0.1:56248 requests connection cookie.
+[18:11:30] [connection] incoming connection: 127.0.0.1:56248 id: 1
+[18:11:31] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:12:37] 
+[18:12:37] Server Plugins
+[18:12:37] --------------
+[18:12:37]  Loading plugin: streamer
+[18:12:37] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:12:37]   Loaded.
+[18:12:37]  Loading plugin: mysql
+[18:12:37]  >> plugin.mysql: R41-4 successfully loaded.
+[18:12:37]   Loaded.
+[18:12:37]  Loading plugin: sscanf
+[18:12:37] 
+
+[18:12:37]  ===============================
+
+[18:12:37]       sscanf plugin loaded.     
+
+[18:12:37]          Version:  2.8.3        
+
+[18:12:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:12:37]  ===============================
+
+[18:12:37]   Loaded.
+[18:12:37]  Loaded 3 plugins.
+
+[18:12:37] 
+[18:12:37] Filterscripts
+[18:12:37] ---------------
+[18:12:37]   Loading filterscript 'ntd.amx'...
+[18:12:39] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:12:39] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:12:39] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:12:39]   Loaded 1 filterscripts.
+
+[18:12:39] Подключение к базе MySQL успешно!
+[18:12:40] Number of vehicle models: 1
+[18:12:40] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:12:40] [connection] 127.0.0.1:52383 requests connection cookie.
+[18:12:41] [connection] incoming connection: 127.0.0.1:52383 id: 0
+[18:12:41] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:12:42] ok
+[18:12:42] ok
+[18:12:50] [connection] 127.0.0.1:52388 requests connection cookie.
+[18:12:51] [connection] incoming connection: 127.0.0.1:52388 id: 1
+[18:12:51] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:16:33] 
+[18:16:33] Server Plugins
+[18:16:33] --------------
+[18:16:33]  Loading plugin: streamer
+[18:16:33] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:16:33]   Loaded.
+[18:16:33]  Loading plugin: mysql
+[18:16:33]  >> plugin.mysql: R41-4 successfully loaded.
+[18:16:33]   Loaded.
+[18:16:33]  Loading plugin: sscanf
+[18:16:33] 
+
+[18:16:33]  ===============================
+
+[18:16:33]       sscanf plugin loaded.     
+
+[18:16:33]          Version:  2.8.3        
+
+[18:16:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:16:33]  ===============================
+
+[18:16:33]   Loaded.
+[18:16:33]  Loaded 3 plugins.
+
+[18:16:33] 
+[18:16:33] Filterscripts
+[18:16:33] ---------------
+[18:16:33]   Loading filterscript 'ntd.amx'...
+[18:16:34] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:16:34] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:16:34] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:16:34]   Loaded 1 filterscripts.
+
+[18:16:34] Подключение к базе MySQL успешно!
+[18:16:35] Number of vehicle models: 1
+[18:16:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:16:35] [connection] 127.0.0.1:58708 requests connection cookie.
+[18:16:36] [connection] incoming connection: 127.0.0.1:58708 id: 0
+[18:16:36] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:16:36] ok
+[18:16:36] ok
+[18:16:39] [connection] 127.0.0.1:58709 requests connection cookie.
+[18:16:40] [connection] incoming connection: 127.0.0.1:58709 id: 1
+[18:16:40] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:26:22] 
+[18:26:22] Server Plugins
+[18:26:22] --------------
+[18:26:22]  Loading plugin: streamer
+[18:26:22] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:26:22]   Loaded.
+[18:26:22]  Loading plugin: mysql
+[18:26:22]  >> plugin.mysql: R41-4 successfully loaded.
+[18:26:22]   Loaded.
+[18:26:22]  Loading plugin: sscanf
+[18:26:22] 
+
+[18:26:22]  ===============================
+
+[18:26:22]       sscanf plugin loaded.     
+
+[18:26:22]          Version:  2.8.3        
+
+[18:26:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:26:22]  ===============================
+
+[18:26:22]   Loaded.
+[18:26:22]  Loaded 3 plugins.
+
+[18:26:22] 
+[18:26:22] Filterscripts
+[18:26:22] ---------------
+[18:26:22]   Loading filterscript 'ntd.amx'...
+[18:26:23] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:26:23] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:26:23] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:26:23]   Loaded 1 filterscripts.
+
+[18:26:24] Подключение к базе MySQL успешно!
+[18:26:24] Number of vehicle models: 1
+[18:26:24] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:26:24] [connection] 127.0.0.1:50258 requests connection cookie.
+[18:26:25] [connection] incoming connection: 127.0.0.1:50258 id: 0
+[18:26:25] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:26:26] ok
+[18:26:26] ok
+[18:26:34] [connection] 127.0.0.1:55202 requests connection cookie.
+[18:26:35] [connection] incoming connection: 127.0.0.1:55202 id: 1
+[18:26:36] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:32:28] 
+[18:32:28] Server Plugins
+[18:32:28] --------------
+[18:32:28]  Loading plugin: streamer
+[18:32:28] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:32:28]   Loaded.
+[18:32:28]  Loading plugin: mysql
+[18:32:28]  >> plugin.mysql: R41-4 successfully loaded.
+[18:32:28]   Loaded.
+[18:32:28]  Loading plugin: sscanf
+[18:32:28] 
+
+[18:32:28]  ===============================
+
+[18:32:28]       sscanf plugin loaded.     
+
+[18:32:28]          Version:  2.8.3        
+
+[18:32:28]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:32:28]  ===============================
+
+[18:32:28]   Loaded.
+[18:32:28]  Loaded 3 plugins.
+
+[18:32:28] 
+[18:32:28] Filterscripts
+[18:32:28] ---------------
+[18:32:28]   Loading filterscript 'ntd.amx'...
+[18:32:29] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:32:29] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:32:29] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:32:30]   Loaded 1 filterscripts.
+
+[18:32:30] Подключение к базе MySQL успешно!
+[18:32:30] Number of vehicle models: 1
+[18:32:30] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:32:30] [connection] 127.0.0.1:63338 requests connection cookie.
+[18:32:31] [connection] incoming connection: 127.0.0.1:63338 id: 0
+[18:32:32] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:32:32] ok
+[18:32:32] ok
+[18:32:40] [connection] 127.0.0.1:49496 requests connection cookie.
+[18:32:41] [connection] incoming connection: 127.0.0.1:49496 id: 1
+[18:32:41] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:39:30] 
+[18:39:30] Server Plugins
+[18:39:30] --------------
+[18:39:30]  Loading plugin: streamer
+[18:39:30] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:39:30]   Loaded.
+[18:39:30]  Loading plugin: mysql
+[18:39:30]  >> plugin.mysql: R41-4 successfully loaded.
+[18:39:30]   Loaded.
+[18:39:30]  Loading plugin: sscanf
+[18:39:30] 
+
+[18:39:30]  ===============================
+
+[18:39:30]       sscanf plugin loaded.     
+
+[18:39:30]          Version:  2.8.3        
+
+[18:39:30]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:39:30]  ===============================
+
+[18:39:30]   Loaded.
+[18:39:30]  Loaded 3 plugins.
+
+[18:39:30] 
+[18:39:30] Filterscripts
+[18:39:30] ---------------
+[18:39:30]   Loading filterscript 'ntd.amx'...
+[18:39:32] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:39:32] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:39:32] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:39:32]   Loaded 1 filterscripts.
+
+[18:39:33] Подключение к базе MySQL успешно!
+[18:39:33] Number of vehicle models: 1
+[18:39:33] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:39:33] [connection] 127.0.0.1:50126 requests connection cookie.
+[18:39:34] [connection] incoming connection: 127.0.0.1:50126 id: 0
+[18:39:34] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:39:35] [connection] 127.0.0.1:50127 requests connection cookie.
+[18:39:35] ok
+[18:39:35] ok
+[18:39:36] [connection] incoming connection: 127.0.0.1:50127 id: 1
+[18:39:36] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:46:34] 
+[18:46:34] Server Plugins
+[18:46:34] --------------
+[18:46:34]  Loading plugin: streamer
+[18:46:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:46:34]   Loaded.
+[18:46:34]  Loading plugin: mysql
+[18:46:34]  >> plugin.mysql: R41-4 successfully loaded.
+[18:46:34]   Loaded.
+[18:46:34]  Loading plugin: sscanf
+[18:46:34] 
+
+[18:46:34]  ===============================
+
+[18:46:34]       sscanf plugin loaded.     
+
+[18:46:34]          Version:  2.8.3        
+
+[18:46:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:46:34]  ===============================
+
+[18:46:34]   Loaded.
+[18:46:34]  Loaded 3 plugins.
+
+[18:46:34] 
+[18:46:34] Filterscripts
+[18:46:34] ---------------
+[18:46:34]   Loading filterscript 'ntd.amx'...
+[18:46:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:46:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:46:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:46:35]   Loaded 1 filterscripts.
+
+[18:46:36] Подключение к базе MySQL успешно!
+[18:46:36] Number of vehicle models: 1
+[18:46:36] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:46:36] [connection] 127.0.0.1:64566 requests connection cookie.
+[18:46:37] [connection] incoming connection: 127.0.0.1:64566 id: 0
+[18:46:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:46:38] ok
+[18:46:38] ok
+[18:46:47] [connection] 127.0.0.1:64567 requests connection cookie.
+[18:46:48] [connection] incoming connection: 127.0.0.1:64567 id: 1
+[18:46:49] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:02:27] 
+[19:02:27] Server Plugins
+[19:02:27] --------------
+[19:02:27]  Loading plugin: streamer
+[19:02:27] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:02:27]   Loaded.
+[19:02:27]  Loading plugin: mysql
+[19:02:27]  >> plugin.mysql: R41-4 successfully loaded.
+[19:02:27]   Loaded.
+[19:02:27]  Loading plugin: sscanf
+[19:02:27] 
+
+[19:02:27]  ===============================
+
+[19:02:27]       sscanf plugin loaded.     
+
+[19:02:27]          Version:  2.8.3        
+
+[19:02:27]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:02:27]  ===============================
+
+[19:02:27]   Loaded.
+[19:02:27]  Loaded 3 plugins.
+
+[19:02:27] 
+[19:02:27] Filterscripts
+[19:02:27] ---------------
+[19:02:27]   Loading filterscript 'ntd.amx'...
+[19:02:28] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:02:28] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:02:28] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:02:28]   Loaded 1 filterscripts.
+
+[19:02:29] Подключение к базе MySQL успешно!
+[19:02:29] Number of vehicle models: 1
+[19:02:29] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:02:29] [connection] 127.0.0.1:64366 requests connection cookie.
+[19:02:30] [connection] incoming connection: 127.0.0.1:64366 id: 0
+[19:02:30] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:02:30] ok
+[19:02:30] ok
+[19:02:34] [connection] 127.0.0.1:64367 requests connection cookie.
+[19:02:35] [connection] incoming connection: 127.0.0.1:64367 id: 1
+[19:02:35] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[20:23:21] 
+[20:23:21] Server Plugins
+[20:23:21] --------------
+[20:23:21]  Loading plugin: streamer
+[20:23:21] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[20:23:21]   Loaded.
+[20:23:21]  Loading plugin: mysql
+[20:23:21]  >> plugin.mysql: R41-4 successfully loaded.
+[20:23:21]   Loaded.
+[20:23:21]  Loading plugin: sscanf
+[20:23:21] 
+
+[20:23:21]  ===============================
+
+[20:23:21]       sscanf plugin loaded.     
+
+[20:23:21]          Version:  2.8.3        
+
+[20:23:21]   (c) 2018 Alex "Y_Less" Cole  
+
+[20:23:21]  ===============================
+
+[20:23:21]   Loaded.
+[20:23:21]  Loading plugin: jit
+[20:23:21]   JIT plugin must be loaded before 'streamer.DLL'
+[20:23:21]   Failed.
+[20:23:21]  Loaded 3 plugins.
+
+[20:23:21] 
+[20:23:21] Filterscripts
+[20:23:21] ---------------
+[20:23:21]   Loading filterscript 'ntd.amx'...
+[20:23:22] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[20:23:22] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[20:23:22] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[20:23:22]   Loaded 1 filterscripts.
+
+[20:23:22] Подключение к базе MySQL успешно!
+[20:23:22] Number of vehicle models: 1
+[20:23:22] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[20:23:23] [connection] 127.0.0.1:56047 requests connection cookie.
+[20:23:24] [connection] incoming connection: 127.0.0.1:56047 id: 0
+[20:23:24] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[20:23:24] ok
+[20:23:24] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[20:24:49] 
+[20:24:49] Server Plugins
+[20:24:49] --------------
+[20:24:49]  Loading plugin: jit
+[20:24:49]   JIT plugin 2.4.1
+[20:24:49]   Loaded.
+[20:24:49]  Loading plugin: streamer
+[20:24:49] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[20:24:49]   Loaded.
+[20:24:49]  Loading plugin: mysql
+[20:24:49]  >> plugin.mysql: R41-4 successfully loaded.
+[20:24:49]   Loaded.
+[20:24:49]  Loading plugin: sscanf
+[20:24:49] 
+
+[20:24:49]  ===============================
+
+[20:24:49]       sscanf plugin loaded.     
+
+[20:24:49]          Version:  2.8.3        
+
+[20:24:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[20:24:49]  ===============================
+
+[20:24:49]   Loaded.
+[20:24:49]  Loaded 4 plugins.
+
+[20:24:50] 
+[20:24:50] Filterscripts
+[20:24:50] ---------------
+[20:24:50]   Loading filterscript 'ntd.amx'...
+[20:24:51] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[20:24:51] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[20:24:51] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[20:24:51]   Loaded 1 filterscripts.
+
+[20:24:51] Подключение к базе MySQL успешно!
+[20:24:51] Number of vehicle models: 1
+[20:24:51] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[20:24:51] [connection] 127.0.0.1:64750 requests connection cookie.
+[20:24:52] [connection] incoming connection: 127.0.0.1:64750 id: 0
+[20:24:52] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[20:24:53] ok
+[20:24:53] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[20:28:28] 
+[20:28:28] Server Plugins
+[20:28:28] --------------
+[20:28:28]  Loading plugin: jit
+[20:28:28]   JIT plugin 2.4.1
+[20:28:28]   Loaded.
+[20:28:28]  Loading plugin: streamer
+[20:28:28] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[20:28:28]   Loaded.
+[20:28:28]  Loading plugin: mysql
+[20:28:28]  >> plugin.mysql: R41-4 successfully loaded.
+[20:28:28]   Loaded.
+[20:28:28]  Loading plugin: sscanf
+[20:28:28] 
+
+[20:28:28]  ===============================
+
+[20:28:28]       sscanf plugin loaded.     
+
+[20:28:28]          Version:  2.8.3        
+
+[20:28:28]   (c) 2018 Alex "Y_Less" Cole  
+
+[20:28:28]  ===============================
+
+[20:28:28]   Loaded.
+[20:28:28]  Loaded 4 plugins.
+
+[20:28:28] 
+[20:28:28] Filterscripts
+[20:28:28] ---------------
+[20:28:28]   Loading filterscript 'ntd.amx'...
+[20:28:29] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[20:28:29] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[20:28:29] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[20:28:29]   Loaded 1 filterscripts.
+
+[20:28:30] Подключение к базе MySQL успешно!
+[20:28:30] Number of vehicle models: 1
+[20:28:30] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[20:28:30] [connection] 127.0.0.1:55538 requests connection cookie.
+[20:28:31] [connection] incoming connection: 127.0.0.1:55538 id: 0
+[20:28:31] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[20:28:32] ok
+[20:28:32] ok
+[20:28:53] [connection] 127.0.0.1:53888 requests connection cookie.
+[20:28:54] [connection] incoming connection: 127.0.0.1:53888 id: 1
+[20:28:54] [join] plakapenka has joined the server (1:127.0.0.1)
+[20:30:50] [part] plakapenka has left the server (1:1)
+[20:31:05] [connection] incoming connection: 127.0.0.1:49158 id: 1
+[20:31:15] [connection] incoming connection: 127.0.0.1:49159 id: 1
+[20:31:25] [connection] incoming connection: 127.0.0.1:49160 id: 1
+[20:31:35] [connection] incoming connection: 127.0.0.1:49161 id: 1
+[20:31:36] [join] plakapenka has joined the server (1:127.0.0.1)
+[20:46:47] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:26:05] 
+[22:26:05] Server Plugins
+[22:26:05] --------------
+[22:26:05]  Loading plugin: jit
+[22:26:05]   JIT plugin 2.4.1
+[22:26:05]   Loaded.
+[22:26:05]  Loading plugin: streamer
+[22:26:05] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:26:05]   Loaded.
+[22:26:05]  Loading plugin: mysql
+[22:26:05]  >> plugin.mysql: R41-4 successfully loaded.
+[22:26:05]   Loaded.
+[22:26:05]  Loading plugin: sscanf
+[22:26:05] 
+
+[22:26:05]  ===============================
+
+[22:26:05]       sscanf plugin loaded.     
+
+[22:26:05]          Version:  2.8.3        
+
+[22:26:05]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:26:05]  ===============================
+
+[22:26:05]   Loaded.
+[22:26:05]  Loaded 4 plugins.
+
+[22:26:05] 
+[22:26:05] Filterscripts
+[22:26:05] ---------------
+[22:26:05]   Loading filterscript 'ntd.amx'...
+[22:26:06] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:26:06] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:26:06] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:26:06]   Loaded 1 filterscripts.
+
+[22:26:06] Подключение к базе MySQL успешно!
+[22:26:07] Number of vehicle models: 2
+[22:26:07] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:26:07] [connection] 127.0.0.1:59323 requests connection cookie.
+[22:26:08] [connection] incoming connection: 127.0.0.1:59323 id: 0
+[22:26:08] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:26:08] ok
+[22:26:08] ok
+[22:26:28] [connection] 127.0.0.1:63378 requests connection cookie.
+[22:26:29] [connection] incoming connection: 127.0.0.1:63378 id: 1
+[22:26:29] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:30:33] 
+[22:30:33] Server Plugins
+[22:30:33] --------------
+[22:30:33]  Loading plugin: jit
+[22:30:33]   JIT plugin 2.4.1
+[22:30:33]   Loaded.
+[22:30:33]  Loading plugin: streamer
+[22:30:33] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:30:33]   Loaded.
+[22:30:33]  Loading plugin: mysql
+[22:30:33]  >> plugin.mysql: R41-4 successfully loaded.
+[22:30:33]   Loaded.
+[22:30:33]  Loading plugin: sscanf
+[22:30:33] 
+
+[22:30:33]  ===============================
+
+[22:30:33]       sscanf plugin loaded.     
+
+[22:30:33]          Version:  2.8.3        
+
+[22:30:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:30:33]  ===============================
+
+[22:30:33]   Loaded.
+[22:30:33]  Loaded 4 plugins.
+
+[22:30:33] 
+[22:30:33] Filterscripts
+[22:30:33] ---------------
+[22:30:33]   Loading filterscript 'ntd.amx'...
+[22:30:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:30:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:30:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:30:35]   Loaded 1 filterscripts.
+
+[22:30:35] Подключение к базе MySQL успешно!
+[22:30:35] Number of vehicle models: 2
+[22:30:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:30:35] [connection] 127.0.0.1:51054 requests connection cookie.
+[22:30:36] [connection] incoming connection: 127.0.0.1:51054 id: 0
+[22:30:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:30:37] ok
+[22:30:37] ok
+[22:30:40] [connection] 127.0.0.1:52597 requests connection cookie.
+[22:30:41] [connection] incoming connection: 127.0.0.1:52597 id: 1
+[22:30:41] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:32:53] 
+[22:32:53] Server Plugins
+[22:32:53] --------------
+[22:32:53]  Loading plugin: jit
+[22:32:53]   JIT plugin 2.4.1
+[22:32:53]   Loaded.
+[22:32:53]  Loading plugin: streamer
+[22:32:53] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:32:53]   Loaded.
+[22:32:53]  Loading plugin: mysql
+[22:32:53]  >> plugin.mysql: R41-4 successfully loaded.
+[22:32:53]   Loaded.
+[22:32:53]  Loading plugin: sscanf
+[22:32:53] 
+
+[22:32:53]  ===============================
+
+[22:32:53]       sscanf plugin loaded.     
+
+[22:32:53]          Version:  2.8.3        
+
+[22:32:53]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:32:53]  ===============================
+
+[22:32:53]   Loaded.
+[22:32:53]  Loaded 4 plugins.
+
+[22:32:53] 
+[22:32:53] Filterscripts
+[22:32:53] ---------------
+[22:32:53]   Loading filterscript 'ntd.amx'...
+[22:32:54] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:32:54] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:32:54] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:32:54]   Loaded 1 filterscripts.
+
+[22:32:55] Подключение к базе MySQL успешно!
+[22:32:55] Number of vehicle models: 2
+[22:32:55] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:32:55] [connection] 127.0.0.1:61435 requests connection cookie.
+[22:32:56] [connection] incoming connection: 127.0.0.1:61435 id: 0
+[22:32:56] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:32:56] ok
+[22:32:57] ok
+[22:33:01] [connection] 127.0.0.1:61666 requests connection cookie.
+[22:33:02] [connection] incoming connection: 127.0.0.1:61666 id: 1
+[22:33:03] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:36:00] 
+[22:36:00] Server Plugins
+[22:36:00] --------------
+[22:36:00]  Loading plugin: jit
+[22:36:00]   JIT plugin 2.4.1
+[22:36:00]   Loaded.
+[22:36:00]  Loading plugin: streamer
+[22:36:00] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:36:00]   Loaded.
+[22:36:00]  Loading plugin: mysql
+[22:36:00]  >> plugin.mysql: R41-4 successfully loaded.
+[22:36:00]   Loaded.
+[22:36:00]  Loading plugin: sscanf
+[22:36:00] 
+
+[22:36:00]  ===============================
+
+[22:36:00]       sscanf plugin loaded.     
+
+[22:36:00]          Version:  2.8.3        
+
+[22:36:00]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:36:00]  ===============================
+
+[22:36:00]   Loaded.
+[22:36:00]  Loaded 4 plugins.
+
+[22:36:00] 
+[22:36:00] Filterscripts
+[22:36:00] ---------------
+[22:36:00]   Loading filterscript 'ntd.amx'...
+[22:36:02] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:36:02] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:36:02] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:36:02]   Loaded 1 filterscripts.
+
+[22:36:02] Подключение к базе MySQL успешно!
+[22:36:02] Number of vehicle models: 2
+[22:36:02] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:36:02] [connection] 127.0.0.1:54348 requests connection cookie.
+[22:36:03] [connection] incoming connection: 127.0.0.1:54348 id: 0
+[22:36:03] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:36:04] ok
+[22:36:04] ok
+[22:36:15] [connection] 127.0.0.1:64210 requests connection cookie.
+[22:36:16] [connection] incoming connection: 127.0.0.1:64210 id: 1
+[22:36:16] [join] plakapenka has joined the server (1:127.0.0.1)
+[22:37:13] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:37:43] 
+[22:37:43] Server Plugins
+[22:37:43] --------------
+[22:37:43]  Loading plugin: jit
+[22:37:43]   JIT plugin 2.4.1
+[22:37:43]   Loaded.
+[22:37:43]  Loading plugin: streamer
+[22:37:43] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:37:43]   Loaded.
+[22:37:43]  Loading plugin: mysql
+[22:37:43]  >> plugin.mysql: R41-4 successfully loaded.
+[22:37:43]   Loaded.
+[22:37:43]  Loading plugin: sscanf
+[22:37:43] 
+
+[22:37:43]  ===============================
+
+[22:37:43]       sscanf plugin loaded.     
+
+[22:37:43]          Version:  2.8.3        
+
+[22:37:43]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:37:43]  ===============================
+
+[22:37:43]   Loaded.
+[22:37:43]  Loaded 4 plugins.
+
+[22:37:43] 
+[22:37:43] Filterscripts
+[22:37:43] ---------------
+[22:37:43]   Loading filterscript 'ntd.amx'...
+[22:37:44] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:37:44] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:37:44] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:37:44]   Loaded 1 filterscripts.
+
+[22:37:45] Подключение к базе MySQL успешно!
+[22:37:45] Number of vehicle models: 2
+[22:37:45] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:37:45] [connection] 127.0.0.1:64485 requests connection cookie.
+[22:37:46] [connection] incoming connection: 127.0.0.1:64485 id: 0
+[22:37:46] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:37:46] ok
+[22:37:47] ok
+[22:37:47] [connection] 127.0.0.1:51543 requests connection cookie.
+[22:37:48] [connection] incoming connection: 127.0.0.1:51543 id: 1
+[22:37:48] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:39:28] 
+[22:39:28] Server Plugins
+[22:39:28] --------------
+[22:39:28]  Loading plugin: jit
+[22:39:28]   JIT plugin 2.4.1
+[22:39:28]   Loaded.
+[22:39:28]  Loading plugin: streamer
+[22:39:28] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:39:28]   Loaded.
+[22:39:28]  Loading plugin: mysql
+[22:39:28]  >> plugin.mysql: R41-4 successfully loaded.
+[22:39:28]   Loaded.
+[22:39:28]  Loading plugin: sscanf
+[22:39:28] 
+
+[22:39:28]  ===============================
+
+[22:39:28]       sscanf plugin loaded.     
+
+[22:39:28]          Version:  2.8.3        
+
+[22:39:28]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:39:28]  ===============================
+
+[22:39:28]   Loaded.
+[22:39:28]  Loaded 4 plugins.
+
+[22:39:28] 
+[22:39:28] Filterscripts
+[22:39:28] ---------------
+[22:39:28]   Loading filterscript 'ntd.amx'...
+[22:39:30] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:39:30] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:39:30] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:39:30]   Loaded 1 filterscripts.
+
+[22:39:30] Подключение к базе MySQL успешно!
+[22:39:30] Number of vehicle models: 2
+[22:39:30] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:39:30] [connection] 127.0.0.1:65323 requests connection cookie.
+[22:39:31] [connection] incoming connection: 127.0.0.1:65323 id: 0
+[22:39:31] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:39:32] ok
+[22:39:32] ok
+[22:39:35] [connection] 127.0.0.1:58367 requests connection cookie.
+[22:39:36] [connection] incoming connection: 127.0.0.1:58367 id: 1
+[22:39:36] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:41:20] 
+[22:41:20] Server Plugins
+[22:41:20] --------------
+[22:41:20]  Loading plugin: jit
+[22:41:20]   JIT plugin 2.4.1
+[22:41:20]   Loaded.
+[22:41:20]  Loading plugin: streamer
+[22:41:20] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:41:20]   Loaded.
+[22:41:20]  Loading plugin: mysql
+[22:41:20]  >> plugin.mysql: R41-4 successfully loaded.
+[22:41:20]   Loaded.
+[22:41:20]  Loading plugin: sscanf
+[22:41:20] 
+
+[22:41:20]  ===============================
+
+[22:41:20]       sscanf plugin loaded.     
+
+[22:41:20]          Version:  2.8.3        
+
+[22:41:21]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:41:21]  ===============================
+
+[22:41:21]   Loaded.
+[22:41:21]  Loaded 4 plugins.
+
+[22:41:21] 
+[22:41:21] Filterscripts
+[22:41:21] ---------------
+[22:41:21]   Loading filterscript 'ntd.amx'...
+[22:41:22] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:41:22] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:41:22] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:41:22]   Loaded 1 filterscripts.
+
+[22:41:23] Подключение к базе MySQL успешно!
+[22:41:23] Number of vehicle models: 2
+[22:41:23] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:41:23] [connection] 127.0.0.1:61423 requests connection cookie.
+[22:41:24] [connection] incoming connection: 127.0.0.1:61423 id: 0
+[22:41:24] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:41:25] ok
+[22:41:25] ok
+[22:41:30] [connection] 127.0.0.1:54580 requests connection cookie.
+[22:41:31] [connection] incoming connection: 127.0.0.1:54580 id: 1
+[22:41:31] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:49:11] 
+[22:49:11] Server Plugins
+[22:49:11] --------------
+[22:49:11]  Loading plugin: jit
+[22:49:11]   JIT plugin 2.4.1
+[22:49:11]   Loaded.
+[22:49:11]  Loading plugin: streamer
+[22:49:12] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:49:12]   Loaded.
+[22:49:12]  Loading plugin: mysql
+[22:49:12]  >> plugin.mysql: R41-4 successfully loaded.
+[22:49:12]   Loaded.
+[22:49:12]  Loading plugin: sscanf
+[22:49:12] 
+
+[22:49:12]  ===============================
+
+[22:49:12]       sscanf plugin loaded.     
+
+[22:49:12]          Version:  2.8.3        
+
+[22:49:12]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:49:12]  ===============================
+
+[22:49:12]   Loaded.
+[22:49:12]  Loaded 4 plugins.
+
+[22:49:12] 
+[22:49:12] Filterscripts
+[22:49:12] ---------------
+[22:49:12]   Loading filterscript 'ntd.amx'...
+[22:49:13] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:49:13] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:49:13] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:49:13]   Loaded 1 filterscripts.
+
+[22:49:14] [connection] 127.0.0.1:58007 requests connection cookie.
+[22:49:14] Подключение к базе MySQL успешно!
+[22:49:14] Number of vehicle models: 2
+[22:49:14] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:49:14] [connection] 127.0.0.1:58008 requests connection cookie.
+[22:49:15] [connection] incoming connection: 127.0.0.1:58007 id: 0
+[22:49:15] [join] plakapenka has joined the server (0:127.0.0.1)
+[22:49:15] [connection] incoming connection: 127.0.0.1:58008 id: 1
+[22:49:16] [npc:join] Antonio_Kortes has joined the server (1:127.0.0.1)
+[22:49:16] ok
+[22:49:16] ok
+[22:49:37] [part] plakapenka has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:50:22] 
+[22:50:22] Server Plugins
+[22:50:22] --------------
+[22:50:22]  Loading plugin: jit
+[22:50:22]   JIT plugin 2.4.1
+[22:50:22]   Loaded.
+[22:50:22]  Loading plugin: streamer
+[22:50:22] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:50:22]   Loaded.
+[22:50:22]  Loading plugin: mysql
+[22:50:22]  >> plugin.mysql: R41-4 successfully loaded.
+[22:50:22]   Loaded.
+[22:50:22]  Loading plugin: sscanf
+[22:50:22] 
+
+[22:50:22]  ===============================
+
+[22:50:22]       sscanf plugin loaded.     
+
+[22:50:22]          Version:  2.8.3        
+
+[22:50:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:50:22]  ===============================
+
+[22:50:22]   Loaded.
+[22:50:22]  Loaded 4 plugins.
+
+[22:50:22] 
+[22:50:22] Filterscripts
+[22:50:22] ---------------
+[22:50:22]   Loading filterscript 'ntd.amx'...
+[22:50:24] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:50:24] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:50:24] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:50:24]   Loaded 1 filterscripts.
+
+[22:50:24] Подключение к базе MySQL успешно!
+[22:50:24] Number of vehicle models: 2
+[22:50:24] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:50:24] [connection] 127.0.0.1:52181 requests connection cookie.
+[22:50:25] [connection] incoming connection: 127.0.0.1:52181 id: 0
+[22:50:25] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:50:26] [connection] 127.0.0.1:52182 requests connection cookie.
+[22:50:26] ok
+[22:50:26] ok
+[22:50:27] [connection] incoming connection: 127.0.0.1:52182 id: 1
+[22:50:27] [join] plakapenka has joined the server (1:127.0.0.1)
+[22:50:39] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:56:33] 
+[22:56:33] Server Plugins
+[22:56:33] --------------
+[22:56:33]  Loading plugin: jit
+[22:56:33]   JIT plugin 2.4.1
+[22:56:33]   Loaded.
+[22:56:33]  Loading plugin: streamer
+[22:56:33] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:56:33]   Loaded.
+[22:56:33]  Loading plugin: mysql
+[22:56:33]  >> plugin.mysql: R41-4 successfully loaded.
+[22:56:33]   Loaded.
+[22:56:33]  Loading plugin: sscanf
+[22:56:33] 
+
+[22:56:33]  ===============================
+
+[22:56:33]       sscanf plugin loaded.     
+
+[22:56:33]          Version:  2.8.3        
+
+[22:56:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:56:33]  ===============================
+
+[22:56:33]   Loaded.
+[22:56:33]  Loaded 4 plugins.
+
+[22:56:33] 
+[22:56:33] Filterscripts
+[22:56:33] ---------------
+[22:56:33]   Loading filterscript 'ntd.amx'...
+[22:56:34] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:56:34] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:56:34] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:56:34]   Loaded 1 filterscripts.
+
+[22:56:35] Подключение к базе MySQL успешно!
+[22:56:35] Number of vehicle models: 2
+[22:56:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:56:35] [connection] 127.0.0.1:64261 requests connection cookie.
+[22:56:36] [connection] incoming connection: 127.0.0.1:64261 id: 0
+[22:56:36] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:56:36] ok
+[22:56:36] ok
+[22:56:38] [connection] 127.0.0.1:64262 requests connection cookie.
+[22:56:39] [connection] incoming connection: 127.0.0.1:64262 id: 1
+[22:56:39] [join] plakapenka has joined the server (1:127.0.0.1)
+[22:56:45] disconnect
+[22:56:45] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:58:22] 
+[22:58:22] Server Plugins
+[22:58:22] --------------
+[22:58:22]  Loading plugin: jit
+[22:58:22]   JIT plugin 2.4.1
+[22:58:22]   Loaded.
+[22:58:22]  Loading plugin: streamer
+[22:58:22] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[22:58:22]   Loaded.
+[22:58:22]  Loading plugin: mysql
+[22:58:22]  >> plugin.mysql: R41-4 successfully loaded.
+[22:58:22]   Loaded.
+[22:58:22]  Loading plugin: sscanf
+[22:58:22] 
+
+[22:58:22]  ===============================
+
+[22:58:22]       sscanf plugin loaded.     
+
+[22:58:22]          Version:  2.8.3        
+
+[22:58:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:58:22]  ===============================
+
+[22:58:22]   Loaded.
+[22:58:22]  Loaded 4 plugins.
+
+[22:58:22] 
+[22:58:22] Filterscripts
+[22:58:22] ---------------
+[22:58:22]   Loading filterscript 'ntd.amx'...
+[22:58:23] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[22:58:23] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[22:58:23] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[22:58:23]   Loaded 1 filterscripts.
+
+[22:58:24] Подключение к базе MySQL успешно!
+[22:58:24] Number of vehicle models: 2
+[22:58:24] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[22:58:24] [connection] 127.0.0.1:49778 requests connection cookie.
+[22:58:25] [connection] incoming connection: 127.0.0.1:49778 id: 0
+[22:58:25] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[22:58:25] ok
+[22:58:25] ok
+[22:58:25] [connection] 127.0.0.1:49779 requests connection cookie.
+[22:58:26] [connection] incoming connection: 127.0.0.1:49779 id: 1
+[22:58:27] [join] plakapenka has joined the server (1:127.0.0.1)
+[22:58:42] disconnect
+[22:58:42] UPDATE `accounts` SET `pLicenses` = 0, WHERE `pMySQL_ID` = 4 LIMIT 1
+[22:58:42] [part] plakapenka has left the server (1:1)
+[22:58:59] [connection] incoming connection: 127.0.0.1:52128 id: 1
+[22:59:00] [join] plakapenka has joined the server (1:127.0.0.1)
+[23:03:36] disconnect
+[23:03:36] UPDATE `accounts` SET `pLicenses` = 1, WHERE `pMySQL_ID` = 4 LIMIT 1
+[23:03:36] [part] plakapenka has left the server (1:1)
+[23:03:53] [connection] 127.0.0.1:63116 requests connection cookie.
+[23:03:54] [connection] incoming connection: 127.0.0.1:63116 id: 1
+[23:03:54] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:59:07] 
+[13:59:07] Server Plugins
+[13:59:07] --------------
+[13:59:07]  Loading plugin: jit
+[13:59:07]   JIT plugin 2.4.1
+[13:59:07]   Loaded.
+[13:59:07]  Loading plugin: streamer
+[13:59:07] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:59:07]   Loaded.
+[13:59:07]  Loading plugin: mysql
+[13:59:07]  >> plugin.mysql: R41-4 successfully loaded.
+[13:59:07]   Loaded.
+[13:59:07]  Loading plugin: sscanf
+[13:59:07] 
+
+[13:59:07]  ===============================
+
+[13:59:07]       sscanf plugin loaded.     
+
+[13:59:07]          Version:  2.8.3        
+
+[13:59:07]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:59:07]  ===============================
+
+[13:59:07]   Loaded.
+[13:59:07]  Loaded 4 plugins.
+
+[13:59:07] 
+[13:59:07] Filterscripts
+[13:59:07] ---------------
+[13:59:07]   Loading filterscript 'ntd.amx'...
+[13:59:09] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:59:09] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:59:09] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:59:09]   Loaded 1 filterscripts.
+
+[13:59:09] Подключение к базе MySQL успешно!
+[13:59:09] Number of vehicle models: 2
+[13:59:09] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:59:09] [connection] 127.0.0.1:58747 requests connection cookie.
+[13:59:10] [connection] incoming connection: 127.0.0.1:58747 id: 0
+[13:59:11] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:59:11] ok
+[13:59:11] ok
+[13:59:40] [connection] 127.0.0.1:53195 requests connection cookie.
+[13:59:41] [connection] incoming connection: 127.0.0.1:53195 id: 1
+[13:59:42] [join] Lera_Prokopovich has joined the server (1:127.0.0.1)
+[14:00:11] disconnect
+[14:00:11] UPDATE `accounts` SET `pLicenses` = 0 WHERE `pMySQL_ID` = 6 LIMIT 1
+[14:00:11] [part] Lera_Prokopovich has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[14:39:31] 
+[14:39:31] Server Plugins
+[14:39:31] --------------
+[14:39:31]  Loading plugin: jit
+[14:39:31]   JIT plugin 2.4.1
+[14:39:31]   Loaded.
+[14:39:31]  Loading plugin: streamer
+[14:39:31] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[14:39:31]   Loaded.
+[14:39:31]  Loading plugin: mysql
+[14:39:31]  >> plugin.mysql: R41-4 successfully loaded.
+[14:39:31]   Loaded.
+[14:39:31]  Loading plugin: sscanf
+[14:39:31] 
+
+[14:39:31]  ===============================
+
+[14:39:31]       sscanf plugin loaded.     
+
+[14:39:31]          Version:  2.8.3        
+
+[14:39:31]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:39:31]  ===============================
+
+[14:39:31]   Loaded.
+[14:39:31]  Loaded 4 plugins.
+
+[14:39:31] 
+[14:39:31] Filterscripts
+[14:39:31] ---------------
+[14:39:31]   Loading filterscript 'ntd.amx'...
+[14:39:32] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[14:39:32] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[14:39:32] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[14:39:32]   Loaded 1 filterscripts.
+
+[14:39:32] Подключение к базе MySQL успешно!
+[14:39:32] Number of vehicle models: 2
+[14:39:32] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[14:39:32] [connection] 127.0.0.1:62495 requests connection cookie.
+[14:39:34] [connection] incoming connection: 127.0.0.1:62495 id: 0
+[14:39:34] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[14:39:34] ok
+[14:39:34] ok
+[14:40:07] [connection] 127.0.0.1:51800 requests connection cookie.
+[14:40:08] [connection] incoming connection: 127.0.0.1:51800 id: 1
+[14:40:09] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[14:56:33] 
+[14:56:33] Server Plugins
+[14:56:33] --------------
+[14:56:33]  Loading plugin: jit
+[14:56:33]   JIT plugin 2.4.1
+[14:56:33]   Loaded.
+[14:56:33]  Loading plugin: streamer
+[14:56:33] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[14:56:33]   Loaded.
+[14:56:33]  Loading plugin: mysql
+[14:56:33]  >> plugin.mysql: R41-4 successfully loaded.
+[14:56:33]   Loaded.
+[14:56:33]  Loading plugin: sscanf
+[14:56:33] 
+
+[14:56:33]  ===============================
+
+[14:56:33]       sscanf plugin loaded.     
+
+[14:56:33]          Version:  2.8.3        
+
+[14:56:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:56:33]  ===============================
+
+[14:56:33]   Loaded.
+[14:56:33]  Loaded 4 plugins.
+
+[14:56:33] 
+[14:56:33] Filterscripts
+[14:56:33] ---------------
+[14:56:33]   Loading filterscript 'ntd.amx'...
+[14:56:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[14:56:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[14:56:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[14:56:35]   Loaded 1 filterscripts.
+
+[14:56:35] Подключение к базе MySQL успешно!
+[14:56:35] Number of vehicle models: 2
+[14:56:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[14:56:35] [connection] 127.0.0.1:49854 requests connection cookie.
+[14:56:36] [connection] incoming connection: 127.0.0.1:49854 id: 0
+[14:56:36] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[14:56:37] ok
+[14:56:37] ok
+[14:56:44] [connection] 127.0.0.1:52582 requests connection cookie.
+[14:56:45] [connection] incoming connection: 127.0.0.1:52582 id: 1
+[14:56:45] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:00:52] 
+[15:00:52] Server Plugins
+[15:00:52] --------------
+[15:00:52]  Loading plugin: streamer
+[15:00:52] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:00:52]   Loaded.
+[15:00:52]  Loading plugin: mysql
+[15:00:52]  >> plugin.mysql: R41-4 successfully loaded.
+[15:00:52]   Loaded.
+[15:00:52]  Loading plugin: sscanf
+[15:00:52] 
+
+[15:00:52]  ===============================
+
+[15:00:52]       sscanf plugin loaded.     
+
+[15:00:52]          Version:  2.8.3        
+
+[15:00:52]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:00:52]  ===============================
+
+[15:00:52]   Loaded.
+[15:00:52]  Loaded 3 plugins.
+
+[15:00:52] 
+[15:00:52] Filterscripts
+[15:00:52] ---------------
+[15:00:52]   Loading filterscript 'ntd.amx'...
+[15:00:53] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:00:53] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:00:53] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:00:53]   Loaded 1 filterscripts.
+
+[15:00:54] Подключение к базе MySQL успешно!
+[15:00:54] Number of vehicle models: 2
+[15:00:54] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:00:54] [connection] 127.0.0.1:50639 requests connection cookie.
+[15:00:55] [connection] incoming connection: 127.0.0.1:50639 id: 0
+[15:00:55] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:00:55] ok
+[15:00:56] ok
+[15:00:58] [connection] 127.0.0.1:63101 requests connection cookie.
+[15:00:59] [connection] incoming connection: 127.0.0.1:63101 id: 1
+[15:00:59] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:02:56] 
+[15:02:56] Server Plugins
+[15:02:56] --------------
+[15:02:56]  Loading plugin: streamer
+[15:02:56] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:02:56]   Loaded.
+[15:02:56]  Loading plugin: mysql
+[15:02:56]  >> plugin.mysql: R41-4 successfully loaded.
+[15:02:56]   Loaded.
+[15:02:56]  Loading plugin: sscanf
+[15:02:56] 
+
+[15:02:56]  ===============================
+
+[15:02:56]       sscanf plugin loaded.     
+
+[15:02:56]          Version:  2.8.3        
+
+[15:02:56]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:02:56]  ===============================
+
+[15:02:56]   Loaded.
+[15:02:56]  Loaded 3 plugins.
+
+[15:02:56] 
+[15:02:56] Filterscripts
+[15:02:56] ---------------
+[15:02:56]   Loading filterscript 'ntd.amx'...
+[15:02:57] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:02:57] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:02:57] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:02:57]   Loaded 1 filterscripts.
+
+[15:02:57] Подключение к базе MySQL успешно!
+[15:02:57] Number of vehicle models: 2
+[15:02:57] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:02:57] [connection] 127.0.0.1:53265 requests connection cookie.
+[15:02:59] [connection] incoming connection: 127.0.0.1:53265 id: 0
+[15:02:59] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:02:59] ok
+[15:02:59] ok
+[15:03:01] [connection] 127.0.0.1:59057 requests connection cookie.
+[15:03:02] [connection] incoming connection: 127.0.0.1:59057 id: 1
+[15:03:03] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:05:22] 
+[15:05:22] Server Plugins
+[15:05:22] --------------
+[15:05:22]  Loading plugin: streamer
+[15:05:22] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:05:22]   Loaded.
+[15:05:22]  Loading plugin: mysql
+[15:05:22]  >> plugin.mysql: R41-4 successfully loaded.
+[15:05:22]   Loaded.
+[15:05:22]  Loading plugin: sscanf
+[15:05:22] 
+
+[15:05:22]  ===============================
+
+[15:05:22]       sscanf plugin loaded.     
+
+[15:05:22]          Version:  2.8.3        
+
+[15:05:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:05:22]  ===============================
+
+[15:05:22]   Loaded.
+[15:05:22]  Loaded 3 plugins.
+
+[15:05:22] 
+[15:05:22] Filterscripts
+[15:05:22] ---------------
+[15:05:22]   Loading filterscript 'ntd.amx'...
+[15:05:23] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:05:23] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:05:23] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:05:23]   Loaded 1 filterscripts.
+
+[15:05:24] Подключение к базе MySQL успешно!
+[15:05:24] Number of vehicle models: 2
+[15:05:24] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:05:24] [connection] 127.0.0.1:64206 requests connection cookie.
+[15:05:25] [connection] incoming connection: 127.0.0.1:64206 id: 0
+[15:05:26] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:05:26] ok
+[15:05:26] ok
+[15:05:33] [connection] 127.0.0.1:59693 requests connection cookie.
+[15:05:34] [connection] incoming connection: 127.0.0.1:59693 id: 1
+[15:05:34] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:06:34] 
+[15:06:34] Server Plugins
+[15:06:34] --------------
+[15:06:34]  Loading plugin: streamer
+[15:06:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:06:34]   Loaded.
+[15:06:34]  Loading plugin: mysql
+[15:06:34]  >> plugin.mysql: R41-4 successfully loaded.
+[15:06:34]   Loaded.
+[15:06:34]  Loading plugin: sscanf
+[15:06:34] 
+
+[15:06:34]  ===============================
+
+[15:06:34]       sscanf plugin loaded.     
+
+[15:06:34]          Version:  2.8.3        
+
+[15:06:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:06:34]  ===============================
+
+[15:06:34]   Loaded.
+[15:06:34]  Loaded 3 plugins.
+
+[15:06:34] 
+[15:06:34] Filterscripts
+[15:06:34] ---------------
+[15:06:34]   Loading filterscript 'ntd.amx'...
+[15:06:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:06:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:06:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:06:35]   Loaded 1 filterscripts.
+
+[15:06:36] Подключение к базе MySQL успешно!
+[15:06:36] cikl
+[15:06:36] 1256
+[15:06:36] cikl
+[15:06:36] 1257
+[15:06:36] cikl
+[15:06:36] 1258
+[15:06:36] cikl
+[15:06:36] 1259
+[15:06:36] cikl
+[15:06:36] 1260
+[15:06:36] Number of vehicle models: 2
+[15:06:36] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:06:36] [connection] 127.0.0.1:64558 requests connection cookie.
+[15:06:37] [connection] incoming connection: 127.0.0.1:64558 id: 0
+[15:06:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:06:37] ok
+[15:06:38] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:13:49] 
+[15:13:49] Server Plugins
+[15:13:49] --------------
+[15:13:49]  Loading plugin: streamer
+[15:13:49] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:13:49]   Loaded.
+[15:13:49]  Loading plugin: mysql
+[15:13:49]  >> plugin.mysql: R41-4 successfully loaded.
+[15:13:49]   Loaded.
+[15:13:49]  Loading plugin: sscanf
+[15:13:49] 
+
+[15:13:49]  ===============================
+
+[15:13:49]       sscanf plugin loaded.     
+
+[15:13:49]          Version:  2.8.3        
+
+[15:13:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:13:49]  ===============================
+
+[15:13:49]   Loaded.
+[15:13:49]  Loaded 3 plugins.
+
+[15:13:49] 
+[15:13:49] Filterscripts
+[15:13:49] ---------------
+[15:13:49]   Loading filterscript 'ntd.amx'...
+[15:13:50] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:13:50] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:13:50] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:13:50]   Loaded 1 filterscripts.
+
+[15:13:50] Подключение к базе MySQL успешно!
+[15:13:50] cikl
+[15:13:50] 1256
+[15:13:50] cikl
+[15:13:50] 1257
+[15:13:50] cikl
+[15:13:50] 1258
+[15:13:50] cikl
+[15:13:50] 1259
+[15:13:50] cikl
+[15:13:50] 1260
+[15:13:50] Number of vehicle models: 2
+[15:13:50] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:13:50] [connection] 127.0.0.1:57243 requests connection cookie.
+[15:13:51] [connection] incoming connection: 127.0.0.1:57243 id: 0
+[15:13:52] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:13:52] ok
+[15:13:52] ok
+[15:13:58] [connection] 127.0.0.1:61015 requests connection cookie.
+[15:13:59] [connection] incoming connection: 127.0.0.1:61015 id: 1
+[15:13:59] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:16:07] 
+[15:16:07] Server Plugins
+[15:16:07] --------------
+[15:16:07]  Loading plugin: streamer
+[15:16:07] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:16:07]   Loaded.
+[15:16:07]  Loading plugin: mysql
+[15:16:07]  >> plugin.mysql: R41-4 successfully loaded.
+[15:16:07]   Loaded.
+[15:16:07]  Loading plugin: sscanf
+[15:16:07] 
+
+[15:16:07]  ===============================
+
+[15:16:07]       sscanf plugin loaded.     
+
+[15:16:07]          Version:  2.8.3        
+
+[15:16:07]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:16:07]  ===============================
+
+[15:16:07]   Loaded.
+[15:16:07]  Loaded 3 plugins.
+
+[15:16:07] 
+[15:16:07] Filterscripts
+[15:16:07] ---------------
+[15:16:07]   Loading filterscript 'ntd.amx'...
+[15:16:08] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:16:08] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:16:08] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:16:08]   Loaded 1 filterscripts.
+
+[15:16:09] Подключение к базе MySQL успешно!
+[15:16:09] cikl
+[15:16:09] 1255
+[15:16:09] cikl
+[15:16:09] 1256
+[15:16:09] cikl
+[15:16:09] 1257
+[15:16:09] cikl
+[15:16:09] 1258
+[15:16:09] cikl
+[15:16:09] 1259
+[15:16:09] Number of vehicle models: 2
+[15:16:09] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:16:09] [connection] 127.0.0.1:64234 requests connection cookie.
+[15:16:10] [connection] incoming connection: 127.0.0.1:64234 id: 0
+[15:16:10] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:16:11] ok
+[15:16:11] ok
+[15:16:15] [connection] 127.0.0.1:53085 requests connection cookie.
+[15:16:16] [connection] incoming connection: 127.0.0.1:53085 id: 1
+[15:16:16] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:17:50] 
+[15:17:50] Server Plugins
+[15:17:50] --------------
+[15:17:50]  Loading plugin: streamer
+[15:17:50] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:17:50]   Loaded.
+[15:17:50]  Loading plugin: mysql
+[15:17:50]  >> plugin.mysql: R41-4 successfully loaded.
+[15:17:50]   Loaded.
+[15:17:50]  Loading plugin: sscanf
+[15:17:50] 
+
+[15:17:50]  ===============================
+
+[15:17:50]       sscanf plugin loaded.     
+
+[15:17:50]          Version:  2.8.3        
+
+[15:17:50]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:17:50]  ===============================
+
+[15:17:50]   Loaded.
+[15:17:50]  Loaded 3 plugins.
+
+[15:17:50] 
+[15:17:50] Filterscripts
+[15:17:50] ---------------
+[15:17:50]   Loading filterscript 'ntd.amx'...
+[15:17:51] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:17:51] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:17:51] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:17:51]   Loaded 1 filterscripts.
+
+[15:17:51] Подключение к базе MySQL успешно!
+[15:17:51] cikl
+[15:17:51] 1255
+[15:17:51] cikl
+[15:17:51] 1256
+[15:17:51] cikl
+[15:17:51] 1257
+[15:17:51] cikl
+[15:17:51] 1258
+[15:17:51] cikl
+[15:17:51] 1259
+[15:17:51] Number of vehicle models: 2
+[15:17:51] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:17:51] [connection] 127.0.0.1:51166 requests connection cookie.
+[15:17:52] [connection] incoming connection: 127.0.0.1:51166 id: 0
+[15:17:53] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:17:53] ok
+[15:17:53] ok
+[15:18:14] [connection] 127.0.0.1:63207 requests connection cookie.
+[15:18:15] [connection] incoming connection: 127.0.0.1:63207 id: 1
+[15:18:15] [join] plakapenka has joined the server (1:127.0.0.1)
+[15:19:37] disconnect
+[15:19:37] UPDATE `accounts` SET `pLicenses` = 1 WHERE `pMySQL_ID` = 4 LIMIT 1
+[15:19:37] [part] plakapenka has left the server (1:1)
+[15:20:33] [connection] 127.0.0.1:50577 requests connection cookie.
+[15:20:34] [connection] incoming connection: 127.0.0.1:50577 id: 1
+[15:20:35] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:40:16] 
+[17:40:16] Server Plugins
+[17:40:16] --------------
+[17:40:16]  Loading plugin: streamer
+[17:40:16] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:40:16]   Loaded.
+[17:40:16]  Loading plugin: mysql
+[17:40:16]  >> plugin.mysql: R41-4 successfully loaded.
+[17:40:16]   Loaded.
+[17:40:16]  Loading plugin: sscanf
+[17:40:16] 
+
+[17:40:16]  ===============================
+
+[17:40:16]       sscanf plugin loaded.     
+
+[17:40:16]          Version:  2.8.3        
+
+[17:40:16]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:40:17]  ===============================
+
+[17:40:17]   Loaded.
+[17:40:17]  Loaded 3 plugins.
+
+[17:40:17] 
+[17:40:17] Filterscripts
+[17:40:17] ---------------
+[17:40:17]   Loading filterscript 'ntd.amx'...
+[17:40:18] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:40:18] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:40:18] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:40:18]   Loaded 1 filterscripts.
+
+[17:40:18] Подключение к базе MySQL успешно!
+[17:40:18] Number of vehicle models: 2
+[17:40:18] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:40:18] [connection] 127.0.0.1:63240 requests connection cookie.
+[17:40:19] [connection] incoming connection: 127.0.0.1:63240 id: 0
+[17:40:20] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:40:20] ok
+[17:40:20] ok
+[17:40:48] [connection] 127.0.0.1:60887 requests connection cookie.
+[17:40:49] [connection] incoming connection: 127.0.0.1:60887 id: 1
+[17:40:49] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:43:21] 
+[17:43:21] Server Plugins
+[17:43:21] --------------
+[17:43:21]  Loading plugin: streamer
+[17:43:21] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:43:21]   Loaded.
+[17:43:21]  Loading plugin: mysql
+[17:43:21]  >> plugin.mysql: R41-4 successfully loaded.
+[17:43:21]   Loaded.
+[17:43:21]  Loading plugin: sscanf
+[17:43:21] 
+
+[17:43:21]  ===============================
+
+[17:43:21]       sscanf plugin loaded.     
+
+[17:43:21]          Version:  2.8.3        
+
+[17:43:21]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:43:21]  ===============================
+
+[17:43:21]   Loaded.
+[17:43:21]  Loaded 3 plugins.
+
+[17:43:21] 
+[17:43:21] Filterscripts
+[17:43:21] ---------------
+[17:43:21]   Loading filterscript 'ntd.amx'...
+[17:43:23] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:43:23] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:43:23] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:43:23]   Loaded 1 filterscripts.
+
+[17:43:23] Подключение к базе MySQL успешно!
+[17:43:23] Number of vehicle models: 2
+[17:43:23] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:43:23] [connection] 127.0.0.1:60961 requests connection cookie.
+[17:43:24] [connection] incoming connection: 127.0.0.1:60961 id: 0
+[17:43:24] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:43:25] ok
+[17:43:25] ok
+[17:43:28] [connection] 127.0.0.1:60962 requests connection cookie.
+[17:43:29] [connection] incoming connection: 127.0.0.1:60962 id: 1
+[17:43:30] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:50:49] 
+[17:50:49] Server Plugins
+[17:50:49] --------------
+[17:50:49]  Loading plugin: streamer
+[17:50:49] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:50:49]   Loaded.
+[17:50:49]  Loading plugin: mysql
+[17:50:49]  >> plugin.mysql: R41-4 successfully loaded.
+[17:50:49]   Loaded.
+[17:50:49]  Loading plugin: sscanf
+[17:50:49] 
+
+[17:50:49]  ===============================
+
+[17:50:49]       sscanf plugin loaded.     
+
+[17:50:49]          Version:  2.8.3        
+
+[17:50:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:50:49]  ===============================
+
+[17:50:49]   Loaded.
+[17:50:49]  Loaded 3 plugins.
+
+[17:50:49] 
+[17:50:49] Filterscripts
+[17:50:49] ---------------
+[17:50:49]   Loading filterscript 'ntd.amx'...
+[17:50:51] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:50:51] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:50:51] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:50:51]   Loaded 1 filterscripts.
+
+[17:50:52] Подключение к базе MySQL успешно!
+[17:50:52] Number of vehicle models: 2
+[17:50:52] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:50:52] [connection] 127.0.0.1:60772 requests connection cookie.
+[17:50:53] [connection] incoming connection: 127.0.0.1:60772 id: 0
+[17:50:53] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:50:54] ok
+[17:50:54] ok
+[17:50:54] [connection] 127.0.0.1:65463 requests connection cookie.
+[17:50:55] [connection] incoming connection: 127.0.0.1:65463 id: 1
+[17:51:05] [connection] incoming connection: 127.0.0.1:57976 id: 1
+[17:51:05] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:04:17] 
+[18:04:17] Server Plugins
+[18:04:17] --------------
+[18:04:17]  Loading plugin: streamer
+[18:04:17] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:04:17]   Loaded.
+[18:04:17]  Loading plugin: mysql
+[18:04:17]  >> plugin.mysql: R41-4 successfully loaded.
+[18:04:17]   Loaded.
+[18:04:17]  Loading plugin: sscanf
+[18:04:17] 
+
+[18:04:17]  ===============================
+
+[18:04:17]       sscanf plugin loaded.     
+
+[18:04:17]          Version:  2.8.3        
+
+[18:04:17]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:04:17]  ===============================
+
+[18:04:17]   Loaded.
+[18:04:18]  Loaded 3 plugins.
+
+[18:04:18] 
+[18:04:18] Filterscripts
+[18:04:18] ---------------
+[18:04:18]   Loading filterscript 'ntd.amx'...
+[18:04:19] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:04:19] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:04:19] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:04:19]   Loaded 1 filterscripts.
+
+[18:04:19] Подключение к базе MySQL успешно!
+[18:04:19] Number of vehicle models: 2
+[18:04:19] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:04:19] [connection] 127.0.0.1:53145 requests connection cookie.
+[18:04:20] [connection] incoming connection: 127.0.0.1:53145 id: 0
+[18:04:20] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:04:21] ok
+[18:04:21] ok
+[18:04:22] [connection] 127.0.0.1:53146 requests connection cookie.
+[18:04:24] [connection] incoming connection: 127.0.0.1:53146 id: 1
+[18:04:34] [connection] incoming connection: 127.0.0.1:53147 id: 1
+[18:04:34] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:42:32] 
+[18:42:32] Server Plugins
+[18:42:32] --------------
+[18:42:32]  Loading plugin: streamer
+[18:42:32] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:42:32]   Loaded.
+[18:42:32]  Loading plugin: mysql
+[18:42:32]  >> plugin.mysql: R41-4 successfully loaded.
+[18:42:32]   Loaded.
+[18:42:32]  Loading plugin: sscanf
+[18:42:32] 
+
+[18:42:32]  ===============================
+
+[18:42:32]       sscanf plugin loaded.     
+
+[18:42:32]          Version:  2.8.3        
+
+[18:42:32]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:42:32]  ===============================
+
+[18:42:32]   Loaded.
+[18:42:32]  Loaded 3 plugins.
+
+[18:42:32] 
+[18:42:32] Filterscripts
+[18:42:32] ---------------
+[18:42:32]   Loading filterscript 'ntd.amx'...
+[18:42:33] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:42:33] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:42:33] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:42:33]   Loaded 1 filterscripts.
+
+[18:42:33] Подключение к базе MySQL успешно!
+[18:42:33] Number of vehicle models: 2
+[18:42:33] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:42:34] [connection] 127.0.0.1:65321 requests connection cookie.
+[18:42:35] [connection] incoming connection: 127.0.0.1:65321 id: 0
+[18:42:35] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:42:35] ok
+[18:42:35] ok
+[18:42:38] [connection] 127.0.0.1:55641 requests connection cookie.
+[18:42:39] [connection] incoming connection: 127.0.0.1:55641 id: 1
+[18:42:40] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:46:18] 
+[18:46:18] Server Plugins
+[18:46:18] --------------
+[18:46:18]  Loading plugin: streamer
+[18:46:18] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:46:18]   Loaded.
+[18:46:18]  Loading plugin: mysql
+[18:46:18]  >> plugin.mysql: R41-4 successfully loaded.
+[18:46:18]   Loaded.
+[18:46:18]  Loading plugin: sscanf
+[18:46:18] 
+
+[18:46:18]  ===============================
+
+[18:46:18]       sscanf plugin loaded.     
+
+[18:46:18]          Version:  2.8.3        
+
+[18:46:18]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:46:18]  ===============================
+
+[18:46:18]   Loaded.
+[18:46:18]  Loaded 3 plugins.
+
+[18:46:18] 
+[18:46:18] Filterscripts
+[18:46:18] ---------------
+[18:46:18]   Loading filterscript 'ntd.amx'...
+[18:46:19] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:46:19] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:46:19] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:46:19]   Loaded 1 filterscripts.
+
+[18:46:19] Подключение к базе MySQL успешно!
+[18:46:19] Number of vehicle models: 2
+[18:46:19] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:46:19] [connection] 127.0.0.1:57761 requests connection cookie.
+[18:46:20] [connection] incoming connection: 127.0.0.1:57761 id: 0
+[18:46:20] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:46:21] ok
+[18:46:21] ok
+[18:46:31] [connection] 127.0.0.1:57762 requests connection cookie.
+[18:46:32] [connection] incoming connection: 127.0.0.1:57762 id: 1
+[18:46:32] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:59:33] 
+[18:59:33] Server Plugins
+[18:59:33] --------------
+[18:59:33]  Loading plugin: streamer
+[18:59:33] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:59:33]   Loaded.
+[18:59:33]  Loading plugin: mysql
+[18:59:33]  >> plugin.mysql: R41-4 successfully loaded.
+[18:59:33]   Loaded.
+[18:59:33]  Loading plugin: sscanf
+[18:59:33] 
+
+[18:59:33]  ===============================
+
+[18:59:33]       sscanf plugin loaded.     
+
+[18:59:33]          Version:  2.8.3        
+
+[18:59:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:59:33]  ===============================
+
+[18:59:33]   Loaded.
+[18:59:33]  Loaded 3 plugins.
+
+[18:59:33] 
+[18:59:33] Filterscripts
+[18:59:33] ---------------
+[18:59:33]   Loading filterscript 'ntd.amx'...
+[18:59:34] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[18:59:34] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[18:59:34] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[18:59:34]   Loaded 1 filterscripts.
+
+[18:59:35] Подключение к базе MySQL успешно!
+[18:59:35] Number of vehicle models: 2
+[18:59:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:59:35] [connection] 127.0.0.1:52188 requests connection cookie.
+[18:59:36] [connection] incoming connection: 127.0.0.1:52188 id: 0
+[18:59:36] [connection] 127.0.0.1:52189 requests connection cookie.
+[18:59:36] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:59:36] ok
+[18:59:37] ok
+[18:59:37] [connection] incoming connection: 127.0.0.1:52189 id: 1
+[18:59:37] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:01:49] 
+[19:01:49] Server Plugins
+[19:01:49] --------------
+[19:01:49]  Loading plugin: streamer
+[19:01:49] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:01:49]   Loaded.
+[19:01:49]  Loading plugin: mysql
+[19:01:49]  >> plugin.mysql: R41-4 successfully loaded.
+[19:01:49]   Loaded.
+[19:01:49]  Loading plugin: sscanf
+[19:01:49] 
+
+[19:01:49]  ===============================
+
+[19:01:49]       sscanf plugin loaded.     
+
+[19:01:49]          Version:  2.8.3        
+
+[19:01:49]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:01:49]  ===============================
+
+[19:01:49]   Loaded.
+[19:01:49]  Loaded 3 plugins.
+
+[19:01:49] 
+[19:01:49] Filterscripts
+[19:01:49] ---------------
+[19:01:49]   Loading filterscript 'ntd.amx'...
+[19:01:50] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:01:50] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:01:50] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:01:50]   Loaded 1 filterscripts.
+
+[19:01:50] Подключение к базе MySQL успешно!
+[19:01:51] Number of vehicle models: 2
+[19:01:51] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:01:51] [connection] 127.0.0.1:58644 requests connection cookie.
+[19:01:52] [connection] incoming connection: 127.0.0.1:58644 id: 0
+[19:01:52] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:01:53] ok
+[19:01:53] ok
+[19:01:53] [connection] 127.0.0.1:58645 requests connection cookie.
+[19:01:54] [connection] incoming connection: 127.0.0.1:58645 id: 1
+[19:02:04] [connection] incoming connection: 127.0.0.1:58646 id: 1
+[19:02:04] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:05:20] 
+[19:05:20] Server Plugins
+[19:05:20] --------------
+[19:05:20]  Loading plugin: streamer
+[19:05:20] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:05:20]   Loaded.
+[19:05:20]  Loading plugin: mysql
+[19:05:21]  >> plugin.mysql: R41-4 successfully loaded.
+[19:05:21]   Loaded.
+[19:05:21]  Loading plugin: sscanf
+[19:05:21] 
+
+[19:05:21]  ===============================
+
+[19:05:21]       sscanf plugin loaded.     
+
+[19:05:21]          Version:  2.8.3        
+
+[19:05:21]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:05:21]  ===============================
+
+[19:05:21]   Loaded.
+[19:05:21]  Loaded 3 plugins.
+
+[19:05:21] 
+[19:05:21] Filterscripts
+[19:05:21] ---------------
+[19:05:21]   Loading filterscript 'ntd.amx'...
+[19:05:22] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:05:22] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:05:22] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:05:22]   Loaded 1 filterscripts.
+
+[19:05:22] Подключение к базе MySQL успешно!
+[19:05:22] Number of vehicle models: 2
+[19:05:22] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:05:22] [connection] 127.0.0.1:55245 requests connection cookie.
+[19:05:23] [connection] incoming connection: 127.0.0.1:55245 id: 0
+[19:05:24] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:05:24] ok
+[19:05:24] ok
+[19:05:24] [connection] 127.0.0.1:55246 requests connection cookie.
+[19:05:25] [connection] incoming connection: 127.0.0.1:55246 id: 1
+[19:05:25] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:06:34] 
+[19:06:34] Server Plugins
+[19:06:34] --------------
+[19:06:34]  Loading plugin: streamer
+[19:06:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:06:34]   Loaded.
+[19:06:34]  Loading plugin: mysql
+[19:06:34]  >> plugin.mysql: R41-4 successfully loaded.
+[19:06:34]   Loaded.
+[19:06:34]  Loading plugin: sscanf
+[19:06:34] 
+
+[19:06:34]  ===============================
+
+[19:06:34]       sscanf plugin loaded.     
+
+[19:06:34]          Version:  2.8.3        
+
+[19:06:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:06:34]  ===============================
+
+[19:06:34]   Loaded.
+[19:06:34]  Loaded 3 plugins.
+
+[19:06:34] 
+[19:06:34] Filterscripts
+[19:06:34] ---------------
+[19:06:34]   Loading filterscript 'ntd.amx'...
+[19:06:36] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:06:36] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:06:36] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:06:36]   Loaded 1 filterscripts.
+
+[19:06:36] Подключение к базе MySQL успешно!
+[19:06:37] Number of vehicle models: 2
+[19:06:37] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:06:37] [connection] 127.0.0.1:58245 requests connection cookie.
+[19:06:38] [connection] incoming connection: 127.0.0.1:58245 id: 0
+[19:06:38] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:06:38] ok
+[19:06:38] ok
+[19:06:43] [connection] 127.0.0.1:58246 requests connection cookie.
+[19:06:44] [connection] incoming connection: 127.0.0.1:58246 id: 1
+[19:06:44] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:10:34] 
+[19:10:34] Server Plugins
+[19:10:34] --------------
+[19:10:34]  Loading plugin: streamer
+[19:10:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:10:34]   Loaded.
+[19:10:34]  Loading plugin: mysql
+[19:10:34]  >> plugin.mysql: R41-4 successfully loaded.
+[19:10:34]   Loaded.
+[19:10:34]  Loading plugin: sscanf
+[19:10:34] 
+
+[19:10:34]  ===============================
+
+[19:10:34]       sscanf plugin loaded.     
+
+[19:10:34]          Version:  2.8.3        
+
+[19:10:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:10:34]  ===============================
+
+[19:10:34]   Loaded.
+[19:10:34]  Loaded 3 plugins.
+
+[19:10:34] 
+[19:10:34] Filterscripts
+[19:10:34] ---------------
+[19:10:34]   Loading filterscript 'ntd.amx'...
+[19:10:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:10:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:10:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:10:35]   Loaded 1 filterscripts.
+
+[19:10:35] Подключение к базе MySQL успешно!
+[19:10:35] Number of vehicle models: 2
+[19:10:35] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:10:35] [connection] 127.0.0.1:57411 requests connection cookie.
+[19:10:37] [connection] incoming connection: 127.0.0.1:57411 id: 0
+[19:10:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:10:37] ok
+[19:10:37] ok
+[19:10:47] [connection] 127.0.0.1:57412 requests connection cookie.
+[19:10:48] [connection] incoming connection: 127.0.0.1:57412 id: 1
+[19:10:49] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:14:35] 
+[19:14:35] Server Plugins
+[19:14:35] --------------
+[19:14:35]  Loading plugin: streamer
+[19:14:35] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:14:35]   Loaded.
+[19:14:35]  Loading plugin: mysql
+[19:14:35]  >> plugin.mysql: R41-4 successfully loaded.
+[19:14:35]   Loaded.
+[19:14:35]  Loading plugin: sscanf
+[19:14:35] 
+
+[19:14:35]  ===============================
+
+[19:14:35]       sscanf plugin loaded.     
+
+[19:14:35]          Version:  2.8.3        
+
+[19:14:35]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:14:35]  ===============================
+
+[19:14:35]   Loaded.
+[19:14:35]  Loaded 3 plugins.
+
+[19:14:35] 
+[19:14:35] Filterscripts
+[19:14:35] ---------------
+[19:14:35]   Loading filterscript 'ntd.amx'...
+[19:14:36] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:14:36] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:14:36] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:14:36]   Loaded 1 filterscripts.
+
+[19:14:37] Подключение к базе MySQL успешно!
+[19:14:37] Number of vehicle models: 2
+[19:14:37] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:14:37] [connection] 127.0.0.1:49907 requests connection cookie.
+[19:14:38] [connection] incoming connection: 127.0.0.1:49907 id: 0
+[19:14:39] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:14:39] ok
+[19:14:39] ok
+[19:14:41] [connection] 127.0.0.1:49908 requests connection cookie.
+[19:14:42] [connection] incoming connection: 127.0.0.1:49908 id: 1
+[19:14:43] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:16:11] 
+[19:16:11] Server Plugins
+[19:16:11] --------------
+[19:16:11]  Loading plugin: streamer
+[19:16:11] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:16:11]   Loaded.
+[19:16:11]  Loading plugin: mysql
+[19:16:11]  >> plugin.mysql: R41-4 successfully loaded.
+[19:16:11]   Loaded.
+[19:16:11]  Loading plugin: sscanf
+[19:16:11] 
+
+[19:16:11]  ===============================
+
+[19:16:11]       sscanf plugin loaded.     
+
+[19:16:11]          Version:  2.8.3        
+
+[19:16:11]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:16:11]  ===============================
+
+[19:16:11]   Loaded.
+[19:16:11]  Loaded 3 plugins.
+
+[19:16:11] 
+[19:16:11] Filterscripts
+[19:16:11] ---------------
+[19:16:11]   Loading filterscript 'ntd.amx'...
+[19:16:12] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:16:12] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:16:12] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:16:12]   Loaded 1 filterscripts.
+
+[19:16:12] Подключение к базе MySQL успешно!
+[19:16:12] Number of vehicle models: 2
+[19:16:12] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:16:12] [connection] 127.0.0.1:62169 requests connection cookie.
+[19:16:13] [connection] incoming connection: 127.0.0.1:62169 id: 0
+[19:16:14] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:16:14] ok
+[19:16:14] ok
+[19:16:26] [connection] 127.0.0.1:62170 requests connection cookie.
+[19:16:27] [connection] incoming connection: 127.0.0.1:62170 id: 1
+[19:16:28] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:18:19] 
+[19:18:19] Server Plugins
+[19:18:19] --------------
+[19:18:19]  Loading plugin: streamer
+[19:18:19] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:18:19]   Loaded.
+[19:18:19]  Loading plugin: mysql
+[19:18:20]  >> plugin.mysql: R41-4 successfully loaded.
+[19:18:20]   Loaded.
+[19:18:20]  Loading plugin: sscanf
+[19:18:20] 
+
+[19:18:20]  ===============================
+
+[19:18:20]       sscanf plugin loaded.     
+
+[19:18:20]          Version:  2.8.3        
+
+[19:18:20]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:18:20]  ===============================
+
+[19:18:20]   Loaded.
+[19:18:20]  Loaded 3 plugins.
+
+[19:18:20] 
+[19:18:20] Filterscripts
+[19:18:20] ---------------
+[19:18:20]   Loading filterscript 'ntd.amx'...
+[19:18:21] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:18:21] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:18:21] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:18:21]   Loaded 1 filterscripts.
+
+[19:18:21] Подключение к базе MySQL успешно!
+[19:18:21] Number of vehicle models: 2
+[19:18:21] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:18:21] [connection] 127.0.0.1:56517 requests connection cookie.
+[19:18:22] [connection] incoming connection: 127.0.0.1:56517 id: 0
+[19:18:22] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:18:23] ok
+[19:18:23] ok
+[19:18:32] [connection] 127.0.0.1:56518 requests connection cookie.
+[19:18:33] [connection] incoming connection: 127.0.0.1:56518 id: 1
+[19:18:43] [connection] incoming connection: 127.0.0.1:56519 id: 1
+[19:18:44] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:20:37] 
+[19:20:37] Server Plugins
+[19:20:37] --------------
+[19:20:37]  Loading plugin: streamer
+[19:20:37] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:20:37]   Loaded.
+[19:20:37]  Loading plugin: mysql
+[19:20:38]  >> plugin.mysql: R41-4 successfully loaded.
+[19:20:38]   Loaded.
+[19:20:38]  Loading plugin: sscanf
+[19:20:38] 
+
+[19:20:38]  ===============================
+
+[19:20:38]       sscanf plugin loaded.     
+
+[19:20:38]          Version:  2.8.3        
+
+[19:20:38]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:20:38]  ===============================
+
+[19:20:38]   Loaded.
+[19:20:38]  Loaded 3 plugins.
+
+[19:20:38] 
+[19:20:38] Filterscripts
+[19:20:38] ---------------
+[19:20:38]   Loading filterscript 'ntd.amx'...
+[19:20:39] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[19:20:39] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[19:20:39] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[19:20:39]   Loaded 1 filterscripts.
+
+[19:20:39] Подключение к базе MySQL успешно!
+[19:20:39] Number of vehicle models: 2
+[19:20:39] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:20:39] [connection] 127.0.0.1:60065 requests connection cookie.
+[19:20:40] [connection] incoming connection: 127.0.0.1:60065 id: 0
+[19:20:40] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:20:41] ok
+[19:20:41] ok
+[19:20:47] [connection] 127.0.0.1:60066 requests connection cookie.
+[19:20:48] [connection] incoming connection: 127.0.0.1:60066 id: 1
+[19:20:48] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:08:05] 
+[13:08:05] Server Plugins
+[13:08:05] --------------
+[13:08:05]  Loading plugin: streamer
+[13:08:05] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:08:05]   Loaded.
+[13:08:05]  Loading plugin: mysql
+[13:08:05]  >> plugin.mysql: R41-4 successfully loaded.
+[13:08:05]   Loaded.
+[13:08:05]  Loading plugin: sscanf
+[13:08:05] 
+
+[13:08:05]  ===============================
+
+[13:08:05]       sscanf plugin loaded.     
+
+[13:08:05]          Version:  2.8.3        
+
+[13:08:05]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:08:05]  ===============================
+
+[13:08:05]   Loaded.
+[13:08:05]  Loaded 3 plugins.
+
+[13:08:05] 
+[13:08:05] Filterscripts
+[13:08:05] ---------------
+[13:08:05]   Loading filterscript 'ntd.amx'...
+[13:08:06] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:08:06] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:08:06] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:08:06]   Loaded 1 filterscripts.
+
+[13:08:06] Подключение к базе MySQL успешно!
+[13:08:07] имя должно быть типа Имя_Фамилия
+[13:08:07] Number of vehicle models: 2
+[13:08:07] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:08:07] [connection] 127.0.0.1:65346 requests connection cookie.
+[13:08:08] [connection] incoming connection: 127.0.0.1:65346 id: 0
+[13:08:08] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:08:08] ok
+[13:08:08] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:08:27] 
+[13:08:27] Server Plugins
+[13:08:27] --------------
+[13:08:27]  Loading plugin: streamer
+[13:08:27] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:08:27]   Loaded.
+[13:08:27]  Loading plugin: mysql
+[13:08:27]  >> plugin.mysql: R41-4 successfully loaded.
+[13:08:27]   Loaded.
+[13:08:27]  Loading plugin: sscanf
+[13:08:27] 
+
+[13:08:27]  ===============================
+
+[13:08:27]       sscanf plugin loaded.     
+
+[13:08:27]          Version:  2.8.3        
+
+[13:08:27]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:08:27]  ===============================
+
+[13:08:27]   Loaded.
+[13:08:27]  Loaded 3 plugins.
+
+[13:08:27] 
+[13:08:27] Filterscripts
+[13:08:27] ---------------
+[13:08:27]   Loading filterscript 'ntd.amx'...
+[13:08:29] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:08:29] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:08:29] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:08:29]   Loaded 1 filterscripts.
+
+[13:08:29] Подключение к базе MySQL успешно!
+[13:08:29] sscanf warning: Strings without a length are deprecated, please add a destination size.
+[13:08:29] sscanf warning: Strings without a length are deprecated, please add a destination size.
+[13:08:29] Number of vehicle models: 2
+[13:08:29] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:08:29] [connection] 127.0.0.1:64793 requests connection cookie.
+[13:08:30] [connection] incoming connection: 127.0.0.1:64793 id: 0
+[13:08:30] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:08:31] ok
+[13:08:31] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:08:48] 
+[13:08:48] Server Plugins
+[13:08:48] --------------
+[13:08:48]  Loading plugin: streamer
+[13:08:48] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:08:48]   Loaded.
+[13:08:48]  Loading plugin: mysql
+[13:08:48]  >> plugin.mysql: R41-4 successfully loaded.
+[13:08:48]   Loaded.
+[13:08:48]  Loading plugin: sscanf
+[13:08:48] 
+
+[13:08:48]  ===============================
+
+[13:08:48]       sscanf plugin loaded.     
+
+[13:08:48]          Version:  2.8.3        
+
+[13:08:48]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:08:48]  ===============================
+
+[13:08:48]   Loaded.
+[13:08:48]  Loaded 3 plugins.
+
+[13:08:48] 
+[13:08:48] Filterscripts
+[13:08:48] ---------------
+[13:08:48]   Loading filterscript 'ntd.amx'...
+[13:08:49] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:08:49] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:08:49] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:08:49]   Loaded 1 filterscripts.
+
+[13:08:49] Подключение к базе MySQL успешно!
+[13:08:49] Number of vehicle models: 2
+[13:08:49] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:08:49] [connection] 127.0.0.1:61211 requests connection cookie.
+[13:08:50] [connection] incoming connection: 127.0.0.1:61211 id: 0
+[13:08:50] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:08:51] ok
+[13:08:51] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:09:37] 
+[13:09:37] Server Plugins
+[13:09:37] --------------
+[13:09:37]  Loading plugin: streamer
+[13:09:37] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:09:37]   Loaded.
+[13:09:37]  Loading plugin: mysql
+[13:09:37]  >> plugin.mysql: R41-4 successfully loaded.
+[13:09:37]   Loaded.
+[13:09:37]  Loading plugin: sscanf
+[13:09:37] 
+
+[13:09:37]  ===============================
+
+[13:09:37]       sscanf plugin loaded.     
+
+[13:09:37]          Version:  2.8.3        
+
+[13:09:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:09:37]  ===============================
+
+[13:09:37]   Loaded.
+[13:09:37]  Loaded 3 plugins.
+
+[13:09:37] 
+[13:09:37] Filterscripts
+[13:09:37] ---------------
+[13:09:37]   Loading filterscript 'ntd.amx'...
+[13:09:38] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:09:38] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:09:38] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:09:38]   Loaded 1 filterscripts.
+
+[13:09:38] Подключение к базе MySQL успешно!
+[13:09:38] first_name - Antonio, last_name - Kortes
+[13:09:38] Number of vehicle models: 2
+[13:09:38] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:09:38] [connection] 127.0.0.1:52328 requests connection cookie.
+[13:09:39] [connection] incoming connection: 127.0.0.1:52328 id: 0
+[13:09:40] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:09:40] ok
+[13:09:40] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[13:11:07] 
+[13:11:07] Server Plugins
+[13:11:07] --------------
+[13:11:07]  Loading plugin: streamer
+[13:11:07] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[13:11:07]   Loaded.
+[13:11:07]  Loading plugin: mysql
+[13:11:07]  >> plugin.mysql: R41-4 successfully loaded.
+[13:11:07]   Loaded.
+[13:11:07]  Loading plugin: sscanf
+[13:11:07] 
+
+[13:11:07]  ===============================
+
+[13:11:07]       sscanf plugin loaded.     
+
+[13:11:07]          Version:  2.8.3        
+
+[13:11:07]   (c) 2018 Alex "Y_Less" Cole  
+
+[13:11:07]  ===============================
+
+[13:11:07]   Loaded.
+[13:11:07]  Loaded 3 plugins.
+
+[13:11:07] 
+[13:11:07] Filterscripts
+[13:11:07] ---------------
+[13:11:07]   Loading filterscript 'ntd.amx'...
+[13:11:08] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[13:11:08] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[13:11:08] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[13:11:08]   Loaded 1 filterscripts.
+
+[13:11:09] Подключение к базе MySQL успешно!
+[13:11:09] first_name - Antonio, last_name - Kortes
+[13:11:09] Number of vehicle models: 2
+[13:11:09] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[13:11:09] [connection] 127.0.0.1:56649 requests connection cookie.
+[13:11:10] [connection] incoming connection: 127.0.0.1:56649 id: 0
+[13:11:10] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[13:11:10] ok
+[13:11:10] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[14:30:48] 
+[14:30:48] Server Plugins
+[14:30:48] --------------
+[14:30:48]  Loading plugin: streamer
+[14:30:48] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[14:30:48]   Loaded.
+[14:30:48]  Loading plugin: mysql
+[14:30:48]  >> plugin.mysql: R41-4 successfully loaded.
+[14:30:48]   Loaded.
+[14:30:48]  Loading plugin: sscanf
+[14:30:48] 
+
+[14:30:48]  ===============================
+
+[14:30:48]       sscanf plugin loaded.     
+
+[14:30:48]          Version:  2.8.3        
+
+[14:30:48]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:30:48]  ===============================
+
+[14:30:48]   Loaded.
+[14:30:48]  Loaded 3 plugins.
+
+[14:30:49] 
+[14:30:49] Filterscripts
+[14:30:49] ---------------
+[14:30:49]   Loading filterscript 'ntd.amx'...
+[14:30:50] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[14:30:50] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[14:30:50] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[14:30:50]   Loaded 1 filterscripts.
+
+[14:30:50] Подключение к базе MySQL успешно!
+[14:30:50] Number of vehicle models: 2
+[14:30:50] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[14:30:50] [connection] 127.0.0.1:50617 requests connection cookie.
+[14:30:51] [connection] incoming connection: 127.0.0.1:50617 id: 0
+[14:30:52] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[14:30:53] ok
+[14:30:53] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[14:50:15] 
+[14:50:15] Server Plugins
+[14:50:15] --------------
+[14:50:15]  Loading plugin: streamer
+[14:50:15] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[14:50:15]   Loaded.
+[14:50:15]  Loading plugin: mysql
+[14:50:15]  >> plugin.mysql: R41-4 successfully loaded.
+[14:50:15]   Loaded.
+[14:50:15]  Loading plugin: sscanf
+[14:50:15] 
+
+[14:50:15]  ===============================
+
+[14:50:15]       sscanf plugin loaded.     
+
+[14:50:15]          Version:  2.8.3        
+
+[14:50:15]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:50:15]  ===============================
+
+[14:50:15]   Loaded.
+[14:50:15]  Loaded 3 plugins.
+
+[14:50:16] 
+[14:50:16] Filterscripts
+[14:50:16] ---------------
+[14:50:16]   Loading filterscript 'ntd.amx'...
+[14:50:17] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[14:50:17] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[14:50:17] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[14:50:17]   Loaded 1 filterscripts.
+
+[14:50:17] Подключение к базе MySQL успешно!
+[14:50:17] Number of vehicle models: 2
+[14:50:17] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[14:50:17] [connection] 127.0.0.1:49982 requests connection cookie.
+[14:50:18] [connection] incoming connection: 127.0.0.1:49982 id: 0
+[14:50:18] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[14:50:19] ok
+[14:50:19] ok
+[14:50:59] [connection] 127.0.0.1:62406 requests connection cookie.
+[14:51:00] [connection] incoming connection: 127.0.0.1:62406 id: 1
+[14:51:00] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[14:57:47] 
+[14:57:47] Server Plugins
+[14:57:47] --------------
+[14:57:47]  Loading plugin: streamer
+[14:57:47] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[14:57:47]   Loaded.
+[14:57:47]  Loading plugin: mysql
+[14:57:47]  >> plugin.mysql: R41-4 successfully loaded.
+[14:57:47]   Loaded.
+[14:57:47]  Loading plugin: sscanf
+[14:57:47] 
+
+[14:57:47]  ===============================
+
+[14:57:47]       sscanf plugin loaded.     
+
+[14:57:47]          Version:  2.8.3        
+
+[14:57:47]   (c) 2018 Alex "Y_Less" Cole  
+
+[14:57:47]  ===============================
+
+[14:57:47]   Loaded.
+[14:57:47]  Loaded 3 plugins.
+
+[14:57:47] 
+[14:57:47] Filterscripts
+[14:57:47] ---------------
+[14:57:47]   Loading filterscript 'ntd.amx'...
+[14:57:48] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[14:57:48] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[14:57:48] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[14:57:48]   Loaded 1 filterscripts.
+
+[14:57:48] Подключение к базе MySQL успешно!
+[14:57:48] Number of vehicle models: 2
+[14:57:48] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[14:57:49] [connection] 127.0.0.1:62914 requests connection cookie.
+[14:57:50] [connection] 127.0.0.1:57456 requests connection cookie.
+[14:57:50] [connection] incoming connection: 127.0.0.1:62914 id: 0
+[14:57:50] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[14:57:50] ok
+[14:57:50] ok
+[14:57:51] [connection] incoming connection: 127.0.0.1:57456 id: 1
+[14:57:51] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:02:35] 
+[15:02:35] Server Plugins
+[15:02:35] --------------
+[15:02:35]  Loading plugin: streamer
+[15:02:35] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:02:35]   Loaded.
+[15:02:35]  Loading plugin: mysql
+[15:02:35]  >> plugin.mysql: R41-4 successfully loaded.
+[15:02:35]   Loaded.
+[15:02:35]  Loading plugin: sscanf
+[15:02:35] 
+
+[15:02:35]  ===============================
+
+[15:02:35]       sscanf plugin loaded.     
+
+[15:02:35]          Version:  2.8.3        
+
+[15:02:35]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:02:35]  ===============================
+
+[15:02:35]   Loaded.
+[15:02:35]  Loaded 3 plugins.
+
+[15:02:35] 
+[15:02:35] Filterscripts
+[15:02:35] ---------------
+[15:02:35]   Loading filterscript 'ntd.amx'...
+[15:02:37] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:02:37] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:02:37] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:02:37]   Loaded 1 filterscripts.
+
+[15:02:37] Подключение к базе MySQL успешно!
+[15:02:37] Number of vehicle models: 2
+[15:02:37] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:02:37] [connection] 127.0.0.1:59653 requests connection cookie.
+[15:02:38] [connection] incoming connection: 127.0.0.1:59653 id: 0
+[15:02:38] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:02:39] ok
+[15:02:39] ok
+[15:02:55] [connection] 127.0.0.1:60629 requests connection cookie.
+[15:02:56] [connection] incoming connection: 127.0.0.1:60629 id: 1
+[15:02:56] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:08:12] 
+[15:08:12] Server Plugins
+[15:08:12] --------------
+[15:08:12]  Loading plugin: streamer
+[15:08:12] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:08:12]   Loaded.
+[15:08:12]  Loading plugin: mysql
+[15:08:12]  >> plugin.mysql: R41-4 successfully loaded.
+[15:08:12]   Loaded.
+[15:08:12]  Loading plugin: sscanf
+[15:08:12] 
+
+[15:08:12]  ===============================
+
+[15:08:12]       sscanf plugin loaded.     
+
+[15:08:12]          Version:  2.8.3        
+
+[15:08:12]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:08:12]  ===============================
+
+[15:08:12]   Loaded.
+[15:08:12]  Loaded 3 plugins.
+
+[15:08:12] 
+[15:08:12] Filterscripts
+[15:08:12] ---------------
+[15:08:12]   Loading filterscript 'ntd.amx'...
+[15:08:13] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:08:13] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:08:13] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:08:13]   Loaded 1 filterscripts.
+
+[15:08:13] Подключение к базе MySQL успешно!
+[15:08:13] Number of vehicle models: 2
+[15:08:13] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:08:13] [connection] 127.0.0.1:59246 requests connection cookie.
+[15:08:15] [connection] incoming connection: 127.0.0.1:59246 id: 0
+[15:08:15] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:08:15] ok
+[15:08:15] ok
+[15:13:56] [connection] 127.0.0.1:52915 requests connection cookie.
+[15:13:57] [connection] incoming connection: 127.0.0.1:52915 id: 1
+[15:14:07] [connection] incoming connection: 127.0.0.1:49388 id: 1
+[15:14:07] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:43:03] 
+[15:43:03] Server Plugins
+[15:43:03] --------------
+[15:43:03]  Loading plugin: streamer
+[15:43:03] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:43:03]   Loaded.
+[15:43:03]  Loading plugin: mysql
+[15:43:03]  >> plugin.mysql: R41-4 successfully loaded.
+[15:43:03]   Loaded.
+[15:43:03]  Loading plugin: sscanf
+[15:43:03] 
+
+[15:43:03]  ===============================
+
+[15:43:03]       sscanf plugin loaded.     
+
+[15:43:03]          Version:  2.8.3        
+
+[15:43:03]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:43:03]  ===============================
+
+[15:43:03]   Loaded.
+[15:43:03]  Loaded 3 plugins.
+
+[15:43:03] 
+[15:43:03] Filterscripts
+[15:43:03] ---------------
+[15:43:03]   Loading filterscript 'ntd.amx'...
+[15:43:04] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:43:04] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:43:04] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:43:04]   Loaded 1 filterscripts.
+
+[15:43:04] Подключение к базе MySQL успешно!
+[15:43:04] Number of vehicle models: 2
+[15:43:04] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:43:04] [connection] 127.0.0.1:65178 requests connection cookie.
+[15:43:05] [connection] incoming connection: 127.0.0.1:65178 id: 0
+[15:43:06] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:43:06] ok
+[15:43:06] ok
+[15:43:07] [connection] 127.0.0.1:55305 requests connection cookie.
+[15:43:08] [connection] incoming connection: 127.0.0.1:55305 id: 1
+[15:43:08] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:46:34] 
+[15:46:34] Server Plugins
+[15:46:34] --------------
+[15:46:34]  Loading plugin: streamer
+[15:46:34] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:46:34]   Loaded.
+[15:46:34]  Loading plugin: mysql
+[15:46:34]  >> plugin.mysql: R41-4 successfully loaded.
+[15:46:34]   Loaded.
+[15:46:34]  Loading plugin: sscanf
+[15:46:34] 
+
+[15:46:34]  ===============================
+
+[15:46:34]       sscanf plugin loaded.     
+
+[15:46:34]          Version:  2.8.3        
+
+[15:46:34]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:46:34]  ===============================
+
+[15:46:34]   Loaded.
+[15:46:34]  Loaded 3 plugins.
+
+[15:46:34] 
+[15:46:34] Filterscripts
+[15:46:34] ---------------
+[15:46:34]   Loading filterscript 'ntd.amx'...
+[15:46:35] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:46:35] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:46:35] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:46:35]   Loaded 1 filterscripts.
+
+[15:46:35] Подключение к базе MySQL успешно!
+[15:46:36] Number of vehicle models: 2
+[15:46:36] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:46:36] [connection] 127.0.0.1:62210 requests connection cookie.
+[15:46:37] [connection] incoming connection: 127.0.0.1:62210 id: 0
+[15:46:37] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:46:37] ok
+[15:46:37] ok
+[15:46:49] [connection] 127.0.0.1:58316 requests connection cookie.
+[15:46:50] [connection] incoming connection: 127.0.0.1:58316 id: 1
+[15:46:51] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[15:53:29] 
+[15:53:29] Server Plugins
+[15:53:29] --------------
+[15:53:29]  Loading plugin: streamer
+[15:53:29] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[15:53:30]   Loaded.
+[15:53:30]  Loading plugin: mysql
+[15:53:30]  >> plugin.mysql: R41-4 successfully loaded.
+[15:53:30]   Loaded.
+[15:53:30]  Loading plugin: sscanf
+[15:53:30] 
+
+[15:53:30]  ===============================
+
+[15:53:30]       sscanf plugin loaded.     
+
+[15:53:30]          Version:  2.8.3        
+
+[15:53:30]   (c) 2018 Alex "Y_Less" Cole  
+
+[15:53:30]  ===============================
+
+[15:53:30]   Loaded.
+[15:53:30]  Loaded 3 plugins.
+
+[15:53:30] 
+[15:53:30] Filterscripts
+[15:53:30] ---------------
+[15:53:30]   Loading filterscript 'ntd.amx'...
+[15:53:31] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[15:53:31] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[15:53:31] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[15:53:31]   Loaded 1 filterscripts.
+
+[15:53:31] Подключение к базе MySQL успешно!
+[15:53:32] Number of vehicle models: 2
+[15:53:32] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[15:53:32] [connection] 127.0.0.1:50032 requests connection cookie.
+[15:53:33] [connection] incoming connection: 127.0.0.1:50032 id: 0
+[15:53:33] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[15:53:34] ok
+[15:53:34] ok
+[15:53:34] [connection] 127.0.0.1:55676 requests connection cookie.
+[15:53:35] [connection] incoming connection: 127.0.0.1:55676 id: 1
+[15:53:36] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:17:58] 
+[16:17:58] Server Plugins
+[16:17:58] --------------
+[16:17:58]  Loading plugin: streamer
+[16:17:58] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:17:58]   Loaded.
+[16:17:58]  Loading plugin: mysql
+[16:17:58]  >> plugin.mysql: R41-4 successfully loaded.
+[16:17:58]   Loaded.
+[16:17:58]  Loading plugin: sscanf
+[16:17:58] 
+
+[16:17:58]  ===============================
+
+[16:17:58]       sscanf plugin loaded.     
+
+[16:17:58]          Version:  2.8.3        
+
+[16:17:58]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:17:58]  ===============================
+
+[16:17:58]   Loaded.
+[16:17:58]  Loaded 3 plugins.
+
+[16:17:58] 
+[16:17:58] Filterscripts
+[16:17:58] ---------------
+[16:17:58]   Loading filterscript 'ntd.amx'...
+[16:17:59] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:17:59] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:17:59] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:17:59]   Loaded 1 filterscripts.
+
+[16:17:59] Подключение к базе MySQL успешно!
+[16:18:00] Number of vehicle models: 2
+[16:18:00] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:18:00] [connection] 127.0.0.1:58321 requests connection cookie.
+[16:18:01] [connection] incoming connection: 127.0.0.1:58321 id: 0
+[16:18:01] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:18:01] ok
+[16:18:01] ok
+[16:18:02] [connection] 127.0.0.1:59302 requests connection cookie.
+[16:18:03] [connection] incoming connection: 127.0.0.1:59302 id: 1
+[16:18:03] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:19:19] 
+[16:19:19] Server Plugins
+[16:19:19] --------------
+[16:19:19]  Loading plugin: streamer
+[16:19:19] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:19:19]   Loaded.
+[16:19:19]  Loading plugin: mysql
+[16:19:19]  >> plugin.mysql: R41-4 successfully loaded.
+[16:19:19]   Loaded.
+[16:19:19]  Loading plugin: sscanf
+[16:19:19] 
+
+[16:19:19]  ===============================
+
+[16:19:19]       sscanf plugin loaded.     
+
+[16:19:19]          Version:  2.8.3        
+
+[16:19:19]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:19:19]  ===============================
+
+[16:19:19]   Loaded.
+[16:19:19]  Loaded 3 plugins.
+
+[16:19:19] 
+[16:19:19] Filterscripts
+[16:19:19] ---------------
+[16:19:19]   Loading filterscript 'ntd.amx'...
+[16:19:20] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:19:20] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:19:20] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:19:20]   Loaded 1 filterscripts.
+
+[16:19:21] Подключение к базе MySQL успешно!
+[16:19:21] Number of vehicle models: 2
+[16:19:21] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:19:21] [connection] 127.0.0.1:49587 requests connection cookie.
+[16:19:22] [connection] incoming connection: 127.0.0.1:49587 id: 0
+[16:19:22] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:19:23] ok
+[16:19:23] ok
+[16:19:23] [connection] 127.0.0.1:61441 requests connection cookie.
+[16:19:24] [connection] incoming connection: 127.0.0.1:61441 id: 1
+[16:19:34] [connection] incoming connection: 127.0.0.1:63960 id: 1
+[16:19:34] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:23:06] 
+[16:23:06] Server Plugins
+[16:23:06] --------------
+[16:23:06]  Loading plugin: streamer
+[16:23:06] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:23:06]   Loaded.
+[16:23:06]  Loading plugin: mysql
+[16:23:06]  >> plugin.mysql: R41-4 successfully loaded.
+[16:23:06]   Loaded.
+[16:23:06]  Loading plugin: sscanf
+[16:23:06] 
+
+[16:23:06]  ===============================
+
+[16:23:06]       sscanf plugin loaded.     
+
+[16:23:06]          Version:  2.8.3        
+
+[16:23:06]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:23:06]  ===============================
+
+[16:23:06]   Loaded.
+[16:23:06]  Loaded 3 plugins.
+
+[16:23:06] 
+[16:23:06] Filterscripts
+[16:23:06] ---------------
+[16:23:06]   Loading filterscript 'ntd.amx'...
+[16:23:07] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:23:07] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:23:07] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:23:07]   Loaded 1 filterscripts.
+
+[16:23:07] Подключение к базе MySQL успешно!
+[16:23:07] Number of vehicle models: 2
+[16:23:07] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:23:07] [connection] 127.0.0.1:51414 requests connection cookie.
+[16:23:08] [connection] incoming connection: 127.0.0.1:51414 id: 0
+[16:23:09] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:23:09] ok
+[16:23:09] ok
+[16:23:13] [connection] 127.0.0.1:62306 requests connection cookie.
+[16:23:14] [connection] incoming connection: 127.0.0.1:62306 id: 1
+[16:23:15] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:25:35] 
+[16:25:35] Server Plugins
+[16:25:35] --------------
+[16:25:35]  Loading plugin: streamer
+[16:25:35] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[16:25:35]   Loaded.
+[16:25:35]  Loading plugin: mysql
+[16:25:35]  >> plugin.mysql: R41-4 successfully loaded.
+[16:25:35]   Loaded.
+[16:25:35]  Loading plugin: sscanf
+[16:25:35] 
+
+[16:25:35]  ===============================
+
+[16:25:35]       sscanf plugin loaded.     
+
+[16:25:35]          Version:  2.8.3        
+
+[16:25:35]   (c) 2018 Alex "Y_Less" Cole  
+
+[16:25:35]  ===============================
+
+[16:25:35]   Loaded.
+[16:25:35]  Loaded 3 plugins.
+
+[16:25:35] 
+[16:25:35] Filterscripts
+[16:25:35] ---------------
+[16:25:35]   Loading filterscript 'ntd.amx'...
+[16:25:37] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[16:25:37] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[16:25:37] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[16:25:37]   Loaded 1 filterscripts.
+
+[16:25:37] Подключение к базе MySQL успешно!
+[16:25:37] Number of vehicle models: 2
+[16:25:37] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[16:25:37] [connection] 127.0.0.1:58109 requests connection cookie.
+[16:25:38] [connection] incoming connection: 127.0.0.1:58109 id: 0
+[16:25:39] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[16:25:39] ok
+[16:25:39] ok
+[16:25:40] [connection] 127.0.0.1:50105 requests connection cookie.
+[16:25:41] [connection] incoming connection: 127.0.0.1:50105 id: 1
+[16:25:42] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:49:25] 
+[17:49:25] Server Plugins
+[17:49:25] --------------
+[17:49:25]  Loading plugin: crashdetect
+[17:49:25]   CrashDetect plugin 4.20
+[17:49:25]   Loaded.
+[17:49:25]  Loading plugin: streamer
+[17:49:25] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:49:25]   Loaded.
+[17:49:25]  Loading plugin: mysql
+[17:49:25]  >> plugin.mysql: R41-4 successfully loaded.
+[17:49:25]   Loaded.
+[17:49:25]  Loading plugin: sscanf
+[17:49:25] 
+
+[17:49:25]  ===============================
+
+[17:49:25]       sscanf plugin loaded.     
+
+[17:49:25]          Version:  2.8.3        
+
+[17:49:25]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:49:25]  ===============================
+
+[17:49:25]   Loaded.
+[17:49:25]  Loaded 4 plugins.
+
+[17:49:25] 
+[17:49:25] Filterscripts
+[17:49:25] ---------------
+[17:49:25]   Loading filterscript 'ntd.amx'...
+[17:49:26] [NTD] TextDraw editor by Nickk888 v6.1.1 has been successfully initialized!
+
+[17:49:26] [NTD] Loading language file "ntd/languages/lang_ru.xml"
+[17:49:26] [NTD] Loading templates from "ntd/templates.xml" as language "lang_ru.xml"
+[17:49:26]   Loaded 1 filterscripts.
+
+[17:49:27] Подключение к базе MySQL успешно!
+[17:49:27] Number of vehicle models: 2
+[17:49:27] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:49:27] [connection] 127.0.0.1:50878 requests connection cookie.
+[17:49:28] [connection] incoming connection: 127.0.0.1:50878 id: 0
+[17:49:28] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:49:29] ok
+[17:49:29] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:50:01] filterscripts = ""  (string)
+[17:50:01] 
+[17:50:01] Server Plugins
+[17:50:01] --------------
+[17:50:01]  Loading plugin: crashdetect
+[17:50:01]   CrashDetect plugin 4.20
+[17:50:01]   Loaded.
+[17:50:01]  Loading plugin: streamer
+[17:50:01] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:50:01]   Loaded.
+[17:50:01]  Loading plugin: mysql
+[17:50:01]  >> plugin.mysql: R41-4 successfully loaded.
+[17:50:01]   Loaded.
+[17:50:01]  Loading plugin: sscanf
+[17:50:01] 
+
+[17:50:01]  ===============================
+
+[17:50:01]       sscanf plugin loaded.     
+
+[17:50:01]          Version:  2.8.3        
+
+[17:50:01]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:50:01]  ===============================
+
+[17:50:01]   Loaded.
+[17:50:01]  Loaded 4 plugins.
+
+[17:50:02] 
+[17:50:02] Filterscripts
+[17:50:02] ---------------
+[17:50:02]   Loaded 0 filterscripts.
+
+[17:50:02] Подключение к базе MySQL успешно!
+[17:50:02] Number of vehicle models: 2
+[17:50:02] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:50:02] [connection] 127.0.0.1:59475 requests connection cookie.
+[17:50:03] [connection] incoming connection: 127.0.0.1:59475 id: 0
+[17:50:03] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:50:04] ok
+[17:50:04] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:50:37] filterscripts = ""  (string)
+[17:50:37] 
+[17:50:37] Server Plugins
+[17:50:37] --------------
+[17:50:37]  Loading plugin: crashdetect
+[17:50:37]   CrashDetect plugin 4.20
+[17:50:37]   Loaded.
+[17:50:37]  Loading plugin: streamer
+[17:50:37] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:50:37]   Loaded.
+[17:50:37]  Loading plugin: mysql
+[17:50:37]  >> plugin.mysql: R41-4 successfully loaded.
+[17:50:37]   Loaded.
+[17:50:37]  Loading plugin: sscanf
+[17:50:37] 
+
+[17:50:37]  ===============================
+
+[17:50:37]       sscanf plugin loaded.     
+
+[17:50:37]          Version:  2.8.3        
+
+[17:50:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:50:37]  ===============================
+
+[17:50:37]   Loaded.
+[17:50:37]  Loaded 4 plugins.
+
+[17:50:37] 
+[17:50:37] Filterscripts
+[17:50:37] ---------------
+[17:50:37]   Loaded 0 filterscripts.
+
+[17:50:37] Подключение к базе MySQL успешно!
+[17:50:37] ======================================
+[17:50:37] Number of vehicle models: 2
+[17:50:37] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:50:37] [connection] 127.0.0.1:56861 requests connection cookie.
+[17:50:38] [connection] incoming connection: 127.0.0.1:56861 id: 0
+[17:50:38] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:50:39] ok
+[17:50:39] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[17:52:54] filterscripts = ""  (string)
+[17:52:54] 
+[17:52:54] Server Plugins
+[17:52:54] --------------
+[17:52:54]  Loading plugin: crashdetect
+[17:52:54]   CrashDetect plugin 4.20
+[17:52:54]   Loaded.
+[17:52:54]  Loading plugin: streamer
+[17:52:54] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[17:52:54]   Loaded.
+[17:52:54]  Loading plugin: mysql
+[17:52:54]  >> plugin.mysql: R41-4 successfully loaded.
+[17:52:54]   Loaded.
+[17:52:54]  Loading plugin: sscanf
+[17:52:54] 
+
+[17:52:54]  ===============================
+
+[17:52:54]       sscanf plugin loaded.     
+
+[17:52:54]          Version:  2.8.3        
+
+[17:52:54]   (c) 2018 Alex "Y_Less" Cole  
+
+[17:52:54]  ===============================
+
+[17:52:54]   Loaded.
+[17:52:54]  Loaded 4 plugins.
+
+[17:52:54] 
+[17:52:54] Filterscripts
+[17:52:54] ---------------
+[17:52:54]   Loaded 0 filterscripts.
+
+[17:52:55] ======================================
+[17:52:55] Подключение к базе MySQL успешно!
+[17:52:55] Number of vehicle models: 2
+[17:52:55] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[17:52:55] [connection] 127.0.0.1:63454 requests connection cookie.
+[17:52:56] [connection] incoming connection: 127.0.0.1:63454 id: 0
+[17:52:56] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[17:52:56] ok
+[17:52:56] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:36:13] filterscripts = ""  (string)
+[18:36:13] 
+[18:36:13] Server Plugins
+[18:36:13] --------------
+[18:36:13]  Loading plugin: crashdetect
+[18:36:13]   CrashDetect plugin 4.20
+[18:36:13]   Loaded.
+[18:36:13]  Loading plugin: streamer
+[18:36:13] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:36:13]   Loaded.
+[18:36:13]  Loading plugin: mysql
+[18:36:13]  >> plugin.mysql: R41-4 successfully loaded.
+[18:36:13]   Loaded.
+[18:36:13]  Loading plugin: sscanf
+[18:36:13] 
+
+[18:36:13]  ===============================
+
+[18:36:13]       sscanf plugin loaded.     
+
+[18:36:13]          Version:  2.8.3        
+
+[18:36:13]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:36:13]  ===============================
+
+[18:36:13]   Loaded.
+[18:36:13]  Loaded 4 plugins.
+
+[18:36:13] 
+[18:36:13] Filterscripts
+[18:36:13] ---------------
+[18:36:13]   Loaded 0 filterscripts.
+
+[18:36:13] ======================================
+[18:36:13] Подключение к базе MySQL успешно!
+[18:36:13] Number of vehicle models: 2
+[18:36:13] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:36:13] [connection] 127.0.0.1:51161 requests connection cookie.
+[18:36:14] [connection] incoming connection: 127.0.0.1:51161 id: 0
+[18:36:15] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:36:15] ok
+[18:36:15] ok
+[18:36:42] [connection] 127.0.0.1:64637 requests connection cookie.
+[18:36:43] [connection] incoming connection: 127.0.0.1:64637 id: 1
+[18:36:44] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[18:51:01] filterscripts = ""  (string)
+[18:51:01] 
+[18:51:01] Server Plugins
+[18:51:01] --------------
+[18:51:01]  Loading plugin: crashdetect
+[18:51:01]   CrashDetect plugin 4.20
+[18:51:01]   Loaded.
+[18:51:01]  Loading plugin: streamer
+[18:51:01] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[18:51:01]   Loaded.
+[18:51:01]  Loading plugin: mysql
+[18:51:01]  >> plugin.mysql: R41-4 successfully loaded.
+[18:51:01]   Loaded.
+[18:51:01]  Loading plugin: sscanf
+[18:51:01] 
+
+[18:51:01]  ===============================
+
+[18:51:01]       sscanf plugin loaded.     
+
+[18:51:01]          Version:  2.8.3        
+
+[18:51:01]   (c) 2018 Alex "Y_Less" Cole  
+
+[18:51:01]  ===============================
+
+[18:51:01]   Loaded.
+[18:51:01]  Loaded 4 plugins.
+
+[18:51:01] 
+[18:51:01] Filterscripts
+[18:51:01] ---------------
+[18:51:01]   Loaded 0 filterscripts.
+
+[18:51:01] ======================================
+[18:51:01] Подключение к базе MySQL успешно!
+[18:51:02] Number of vehicle models: 2
+[18:51:02] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[18:51:02] [connection] 127.0.0.1:61021 requests connection cookie.
+[18:51:03] [connection] incoming connection: 127.0.0.1:61021 id: 0
+[18:51:03] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[18:51:03] ok
+[18:51:03] ok
+[18:51:07] [connection] 127.0.0.1:52042 requests connection cookie.
+[18:51:08] [connection] incoming connection: 127.0.0.1:52042 id: 1
+[18:51:09] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:16:00] filterscripts = ""  (string)
+[19:16:00] 
+[19:16:00] Server Plugins
+[19:16:00] --------------
+[19:16:00]  Loading plugin: crashdetect
+[19:16:00]   CrashDetect plugin 4.20
+[19:16:00]   Loaded.
+[19:16:00]  Loading plugin: streamer
+[19:16:00] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:16:00]   Loaded.
+[19:16:00]  Loading plugin: mysql
+[19:16:00]  >> plugin.mysql: R41-4 successfully loaded.
+[19:16:00]   Loaded.
+[19:16:00]  Loading plugin: sscanf
+[19:16:00] 
+
+[19:16:00]  ===============================
+
+[19:16:00]       sscanf plugin loaded.     
+
+[19:16:00]          Version:  2.8.3        
+
+[19:16:00]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:16:00]  ===============================
+
+[19:16:00]   Loaded.
+[19:16:00]  Loaded 4 plugins.
+
+[19:16:00] 
+[19:16:00] Filterscripts
+[19:16:00] ---------------
+[19:16:00]   Loaded 0 filterscripts.
+
+[19:16:00] ======================================
+[19:16:00] Подключение к базе MySQL успешно!
+[19:16:00] Number of vehicle models: 2
+[19:16:00] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:16:00] [connection] 127.0.0.1:60350 requests connection cookie.
+[19:16:01] [connection] incoming connection: 127.0.0.1:60350 id: 0
+[19:16:02] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:16:02] ok
+[19:16:02] ok
+[19:16:07] [connection] 127.0.0.1:54244 requests connection cookie.
+[19:16:08] [connection] incoming connection: 127.0.0.1:54244 id: 1
+[19:16:08] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:20:28] filterscripts = ""  (string)
+[19:20:28] 
+[19:20:28] Server Plugins
+[19:20:28] --------------
+[19:20:28]  Loading plugin: crashdetect
+[19:20:28]   CrashDetect plugin 4.20
+[19:20:28]   Loaded.
+[19:20:28]  Loading plugin: streamer
+[19:20:28] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:20:28]   Loaded.
+[19:20:28]  Loading plugin: mysql
+[19:20:28]  >> plugin.mysql: R41-4 successfully loaded.
+[19:20:28]   Loaded.
+[19:20:28]  Loading plugin: sscanf
+[19:20:28] 
+
+[19:20:28]  ===============================
+
+[19:20:28]       sscanf plugin loaded.     
+
+[19:20:28]          Version:  2.8.3        
+
+[19:20:28]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:20:28]  ===============================
+
+[19:20:28]   Loaded.
+[19:20:28]  Loaded 4 plugins.
+
+[19:20:28] 
+[19:20:28] Filterscripts
+[19:20:28] ---------------
+[19:20:28]   Loaded 0 filterscripts.
+
+[19:20:29] ======================================
+[19:20:29] Подключение к базе MySQL успешно!
+[19:20:29] Number of vehicle models: 2
+[19:20:29] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:20:29] [connection] 127.0.0.1:64229 requests connection cookie.
+[19:20:30] [connection] incoming connection: 127.0.0.1:64229 id: 0
+[19:20:30] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:20:30] ok
+[19:20:30] ok
+[19:20:41] [connection] 127.0.0.1:50595 requests connection cookie.
+[19:20:42] [connection] incoming connection: 127.0.0.1:50595 id: 1
+[19:20:42] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:23:44] filterscripts = ""  (string)
+[19:23:44] 
+[19:23:44] Server Plugins
+[19:23:44] --------------
+[19:23:44]  Loading plugin: crashdetect
+[19:23:44]   CrashDetect plugin 4.20
+[19:23:44]   Loaded.
+[19:23:44]  Loading plugin: streamer
+[19:23:44] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:23:44]   Loaded.
+[19:23:44]  Loading plugin: mysql
+[19:23:44]  >> plugin.mysql: R41-4 successfully loaded.
+[19:23:44]   Loaded.
+[19:23:44]  Loading plugin: sscanf
+[19:23:44] 
+
+[19:23:44]  ===============================
+
+[19:23:44]       sscanf plugin loaded.     
+
+[19:23:44]          Version:  2.8.3        
+
+[19:23:44]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:23:44]  ===============================
+
+[19:23:44]   Loaded.
+[19:23:44]  Loaded 4 plugins.
+
+[19:23:44] 
+[19:23:44] Filterscripts
+[19:23:44] ---------------
+[19:23:44]   Loaded 0 filterscripts.
+
+[19:23:44] *** Streamer Plugin: The include file version (unknown version) for this script is older than the plugin version (0x295). The script might need to be recompiled with the latest include file.
+[19:23:44] [debug] Run time error 22: "AMX not initialized (or doubly initialized)"
+[19:23:44] [debug] Run time error 22: "AMX not initialized (or doubly initialized)"
+[19:23:44] Script[gamemodes/bare.amx]: Run time error 22: "AMX not initialized (or doubly initialized)"
+[19:23:44] Number of vehicle models: 0
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:23:53] filterscripts = ""  (string)
+[19:23:53] 
+[19:23:53] Server Plugins
+[19:23:53] --------------
+[19:23:53]  Loading plugin: crashdetect
+[19:23:53]   CrashDetect plugin 4.20
+[19:23:53]   Loaded.
+[19:23:53]  Loading plugin: streamer
+[19:23:53] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:23:53]   Loaded.
+[19:23:53]  Loading plugin: mysql
+[19:23:53]  >> plugin.mysql: R41-4 successfully loaded.
+[19:23:53]   Loaded.
+[19:23:53]  Loading plugin: sscanf
+[19:23:53] 
+
+[19:23:53]  ===============================
+
+[19:23:53]       sscanf plugin loaded.     
+
+[19:23:53]          Version:  2.8.3        
+
+[19:23:53]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:23:53]  ===============================
+
+[19:23:53]   Loaded.
+[19:23:53]  Loaded 4 plugins.
+
+[19:23:53] 
+[19:23:53] Filterscripts
+[19:23:53] ---------------
+[19:23:53]   Loaded 0 filterscripts.
+
+[19:23:53] ======================================
+[19:23:53] Подключение к базе MySQL успешно!
+[19:23:53] Number of vehicle models: 2
+[19:23:53] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:23:53] [connection] 127.0.0.1:52536 requests connection cookie.
+[19:23:54] [connection] incoming connection: 127.0.0.1:52536 id: 0
+[19:23:54] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:23:55] ok
+[19:23:55] ok
+[19:23:59] [connection] 127.0.0.1:65265 requests connection cookie.
+[19:24:00] [connection] incoming connection: 127.0.0.1:65265 id: 1
+[19:24:10] [connection] incoming connection: 127.0.0.1:57179 id: 1
+[19:24:11] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:28:58] filterscripts = ""  (string)
+[19:28:58] 
+[19:28:58] Server Plugins
+[19:28:58] --------------
+[19:28:58]  Loading plugin: crashdetect
+[19:28:58]   CrashDetect plugin 4.20
+[19:28:58]   Loaded.
+[19:28:58]  Loading plugin: streamer
+[19:28:58] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:28:58]   Loaded.
+[19:28:58]  Loading plugin: mysql
+[19:28:58]  >> plugin.mysql: R41-4 successfully loaded.
+[19:28:58]   Loaded.
+[19:28:58]  Loading plugin: sscanf
+[19:28:58] 
+
+[19:28:58]  ===============================
+
+[19:28:58]       sscanf plugin loaded.     
+
+[19:28:58]          Version:  2.8.3        
+
+[19:28:58]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:28:58]  ===============================
+
+[19:28:58]   Loaded.
+[19:28:58]  Loaded 4 plugins.
+
+[19:28:58] 
+[19:28:58] Filterscripts
+[19:28:58] ---------------
+[19:28:58]   Loaded 0 filterscripts.
+
+[19:28:58] ======================================
+[19:28:58] Подключение к базе MySQL успешно!
+[19:28:58] Number of vehicle models: 2
+[19:28:58] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:28:59] [connection] 127.0.0.1:50636 requests connection cookie.
+[19:29:00] [connection] incoming connection: 127.0.0.1:50636 id: 0
+[19:29:00] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:29:00] ok
+[19:29:00] ok
+[19:29:03] [connection] 127.0.0.1:65422 requests connection cookie.
+[19:29:04] [connection] incoming connection: 127.0.0.1:65422 id: 1
+[19:29:15] [connection] incoming connection: 127.0.0.1:62918 id: 1
+[19:29:15] [join] plakapenka has joined the server (1:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:31:29] filterscripts = ""  (string)
+[19:31:29] 
+[19:31:29] Server Plugins
+[19:31:29] --------------
+[19:31:29]  Loading plugin: crashdetect
+[19:31:29]   CrashDetect plugin 4.20
+[19:31:29]   Loaded.
+[19:31:29]  Loading plugin: streamer
+[19:31:29] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:31:29]   Loaded.
+[19:31:29]  Loading plugin: mysql
+[19:31:29]  >> plugin.mysql: R41-4 successfully loaded.
+[19:31:29]   Loaded.
+[19:31:29]  Loading plugin: sscanf
+[19:31:29] 
+
+[19:31:29]  ===============================
+
+[19:31:29]       sscanf plugin loaded.     
+
+[19:31:29]          Version:  2.8.3        
+
+[19:31:29]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:31:29]  ===============================
+
+[19:31:29]   Loaded.
+[19:31:29]  Loaded 4 plugins.
+
+[19:31:29] 
+[19:31:29] Filterscripts
+[19:31:29] ---------------
+[19:31:29]   Loaded 0 filterscripts.
+
+[19:31:29] ======================================
+[19:31:29] Подключение к базе MySQL успешно!
+[19:31:30] Number of vehicle models: 2
+[19:31:30] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:31:30] [connection] 127.0.0.1:57073 requests connection cookie.
+[19:31:31] [connection] incoming connection: 127.0.0.1:57073 id: 0
+[19:31:31] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[19:31:31] ok
+[19:31:31] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[19:32:03] filterscripts = ""  (string)
+[19:32:03] 
+[19:32:03] Server Plugins
+[19:32:03] --------------
+[19:32:03]  Loading plugin: crashdetect
+[19:32:03]   CrashDetect plugin 4.20
+[19:32:03]   Loaded.
+[19:32:03]  Loading plugin: streamer
+[19:32:03] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[19:32:03]   Loaded.
+[19:32:03]  Loading plugin: mysql
+[19:32:03]  >> plugin.mysql: R41-4 successfully loaded.
+[19:32:03]   Loaded.
+[19:32:03]  Loading plugin: sscanf
+[19:32:03] 
+
+[19:32:03]  ===============================
+
+[19:32:03]       sscanf plugin loaded.     
+
+[19:32:03]          Version:  2.8.3        
+
+[19:32:03]   (c) 2018 Alex "Y_Less" Cole  
+
+[19:32:03]  ===============================
+
+[19:32:03]   Loaded.
+[19:32:03]  Loaded 4 plugins.
+
+[19:32:03] 
+[19:32:03] Filterscripts
+[19:32:03] ---------------
+[19:32:03]   Loaded 0 filterscripts.
+
+[19:32:03] ======================================
+[19:32:03] Подключение к базе MySQL успешно!
+[19:32:03] Number of vehicle models: 2
+[19:32:03] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[19:32:03] [connection] 127.0.0.1:49682 requests connection cookie.
+[19:32:04] [connection] incoming connection: 127.0.0.1:49682 id: 1
+[19:33:06] [connection] 127.0.0.1:52137 requests connection cookie.
+[19:33:07] [connection] incoming connection: 127.0.0.1:52137 id: 0
+[19:33:07] [join] plakapenka has joined the server (0:127.0.0.1)

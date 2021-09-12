@@ -2,12 +2,12 @@
 new serv_hour, serv_minute, serv_second;
 new serv_weather;
 
-hook function PayDay()
+/*hook function PayDay()
 {
 	SetWorldTime(serv_hour);
 	return continue();
 }
-
+*/
 hook OnGameModeInit()
 {
 	gettime(serv_hour, serv_minute, serv_second);

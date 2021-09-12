@@ -35,6 +35,7 @@ new PlayerText:td_car_control_p[MAX_PLAYERS][9];
 
 stock OnSecondPlayerUpdate(playerid)
 {
+	
 	new vehicleid = GetPlayerVehicleID(playerid);
 	if(GetPVarInt(playerid, "show_speedometr") && vData[vehicleid][vEngine])
 	{

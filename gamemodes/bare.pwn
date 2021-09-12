@@ -4,6 +4,8 @@
 #include <izcmd>
 #include <sscanf2>
 //#include <nex-ac>
+//#include <jit>
+#include <crashdetect>
 
 #pragma warning disable 239, 214
 //#include <nex-ac>
@@ -39,29 +41,33 @@ new str_global_chat_message[144];
 #include "/sourc/textdraws/logo.pwn"
 #include "/sourc/textdraws/select_skin.pwn"
 // 
-#include "/sourc/system/mysql.pwn" 				// подключение к базе
+
+
+#include "/sourc/core/mysql.pwn" 				// подключение к базе
+#include "/sourc/core/save_account.pwn"			// сохранение
+#include "/sourc/core/gates.pwn"				// Шлагбаумы
+#include "/sourc/core/cars.pwn"					// Машины
+#include "/sourc/core/money.pwn" 				// система денег
+#include "/sourc/core/time-wether.pwn" 			// система времени и погоды
+#include "/sourc/core/trigger.pwn" 				// цветные чекпоинты (CreateTrigger)
+
 #include "/sourc/system/view_auth.pwn"			// Начало входа (вид)
 #include "/sourc/system/registration.pwn" 		// система регистрации
 #include "/sourc/system/authorization.pwn"		// система авторизации
-#include "/sourc/system/time-wether.pwn" 		// система времени и погоды 
-#include "/sourc/system/money.pwn" 				// система денег
+
 #include "/sourc/system/licenses.pwn"			// Лицензии игрока
-#include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "/sourc/system/bank.pwn"				// Банк ЛС
-#include "/sourc/system/cars.pwn"				// Машины
+
+#include "/sourc/system/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "/sourc/system/speedometr.pwn"			// Спидометр
 #include "/sourc/system/casino_wheels.pwn"		// Игра колесо фортуны 
+
 #include "/sourc/system/driving_school.pwn"		// Автошкола
-
-
-
 
 main() 
 { 
 
 }
-
-
 
 
 public OnGameModeInit()
@@ -75,12 +81,6 @@ public OnGameModeInit()
 	return 1;
 }
 
-public OnPlayerDisconnect(playerid, reason)
-{
-	pData[playerid][pLogged] = LOGIN_STATUS_OFFLINE;
-
-	return 1;
-}
 
 // все команды в отдельном файле
 #include "/sourc/commands.pwn" 

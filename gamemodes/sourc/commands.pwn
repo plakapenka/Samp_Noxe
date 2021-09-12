@@ -3,9 +3,13 @@
 CMD:gggg(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) return true;
-	SetPlayerPos(playerid, 2016.04,1017.97,996.875);
-	SetPlayerInterior(playerid, 10);
-	SetPlayerVirtualWorld(playerid, 1);
+	if(sscanf(params, "d",params[0])) 
+		return	SendClientMessage(playerid, -1, " Введите: /givemoney [id] [money]");
+
+	new Float:x, Float:y, Float:z;
+	GetDynamicObjectPos(params[0], x, y, z);
+
+	SetPlayerPos(playerid, x, y, z);
 	
 	return true;
 }
@@ -69,7 +73,7 @@ CMD:payday(playerid,params[])
 	if(pData[playerid][pAdmin] < 10)
 		return SendClientMessage(playerid, 0xc92629, "Команда доступна со 10-го уровня администрирования!");
 
-	PayDay();
+	//PayDay();
 	return 1;
 }
 CMD:int(playerid,params[])

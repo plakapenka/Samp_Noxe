@@ -7,11 +7,11 @@ hook OnPlayerConnect(playerid)
 		TextDrawShowForPlayer(playerid,td_logo_gambit[i]);
 }
 
-hook OnPlayerDisconnect(playerid, reason)
+/*hook OnPlayerDisconnect(playerid, reason)
 {
 	for(new i = 0; i<= 9; i++)
 		TextDrawHideForPlayer(playerid,td_logo_gambit[i]);
-}
+}*/
 
 hook OnGameModeInit()
 {
