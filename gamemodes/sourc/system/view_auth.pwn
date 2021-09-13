@@ -18,6 +18,12 @@ hook OnPlayerRequestClass(playerid, classid)
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 
+	for(new cc; cc < 10; cc++)
+	{
+		SendClientMessage(playerid, -1, "");	
+	}
+	SendClientMessage(playerid, 0x79b4e8FF, "ƒобро пожаловать на сервер Noxe Role Play");
+
 	pData[playerid][pLogged] = LOGIN_STATUS_ENTER; 
 	
 	GetPlayerIp(playerid, pData[playerid][pIP_cur], 15); // записываем ip в переменную, чтобы каждый раз не юзать GetPlayerIp

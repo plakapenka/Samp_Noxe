@@ -1,149 +1,206 @@
 #include <YSI_Coding\y_hooks>
-new Text:td_logo_gambit[10];
+new Text:g_szServerLogo[20];
 
 hook OnPlayerConnect(playerid)
 {
-	for(new i = 0; i<= 9; i++)
-		TextDrawShowForPlayer(playerid,td_logo_gambit[i]);
+	if(IsPlayerNPC(playerid)) return Y_HOOKS_BREAK_RETURN_1;
+
+	for(new i = 0; i<= (sizeof(g_szServerLogo)-1); i++)
+		TextDrawShowForPlayer(playerid,g_szServerLogo[i]);
+
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 /*hook OnPlayerDisconnect(playerid, reason)
 {
 	for(new i = 0; i<= 9; i++)
-		TextDrawHideForPlayer(playerid,td_logo_gambit[i]);
+		TextDrawHideForPlayer(playerid,g_szServerLogo[i]);
 }*/
 
 hook OnGameModeInit()
 {
-	td_logo_gambit[0] = TextDrawCreate(571.555298, 2.383111, "LD_BEAT:chit");
-	TextDrawFont(td_logo_gambit[0], 4);
-	TextDrawLetterSize(td_logo_gambit[0], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[0], 27.400007, 30.000000);
-	TextDrawSetOutline(td_logo_gambit[0], 0);
-	TextDrawSetShadow(td_logo_gambit[0], 0);
-	TextDrawAlignment(td_logo_gambit[0], 1);
-	TextDrawUseBox(td_logo_gambit[0], 0);
-	TextDrawColor(td_logo_gambit[0], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[0], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[0], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[0], 1);
+	g_szServerLogo[0] = TextDrawCreate(545.332824, 10.453332, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[0], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[0], 26.533300, 28.124454);
+	TextDrawAlignment(g_szServerLogo[0], 1);
+	TextDrawColor(g_szServerLogo[0], 798311935);
+	TextDrawSetShadow(g_szServerLogo[0], 0);
+	TextDrawSetOutline(g_szServerLogo[0], 0);
+	TextDrawFont(g_szServerLogo[0], 4);
 
-	td_logo_gambit[1] = TextDrawCreate(572.117676, 4.834661, "LD_BEAT:chit");
-	TextDrawFont(td_logo_gambit[1], 4);
-	TextDrawLetterSize(td_logo_gambit[1], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[1], 22.249996, 26.567993);
-	TextDrawSetOutline(td_logo_gambit[1], 0);
-	TextDrawSetShadow(td_logo_gambit[1], 0);
-	TextDrawAlignment(td_logo_gambit[1], 1);
-	TextDrawUseBox(td_logo_gambit[1], 0);
-	TextDrawColor(td_logo_gambit[1], 0x3b5c7fff);
-	TextDrawBackgroundColor(td_logo_gambit[1], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[1], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[1], 1);
+	g_szServerLogo[1] = TextDrawCreate(547.888244, 16.431114, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[1], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[1], 5.599958, 6.072892);
+	TextDrawAlignment(g_szServerLogo[1], 1);
+	TextDrawColor(g_szServerLogo[1], 798311935);
+	TextDrawSetShadow(g_szServerLogo[1], 0);
+	TextDrawSetOutline(g_szServerLogo[1], 0);
+	TextDrawFont(g_szServerLogo[1], 4);
 
-	td_logo_gambit[2] = TextDrawCreate(588.060974, 12.064894, "LD_BEAT:chit");
-	TextDrawFont(td_logo_gambit[2], 4);
-	TextDrawLetterSize(td_logo_gambit[2], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[2], 7.872208, 10.057776);
-	TextDrawSetOutline(td_logo_gambit[2], 0);
-	TextDrawSetShadow(td_logo_gambit[2], 0);
-	TextDrawAlignment(td_logo_gambit[2], 1);
-	TextDrawUseBox(td_logo_gambit[2], 0);
-	TextDrawColor(td_logo_gambit[2], 0x3b5c7fff);
-	TextDrawBackgroundColor(td_logo_gambit[2], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[2], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[2], 1);
+	g_szServerLogo[2] = TextDrawCreate(552.888183, 12.652446, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[2], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[2], 5.599958, 6.072892);
+	TextDrawAlignment(g_szServerLogo[2], 1);
+	TextDrawColor(g_szServerLogo[2], 798311935);
+	TextDrawSetShadow(g_szServerLogo[2], 0);
+	TextDrawSetOutline(g_szServerLogo[2], 0);
+	TextDrawFont(g_szServerLogo[2], 4);
 
-	td_logo_gambit[3] = TextDrawCreate(581.665100, 18.638941, "LD_SPAC:white");
-	TextDrawFont(td_logo_gambit[3], 4);
-	TextDrawLetterSize(td_logo_gambit[3], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[3], 12.272208, 1.957776);
-	TextDrawSetOutline(td_logo_gambit[3], 0);
-	TextDrawSetShadow(td_logo_gambit[3], 0);
-	TextDrawAlignment(td_logo_gambit[3], 1);
-	TextDrawUseBox(td_logo_gambit[3], 0);
-	TextDrawColor(td_logo_gambit[3], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[3], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[3], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[3], 1);
+	g_szServerLogo[3] = TextDrawCreate(548.732482, 11.661331, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[3], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[3], 5.599956, 6.072892);
+	TextDrawAlignment(g_szServerLogo[3], 1);
+	TextDrawColor(g_szServerLogo[3], 798311935);
+	TextDrawSetShadow(g_szServerLogo[3], 0);
+	TextDrawSetOutline(g_szServerLogo[3], 0);
+	TextDrawFont(g_szServerLogo[3], 4);
 
-	td_logo_gambit[4] = TextDrawCreate(577.638184, 9.793757, "/");
-	TextDrawFont(td_logo_gambit[4], 1);
-	TextDrawLetterSize(td_logo_gambit[4], 1.001372, 1.282726);
-	TextDrawTextSize(td_logo_gambit[4], 1280.000000, 1280.000000);
-	TextDrawSetOutline(td_logo_gambit[4], 0);
-	TextDrawSetShadow(td_logo_gambit[4], 0);
-	TextDrawAlignment(td_logo_gambit[4], 1);
-	TextDrawUseBox(td_logo_gambit[4], 1);
-	TextDrawColor(td_logo_gambit[4], 0x3b5c7fff);
-	TextDrawBackgroundColor(td_logo_gambit[4], 0x00000033);
-	TextDrawBoxColor(td_logo_gambit[4], 0x00000000);
-	TextDrawSetProportional(td_logo_gambit[4], 1);
+	g_szServerLogo[4] = TextDrawCreate(546.887817, 15.249761, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[4], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[4], 2.888845, 3.036448);
+	TextDrawAlignment(g_szServerLogo[4], 1);
+	TextDrawColor(g_szServerLogo[4], 798311935);
+	TextDrawSetShadow(g_szServerLogo[4], 0);
+	TextDrawSetOutline(g_szServerLogo[4], 0);
+	TextDrawFont(g_szServerLogo[4], 4);
 
-	td_logo_gambit[5] = TextDrawCreate(616.299927, 4.411540, "GAMBIT");
-	TextDrawFont(td_logo_gambit[5], 2);
-	TextDrawLetterSize(td_logo_gambit[5], 0.226253, 1.318007);
-	TextDrawTextSize(td_logo_gambit[5], 1280.000000, 1280.000000);
-	TextDrawSetOutline(td_logo_gambit[5], 0);
-	TextDrawSetShadow(td_logo_gambit[5], 0);
-	TextDrawAlignment(td_logo_gambit[5], 2);
-	TextDrawUseBox(td_logo_gambit[5], 0);
-	TextDrawColor(td_logo_gambit[5], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[5], 0x00000033);
-	TextDrawBoxColor(td_logo_gambit[5], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[5], 1);
+	g_szServerLogo[5] = TextDrawCreate(553.043457, 10.575099, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[5], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[5], 2.888845, 3.036448);
+	TextDrawAlignment(g_szServerLogo[5], 1);
+	TextDrawColor(g_szServerLogo[5], 798311935);
+	TextDrawSetShadow(g_szServerLogo[5], 0);
+	TextDrawSetOutline(g_szServerLogo[5], 0);
+	TextDrawFont(g_szServerLogo[5], 4);
 
-	td_logo_gambit[6] = TextDrawCreate(616.178223, 20.937752, "ROLEPLAY");
-	TextDrawFont(td_logo_gambit[6], 2);
-	TextDrawLetterSize(td_logo_gambit[6], 0.158132, 0.989660);
-	TextDrawTextSize(td_logo_gambit[6], 1280.000000, 1280.000000);
-	TextDrawSetOutline(td_logo_gambit[6], 0);
-	TextDrawSetShadow(td_logo_gambit[6], 0);
-	TextDrawAlignment(td_logo_gambit[6], 2);
-	TextDrawUseBox(td_logo_gambit[6], 0);
-	TextDrawColor(td_logo_gambit[6], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[6], 0x00000033);
-	TextDrawBoxColor(td_logo_gambit[6], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[6], 1);
+	g_szServerLogo[6] = TextDrawCreate(546.843444, 20.485321, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[6], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[6], 2.888845, 3.036448);
+	TextDrawAlignment(g_szServerLogo[6], 1);
+	TextDrawColor(g_szServerLogo[6], 798311935);
+	TextDrawSetShadow(g_szServerLogo[6], 0);
+	TextDrawSetOutline(g_szServerLogo[6], 0);
+	TextDrawFont(g_szServerLogo[6], 4);
 
-	td_logo_gambit[7] = TextDrawCreate(598.679932, 15.594659, "LD_SPAC:white");
-	TextDrawFont(td_logo_gambit[7], 4);
-	TextDrawLetterSize(td_logo_gambit[7], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[7], 34.000000, 7.000000);
-	TextDrawSetOutline(td_logo_gambit[7], 0);
-	TextDrawSetShadow(td_logo_gambit[7], 0);
-	TextDrawAlignment(td_logo_gambit[7], 1);
-	TextDrawUseBox(td_logo_gambit[7], 0);
-	TextDrawColor(td_logo_gambit[7], 0x3b5c7fff);
-	TextDrawBackgroundColor(td_logo_gambit[7], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[7], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[7], 1);
+	g_szServerLogo[7] = TextDrawCreate(556.688049, 11.529763, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[7], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[7], 2.888846, 3.036448);
+	TextDrawAlignment(g_szServerLogo[7], 1);
+	TextDrawColor(g_szServerLogo[7], 798311935);
+	TextDrawSetShadow(g_szServerLogo[7], 0);
+	TextDrawSetOutline(g_szServerLogo[7], 0);
+	TextDrawFont(g_szServerLogo[7], 4);
 
-	td_logo_gambit[8] = TextDrawCreate(593.855103, 18.498940, "LD_SPAC:white");
-	TextDrawFont(td_logo_gambit[8], 4);
-	TextDrawLetterSize(td_logo_gambit[8], 0.000000, 0.000000);
-	TextDrawTextSize(td_logo_gambit[8], 0.400000, 0.800000);
-	TextDrawSetOutline(td_logo_gambit[8], 0);
-	TextDrawSetShadow(td_logo_gambit[8], 0);
-	TextDrawAlignment(td_logo_gambit[8], 1);
-	TextDrawUseBox(td_logo_gambit[8], 0);
-	TextDrawColor(td_logo_gambit[8], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[8], 0x000000ff);
-	TextDrawBoxColor(td_logo_gambit[8], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[8], 1);
+	g_szServerLogo[8] = TextDrawCreate(550.755615, 15.978656, "particle:lamp_shad_64");
+	TextDrawLetterSize(g_szServerLogo[8], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[8], 15.822212, 7.615985);
+	TextDrawAlignment(g_szServerLogo[8], 1);
+	TextDrawColor(g_szServerLogo[8], -177);
+	TextDrawSetShadow(g_szServerLogo[8], 0);
+	TextDrawSetOutline(g_szServerLogo[8], 0);
+	TextDrawFont(g_szServerLogo[8], 4);
 
-	td_logo_gambit[9] = TextDrawCreate(615.927917, 14.833745, "pawno-info");
-	TextDrawFont(td_logo_gambit[9], 2);
-	TextDrawLetterSize(td_logo_gambit[9], 0.132982, 0.811582);
-	TextDrawTextSize(td_logo_gambit[9], 1280.000000, 1280.000000);
-	TextDrawSetOutline(td_logo_gambit[9], 0);
-	TextDrawSetShadow(td_logo_gambit[9], 0);
-	TextDrawAlignment(td_logo_gambit[9], 2);
-	TextDrawUseBox(td_logo_gambit[9], 0);
-	TextDrawColor(td_logo_gambit[9], 0xffffffff);
-	TextDrawBackgroundColor(td_logo_gambit[9], 0x00000033);
-	TextDrawBoxColor(td_logo_gambit[9], 0x80808080);
-	TextDrawSetProportional(td_logo_gambit[9], 1);
+	g_szServerLogo[9] = TextDrawCreate(550.911010, 32.160884, "particle:lamp_shad_64");
+	TextDrawLetterSize(g_szServerLogo[9], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[9], 15.955543, -8.661350);
+	TextDrawAlignment(g_szServerLogo[9], 1);
+	TextDrawColor(g_szServerLogo[9], -177);
+	TextDrawSetShadow(g_szServerLogo[9], 0);
+	TextDrawSetOutline(g_szServerLogo[9], 0);
+	TextDrawFont(g_szServerLogo[9], 4);
+
+	g_szServerLogo[10] = TextDrawCreate(555.066589, 17.919986, "N");
+	TextDrawLetterSize(g_szServerLogo[10], 0.339333, 1.351110);
+	TextDrawAlignment(g_szServerLogo[10], 1);
+	TextDrawColor(g_szServerLogo[10], -161);
+	TextDrawSetShadow(g_szServerLogo[10], 0);
+	TextDrawSetOutline(g_szServerLogo[10], 0);
+	TextDrawBackgroundColor(g_szServerLogo[10], 51);
+	TextDrawFont(g_szServerLogo[10], 1);
+	TextDrawSetProportional(g_szServerLogo[10], 1);
+
+	g_szServerLogo[11] = TextDrawCreate(557.599243, 30.780447, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[11], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[11], 5.599957, 6.072892);
+	TextDrawAlignment(g_szServerLogo[11], 1);
+	TextDrawColor(g_szServerLogo[11], 798311935);
+	TextDrawSetShadow(g_szServerLogo[11], 0);
+	TextDrawSetOutline(g_szServerLogo[11], 0);
+	TextDrawFont(g_szServerLogo[11], 4);
+
+	g_szServerLogo[12] = TextDrawCreate(561.487731, 28.246213, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[12], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[12], 5.599957, 6.072892);
+	TextDrawAlignment(g_szServerLogo[12], 1);
+	TextDrawColor(g_szServerLogo[12], 798311935);
+	TextDrawSetShadow(g_szServerLogo[12], 0);
+	TextDrawSetOutline(g_szServerLogo[12], 0);
+	TextDrawFont(g_szServerLogo[12], 4);
+
+	g_szServerLogo[13] = TextDrawCreate(561.332580, 32.771533, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[13], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[13], 5.599956, 6.072892);
+	TextDrawAlignment(g_szServerLogo[13], 1);
+	TextDrawColor(g_szServerLogo[13], 798311935);
+	TextDrawSetShadow(g_szServerLogo[13], 0);
+	TextDrawSetOutline(g_szServerLogo[13], 0);
+	TextDrawFont(g_szServerLogo[13], 4);
+
+	g_szServerLogo[14] = TextDrawCreate(559.510070, 35.966224, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[14], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[14], 2.888845, 3.036448);
+	TextDrawAlignment(g_szServerLogo[14], 1);
+	TextDrawColor(g_szServerLogo[14], 798311935);
+	TextDrawSetShadow(g_szServerLogo[14], 0);
+	TextDrawSetOutline(g_szServerLogo[14], 0);
+	TextDrawFont(g_szServerLogo[14], 4);
+
+	g_szServerLogo[15] = TextDrawCreate(565.576843, 32.187538, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[15], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[15], 2.888845, 3.036448);
+	TextDrawAlignment(g_szServerLogo[15], 1);
+	TextDrawColor(g_szServerLogo[15], 798311935);
+	TextDrawSetShadow(g_szServerLogo[15], 0);
+	TextDrawSetOutline(g_szServerLogo[15], 0);
+	TextDrawFont(g_szServerLogo[15], 4);
+
+	g_szServerLogo[16] = TextDrawCreate(586.733337, 16.431097, "NOXE");
+	TextDrawLetterSize(g_szServerLogo[16], 0.239333, 0.952886);
+	TextDrawAlignment(g_szServerLogo[16], 1);
+	TextDrawColor(g_szServerLogo[16], -113);
+	TextDrawSetShadow(g_szServerLogo[16], 0);
+	TextDrawSetOutline(g_szServerLogo[16], 0);
+	TextDrawBackgroundColor(g_szServerLogo[16], 51);
+	TextDrawFont(g_szServerLogo[16], 1);
+	TextDrawSetProportional(g_szServerLogo[16], 1);
+
+	g_szServerLogo[17] = TextDrawCreate(578.399841, 24.897766, "R O L E P L A Y");
+	TextDrawLetterSize(g_szServerLogo[17], 0.152666, 0.654221);
+	TextDrawAlignment(g_szServerLogo[17], 1);
+	TextDrawColor(g_szServerLogo[17], 798311935);
+	TextDrawSetShadow(g_szServerLogo[17], 0);
+	TextDrawSetOutline(g_szServerLogo[17], 0);
+	TextDrawBackgroundColor(g_szServerLogo[17], 51);
+	TextDrawFont(g_szServerLogo[17], 1);
+	TextDrawSetProportional(g_szServerLogo[17], 1);
+
+	g_szServerLogo[18] = TextDrawCreate(610.932434, 11.384865, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[18], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[18], 5.066626, 5.475560);
+	TextDrawAlignment(g_szServerLogo[18], 1);
+	TextDrawColor(g_szServerLogo[18], 798311935);
+	TextDrawSetShadow(g_szServerLogo[18], 0);
+	TextDrawSetOutline(g_szServerLogo[18], 0);
+	TextDrawFont(g_szServerLogo[18], 4);
+
+	g_szServerLogo[19] = TextDrawCreate(614.954467, 14.624867, "ld_beat:chit");
+	TextDrawLetterSize(g_szServerLogo[19], 0.000000, 0.000000);
+	TextDrawTextSize(g_szServerLogo[19], 3.288846, 3.783114);
+	TextDrawAlignment(g_szServerLogo[19], 1);
+	TextDrawColor(g_szServerLogo[19], 798311935);
+	TextDrawSetShadow(g_szServerLogo[19], 0);
+	TextDrawSetOutline(g_szServerLogo[19], 0);
+	TextDrawFont(g_szServerLogo[19], 4);
 
 
 	return 1;

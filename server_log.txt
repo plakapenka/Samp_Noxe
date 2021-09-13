@@ -25425,3 +25425,310 @@ v0.3.7-R2, (C)2005-2015 SA-MP Team
 [19:33:06] [connection] 127.0.0.1:52137 requests connection cookie.
 [19:33:07] [connection] incoming connection: 127.0.0.1:52137 id: 0
 [19:33:07] [join] plakapenka has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:17:57] filterscripts = ""  (string)
+[11:17:57] 
+[11:17:57] Server Plugins
+[11:17:57] --------------
+[11:17:57]  Loading plugin: crashdetect
+[11:17:57]   CrashDetect plugin 4.20
+[11:17:57]   Loaded.
+[11:17:57]  Loading plugin: streamer
+[11:17:58] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[11:17:58]   Loaded.
+[11:17:58]  Loading plugin: mysql
+[11:17:58]  >> plugin.mysql: R41-4 successfully loaded.
+[11:17:58]   Loaded.
+[11:17:58]  Loading plugin: sscanf
+[11:17:58] 
+
+[11:17:58]  ===============================
+
+[11:17:58]       sscanf plugin loaded.     
+
+[11:17:58]          Version:  2.8.3        
+
+[11:17:58]   (c) 2018 Alex "Y_Less" Cole  
+
+[11:17:58]  ===============================
+
+[11:17:58]   Loaded.
+[11:17:58]  Loaded 4 plugins.
+
+[11:17:58] 
+[11:17:58] Filterscripts
+[11:17:58] ---------------
+[11:17:58]   Loaded 0 filterscripts.
+
+[11:17:58] ======================================
+[11:17:58] Подключение к базе MySQL успешно!
+[11:17:58] Number of vehicle models: 2
+[11:17:58] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[11:17:58] [connection] 127.0.0.1:61307 requests connection cookie.
+[11:17:59] [connection] incoming connection: 127.0.0.1:61307 id: 0
+[11:17:59] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[11:17:59] [debug]
+[11:17:59] [debug] Parameter count corrections:
+[11:17:59] [debug]
+[11:17:59] [debug] The 1st mangled argments (e.g. `<1073741823 arguments>`) below should read `<1 arguments>`
+[11:17:59] [debug]
+[11:17:59] [debug] Run time error 4: "Array index out of bounds"
+[11:17:59] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[11:17:59] [debug] AMX backtrace:
+[11:17:59] [debug] #0 00029ea8 in @yH_OnPlayerConnect@003 (playerid=0) at C:\Users\plak\Desktop\new_noxe\gamemodes\/sourc/textdraws/logo.pwn:7
+[11:17:59] [debug] #1 00018b88 in public OnPlayerConnect (0) at C:\Pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen.inc:131
+[11:18:00] ok
+[11:18:00] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:18:52] filterscripts = ""  (string)
+[11:18:52] 
+[11:18:52] Server Plugins
+[11:18:52] --------------
+[11:18:52]  Loading plugin: crashdetect
+[11:18:52]   CrashDetect plugin 4.20
+[11:18:52]   Loaded.
+[11:18:52]  Loading plugin: streamer
+[11:18:52] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[11:18:52]   Loaded.
+[11:18:52]  Loading plugin: mysql
+[11:18:52]  >> plugin.mysql: R41-4 successfully loaded.
+[11:18:52]   Loaded.
+[11:18:52]  Loading plugin: sscanf
+[11:18:52] 
+
+[11:18:52]  ===============================
+
+[11:18:52]       sscanf plugin loaded.     
+
+[11:18:52]          Version:  2.8.3        
+
+[11:18:52]   (c) 2018 Alex "Y_Less" Cole  
+
+[11:18:52]  ===============================
+
+[11:18:52]   Loaded.
+[11:18:52]  Loaded 4 plugins.
+
+[11:18:52] 
+[11:18:52] Filterscripts
+[11:18:52] ---------------
+[11:18:52]   Loaded 0 filterscripts.
+
+[11:18:52] ======================================
+[11:18:52] Подключение к базе MySQL успешно!
+[11:18:52] Number of vehicle models: 2
+[11:18:52] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[11:18:52] [connection] 127.0.0.1:59258 requests connection cookie.
+[11:18:53] [connection] incoming connection: 127.0.0.1:59258 id: 0
+[11:18:54] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[11:18:54] 20
+[11:18:54] [debug]
+[11:18:54] [debug] Parameter count corrections:
+[11:18:54] [debug]
+[11:18:54] [debug] The 1st mangled argments (e.g. `<1073741823 arguments>`) below should read `<1 arguments>`
+[11:18:54] [debug]
+[11:18:54] [debug] Run time error 4: "Array index out of bounds"
+[11:18:54] [debug]  Attempted to read/write array element at index 20 in array of size 20
+[11:18:54] [debug] AMX backtrace:
+[11:18:54] [debug] #0 00029ef4 in @yH_OnPlayerConnect@003 (playerid=0) at C:\Users\plak\Desktop\new_noxe\gamemodes\/sourc/textdraws/logo.pwn:8
+[11:18:54] [debug] #1 00018b88 in public OnPlayerConnect (0) at C:\Pawno\include\YSI_Coding\y_hooks\..\y_cgen\y_cgen.inc:131
+[11:18:54] ok
+[11:18:54] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:19:23] filterscripts = ""  (string)
+[11:19:23] 
+[11:19:23] Server Plugins
+[11:19:23] --------------
+[11:19:23]  Loading plugin: crashdetect
+[11:19:23]   CrashDetect plugin 4.20
+[11:19:23]   Loaded.
+[11:19:23]  Loading plugin: streamer
+[11:19:23] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[11:19:23]   Loaded.
+[11:19:23]  Loading plugin: mysql
+[11:19:23]  >> plugin.mysql: R41-4 successfully loaded.
+[11:19:23]   Loaded.
+[11:19:23]  Loading plugin: sscanf
+[11:19:23] 
+
+[11:19:23]  ===============================
+
+[11:19:23]       sscanf plugin loaded.     
+
+[11:19:23]          Version:  2.8.3        
+
+[11:19:23]   (c) 2018 Alex "Y_Less" Cole  
+
+[11:19:23]  ===============================
+
+[11:19:23]   Loaded.
+[11:19:23]  Loaded 4 plugins.
+
+[11:19:23] 
+[11:19:23] Filterscripts
+[11:19:23] ---------------
+[11:19:23]   Loaded 0 filterscripts.
+
+[11:19:24] ======================================
+[11:19:24] Подключение к базе MySQL успешно!
+[11:19:24] Number of vehicle models: 2
+[11:19:24] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[11:19:24] [connection] 127.0.0.1:55587 requests connection cookie.
+[11:19:25] [connection] incoming connection: 127.0.0.1:55587 id: 0
+[11:19:25] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[11:19:26] ok
+[11:19:26] ok
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:20:38] filterscripts = ""  (string)
+[11:20:38] 
+[11:20:38] Server Plugins
+[11:20:38] --------------
+[11:20:38]  Loading plugin: crashdetect
+[11:20:38]   CrashDetect plugin 4.20
+[11:20:38]   Loaded.
+[11:20:38]  Loading plugin: streamer
+[11:20:38] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[11:20:38]   Loaded.
+[11:20:38]  Loading plugin: mysql
+[11:20:38]  >> plugin.mysql: R41-4 successfully loaded.
+[11:20:38]   Loaded.
+[11:20:38]  Loading plugin: sscanf
+[11:20:38] 
+
+[11:20:38]  ===============================
+
+[11:20:38]       sscanf plugin loaded.     
+
+[11:20:38]          Version:  2.8.3        
+
+[11:20:38]   (c) 2018 Alex "Y_Less" Cole  
+
+[11:20:38]  ===============================
+
+[11:20:38]   Loaded.
+[11:20:38]  Loaded 4 plugins.
+
+[11:20:38] 
+[11:20:38] Filterscripts
+[11:20:38] ---------------
+[11:20:38]   Loaded 0 filterscripts.
+
+[11:20:39] ======================================
+[11:20:39] Подключение к базе MySQL успешно!
+[11:20:39] Number of vehicle models: 2
+[11:20:39] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[11:20:39] [connection] 127.0.0.1:58994 requests connection cookie.
+[11:20:40] [connection] incoming connection: 127.0.0.1:58994 id: 0
+[11:20:40] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[11:20:40] ok
+[11:20:40] ok
+[11:21:21] [connection] 127.0.0.1:53913 requests connection cookie.
+[11:21:22] [connection] incoming connection: 127.0.0.1:53913 id: 1
+[11:21:23] [join] plakapenka has joined the server (1:127.0.0.1)
+[11:22:33] disconnect
+[11:22:33] UPDATE `accounts` SET `pLicenses` = 1 WHERE `pMySQL_ID` = 4 LIMIT 1
+[11:22:33] [part] plakapenka has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[11:27:38] filterscripts = ""  (string)
+[11:27:38] 
+[11:27:38] Server Plugins
+[11:27:38] --------------
+[11:27:38]  Loading plugin: crashdetect
+[11:27:38]   CrashDetect plugin 4.20
+[11:27:38]   Loaded.
+[11:27:38]  Loading plugin: streamer
+[11:27:38] 
+
+*** Streamer Plugin v2.9.5 by Incognito loaded ***
+
+[11:27:38]   Loaded.
+[11:27:38]  Loading plugin: mysql
+[11:27:38]  >> plugin.mysql: R41-4 successfully loaded.
+[11:27:38]   Loaded.
+[11:27:38]  Loading plugin: sscanf
+[11:27:38] 
+
+[11:27:38]  ===============================
+
+[11:27:38]       sscanf plugin loaded.     
+
+[11:27:38]          Version:  2.8.3        
+
+[11:27:38]   (c) 2018 Alex "Y_Less" Cole  
+
+[11:27:38]  ===============================
+
+[11:27:38]   Loaded.
+[11:27:38]  Loaded 4 plugins.
+
+[11:27:38] 
+[11:27:38] Filterscripts
+[11:27:38] ---------------
+[11:27:38]   Loaded 0 filterscripts.
+
+[11:27:38] ======================================
+[11:27:38] Подключение к базе MySQL успешно!
+[11:27:38] Number of vehicle models: 2
+[11:27:38] Курсы валют загружены! bitcoin - 2100, вклады - 3, базовая - 100
+[11:27:38] [connection] 127.0.0.1:55348 requests connection cookie.
+[11:27:39] [connection] incoming connection: 127.0.0.1:55348 id: 0
+[11:27:39] [npc:join] Antonio_Kortes has joined the server (0:127.0.0.1)
+[11:27:39] ok
+[11:27:40] ok
+[11:28:07] [connection] 127.0.0.1:59143 requests connection cookie.
+[11:28:08] [connection] incoming connection: 127.0.0.1:59143 id: 1
+[11:28:08] [join] plakapenka has joined the server (1:127.0.0.1)
+[11:29:51] disconnect
+[11:29:51] [part] plakapenka has left the server (1:1)
