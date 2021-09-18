@@ -22,7 +22,7 @@ enum e_vehicle
 	vDoor_FR,	// дверь передн€€ права€
 	vDoor_BL,	// дверь задн€€ лева€
 	vDoor_BR,	// дверь задн€€ права€
-	vFuell		// бензин
+	Float:vFuell		// бензин
 };
 new vData[MAX_VEHICLES][e_vehicle];
 
@@ -33,10 +33,11 @@ new PlayerText:td_car_control_p[MAX_PLAYERS][9];
 #define color_control_car_on 	-1
 #define color_control_car_off 	0x750000FF
 
-stock OnSecondPlayerUpdate(playerid)
+// вызов в OnSecondUpdate
+stock player_second_update(playerid)
 {
-	
 	new vehicleid = GetPlayerVehicleID(playerid);
+
 	if(GetPVarInt(playerid, "show_speedometr") && vData[vehicleid][vEngine])
 	{
 		vData[vehicleid][vFuell] -= 0.001;
@@ -536,4 +537,18 @@ hook OnGameModeInit()
 	TextDrawSetProportional(td_car_control_g[8], 1);
 	TextDrawSetSelectable(td_car_control_g[8], 0);
 	
+}
+
+stock no_engine_car(carid)
+{
+    if(GetVehicleModel(carid) == 435 || GetVehicleModel(carid) == 450 || GetVehicleModel(carid) == 481
+    || GetVehicleModel(carid) == 509 || GetVehicleModel(carid) == 510 || GetVehicleModel(carid) == 569
+    || GetVehicleModel(carid) == 570 || GetVehicleModel(carid) == 584 || GetVehicleModel(carid) == 590 
+    || GetVehicleModel(carid) == 591 || GetVehicleModel(carid) == 594 || GetVehicleModel(carid) == 606 
+    || GetVehicleModel(carid) == 607 || GetVehicleModel(carid) == 608 || GetVehicleModel(carid) == 610 
+    || GetVehicleModel(carid) == 611)
+    {
+       return true;
+    }
+    return false;
 }

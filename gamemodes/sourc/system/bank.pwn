@@ -361,5 +361,5 @@ hook OnSecondUpdate()
 		}
 		UpdateDynamic3DTextLabelText(Text3D:bank_label_crypto, 0x018a04FF, format_str);
 	}
-
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }

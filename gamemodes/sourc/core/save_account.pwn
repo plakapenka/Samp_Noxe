@@ -7,6 +7,8 @@ stock save_player_accont(playerid)
 	new tmp_query[123];
 
 	full_query = "UPDATE `accounts` SET ";
+	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pLast_Online` = %d,", gettime());
+	strcat(full_query, tmp_query);
 
 	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pLicenses` = %d", pData[playerid][pLicenses]);
 	strcat(full_query, tmp_query);
@@ -14,7 +16,6 @@ stock save_player_accont(playerid)
 	mysql_format(g_sql, tmp_query, sizeof tmp_query, " WHERE `pMySQL_ID` = %d LIMIT 1", pData[playerid][pMySQL_ID]);
 	strcat(full_query, tmp_query);
 
-	printf("%s", full_query);
 	mysql_tquery(g_sql, full_query);
 }
 
@@ -32,7 +33,6 @@ hook GameModeExit()
 
 hook OnPlayerDisconnect(playerid, reason)
 {
-	printf("disconnect");
 	if(pData[playerid][pLogged] == LOGIN_STATUS_ONLINE)
 	{
 		save_player_accont(playerid);

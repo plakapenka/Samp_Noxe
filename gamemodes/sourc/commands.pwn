@@ -81,11 +81,11 @@ CMD:int(playerid,params[])
 	if(pData[playerid][pAdmin] < 2)
 		return SendClientMessage(playerid, 0xc92629, "Команда доступна со 2-го уровня администрирования!");
 
-	new interior;
-	if(sscanf(params,"d",interior)) 
+	new int;
+	if(sscanf(params,"d",int)) 
 		return SendClientMessage(playerid, -1,!" Введите /int [interior]");
 
-	SetPlayerInterior(playerid, interior);
+	SetPlayerInterior(playerid, int);
 	return 1;
 }
 CMD:world(playerid,params[])

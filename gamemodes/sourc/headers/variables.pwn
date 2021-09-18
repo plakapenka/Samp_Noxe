@@ -2,6 +2,7 @@
 
 enum E_PLAYERS
 {
+	Cache: Cache_ID,
 	pMySQL_ID,
 	pName[MAX_PLAYER_NAME],
 	pPassword[25], 
@@ -20,6 +21,7 @@ enum E_PLAYERS
 	pBank,
 	pBitcoin,
 	pLicenses,
+	pLast_Online,
 	gg
 };
 new pData[MAX_PLAYERS][E_PLAYERS];

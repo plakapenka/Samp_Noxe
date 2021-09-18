@@ -6,11 +6,27 @@ stock show_login_dialog(playerid)
 	format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
 	Добро пожаловать на сервер {B4B5B7}Samp RP{FFFFFF}\n\
 	Этот аккаунт зарегистрирован\n\n\
+	Последний визит: {B4B5B7}%s{FFFFFF}\n\
 	Логин: {B4B5B7}%s{FFFFFF}\n\
 	Введите пароль:\n\n\
-	_______________________________________",pData[playerid][pName]);
+	_______________________________________",check_float_time(pData[playerid][pLast_Online]), pData[playerid][pName]);
 	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {ae433d}Пароль", str_reg, "»", "x");
 	return 1;
+}
+
+stock check_float_time(float_time)
+{
+	printf("float_time %d", float_time);
+	new _time = gettime() - float_time;
+	printf("_time %d", _time);
+	
+	new _date[32];
+    if (_time > (24 * 365) * 3600) format(_date, sizeof _date, "%d лет назад", floatround(_time / ((24 * 365 ) * 3600))) ;
+	else if (_time > 24 * 3600) format(_date, sizeof _date, "%d дн. назад", floatround(_time / (24 * 3600))) ;
+    else if (_time > 3600) format(_date, sizeof _date, "%d ч. назад", floatround(_time / 3600)) ;
+  	else if (_time > 60) format(_date, sizeof _date, "%d мин. назад", floatround(_time / 60)) ;
+   	else if (_time > 1) format(_date, sizeof _date, "%d сек. назад", _time) ;
+	return _date ;
 }
 
 hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
@@ -44,9 +60,13 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		if(!strcmp(inputtext, pData[playerid][pPassword]))
 		{
 			//SpawnPlayer(playerid);
-			new query[103];
-			mysql_format(g_sql, query, sizeof query, "SELECT * FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
-			mysql_tquery(g_sql, query, "player_load_account", "d", playerid);
+			cache_set_active(pData[playerid][Cache_ID]);
+
+			player_load_account(playerid);
+
+			cache_delete(pData[playerid][Cache_ID]);
+			pData[playerid][Cache_ID] = MYSQL_INVALID_CACHE;
+
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		else
@@ -69,33 +89,28 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 forward player_load_account(playerid);
 public player_load_account(playerid)
 {
-	if(cache_num_rows() > 0)
-	{ // аккаунт зарегистрирован
-		pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
+	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
 
-		cache_get_value_int(0, 	"pMySQL_ID", 	pData[playerid][pMySQL_ID]);
-		cache_get_value(0, 		"pIP_reg", 		pData[playerid][pIP_reg]);
-		cache_get_value(0, 		"pIP_last", 	pData[playerid][pIP_last]);
-		cache_get_value(0, 		"pEmail", 		pData[playerid][pEmail]);
-		cache_get_value(0, 		"pPromocode", 	pData[playerid][pPromocode]);
-		cache_get_value_int(0, 	"pSex", 		pData[playerid][pSex]);
-		cache_get_value_int(0, 	"pLvl", 		pData[playerid][pLvl]);
-		cache_get_value_int(0, 	"pSkin", 		pData[playerid][pSkin]);
-		cache_get_value_int(0, 	"pAdmin", 		pData[playerid][pAdmin]);
-		cache_get_value_int(0, 	"pCash", 		pData[playerid][pCash]);
-		cache_get_value_int(0, 	"pBank", 		pData[playerid][pBank]);
-		cache_get_value_int(0, 	"pBitcoin", 	pData[playerid][pBitcoin]);
-		cache_get_value_int(0, 	"pLicenses", 	pData[playerid][pLicenses]);
+	cache_get_value_int(0, 	"pMySQL_ID", 	pData[playerid][pMySQL_ID]);
+	cache_get_value(0, 		"pIP_reg", 		pData[playerid][pIP_reg]);
+	cache_get_value(0, 		"pIP_last", 	pData[playerid][pIP_last]);
+	cache_get_value(0, 		"pEmail", 		pData[playerid][pEmail]);
+	cache_get_value(0, 		"pPromocode", 	pData[playerid][pPromocode]);
+	cache_get_value_int(0, 	"pSex", 		pData[playerid][pSex]);
+	cache_get_value_int(0, 	"pLvl", 		pData[playerid][pLvl]);
+	cache_get_value_int(0, 	"pSkin", 		pData[playerid][pSkin]);
+	cache_get_value_int(0, 	"pAdmin", 		pData[playerid][pAdmin]);
+	cache_get_value_int(0, 	"pCash", 		pData[playerid][pCash]);
+	cache_get_value_int(0, 	"pBank", 		pData[playerid][pBank]);
+	cache_get_value_int(0, 	"pBitcoin", 	pData[playerid][pBitcoin]);
+	cache_get_value_int(0, 	"pLicenses", 	pData[playerid][pLicenses]);
 
-		SetPlayerSkin(playerid,pData[playerid][pSkin]);
+	SetPlayerSkin(playerid,pData[playerid][pSkin]);
 		
-		destroy_auth_actor(playerid); 		// удаление актеров при авторизации
-		SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
-		CancelSelectTextDraw(playerid);		// убираем курсор
+	destroy_auth_actor(playerid); 		// удаление актеров при авторизации
+	SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
+	CancelSelectTextDraw(playerid);		// убираем курсор
 
-		SpawnPlayer(playerid);				
-		return 1;
-	}
-	Kick(playerid);
+	SpawnPlayer(playerid);				
 	return 1;
 }

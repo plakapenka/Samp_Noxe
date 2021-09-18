@@ -30,7 +30,7 @@ hook OnPlayerRequestClass(playerid, classid)
 	GetPlayerName(playerid, pData[playerid][pName], MAX_PLAYER_NAME); // записываем ник в переменную, чтобы каждый раз не юзать GetPlayerName
 
 	new query[103];
-	mysql_format(g_sql, query, sizeof query, "SELECT `pPassword` FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
+	mysql_format(g_sql, query, sizeof query, "SELECT * FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
 	mysql_tquery(g_sql, query, "player_check_account", "d", playerid);
 	
 	return Y_HOOKS_BREAK_RETURN_1;
@@ -45,7 +45,10 @@ public player_check_account(playerid)
 
 	if(cache_num_rows() > 0)
 	{ // аккаунт зарегистрирован
-		cache_get_value(0, "pPassword", pData[playerid][pPassword]);
+		cache_get_value 	(0, "pPassword", 	pData[playerid][pPassword]);
+		cache_get_value_int (0, "pLast_Online", pData[playerid][pLast_Online]);
+
+		pData[playerid][Cache_ID] = cache_save();
 
 		show_login_dialog(playerid);
 	}
@@ -83,7 +86,12 @@ hook OnPlayerSpawn(playerid)
 
 hook OnPlayerDisconnect(playerid, reason)
 {
-	
+	if (cache_is_valid(pData[playerid][Cache_ID]))
+	{
+		cache_delete(pData[playerid][Cache_ID]);
+		pData[playerid][Cache_ID] = MYSQL_INVALID_CACHE;
+	}
+
 	destroy_auth_actor(playerid);
 }
 

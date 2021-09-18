@@ -18,6 +18,8 @@ hook OnPlayerConnect(playerid)
 
 hook OnGameModeInit()
 {
+	CreateDynamicObject(411, 139.2579, 1778.1892, 17.0000, 0.0, 0.0, 0.0);// worldid = -1, interiorid = -1, playerid = -1, Float:streamdistance = STREAMER_OBJECT_SD, Float:drawdistance = STREAMER_OBJECT_DD, STREAMER_TAG_AREA areaid = STREAMER_TAG_AREA -1, priority = 0)
+	CreateObject(411,139.2579, 1778.1892, 17.0000, 0,0,0);
 	// =============== Актеры  (4 дракона)
 	new tmp_actor = CreateActor(11, 1939.2841,989.3802,992.4609,0.0);
 	SetActorVirtualWorld(tmp_actor, 1);

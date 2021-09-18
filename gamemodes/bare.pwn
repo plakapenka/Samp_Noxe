@@ -7,8 +7,10 @@
 //#include <jit>
 #include <crashdetect>
 
+
+
 #pragma warning disable 239, 214
-//#include <nex-ac>
+#include <nex-ac>
 
 
 
@@ -17,9 +19,6 @@
 
 // Don't display the message about startup optimisation (it still happens, you just aren't told).
 #define YSI_NO_OPTIMISATION_MESSAGE
-
-// Don't check if this is the latest version of YSI.
-#define YSI_NO_VERSION_CHECK
 
 #define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
 
@@ -30,7 +29,7 @@ new str_global_chat_message[144];
 
 #include <YSI_Coding\y_hooks>
 
-#include <YSI_Data\y_foreach>
+#include <YSI_Data\y_iterate>
 
 #include "/sourc/headers/variables.pwn" 	// все глобальные переменные
 #include "/sourc/headers/dialogs.pwn"		// список диалогов
@@ -63,6 +62,8 @@ new str_global_chat_message[144];
 #include "/sourc/system/casino_wheels.pwn"		// Игра колесо фортуны 
 
 #include "/sourc/system/driving_school.pwn"		// Автошкола
+#include "/sourc/system/houses.pwn"				// Автошкола
+//#include "/sourc/system/auto_shop.pwn"			// Автошкола
 
 main() 
 { 
