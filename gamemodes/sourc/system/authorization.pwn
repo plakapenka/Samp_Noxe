@@ -4,28 +4,27 @@ stock show_login_dialog(playerid)
 {
 	new str_reg[512];
 	format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
-	Добро пожаловать на сервер {B4B5B7}Samp RP{FFFFFF}\n\
+	Добро пожаловать на сервер {"#color_global"}Noxe RP{FFFFFF}\n\
 	Этот аккаунт зарегистрирован\n\n\
-	Последний визит: {B4B5B7}%s{FFFFFF}\n\
-	Логин: {B4B5B7}%s{FFFFFF}\n\
-	Введите пароль:\n\n\
-	_______________________________________",check_float_time(pData[playerid][pLast_Online]), pData[playerid][pName]);
-	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {ae433d}Пароль", str_reg, "»", "x");
+	Аккаунт: {"#color_global"}%s{FFFFFF}\n\
+	Последний визит: {"#color_global"}%s{FFFFFF}\n\n\
+	Введите пароль:\n\
+	_______________________________________", pData[playerid][pName], check_float_time(pData[playerid][pLast_Online]));
+	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {"#color_dark"}Пароль", str_reg, "»", "x");
 	return 1;
 }
 
 stock check_float_time(float_time)
 {
-	printf("float_time %d", float_time);
 	new _time = gettime() - float_time;
-	printf("_time %d", _time);
 	
 	new _date[32];
-    if (_time > (24 * 365) * 3600) format(_date, sizeof _date, "%d лет назад", floatround(_time / ((24 * 365 ) * 3600))) ;
-	else if (_time > 24 * 3600) format(_date, sizeof _date, "%d дн. назад", floatround(_time / (24 * 3600))) ;
-    else if (_time > 3600) format(_date, sizeof _date, "%d ч. назад", floatround(_time / 3600)) ;
-  	else if (_time > 60) format(_date, sizeof _date, "%d мин. назад", floatround(_time / 60)) ;
-   	else if (_time > 1) format(_date, sizeof _date, "%d сек. назад", _time) ;
+
+    if (_time > (24 * 365) * 3600) 	format(_date, sizeof _date, "%d лет назад", floatround(_time / ((24 * 365 ) * 3600))) ;
+	else if (_time > 24 * 3600) 	format(_date, sizeof _date, "%d дн. назад", floatround(_time / (24 * 3600))) ;
+    else if (_time > 3600) 			format(_date, sizeof _date, "%d ч. назад", floatround(_time / 3600)) ;
+  	else if (_time > 60) 			format(_date, sizeof _date, "%d мин. назад", floatround(_time / 60)) ;
+   	else if (_time > 1) 			format(_date, sizeof _date, "%d сек. назад", _time) ;
 	return _date ;
 }
 
@@ -110,6 +109,7 @@ public player_load_account(playerid)
 	destroy_auth_actor(playerid); 		// удаление актеров при авторизации
 	SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
 	CancelSelectTextDraw(playerid);		// убираем курсор
+	check_house_owner(playerid);		// проверяет есть ли у игрока дом
 
 	SpawnPlayer(playerid);				
 	return 1;

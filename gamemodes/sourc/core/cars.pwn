@@ -30,8 +30,8 @@ new vData[MAX_VEHICLES][e_vehicle];
 new Text:td_car_control_g[9];
 new PlayerText:td_car_control_p[MAX_PLAYERS][9];
 
-#define color_control_car_on 	-1
-#define color_control_car_off 	0x750000FF
+#define color_control_car_on 	color16_light
+#define color_control_car_off 	color16_dark
 
 // גûחמג ג OnSecondUpdate
 stock player_second_update(playerid)

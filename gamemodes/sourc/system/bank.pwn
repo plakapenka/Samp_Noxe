@@ -21,6 +21,7 @@ new Text3D:bank_label_inflation;
 new Text3D:bank_label_info;
 
 new bank_info_list[3][MAX_PLAYER_NAME] = {"Свободно","Свободно","Свободно"};
+#define correct_price(%0)	(%0*base_value)
 
 hook OnPlayerConnect(playerid)
 {

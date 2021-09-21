@@ -1,15 +1,35 @@
 
+CMD:attach_trailer(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 5) return true;
+	if(sscanf(params, "dd",params[0], params[1])) 
+		return	SendClientMessage(playerid, -1, "¬ведите: /attach_trailer [id] [id]");
 
+	AttachTrailerToVehicle(params[0], params[1]);
+	
+	return true;
+}
 CMD:gggg(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) return true;
 	if(sscanf(params, "d",params[0])) 
-		return	SendClientMessage(playerid, -1, " ¬ведите: /givemoney [id] [money]");
+		return	SendClientMessage(playerid, -1, "¬ведите: /givemoney [id] [money]");
 
 	new Float:x, Float:y, Float:z;
 	GetDynamicObjectPos(params[0], x, y, z);
 
 	SetPlayerPos(playerid, x, y, z);
+	
+	return true;
+}
+CMD:g_int_house(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 5) return true;
+	if(sscanf(params, "d",params[0])) 
+		return	SendClientMessage(playerid, -1, "¬ведите: /g_int_house [interior]");
+
+	SetPlayerPos(playerid, intData[params[0]][exit_x], intData[params[0]][exit_y], intData[params[0]][exit_z]);
+	SetPlayerInterior(playerid, intData[params[0]][interior_id]);
 	
 	return true;
 }

@@ -18,12 +18,12 @@ hook OnPlayerConnect(playerid)
 }*/
 
 hook OnGameModeInit()
-{
+{//798311935
 	g_szServerLogo[0] = TextDrawCreate(545.332824, 10.453332, "ld_beat:chit");
 	TextDrawLetterSize(g_szServerLogo[0], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[0], 26.533300, 28.124454);
 	TextDrawAlignment(g_szServerLogo[0], 1);
-	TextDrawColor(g_szServerLogo[0], 798311935);
+	TextDrawColor(g_szServerLogo[0], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[0], 0);
 	TextDrawSetOutline(g_szServerLogo[0], 0);
 	TextDrawFont(g_szServerLogo[0], 4);
@@ -32,7 +32,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[1], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[1], 5.599958, 6.072892);
 	TextDrawAlignment(g_szServerLogo[1], 1);
-	TextDrawColor(g_szServerLogo[1], 798311935);
+	TextDrawColor(g_szServerLogo[1], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[1], 0);
 	TextDrawSetOutline(g_szServerLogo[1], 0);
 	TextDrawFont(g_szServerLogo[1], 4);
@@ -41,7 +41,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[2], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[2], 5.599958, 6.072892);
 	TextDrawAlignment(g_szServerLogo[2], 1);
-	TextDrawColor(g_szServerLogo[2], 798311935);
+	TextDrawColor(g_szServerLogo[2], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[2], 0);
 	TextDrawSetOutline(g_szServerLogo[2], 0);
 	TextDrawFont(g_szServerLogo[2], 4);
@@ -50,7 +50,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[3], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[3], 5.599956, 6.072892);
 	TextDrawAlignment(g_szServerLogo[3], 1);
-	TextDrawColor(g_szServerLogo[3], 798311935);
+	TextDrawColor(g_szServerLogo[3], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[3], 0);
 	TextDrawSetOutline(g_szServerLogo[3], 0);
 	TextDrawFont(g_szServerLogo[3], 4);
@@ -59,7 +59,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[4], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[4], 2.888845, 3.036448);
 	TextDrawAlignment(g_szServerLogo[4], 1);
-	TextDrawColor(g_szServerLogo[4], 798311935);
+	TextDrawColor(g_szServerLogo[4], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[4], 0);
 	TextDrawSetOutline(g_szServerLogo[4], 0);
 	TextDrawFont(g_szServerLogo[4], 4);
@@ -68,7 +68,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[5], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[5], 2.888845, 3.036448);
 	TextDrawAlignment(g_szServerLogo[5], 1);
-	TextDrawColor(g_szServerLogo[5], 798311935);
+	TextDrawColor(g_szServerLogo[5], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[5], 0);
 	TextDrawSetOutline(g_szServerLogo[5], 0);
 	TextDrawFont(g_szServerLogo[5], 4);
@@ -77,7 +77,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[6], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[6], 2.888845, 3.036448);
 	TextDrawAlignment(g_szServerLogo[6], 1);
-	TextDrawColor(g_szServerLogo[6], 798311935);
+	TextDrawColor(g_szServerLogo[6], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[6], 0);
 	TextDrawSetOutline(g_szServerLogo[6], 0);
 	TextDrawFont(g_szServerLogo[6], 4);
@@ -86,7 +86,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[7], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[7], 2.888846, 3.036448);
 	TextDrawAlignment(g_szServerLogo[7], 1);
-	TextDrawColor(g_szServerLogo[7], 798311935);
+	TextDrawColor(g_szServerLogo[7], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[7], 0);
 	TextDrawSetOutline(g_szServerLogo[7], 0);
 	TextDrawFont(g_szServerLogo[7], 4);
@@ -112,7 +112,7 @@ hook OnGameModeInit()
 	g_szServerLogo[10] = TextDrawCreate(555.066589, 17.919986, "N");
 	TextDrawLetterSize(g_szServerLogo[10], 0.339333, 1.351110);
 	TextDrawAlignment(g_szServerLogo[10], 1);
-	TextDrawColor(g_szServerLogo[10], -161);
+	TextDrawColor(g_szServerLogo[10], color16_light);
 	TextDrawSetShadow(g_szServerLogo[10], 0);
 	TextDrawSetOutline(g_szServerLogo[10], 0);
 	TextDrawBackgroundColor(g_szServerLogo[10], 51);
@@ -123,7 +123,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[11], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[11], 5.599957, 6.072892);
 	TextDrawAlignment(g_szServerLogo[11], 1);
-	TextDrawColor(g_szServerLogo[11], 798311935);
+	TextDrawColor(g_szServerLogo[11], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[11], 0);
 	TextDrawSetOutline(g_szServerLogo[11], 0);
 	TextDrawFont(g_szServerLogo[11], 4);
@@ -132,7 +132,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[12], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[12], 5.599957, 6.072892);
 	TextDrawAlignment(g_szServerLogo[12], 1);
-	TextDrawColor(g_szServerLogo[12], 798311935);
+	TextDrawColor(g_szServerLogo[12], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[12], 0);
 	TextDrawSetOutline(g_szServerLogo[12], 0);
 	TextDrawFont(g_szServerLogo[12], 4);
@@ -141,7 +141,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[13], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[13], 5.599956, 6.072892);
 	TextDrawAlignment(g_szServerLogo[13], 1);
-	TextDrawColor(g_szServerLogo[13], 798311935);
+	TextDrawColor(g_szServerLogo[13], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[13], 0);
 	TextDrawSetOutline(g_szServerLogo[13], 0);
 	TextDrawFont(g_szServerLogo[13], 4);
@@ -150,7 +150,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[14], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[14], 2.888845, 3.036448);
 	TextDrawAlignment(g_szServerLogo[14], 1);
-	TextDrawColor(g_szServerLogo[14], 798311935);
+	TextDrawColor(g_szServerLogo[14], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[14], 0);
 	TextDrawSetOutline(g_szServerLogo[14], 0);
 	TextDrawFont(g_szServerLogo[14], 4);
@@ -159,7 +159,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[15], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[15], 2.888845, 3.036448);
 	TextDrawAlignment(g_szServerLogo[15], 1);
-	TextDrawColor(g_szServerLogo[15], 798311935);
+	TextDrawColor(g_szServerLogo[15], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[15], 0);
 	TextDrawSetOutline(g_szServerLogo[15], 0);
 	TextDrawFont(g_szServerLogo[15], 4);
@@ -167,7 +167,7 @@ hook OnGameModeInit()
 	g_szServerLogo[16] = TextDrawCreate(586.733337, 16.431097, "NOXE");
 	TextDrawLetterSize(g_szServerLogo[16], 0.239333, 0.952886);
 	TextDrawAlignment(g_szServerLogo[16], 1);
-	TextDrawColor(g_szServerLogo[16], -113);
+	TextDrawColor(g_szServerLogo[16], 0x000000EE);
 	TextDrawSetShadow(g_szServerLogo[16], 0);
 	TextDrawSetOutline(g_szServerLogo[16], 0);
 	TextDrawBackgroundColor(g_szServerLogo[16], 51);
@@ -177,7 +177,7 @@ hook OnGameModeInit()
 	g_szServerLogo[17] = TextDrawCreate(578.399841, 24.897766, "R O L E P L A Y");
 	TextDrawLetterSize(g_szServerLogo[17], 0.152666, 0.654221);
 	TextDrawAlignment(g_szServerLogo[17], 1);
-	TextDrawColor(g_szServerLogo[17], 798311935);
+	TextDrawColor(g_szServerLogo[17], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[17], 0);
 	TextDrawSetOutline(g_szServerLogo[17], 0);
 	TextDrawBackgroundColor(g_szServerLogo[17], 51);
@@ -188,7 +188,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[18], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[18], 5.066626, 5.475560);
 	TextDrawAlignment(g_szServerLogo[18], 1);
-	TextDrawColor(g_szServerLogo[18], 798311935);
+	TextDrawColor(g_szServerLogo[18], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[18], 0);
 	TextDrawSetOutline(g_szServerLogo[18], 0);
 	TextDrawFont(g_szServerLogo[18], 4);
@@ -197,7 +197,7 @@ hook OnGameModeInit()
 	TextDrawLetterSize(g_szServerLogo[19], 0.000000, 0.000000);
 	TextDrawTextSize(g_szServerLogo[19], 3.288846, 3.783114);
 	TextDrawAlignment(g_szServerLogo[19], 1);
-	TextDrawColor(g_szServerLogo[19], 798311935);
+	TextDrawColor(g_szServerLogo[19], color16_dark);
 	TextDrawSetShadow(g_szServerLogo[19], 0);
 	TextDrawSetOutline(g_szServerLogo[19], 0);
 	TextDrawFont(g_szServerLogo[19], 4);

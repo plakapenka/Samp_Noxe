@@ -22,7 +22,7 @@ hook OnPlayerRequestClass(playerid, classid)
 	{
 		SendClientMessage(playerid, -1, "");	
 	}
-	SendClientMessage(playerid, 0x79b4e8FF, "Добро пожаловать на сервер Noxe Role Play");
+	SendClientMessage(playerid, color16_light, "Добро пожаловать на сервер Noxe Role Play");
 
 	pData[playerid][pLogged] = LOGIN_STATUS_ENTER; 
 	

@@ -22,6 +22,7 @@ enum E_PLAYERS
 	pBitcoin,
 	pLicenses,
 	pLast_Online,
+	pHouse,
 	gg
 };
 new pData[MAX_PLAYERS][E_PLAYERS];

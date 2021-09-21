@@ -10,6 +10,15 @@ stock save_player_accont(playerid)
 	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pLast_Online` = %d,", gettime());
 	strcat(full_query, tmp_query);
 
+	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pCash` = %d,", pData[playerid][pCash]);
+	strcat(full_query, tmp_query);
+
+	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pBank` = %d,", pData[playerid][pBank]);
+	strcat(full_query, tmp_query);
+
+	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pBitcoin` = %d,", pData[playerid][pBitcoin]);
+	strcat(full_query, tmp_query);
+
 	mysql_format(g_sql, tmp_query, sizeof(tmp_query), "`pLicenses` = %d", pData[playerid][pLicenses]);
 	strcat(full_query, tmp_query);
 
