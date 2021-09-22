@@ -13,3 +13,16 @@ stock OnPlayerEnterDynamicArea(playerid, areaid)
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
+
+stock OnPlayerLeaveDynamicArea(playerid, areaid)
+{
+	new _arrayData[2];
+	Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _arrayData);
+
+	if(_arrayData[0] == AREA_FOR_HOUSE)
+	{
+		DeletePVar(playerid, "house_id");
+		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	return Y_HOOKS_CONTINUE_RETURN_1;
+}

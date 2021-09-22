@@ -129,9 +129,9 @@ public OnGameModeInit()
 	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
 
 	SetGameModeText("Role Play");
-	ShowPlayerMarkers(1);
-	ShowNameTags(1);
+	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
+	EnableStuntBonusForAll(0);
 	return 1;
 }
 

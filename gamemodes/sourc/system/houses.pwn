@@ -208,7 +208,20 @@ CMD:buyhouse(playerid)
 	//SpawnHouseCars(playerid);
 	return true;
 }
-
+hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+{
+	if(PRESSED(KEY_SECONDARY_ATTACK) && GetPVarInt(playerid, "house_id"))
+	{
+		exit_house(playerid);
+	}
+}
+stock exit_house(playerid)
+{
+	new house = GetPVarInt(playerid, "house_id")-1;
+	SetPlayerPos(playerid, hData[house][enter_x], hData[house][enter_y], hData[house][enter_z]);
+	SetPlayerInterior(playerid, 0);
+	SetPlayerVirtualWorld(playerid, 0);
+}
 stock enter_house(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
@@ -323,7 +336,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				}
 				if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_STORE)
 				{
-					CreateDynamicObject(2131, intData[int][store_x], intData[int][store_y], intData[int][store_z], 0,0,intData[int][store_a], house);
+					CreateDynamicObject(2708, intData[int][store_x], intData[int][store_y], intData[int][store_z], 0,0,intData[int][store_a], house);
 				}
 				hData[house][h_improve] |= GetPVarInt(playerid, "buy_improve_what");
 				give_money(playerid, -GetPVarInt(playerid, "buy_improve_price"));
