@@ -16,6 +16,7 @@ hook OnGameModeInit()
 		return 1;
 	}
 	mysql_log(WARNING);
+	
 
 	print("Подключение к базе MySQL успешно!");
 	return 1;

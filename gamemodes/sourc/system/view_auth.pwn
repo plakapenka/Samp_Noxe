@@ -1,17 +1,21 @@
-#include <YSI_Coding\y_hooks>
-
 /* view_auth 
 Это одно из первых что происходит при коннекте игрока на сервер.
 Здесь описана проверка аккаунта на наличие в базе, внешний вид фона авторизации/регистрации
 изменение статуса аккаунта в базе данных ( онлайн/оффлайн )
 */
 
+#include <YSI_Coding\y_hooks>
+
 // Маппинг интерьера авторизации
 #include "/sourc/objects/authorization.pwn"
+
+//
+#define		SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
 
 
 hook OnPlayerRequestClass(playerid, classid)
 {
+
 	if(IsPlayerNPC(playerid))
 	{
 		SpawnPlayer(playerid);
@@ -24,44 +28,38 @@ hook OnPlayerRequestClass(playerid, classid)
 	}
 	SendClientMessage(playerid, color16_light, "Добро пожаловать на сервер Noxe Role Play");
 
-	pData[playerid][pLogged] = LOGIN_STATUS_ENTER; 
-	
-	GetPlayerIp(playerid, pData[playerid][pIP_cur], 15); // записываем ip в переменную, чтобы каждый раз не юзать GetPlayerIp
-	GetPlayerName(playerid, pData[playerid][pName], MAX_PLAYER_NAME); // записываем ник в переменную, чтобы каждый раз не юзать GetPlayerName
-
-	new query[103];
-	mysql_format(g_sql, query, sizeof query, "SELECT * FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
-	mysql_tquery(g_sql, query, "player_check_account", "d", playerid);
-	
+	InitPlayerData(playerid);
 	return Y_HOOKS_BREAK_RETURN_1;
 	
 }
 
-forward player_check_account(playerid);
-public player_check_account(playerid)
+forward OnPlayerDataLoaded(playerid);
+public OnPlayerDataLoaded(playerid)
 {
 	// Спавним игрока чтобы убрать кнопки << >> SPAWN
+	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
 	SpawnPlayer(playerid);
 
-	if(cache_num_rows() > 0)
-	{ // аккаунт зарегистрирован
-		cache_get_value 	(0, "pPassword", 	pData[playerid][pPassword]);
-		cache_get_value_int (0, "pLast_Online", pData[playerid][pLast_Online]);
 
-		pData[playerid][Cache_ID] = cache_save();
+	orm_setkey(pData[playerid][ORM_ID], "pMySQL_ID");
 
-		show_login_dialog(playerid);
-	}
-	else
-	{ // регистрация нового аккаунта
-		show_register_dialog(playerid,dReg_pas);
+	switch (orm_errno(pData[playerid][ORM_ID]))
+	{
+		case ERROR_OK:
+		{// аккаунт зарегистрирован
+			show_login_dialog(playerid);
+		}
+		case ERROR_NO_DATA:
+		{// регистрация нового аккаунта
+			show_register_dialog(playerid,dReg_pas);
+		}
+	
 	}
 	return 1;
 }
 
 hook OnPlayerSpawn(playerid)
 {
-
 	if(pData[playerid][pLogged] == LOGIN_STATUS_ENTER)
 	{
 		// актеры в интерьере авторизации
@@ -86,12 +84,6 @@ hook OnPlayerSpawn(playerid)
 
 hook OnPlayerDisconnect(playerid, reason)
 {
-	if (cache_is_valid(pData[playerid][Cache_ID]))
-	{
-		cache_delete(pData[playerid][Cache_ID]);
-		pData[playerid][Cache_ID] = MYSQL_INVALID_CACHE;
-	}
-
 	destroy_auth_actor(playerid);
 }
 

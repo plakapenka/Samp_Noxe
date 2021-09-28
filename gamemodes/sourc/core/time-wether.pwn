@@ -8,6 +8,7 @@ new serv_weather;
 	return continue();
 }
 */
+
 hook OnGameModeInit()
 {
 	gettime(serv_hour, serv_minute, serv_second);

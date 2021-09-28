@@ -1,7 +1,8 @@
 
 CMD:attach_trailer(playerid, params[])
 {
-	if(pData[playerid][pAdmin] < 5) return true;
+	if(pData[playerid][pAdmin] < 5) 
+		return true;
 	if(sscanf(params, "dd",params[0], params[1])) 
 		return	SendClientMessage(playerid, -1, "Введите: /attach_trailer [id] [id]");
 
@@ -9,9 +10,40 @@ CMD:attach_trailer(playerid, params[])
 	
 	return true;
 }
+
+CMD:setskin(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 5) 
+		return true;
+	if(sscanf(params, "dd",params[0], params[1])) 
+		return	SendClientMessage(playerid, -1, "Введите: /setskin [id] [skin id]");
+
+	SetPlayerSkin(params[0], params[1]);
+	
+	return true;
+}
+
+CMD:cree(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 5) 
+		return true;
+	if(sscanf(params, "d",params[0])) 
+		return	SendClientMessage(playerid, -1, "Введите: /givemoney [id] [money]");
+
+	new tmpobjid = CreateDynamicObject(2640,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
+    AttachDynamicObjectToVehicle(tmpobjid, params[0], 0.000, 3.131, 3.779, 0.000, 0.000, 0.000);
+    tmpobjid = CreateDynamicObject(2640,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
+    AttachDynamicObjectToVehicle(tmpobjid, params[0], 0.000, 0.310, 2.969, 0.000, 0.000, 0.000);
+
+//	SetPlayerPos(playerid, x, y, z);
+	
+	return true;
+}
+
 CMD:gggg(playerid, params[])
 {
-	if(pData[playerid][pAdmin] < 5) return true;
+	if(pData[playerid][pAdmin] < 5) 
+		return true;
 	if(sscanf(params, "d",params[0])) 
 		return	SendClientMessage(playerid, -1, "Введите: /givemoney [id] [money]");
 
@@ -24,7 +56,8 @@ CMD:gggg(playerid, params[])
 }
 CMD:g_int_house(playerid, params[])
 {
-	if(pData[playerid][pAdmin] < 5) return true;
+	if(pData[playerid][pAdmin] < 5) 
+		return true;
 	if(sscanf(params, "d",params[0])) 
 		return	SendClientMessage(playerid, -1, "Введите: /g_int_house [interior]");
 
@@ -35,7 +68,8 @@ CMD:g_int_house(playerid, params[])
 }
 CMD:givemoney(playerid, params[])
 {
-	if(pData[playerid][pAdmin] < 10) return true;
+	if(pData[playerid][pAdmin] < 10) 
+		return true;
 	if(sscanf(params, "ud",params[0],params[1])) 
 		return	SendClientMessage(playerid, -1, " Введите: /givemoney [id] [money]");
 	
@@ -47,7 +81,8 @@ CMD:givemoney(playerid, params[])
 }
 CMD:veh(playerid, params[])
 {
-	if(pData[playerid][pAdmin] < 2) return true;
+	if(pData[playerid][pAdmin] < 2) 
+		return true;
 	if(sscanf(params, "ddd",params[0],params[1],params[2])) 
 		return	SendClientMessage(playerid, -1, " Введите: /veh [id авто] [Цвет №1] [Цвет №2]");
 
@@ -83,7 +118,8 @@ CMD:xyz(playerid,params[])
 		return SendClientMessage(playerid, 0xc92629, "Команда доступна со 2-го уровня администрирования!");
 
 	new Float:XXX, Float:YYY, Float:ZZZ;
-	if(sscanf(params,"p<,>fff",XXX,YYY,ZZZ)) return SendClientMessage(playerid, -1,!" Введите /xyz [x,y,z]");
+	if(sscanf(params,"p<,>fff",XXX,YYY,ZZZ)) 
+		return SendClientMessage(playerid, -1,!" Введите /xyz [x,y,z]");
 
 	SetPlayerPos(playerid, XXX,YYY,ZZZ);
 	return 1;

@@ -4,33 +4,6 @@
 new fem_skin_reg[] = {40,55,90};				// Женские скины при регистрации
 new male_skin_reg[]= {137,200,230,239,212,79};	// Мужские скины при регистрации
 
-forward query_create_new_account(playerid);
-public query_create_new_account(playerid)
-{
-
-	new query[103];
-	mysql_format(g_sql, query, sizeof query, "SELECT * FROM `accounts` WHERE `pName` = '%e' LIMIT 1", pData[playerid][pName]);
-	mysql_tquery(g_sql, query, "player_load_account", "d", playerid);
-	return 1;
-	// вы думаете я даун, раз загружаю аккаунт который только что создал? Возможно
-	// в моей логике я делаю это для того чтобы не обнулять переменные, а брать значения по умолчанию из MySQL
-	// + чтобы спавн не отличался от обычного
-}
-
-stock create_new_account(playerid)
-{// все что происходит после нажатия на кнопку SELECT при регистрации
-	strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, 15, 15);
-
-	new query[512];
-	mysql_format(g_sql, query, sizeof query, "INSERT INTO accounts\
-	(pName, pPassword, pLogged, pIP_reg, pEmail, pPromocode,pSkin) VALUES \
-	('%s', '%s', %d, '%s', '%s', '%s','%d');",pData[playerid][pName], pData[playerid][pPassword],pData[playerid][pLogged],\
-	pData[playerid][pIP_reg], pData[playerid][pEmail], pData[playerid][pPromocode],pData[playerid][pSkin]);
-
-	mysql_tquery(g_sql, query, "query_create_new_account", "d", playerid);
-	return 1;
-}
-
 
 stock show_register_dialog(playerid, id)
 {
@@ -101,7 +74,9 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				{
 					case 'А'..'Я', 'а'..'я', ' ':
 					{
-						ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "{00FF21}Введенный вами пароль содержит русские буквы.\n Смените раскладку клавиатуры!", "Повтор", "");
+						ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "\
+						{00FF21}Введенный вами пароль содержит русские буквы.\n\
+						Смените раскладку клавиатуры!", "Повтор", "");
 						return Y_HOOKS_BREAK_RETURN_1;
 					}
 				}
@@ -128,11 +103,6 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				}
 				strmid(pData[playerid][pEmail],inputtext, 0, strlen(inputtext));
 			}
-			else
-			{
-				strmid(pData[playerid][pEmail], "None", 0, strlen("None"));
-				
-			}
 			show_register_dialog(playerid, dReg_promo); // показываем диалог ввода промокода
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
@@ -152,18 +122,12 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				}
 				strmid(pData[playerid][pPromocode],inputtext, 0, strlen(inputtext));
 			}
-			else
-			{
-				strmid(pData[playerid][pPromocode], "None", 0, strlen("None"));
-				
-			}
 			show_register_dialog(playerid, dReg_sex); // показываем диалог выбора пола
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		case dReg_sex: // регистрация - выбор пола
 		{
 			pData[playerid][pSex] 		= response;
-			pData[playerid][pLogged] 	= LOGIN_STATUS_REG;
 
 			InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
 			InterpolateCameraLookAt(playerid, 2080.637451, 2090.162109, 27.209436, 2073.040771, 2091.703857, 27.107011, 2000);
@@ -177,9 +141,8 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				SetPlayerSkin(playerid, fem_skin_reg[0]);
 			}
 			
-
 			show_select_skin_td(playerid);
-			SelectTextDraw(playerid, 0x036bfcFF);
+			SelectTextDraw(playerid, color16_global);
 			pData[playerid][pTDSelect] = SELECT_STATUS_SKIN_REG;
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
@@ -256,9 +219,11 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
 
     	if(clickedid == select_skin_td[7]) 
     	{// кнопка SELECT
+    		strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, MAX_IP_LENGTH, MAX_IP_LENGTH);
+			orm_save(pData[playerid][ORM_ID], "player_load_account", "d", playerid);
+
     		hide_select_skin_td(playerid);
     		CancelSelectTextDraw(playerid);
-    		create_new_account(playerid);
     		return Y_HOOKS_BREAK_RETURN_1;
     	}
     }

@@ -58,14 +58,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		if(!strcmp(inputtext, pData[playerid][pPassword]))
 		{
-			//SpawnPlayer(playerid);
-			cache_set_active(pData[playerid][Cache_ID]);
-
 			player_load_account(playerid);
-
-			cache_delete(pData[playerid][Cache_ID]);
-			pData[playerid][Cache_ID] = MYSQL_INVALID_CACHE;
-
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		else
@@ -89,22 +82,6 @@ forward player_load_account(playerid);
 public player_load_account(playerid)
 {
 	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
-
-	cache_get_value_int(0, 	"pMySQL_ID", 	pData[playerid][pMySQL_ID]);
-	cache_get_value(0, 		"pIP_reg", 		pData[playerid][pIP_reg]);
-	cache_get_value(0, 		"pIP_last", 	pData[playerid][pIP_last]);
-	cache_get_value(0, 		"pEmail", 		pData[playerid][pEmail]);
-	cache_get_value(0, 		"pPromocode", 	pData[playerid][pPromocode]);
-	cache_get_value_int(0, 	"pSex", 		pData[playerid][pSex]);
-	cache_get_value_int(0, 	"pLvl", 		pData[playerid][pLvl]);
-	cache_get_value_int(0, 	"pSkin", 		pData[playerid][pSkin]);
-	cache_get_value_int(0, 	"pAdmin", 		pData[playerid][pAdmin]);
-	cache_get_value_int(0, 	"pCash", 		pData[playerid][pCash]);
-	cache_get_value_int(0, 	"pBank", 		pData[playerid][pBank]);
-	cache_get_value_int(0, 	"pBitcoin", 	pData[playerid][pBitcoin]);
-	cache_get_value_int(0, 	"pLicenses", 	pData[playerid][pLicenses]);
-
-	SetPlayerSkin(playerid,pData[playerid][pSkin]);
 		
 	destroy_auth_actor(playerid); 		// удаление актеров при авторизации
 	SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку

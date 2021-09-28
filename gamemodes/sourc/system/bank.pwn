@@ -332,6 +332,73 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
+new PlayerText:black_draw[MAX_PLAYERS], black_draw_color[MAX_PLAYERS];
+
+forward enter_exit_single(playerid, Float:x_pos, Float:y_pos, Float:z_pos, Float:a_pos, interiodid, worldid);
+
+public enter_exit_single(playerid, Float:x_pos, Float:y_pos, Float:z_pos, Float:a_pos, interiodid, worldid)
+{
+	if(!GetPVarInt(playerid, "sost_black_screen"))
+	{
+		new Float:p_ang;
+	    GetPlayerFacingAngle(playerid, p_ang);
+
+	    new Float:p_x, Float:p_y, Float:p_z;
+	    GetPlayerPos(playerid, p_x, p_y, p_z);
+
+	    p_x += (-3.5 * floatsin(-p_ang, degrees));
+	    p_y += (-3.5 * floatcos(-p_ang, degrees));
+
+	    SetPlayerPos(playerid, p_x, p_y, p_z);
+
+	    ApplyAnimation(playerid, "PED", "NULL", 0.0, false, 0, 0, 0, 2000);
+	    ApplyAnimation(playerid, "PED", "WALK_CIVI", 4.1, false, 1, 1, 0, 2000);
+	    SetPVarInt(playerid, "sost_black_screen", 1);
+
+	    if(!black_draw[playerid] || black_draw[playerid] == PlayerText:INVALID_TEXT_DRAW)
+	    {
+		    black_draw[playerid] = CreatePlayerTextDraw(playerid,300,0,"~n~");
+			PlayerTextDrawUseBox(playerid, black_draw[playerid],1);
+			PlayerTextDrawAlignment(playerid, black_draw[playerid],2);
+			PlayerTextDrawSetOutline(playerid, black_draw[playerid],1);
+			PlayerTextDrawLetterSize(playerid, black_draw[playerid],0.0,60.0);
+			PlayerTextDrawSetProportional(playerid, black_draw[playerid],0);
+			PlayerTextDrawTextSize(playerid, black_draw[playerid],-180.0,700.0);
+			PlayerTextDrawBoxColor(playerid, black_draw[playerid],0x00000066);
+			PlayerTextDrawFont(playerid, black_draw[playerid],3);
+		}
+
+		black_draw_color[playerid] = 0x00000000;
+		PlayerTextDrawBoxColor(playerid, black_draw[playerid], 0x00000000);
+
+		SetTimerEx("enter_exit_single", 300, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
+		return 1;
+	}
+	else 
+	{
+		black_draw_color[playerid] += 0x2;
+		if(black_draw_color[playerid] == 0x100){
+			//PlayerTextDrawHide(playerid, black_draw[playerid]);
+			SetPlayerPos(playerid, x_pos, y_pos, z_pos);
+			//Streamer_UpdateEx(playerid, x_pos, y_pos, z_pos, worldid, interiodid, 0, 10);
+			SetPlayerFacingAngle(playerid, a_pos);
+			SetPlayerInterior(playerid, interiodid);
+			SetPlayerVirtualWorld(playerid, worldid);
+			
+			SetTimerEx("enter_exit_single", 200, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
+			return 1;
+		}
+		if(black_draw_color[playerid] > 0x100){
+			PlayerTextDrawHide(playerid, black_draw[playerid]);
+			DeletePVar(playerid, "sost_black_screen");
+			return 1;
+		}
+		PlayerTextDrawBoxColor(playerid, black_draw[playerid], black_draw_color[playerid]);
+		PlayerTextDrawShow(playerid, black_draw[playerid]);
+		SetTimerEx("enter_exit_single", 10, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
+	}
+	return 1;
+}
 
 hook OnSecondUpdate()
 {

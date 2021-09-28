@@ -367,10 +367,10 @@ hook OnGameModeInit()
 	tmp_objid = CreateDynamicObject(1575, 2082.314453, 2088.283203, 25.899368, 0.000014, -0.000023, -155.399918, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 1
 	SetDynamicObjectMaterial(tmp_objid, 0, 14665, "genintint711_1", "interiorwindowglow", 0);
 	tmp_objid = CreateDynamicObject(19893, 2081.624268, 2091.298584, 25.914886, -0.000025, -0.000012, -45.000057, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 2
-	SetDynamicObjectMaterialText(tmp_objid, 1, "Login: ********\nPass: *********", 140, "Trebuchet MS", 80, 1, 0xFF000000, 0, 1);
+	SetDynamicObjectMaterialText(tmp_objid, 1, "\n\nLogin: plakapenka\nPass: qwerty", 140, "Trebuchet MS", 70, 1, 0xFF000000, 0, 0);
 	SetDynamicObjectMaterial(tmp_objid, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_objid = CreateDynamicObject(19893, 2081.645508, 2091.319824, 25.989883, -0.000025, -0.000012, -45.000057, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 2
-	SetDynamicObjectMaterialText(tmp_objid, 1, "pawno-info", 140, "Impact", 140, 0, 0xFFFF0000, 0, 1);
+	SetDynamicObjectMaterialText(tmp_objid, 1, "pawno-info", 140, "Impact", 135, 0, 0xFFFF0000, 0, 1);
 	SetDynamicObjectMaterial(tmp_objid, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_objid = CreateDynamicObject(19893, 2081.638428, 2091.312744, 25.959885, -0.000025, -0.000012, -45.000057, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 1
 	SetDynamicObjectMaterial(tmp_objid, 1, 14665, "genintint711_1", "interiorwindowglow", 0);

@@ -6,9 +6,10 @@
 
 #define INVALID_HOUSE_ID 		99999
 
-#define HOUSE_CLASS_NORMAL 		1
-#define HOUSE_CLASS_EURO		2
-#define HOUSE_CLASS_BISSNES		3
+#define HOUSE_CLASS_ECONOM 		1
+#define HOUSE_CLASS_COMFORT		2
+#define HOUSE_CLASS_BUSINESS	3
+#define HOUSE_CLASS_PREMIUM		4
 
 #define MAX_HOUSE_INTERIOR 		42
 
@@ -71,11 +72,11 @@ enum hInfo
 	h_pickup,
 	h_icon,
 	h_improve,
-	h_product
+	h_product,
+	h_garage
 };
 new hData[1000][hInfo];
 new TOTAL_HOUSES;
-
 
 stock check_house_owner(playerid)
 {
@@ -102,36 +103,45 @@ hook OnGameModeInit()
 // работа описана в core > area_detect_for
 stock enter_house_area(playerid, houseid)
 {
+	if(GetPVarInt(playerid, "house_id"))	// для того чтобы табличка не ебала голову при выходе из дома
+		return true;
+
 	SetPVarInt(playerid, "house_id", houseid+1);
 
 	new mes[312];
 	new classname[20];			
 	switch(intData[hData[houseid][h_interior]][interior_class])
 	{
-		case 1:	classname = "Эконом";
-		case 2:	classname = "Комфорт";
-		case 3:	classname = "Люкс";
+		case HOUSE_CLASS_ECONOM:	classname = "{FF0000}Эконом";
+		case HOUSE_CLASS_COMFORT:	classname = "{ff6600}Комфорт";
+		case HOUSE_CLASS_BUSINESS:	classname = "{FFCC00}Бизнес";
+		case HOUSE_CLASS_PREMIUM:	classname = "{99ff00}Премиум";
 	}
 
 	if(!strcmp(hData[houseid][h_owner],"None",true)) // на продажу
 	{			
 		format(mes,sizeof(mes),"\
 		{ffffff}\t\t{"#color_dark"}Дом № %d\n\n\
-		{ffffff}Класс: {"#color_global"}%s\n\
-		{ffffff}Кол-о комнат: {"#color_global"}%d\n\
-		{ffffff}Цена: {"#color_global"}%d\n\n\
-		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, intData[hData[houseid][h_interior]][interior_room], correct_price(hData[houseid][h_price]));
+		{ffffff}Класс: \t\t\t\t{"#color_global"}%s\n\
+		{ffffff}Кол-о комнат:\t\t\t {"#color_global"}%d\n\
+		{ffffff}Гараж: \t\t\t\t{"#color_global"}%s\n\
+		{ffffff}Цена: \t\t\t\t{"#color_global"}%d\n\n\
+		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, intData[hData[houseid][h_interior]][interior_room],
+		((hData[houseid][h_garage]) ? ("{"#color_good"}Есть"):("{"#color_bad"}Нет")), correct_price(hData[houseid][h_price]));
 	}
 	else
 	{
 		format(mes,sizeof(mes),"\
-		{ffffff}\t\t{"#color_dark"}Дом № %d\n\n\
+		{ffffff}\t{"#color_dark"}Дом № %d\n\n\
 		{ffffff}Класс: {"#color_global"}%s\n\
 		{ffffff}Кол-о комнат: {"#color_global"}%d\n\
-		{ffffff}Владелец: {"#color_global"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room], hData[houseid][h_owner]);
+		{ffffff}Гараж: {"#color_global"}%s\n\
+		{ffffff}Владелец: {"#color_global"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
+		((hData[houseid][h_garage]) ? ("{"#color_good"}Есть"):("{"#color_bad"}Нет")), hData[houseid][h_owner]);
 		
 	}
 	ShowPlayerDialog(playerid, d_house_enter, DIALOG_STYLE_MSGBOX,"{"#color_dark"}Частный дом",mes,"Войти","Отмена");
+	return true;
 }
 
 hook OnPlayerSpawn(playerid)
@@ -141,7 +151,6 @@ hook OnPlayerSpawn(playerid)
 	{
 		SetPVarInt(playerid, "house_id", pData[playerid][pHouse]+1);
 		enter_house(playerid);
-		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
@@ -210,6 +219,7 @@ CMD:buyhouse(playerid)
 }
 hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
+	SendMes(playerid, -1, "%d", newkeys);
 	if(PRESSED(KEY_SECONDARY_ATTACK) && GetPVarInt(playerid, "house_id"))
 	{
 		exit_house(playerid);
@@ -382,6 +392,7 @@ public houses_load()
 		cache_get_value_name_int 	(x, "h_price", 		hData[x][h_price]);
 		cache_get_value_name_int 	(x, "h_interior", 	hData[x][h_interior]);
 		cache_get_value_name_int 	(x, "h_lock", 		hData[x][h_lock]);
+		cache_get_value_name_int 	(x, "h_garage", 	hData[x][h_garage]);
 
 		update_house_pickup(x);
 
