@@ -78,7 +78,7 @@ enum hInfo
 new hData[1000][hInfo];
 new TOTAL_HOUSES;
 
-stock check_house_owner(playerid)
+stock GetPlayerHouse(playerid)
 {
 	for(new house; house < TOTAL_HOUSES; house++)
 	{
@@ -101,7 +101,11 @@ hook OnGameModeInit()
 // вызывается когда игрок стал на какой-либо пикап дома. 
 // работает на манипуляции данных стримера
 // работа описана в core > area_detect_for
-stock enter_house_area(playerid, houseid)
+stock OnPlayerLeaveHouseArea(playerid)
+{
+	DeletePVar(playerid, "house_id");
+}
+stock OnPlayerEnterHouseArea(playerid, houseid)
 {
 	if(GetPVarInt(playerid, "house_id"))	// для того чтобы табличка не ебала голову при выходе из дома
 		return true;
@@ -121,26 +125,26 @@ stock enter_house_area(playerid, houseid)
 	if(!strcmp(hData[houseid][h_owner],"None",true)) // на продажу
 	{			
 		format(mes,sizeof(mes),"\
-		{ffffff}\t\t{"#color_dark"}Дом № %d\n\n\
-		{ffffff}Класс: \t\t\t\t{"#color_global"}%s\n\
-		{ffffff}Кол-о комнат:\t\t\t {"#color_global"}%d\n\
-		{ffffff}Гараж: \t\t\t\t{"#color_global"}%s\n\
-		{ffffff}Цена: \t\t\t\t{"#color_global"}%d\n\n\
+		{ffffff}\t\t{"#COLOR_DARK"}Дом № %d\n\n\
+		{ffffff}Класс: \t\t\t\t{"#COLOR_GLOBAL"}%s\n\
+		{ffffff}Кол-о комнат:\t\t\t {"#COLOR_GLOBAL"}%d\n\
+		{ffffff}Гараж: \t\t\t\t{"#COLOR_GLOBAL"}%s\n\
+		{ffffff}Цена: \t\t\t\t{"#COLOR_GLOBAL"}%d\n\n\
 		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, intData[hData[houseid][h_interior]][interior_room],
-		((hData[houseid][h_garage]) ? ("{"#color_good"}Есть"):("{"#color_bad"}Нет")), correct_price(hData[houseid][h_price]));
+		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), correct_price(hData[houseid][h_price]));
 	}
 	else
 	{
 		format(mes,sizeof(mes),"\
-		{ffffff}\t{"#color_dark"}Дом № %d\n\n\
-		{ffffff}Класс: {"#color_global"}%s\n\
-		{ffffff}Кол-о комнат: {"#color_global"}%d\n\
-		{ffffff}Гараж: {"#color_global"}%s\n\
-		{ffffff}Владелец: {"#color_global"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
-		((hData[houseid][h_garage]) ? ("{"#color_good"}Есть"):("{"#color_bad"}Нет")), hData[houseid][h_owner]);
+		{ffffff}\t{"#COLOR_DARK"}Дом № %d\n\n\
+		{ffffff}Класс: {"#COLOR_GLOBAL"}%s\n\
+		{ffffff}Кол-о комнат: {"#COLOR_GLOBAL"}%d\n\
+		{ffffff}Гараж: {"#COLOR_GLOBAL"}%s\n\
+		{ffffff}Владелец: {"#COLOR_GLOBAL"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
+		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][h_owner]);
 		
 	}
-	ShowPlayerDialog(playerid, d_house_enter, DIALOG_STYLE_MSGBOX,"{"#color_dark"}Частный дом",mes,"Войти","Отмена");
+	ShowPlayerDialog(playerid, d_house_enter, DIALOG_STYLE_MSGBOX,"{"#COLOR_DARK"}Частный дом",mes,"Войти","Отмена");
 	return true;
 }
 
@@ -163,10 +167,10 @@ CMD:hmenu(playerid)
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 	new str_h_menu[512];
 	format(str_h_menu, sizeof str_h_menu, "\
-	{"#color_global"}> {"#color_err"}%s\n\
-	{"#color_global"}> {ffffff}%s\n\
-	{"#color_global"}> {ffffff}Улучшения\n\
-	{"#color_global"}> {ffffff}Информация",
+	{"#COLOR_GLOBAL"}> {"#COLOR_ERROR"}%s\n\
+	{"#COLOR_GLOBAL"}> {ffffff}%s\n\
+	{"#COLOR_GLOBAL"}> {ffffff}Улучшения\n\
+	{"#COLOR_GLOBAL"}> {ffffff}Информация",
 
 	((strcmp(hData[houseid][h_owner],"None",true)) ? ("Продать дом"):("{43a047}Купить дом")),
 	((hData[houseid][h_lock]) ? ("{FFFFFF}Открыть дверь"):("{AFAFAF}Закрыть дверь")) );
@@ -201,12 +205,12 @@ CMD:buyhouse(playerid)
 
 	new str_d[512];
 	format(str_d, sizeof str_d, "\
-	{"#color_global"}Поздравляем с покупкой!\n\n\
-	{"#color_err"}Внимание!{ffffff}\n\
+	{"#COLOR_GLOBAL"}Поздравляем с покупкой!\n\n\
+	{"#COLOR_ERROR"}Внимание!{ffffff}\n\
 	Теперь каждый час со счёта вашего дома будут снимать комунальные платежи\n\
 	Если на счету недостаточно денег, вас выселят\n\
 	Пополнить домашний счёт или узнать баланс можно через банк/банкомат\n\n\
-	{"#color_global"}/hmenu{ffffff} - меню управления домом");
+	{"#COLOR_GLOBAL"}/hmenu{ffffff} - меню управления домом");
 	ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", str_d, "Готово", "");
 
 	update_house_pickup(houseid);
@@ -280,10 +284,10 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			    return SendClientMessage(playerid, color16_err, "У вас уже есть холодильник!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
-			{"#color_err"}Внимание!{ffffff}\n\
+			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
 			Вы действительно хотите купить холодильник?\n\n\
-			Стоимость: {"#color_global"}%d {ffffff}$\n\n\
-			{"#color_light"}В холодильнике вы сможете хранить продукты и\n\
+			Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
+			{"#COLOR_LIGHT"}В холодильнике вы сможете хранить продукты и\n\
 			восстанавливать здоровье, не выходя из дома", correct_price(PRICE_IMPROOVE_FREEZ) );
 			ShowPlayerDialog(playerid, d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
@@ -297,10 +301,10 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			    return SendClientMessage(playerid, color16_err, "У вас уже есть сейф!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
-			{"#color_err"}Внимание!{ffffff}\n\
+			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
 			Вы действительно хотите купить сейф?\n\n\
-			Стоимость: {"#color_global"}%d {ffffff}$\n\n\
-			{"#color_light"}В сейфе ваши деньги и наркотики всегда будут\n\
+			Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
+			{"#COLOR_LIGHT"}В сейфе ваши деньги и наркотики всегда будут\n\
 			в безопасности", correct_price(PRICE_IMPROOVE_SAFE) );
 			ShowPlayerDialog(playerid, d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
@@ -314,10 +318,10 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			    return SendClientMessage(playerid, color16_err, "У вас уже есть шкаф!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
-			{"#color_err"}Внимание!{ffffff}\n\
+			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
 			Вы действительно хотите купить шкаф?\n\n\
-			Стоимость: {"#color_global"}%d {ffffff}$\n\n\
-			{"#color_light"}В шкафу будет хранится ваша одежда, \n\
+			Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
+			{"#COLOR_LIGHT"}В шкафу будет хранится ваша одежда, \n\
 			которую вы сможете сменить в любой момент", correct_price(PRICE_IMPROOVE_STORE) );
 			ShowPlayerDialog(playerid, d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 

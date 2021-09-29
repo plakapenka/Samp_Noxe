@@ -11,13 +11,13 @@
 #include <nex-ac>
 
 // ========= общая цветовая тема мода beta alpha pro max mini lite
-#define color_good 			98ee99
-#define color_bad			ef5350
+#define COLOR_GOOD 			98ee99
+#define COLOR_BAD			ef5350
 
-#define color_global 		64b5f6 		// основа
-#define color_light  		9be7ff 		// светлый
-#define color_dark			2286c3 		// темный
-#define color_err 			d32f2f
+#define COLOR_GLOBAL 		64b5f6 		// основа
+#define COLOR_LIGHT  		9be7ff 		// светлый
+#define COLOR_DARK			2286c3 		// темный
+#define COLOR_ERROR 			d32f2f
 
 #define color16_global 		0x64b5f6FF
 #define color16_light 		0x9be7ffFF

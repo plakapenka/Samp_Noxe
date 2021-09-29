@@ -220,7 +220,7 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
     	if(clickedid == select_skin_td[7]) 
     	{// кнопка SELECT
     		strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, MAX_IP_LENGTH, MAX_IP_LENGTH);
-			orm_save(pData[playerid][ORM_ID], "player_load_account", "d", playerid);
+			orm_save(pData[playerid][ORM_ID], "PlayerLogged", "d", playerid);
 
     		hide_select_skin_td(playerid);
     		CancelSelectTextDraw(playerid);

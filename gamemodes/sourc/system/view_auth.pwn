@@ -47,7 +47,7 @@ public OnPlayerDataLoaded(playerid)
 	{
 		case ERROR_OK:
 		{// аккаунт зарегистрирован
-			show_login_dialog(playerid);
+			ShowLoginDialog(playerid);
 		}
 		case ERROR_NO_DATA:
 		{// регистрация нового аккаунта
@@ -63,7 +63,7 @@ hook OnPlayerSpawn(playerid)
 	if(pData[playerid][pLogged] == LOGIN_STATUS_ENTER)
 	{
 		// актеры в интерьере авторизации
-		create_auth_actor(playerid);
+		CreateAuthActor(playerid);
 
 		// Перемещаем в интерьер авторизации, чтобы прогрузились объекты
 		SetPlayerPos(playerid, 2072.1445,2091.8442,26.5499);
@@ -84,18 +84,27 @@ hook OnPlayerSpawn(playerid)
 
 hook OnPlayerDisconnect(playerid, reason)
 {
-	destroy_auth_actor(playerid);
+	DestroyAuthActor(playerid);
 }
 
-stock destroy_auth_actor(playerid)
+stock DestroyAuthActor(playerid)
 {
 	if(GetPVarInt(playerid, "player_auth_actor_id_2"))
 	{
-		DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_1"));
-		DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_2"));
-		DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_3"));
-		DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_4"));
-		DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_5"));
+		if( IsValidDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_1")) )
+			DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_1"));
+
+		if( IsValidDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_2")) )
+			DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_2"));
+
+		if( IsValidDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_3")) )
+			DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_3"));
+
+		if( IsValidDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_4")) )
+			DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_4"));
+
+		if( IsValidDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_5")) )
+			DestroyDynamicActor(GetPVarInt(playerid, "player_auth_actor_id_5"));
 
 		DeletePVar(playerid, "player_auth_actor_id_1");
 		DeletePVar(playerid, "player_auth_actor_id_2");
@@ -105,7 +114,7 @@ stock destroy_auth_actor(playerid)
 	}
 }
 
-stock create_auth_actor(playerid)
+stock CreateAuthActor(playerid)
 {
 	ApplyAnimation(playerid, "SMOKING", "null", 4.100000, true, false, false, true, 0);
 	ApplyAnimation(playerid, "CRACK", "null", 4.100000, true, false, false, true, 0);

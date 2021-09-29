@@ -1,16 +1,16 @@
 #include <YSI_Coding\y_hooks>
 
-stock show_login_dialog(playerid)
+stock ShowLoginDialog(playerid)
 {
 	new str_reg[512];
 	format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
-	Добро пожаловать на сервер {"#color_global"}Noxe RP{FFFFFF}\n\
+	Добро пожаловать на сервер {"#COLOR_GLOBAL"}Noxe RP{FFFFFF}\n\
 	Этот аккаунт зарегистрирован\n\n\
-	Аккаунт: {"#color_global"}%s{FFFFFF}\n\
-	Последний визит: {"#color_global"}%s{FFFFFF}\n\n\
+	Аккаунт: {"#COLOR_GLOBAL"}%s{FFFFFF}\n\
+	Последний визит: {"#COLOR_GLOBAL"}%s{FFFFFF}\n\n\
 	Введите пароль:\n\
 	_______________________________________", pData[playerid][pName], check_float_time(pData[playerid][pLast_Online]));
-	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {"#color_dark"}Пароль", str_reg, "»", "x");
+	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {"#COLOR_DARK"}Пароль", str_reg, "»", "x");
 	return 1;
 }
 
@@ -40,7 +40,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		}
 		if(!strlen(inputtext))
 		{
-			show_login_dialog(playerid);
+			ShowLoginDialog(playerid);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		for(new i = strlen(inputtext); i != 0; --i)
@@ -58,7 +58,9 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		if(!strcmp(inputtext, pData[playerid][pPassword]))
 		{
-			player_load_account(playerid);
+			DeletePVar(playerid, "err_password");
+
+			PlayerLogged(playerid); 
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		else
@@ -78,15 +80,15 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	return 1;
 }
 
-forward player_load_account(playerid);
-public player_load_account(playerid)
+forward PlayerLogged(playerid);
+public PlayerLogged(playerid)
 {
 	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
 		
-	destroy_auth_actor(playerid); 		// удаление актеров при авторизации
+	DestroyAuthActor(playerid); 		// удаление актеров при авторизации
 	SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
 	CancelSelectTextDraw(playerid);		// убираем курсор
-	check_house_owner(playerid);		// проверяет есть ли у игрока дом
+	GetPlayerHouse(playerid);		// проверяет есть ли у игрока дом
 
 	SpawnPlayer(playerid);				
 	return 1;

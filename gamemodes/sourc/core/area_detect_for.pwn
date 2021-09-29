@@ -8,7 +8,7 @@ stock OnPlayerEnterDynamicArea(playerid, areaid)
 
 	if(_arrayData[0] == AREA_FOR_HOUSE)
 	{
-		enter_house_area(playerid, _arrayData[1]);
+		OnPlayerEnterHouseArea(playerid, _arrayData[1]);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
@@ -21,7 +21,7 @@ stock OnPlayerLeaveDynamicArea(playerid, areaid)
 
 	if(_arrayData[0] == AREA_FOR_HOUSE)
 	{
-		DeletePVar(playerid, "house_id");
+		OnPlayerLeaveHouseArea(playerid);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
