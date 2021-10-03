@@ -106,6 +106,7 @@ CMD:veh(playerid, params[])
 	
 	vehicle_params_set(vehicleid, VEHICLE_PARAMS_ENGINE, TRUE);
 	vehicle_params_set(vehicleid, VEHICLE_PARAMS_LIGHTS, TRUE);
+	vData[vehicleid][vFuell]	= 100;
 
 	LinkVehicleToInterior(vehicleid, intt);
 	

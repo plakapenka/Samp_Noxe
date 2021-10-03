@@ -27,4 +27,6 @@ enum
 	d_house_menu_global,
 	d_house_menu_improve,
 	d_house_menu_improve_buy, 
+
+	d_house_exit,
 }

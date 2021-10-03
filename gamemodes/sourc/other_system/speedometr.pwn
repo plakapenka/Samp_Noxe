@@ -22,7 +22,7 @@ hook function player_second_update(playerid)
 		new Float:veh_hp;
 		GetVehicleHealth(vehicleid, veh_hp);
 
-		format(str_speed, sizeof str_speed, "%d ~b~KMH", AntiCheatGetVehicleSpeed(vehicleid));
+	//	format(str_speed, sizeof str_speed, "%d ~b~KMH", AntiCheatGetVehicleSpeed(vehicleid));
 		PlayerTextDrawSetString(playerid, td_speed[playerid][1], str_speed);
 
 		format(str_speed, sizeof str_speed, "~y~ENGINE:~w~ %d   ~y~FUEL:~w~ %.1f", floatround(veh_hp/10), vData[vehicleid][vFuell]);
@@ -67,7 +67,7 @@ hook OnPlayerStateChange(playerid, newstate, oldstate)
 	{
 		new vehicleid = GetPlayerVehicleID(playerid);
 
-		if(no_engine_car(vehicleid))//—разу заводит тот транспорт который не нужно заводить самим (¬елики,скутеры и.т.д смотри сток)
+		if(isNoEngineCar(vehicleid))//—разу заводит тот транспорт который не нужно заводить самим (¬елики,скутеры и.т.д смотри сток)
 	    {
 	        vehicle_params_set(vehicleid, VEHICLE_PARAMS_ENGINE, true);
 	    }

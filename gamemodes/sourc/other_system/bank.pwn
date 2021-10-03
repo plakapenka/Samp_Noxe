@@ -61,9 +61,9 @@ public bank_load()
 }
 hook OnGameModeInit()
 {	
-	a_bank_window[0] = CreateDynamicSphere(1540.7819,-1223.3064,1388.3552, 0.8, 36, 8);
-	a_bank_window[1] = CreateDynamicSphere(1540.7831,-1225.7146,1388.3552, 0.8, 36, 8);
-	a_bank_window[2] = CreateDynamicSphere(1540.7806,-1227.8909,1388.3552, 0.8, 36, 8);
+	a_bank_window[0] = CreateDynamicSphere(1540.7819,-1223.3064,1388.3552, 0.8, 36, 1);
+	a_bank_window[1] = CreateDynamicSphere(1540.7831,-1225.7146,1388.3552, 0.8, 36, 1);
+	a_bank_window[2] = CreateDynamicSphere(1540.7806,-1227.8909,1388.3552, 0.8, 36, 1);
 
 	mysql_tquery(g_sql,  "SELECT * FROM `bank` LIMIT 1", "bank_load", "");
 
@@ -73,8 +73,8 @@ hook OnGameModeInit()
 	a_bank_enter = CreateDynamicSphere(593.6425,-1250.9561,18.2540, 1.0);
 
 	// выход из банка ЛС
-	CreateDynamicPickup(1318, 23, 1521.1270,-1225.4941,1388.3552,36,8);
-	a_bank_exit = CreateDynamicSphere(1521.1270,-1225.4941,1388.3552, 1.0,36,8);
+	CreateDynamicPickup(1318, 23, 1521.1270,-1225.4941,1388.3552,36,1);
+	a_bank_exit = CreateDynamicSphere(1521.1270,-1225.4941,1388.3552, 1.0,36,1);
 
 	// Актеры на кассах в банке LS
 	new bank_actor = CreateActor(150, 1543.2639,-1223.1469,1388.3552,90.0); // актеры в банке на кассе
@@ -311,93 +311,15 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	}
 	if(areaid == a_bank_enter)
 	{// вход в банк ЛС
-		Streamer_UpdateEx(playerid, 1523.1158,-1225.6727,1388.3552, 36, 8, 0, GetPlayerPing(playerid)*MULT_DELAY);
-		SetPlayerFacingAngle(playerid,270.0);
-		SetPlayerInterior(playerid, 8);
-		SetPlayerVirtualWorld(playerid, 36);
-		SetPlayerTime(playerid, 12,00);
-		SetPlayerWeather(playerid, 4);
+		SetPlayerPosEx(playerid, 1523.1158,-1225.6727,1388.3552, 270.0, 1, 36, 4);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	if(areaid == a_bank_exit)
 	{// Выход из банка ЛС
-		SetPlayerPos(playerid, 592.9211,-1248.6364,18.1672);
-		SetPlayerFacingAngle(playerid,23.0);
-		SetPlayerInterior(playerid, 0);
-		SetPlayerVirtualWorld(playerid, 0);
-		SetWorldTime(serv_hour);
-		SetWeather(serv_weather);
+		SetPlayerPosEx(playerid, 592.9211,-1248.6364,18.1672, 23.0, 0, 0);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
-}
-
-new PlayerText:black_draw[MAX_PLAYERS], black_draw_color[MAX_PLAYERS];
-
-forward enter_exit_single(playerid, Float:x_pos, Float:y_pos, Float:z_pos, Float:a_pos, interiodid, worldid);
-
-public enter_exit_single(playerid, Float:x_pos, Float:y_pos, Float:z_pos, Float:a_pos, interiodid, worldid)
-{
-	if(!GetPVarInt(playerid, "sost_black_screen"))
-	{
-		new Float:p_ang;
-	    GetPlayerFacingAngle(playerid, p_ang);
-
-	    new Float:p_x, Float:p_y, Float:p_z;
-	    GetPlayerPos(playerid, p_x, p_y, p_z);
-
-	    p_x += (-3.5 * floatsin(-p_ang, degrees));
-	    p_y += (-3.5 * floatcos(-p_ang, degrees));
-
-	    SetPlayerPos(playerid, p_x, p_y, p_z);
-
-	    ApplyAnimation(playerid, "PED", "NULL", 0.0, false, 0, 0, 0, 2000);
-	    ApplyAnimation(playerid, "PED", "WALK_CIVI", 4.1, false, 1, 1, 0, 2000);
-	    SetPVarInt(playerid, "sost_black_screen", 1);
-
-	    if(!black_draw[playerid] || black_draw[playerid] == PlayerText:INVALID_TEXT_DRAW)
-	    {
-		    black_draw[playerid] = CreatePlayerTextDraw(playerid,300,0,"~n~");
-			PlayerTextDrawUseBox(playerid, black_draw[playerid],1);
-			PlayerTextDrawAlignment(playerid, black_draw[playerid],2);
-			PlayerTextDrawSetOutline(playerid, black_draw[playerid],1);
-			PlayerTextDrawLetterSize(playerid, black_draw[playerid],0.0,60.0);
-			PlayerTextDrawSetProportional(playerid, black_draw[playerid],0);
-			PlayerTextDrawTextSize(playerid, black_draw[playerid],-180.0,700.0);
-			PlayerTextDrawBoxColor(playerid, black_draw[playerid],0x00000066);
-			PlayerTextDrawFont(playerid, black_draw[playerid],3);
-		}
-
-		black_draw_color[playerid] = 0x00000000;
-		PlayerTextDrawBoxColor(playerid, black_draw[playerid], 0x00000000);
-
-		SetTimerEx("enter_exit_single", 300, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
-		return 1;
-	}
-	else 
-	{
-		black_draw_color[playerid] += 0x2;
-		if(black_draw_color[playerid] == 0x100){
-			//PlayerTextDrawHide(playerid, black_draw[playerid]);
-			SetPlayerPos(playerid, x_pos, y_pos, z_pos);
-			//Streamer_UpdateEx(playerid, x_pos, y_pos, z_pos, worldid, interiodid, 0, 10);
-			SetPlayerFacingAngle(playerid, a_pos);
-			SetPlayerInterior(playerid, interiodid);
-			SetPlayerVirtualWorld(playerid, worldid);
-			
-			SetTimerEx("enter_exit_single", 200, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
-			return 1;
-		}
-		if(black_draw_color[playerid] > 0x100){
-			PlayerTextDrawHide(playerid, black_draw[playerid]);
-			DeletePVar(playerid, "sost_black_screen");
-			return 1;
-		}
-		PlayerTextDrawBoxColor(playerid, black_draw[playerid], black_draw_color[playerid]);
-		PlayerTextDrawShow(playerid, black_draw[playerid]);
-		SetTimerEx("enter_exit_single", 10, 0, "dffffdd", playerid, x_pos, y_pos, z_pos, a_pos, interiodid, worldid);
-	}
-	return 1;
 }
 
 hook OnSecondUpdate()

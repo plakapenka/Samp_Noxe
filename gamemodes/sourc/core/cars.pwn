@@ -4,12 +4,13 @@
 
 
 #include <YSI_Coding\y_hooks>
-//DEFINE_HOOK_REPLACEMENT__(OnPlayer, Onp);
 
 #define VEHICLE_PARAMS_ENGINE 	0
 #define VEHICLE_PARAMS_LIGHTS 	1
 #define VEHICLE_PARAMS_DOORS 	2
 #define VEHICLE_PARAMS_BONNET 	3
+
+#define VEHICLE_TYPE_PLAYERID	5
 
 enum e_vehicle
 {
@@ -22,7 +23,10 @@ enum e_vehicle
 	vDoor_FR,	// дверь передняя правая
 	vDoor_BL,	// дверь задняя левая
 	vDoor_BR,	// дверь задняя правая
-	Float:vFuell		// бензин
+	Float:vFuell,		// бензин
+	vOwner_type,
+	vOwner_name,
+	vGarage_slot
 };
 new vData[MAX_VEHICLES][e_vehicle];
 
@@ -45,8 +49,8 @@ stock player_second_update(playerid)
 		{
 			vehicle_params_set(vehicleid, VEHICLE_PARAMS_ENGINE, false); // глушим тачку
 			ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, " ", "\
-			{ab0000} \t      Внимание!\n\
-			\tДвигатель заглох\n\n\n\
+			{ab0000}Внимание!\n\
+			Двигатель заглох\n\n\n\
 			{d4d4d4}/call - {ffffff}вызвать механника\n\n\
 			{d4d4d4}/fill - {ffffff}воспользоваться канистрой\n\n", "Закрыть", "");
 			//SendClientMessage(playerid, 0xab0000FF, "Двигатель заглох! Проверьте уровень топлива!");
@@ -539,7 +543,7 @@ hook OnGameModeInit()
 	
 }
 
-stock no_engine_car(carid)
+stock isNoEngineCar(carid)
 {
     if(GetVehicleModel(carid) == 435 || GetVehicleModel(carid) == 450 || GetVehicleModel(carid) == 481
     || GetVehicleModel(carid) == 509 || GetVehicleModel(carid) == 510 || GetVehicleModel(carid) == 569

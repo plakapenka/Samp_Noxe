@@ -1,7 +1,7 @@
 #include <YSI_Coding\y_hooks>
 #define AREA_FOR_HOUSE 5
 
-stock OnPlayerEnterDynamicArea(playerid, areaid)
+public OnPlayerEnterDynamicArea(playerid, areaid)
 {
 	new _arrayData[2];
 	Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _arrayData);
@@ -14,7 +14,7 @@ stock OnPlayerEnterDynamicArea(playerid, areaid)
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-stock OnPlayerLeaveDynamicArea(playerid, areaid)
+public OnPlayerLeaveDynamicArea(playerid, areaid)
 {
 	new _arrayData[2];
 	Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _arrayData);

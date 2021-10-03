@@ -8,7 +8,7 @@
 
 
 #pragma warning disable 239, 214
-#include <nex-ac>
+//#include <nex-ac>
 
 // ========= общая цветовая тема мода beta alpha pro max mini lite
 #define COLOR_GOOD 			98ee99
@@ -17,13 +17,13 @@
 #define COLOR_GLOBAL 		64b5f6 		// основа
 #define COLOR_LIGHT  		9be7ff 		// светлый
 #define COLOR_DARK			2286c3 		// темный
-#define COLOR_ERROR 			d32f2f
+#define COLOR_ERROR 		d32f2f
 
 #define color16_global 		0x64b5f6FF
 #define color16_light 		0x9be7ffFF
 #define color16_dark 		0x2286c3FF
 
-#define color16_err 		0xd32f2fff
+#define COLOR_16ERROR 		0xd32f2fFF
 // ===============================================
 
 // Don't display the message ab6out caching the code (with `YSI_YES_MODE_CACHE`).
@@ -63,32 +63,37 @@
 #include "/sourc/core/area_detect_for.pwn" 		// чему пренадлежит сфера...??
 
 #include "/sourc/core/orm_init.pwn"				// привязка переменных ORM
-#include "/sourc/system/view_auth.pwn"			// Начало входа (вид)
-#include "/sourc/system/registration.pwn" 		// система регистрации
-#include "/sourc/system/authorization.pwn"		// система авторизации
+#include "/sourc/other_system/view_auth.pwn"			// Начало входа (вид)
+#include "/sourc/other_system/registration.pwn" 		// система регистрации
+#include "/sourc/other_system/authorization.pwn"		// система авторизации
 
-#include "/sourc/system/licenses.pwn"			// Лицензии игрока
-#include "/sourc/system/bank.pwn"				// Банк ЛС
+#include "/sourc/other_system/licenses.pwn"			// Лицензии игрока
+#include "/sourc/other_system/bank.pwn"				// Банк ЛС
 
 
-#include "/sourc/system/speedometr.pwn"			// Спидометр
+#include "/sourc/other_system/speedometr.pwn"			// Спидометр
  
 
-#include "/sourc/system/driving_school.pwn"		// Автошкола
-#include "/sourc/system/houses.pwn"				// Дома
+#include "/sourc/other_system/driving_school.pwn"		// Автошкола
+#include "/sourc/other_system/houses.pwn"				// Дома
+#include "/sourc/other_system/player_cars.pwn"
+
+// ================= Работы
+#include "/sourc/works/global.pwn"
+
 
 
 // ============= объекты
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там
-#include "/sourc/objects/work_center.pwn"				// Дома
+			
+ 
 
-
-//#include "/sourc/system/auto_shop.pwn"			// Автосалоны
+//#include "/sourc/other_system/auto_shop.pwn"			// Автосалоны
 
 // for for
-//#include "/sourc/system/shit/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
-//#include "/sourc/system/shit/casino_wheels.pwn"		// Игра колесо фортуны
-//#include "/sourc/system/shit/blow.pwn"				// Игра колесо фортуны
+//#include "/sourc/other_system/shit/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
+//#include "/sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
+//#include "/sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
 
 main() 
 { 
@@ -159,3 +164,23 @@ public OnGameModeInit()
 
 // OnSecondUpdate в отдельном файле
 #include "/sourc/callback/OnSecondUpdate.pwn" 
+
+stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, weather=12)
+{
+	if(int)
+	{
+		Streamer_UpdateEx(playerid, x, y, z, world, int, 0, GetPlayerPing(playerid)*MULT_DELAY);
+		SetPlayerTime(playerid, 12,00);
+		SetPlayerWeather(playerid, weather);
+	}
+	else
+	{
+		SetPlayerPos(playerid, x, y, z);
+		SetPlayerTime(playerid, serv_hour, serv_minute);
+		SetPlayerWeather(playerid, serv_weather);
+	}
+	SetPlayerFacingAngle(playerid, a);
+	SetPlayerInterior(playerid, int);
+	SetPlayerVirtualWorld(playerid, world);
+	return 1;
+}

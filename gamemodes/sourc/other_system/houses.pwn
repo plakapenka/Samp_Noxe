@@ -4,6 +4,8 @@
 
 #include <YSI_Coding\y_hooks>
 
+
+
 #define INVALID_HOUSE_ID 		99999
 
 #define HOUSE_CLASS_ECONOM 		1
@@ -21,6 +23,8 @@
 #define PRICE_IMPROOVE_STORE	200 // цена на ШКАФ, без учета базовой величины
 #define PRICE_IMPROOVE_SAFE		200 // цена на СЕЙФ, без учета базовой величины
 
+new max_car_in_garage[] = {3, 4, 5, 6};
+
 enum iinfo
 {
 	MySQL_ID,
@@ -32,6 +36,7 @@ enum iinfo
 	interior_id,
 	interior_class,
 	interior_room,
+	interior_area,
 	// шкаф
 	Float:store_x,
 	Float:store_y,
@@ -93,9 +98,9 @@ stock GetPlayerHouse(playerid)
 }
 hook OnGameModeInit()
 {
-	mysql_tquery(g_sql, "SELECT * FROM `house_interior`", "house_interior_load");
+	mysql_tquery(g_sql, "SELECT * FROM `house_interior`", "HousesInteriorLoaded");
 
-	mysql_tquery(g_sql, "SELECT * FROM `houses`", "houses_load");
+	mysql_tquery(g_sql, "SELECT * FROM `houses`", "HousesLoaded");
 }
 
 // вызывается когда игрок стал на какой-либо пикап дома. 
@@ -154,7 +159,7 @@ hook OnPlayerSpawn(playerid)
 	if(houseid != INVALID_HOUSE_ID)
 	{
 		SetPVarInt(playerid, "house_id", pData[playerid][pHouse]+1);
-		enter_house(playerid);
+		EnterHouse(playerid);
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
@@ -162,7 +167,7 @@ hook OnPlayerSpawn(playerid)
 CMD:hmenu(playerid)
 {
 	if(!GetPVarInt(playerid, "house_id"))
-		return SendClientMessage(playerid, color16_err, "Вы должны находиться возле/внутри дома!");
+		return SendClientMessage(playerid, COLOR_16ERROR, "Вы должны находиться возле/внутри дома!");
 
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 	new str_h_menu[512];
@@ -182,26 +187,26 @@ CMD:hmenu(playerid)
 CMD:buyhouse(playerid)
 {
 	if(!GetPVarInt(playerid, "house_id"))
-		return SendClientMessage(playerid, color16_err, "Вы должны находиться возле дома!");
+		return SendClientMessage(playerid, COLOR_16ERROR, "Вы должны находиться возле дома!");
 
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 
 	if(pData[playerid][pCash] < correct_price(hData[houseid][h_price])) 
-		return SendClientMessage(playerid, color16_err, "Недостаточно денег для покупки!");
+		return SendClientMessage(playerid, COLOR_16ERROR, "Недостаточно денег для покупки!");
 
 	if(pData[playerid][pHouse] != INVALID_HOUSE_ID) 
-		return SendClientMessage(playerid, color16_err, "У вас уже есть дом!");
+		return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть дом!");
 
 	if(strcmp(hData[houseid][h_owner],"None",true) != 0)
-		return SendClientMessage(playerid, color16_err, "Этот дом не продается!"); 
+		return SendClientMessage(playerid, COLOR_16ERROR, "Этот дом не продается!"); 
 	
 	pData[playerid][pHouse] = houseid;
 		
 	strmid(hData[houseid][h_owner], pData[playerid][pName], 0, strlen(pData[playerid][pName]), 24);
 		
 	give_money(playerid, -correct_price(hData[houseid][h_price]));
-	enter_house(playerid);
-	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0); // ALARM_CLOCK
+	EnterHouse(playerid);
+	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 
 	new str_d[512];
 	format(str_d, sizeof str_d, "\
@@ -213,7 +218,7 @@ CMD:buyhouse(playerid)
 	{"#COLOR_GLOBAL"}/hmenu{ffffff} - меню управления домом");
 	ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", str_d, "Готово", "");
 
-	update_house_pickup(houseid);
+	UpdateHousePickup(houseid);
 	new str_buy_house[213];
 	mysql_format(g_sql, str_buy_house, sizeof str_buy_house, "UPDATE `houses` SET `h_owner`='%e' WHERE MySQL_ID = %d",pData[playerid][pName], hData[houseid][MySQL_ID]);
 	mysql_tquery(g_sql, str_buy_house);
@@ -221,22 +226,50 @@ CMD:buyhouse(playerid)
 	//SpawnHouseCars(playerid);
 	return true;
 }
-hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+
+stock ExitHouseToGarage(playerid)
 {
-	SendMes(playerid, -1, "%d", newkeys);
-	if(PRESSED(KEY_SECONDARY_ATTACK) && GetPVarInt(playerid, "house_id"))
+	new house = GetPVarInt(playerid, "house_id")-1;
+
+	switch(hData[house][h_garage])
 	{
-		exit_house(playerid);
+		case 0..2:
+		{
+			SendClientMessage(playerid, COLOR_16ERROR, "У вас нет гаража!");
+			return 1;
+		}
+		case 3:
+		{
+			SetPlayerPosEx(playerid, 1381.8723, -21.7538, 1000.9240, 264.432, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 4:
+		{
+			SetPlayerPosEx(playerid, 1396.4639, -25.9657, 1000.9203, 0.0, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 5:
+		{
+			SetPlayerPosEx(playerid, 1393.3198, -28.7928, 1000.9128, 82.0473, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 6:
+		{
+			SetPlayerPosEx(playerid, 1378.3010, -14.0189, 1000.9258, 90.060, hData[house][h_garage], house, 4);
+			return 1;
+		}
 	}
+	return 1;
 }
-stock exit_house(playerid)
+
+stock ExitHouseToStreet(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 	SetPlayerPos(playerid, hData[house][enter_x], hData[house][enter_y], hData[house][enter_z]);
 	SetPlayerInterior(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 0);
 }
-stock enter_house(playerid)
+stock EnterHouse(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 	new int = hData[house][h_interior];
@@ -281,7 +314,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		if(listitem == 0)
 		{
 			if(hData[house][h_improve] & HOUSE_IMPROOVE_FREEZ)
-			    return SendClientMessage(playerid, color16_err, "У вас уже есть холодильник!");
+			    return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть холодильник!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
 			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
@@ -298,7 +331,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		if(listitem == 1)
 		{
 			if(hData[house][h_improve] & HOUSE_IMPROOVE_SAFE)
-			    return SendClientMessage(playerid, color16_err, "У вас уже есть сейф!");
+			    return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть сейф!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
 			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
@@ -315,7 +348,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		if(listitem == 2)
 		{
 			if(hData[house][h_improve] & HOUSE_IMPROOVE_STORE)
-			    return SendClientMessage(playerid, color16_err, "У вас уже есть шкаф!");
+			    return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть шкаф!");
 
 			format(str_buy_improve, sizeof str_buy_improve, "\
 			{"#COLOR_ERROR"}Внимание!{ffffff}\n\
@@ -364,14 +397,29 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 		if(!response)return Y_HOOKS_BREAK_RETURN_1;
 
-		enter_house(playerid);
+		EnterHouse(playerid);
 
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
+	if(dialogid == d_house_exit)
+	{
+		if(!response) return Y_HOOKS_BREAK_RETURN_1;
+
+		if(listitem == 0)
+		{// на улицу
+			ExitHouseToStreet(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+		else
+		{
+			ExitHouseToGarage(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
-forward houses_load();
-public houses_load()
+forward HousesLoaded();
+public HousesLoaded()
 {
 	new r;
 	cache_get_row_count(r);
@@ -398,7 +446,7 @@ public houses_load()
 		cache_get_value_name_int 	(x, "h_lock", 		hData[x][h_lock]);
 		cache_get_value_name_int 	(x, "h_garage", 	hData[x][h_garage]);
 
-		update_house_pickup(x);
+		UpdateHousePickup(x);
 
 		new tmp_area = CreateDynamicSphere(hData[x][enter_x], hData[x][enter_y], hData[x][enter_z], 1.5);
 
@@ -414,7 +462,7 @@ public houses_load()
 
 }
 
-stock update_house_pickup(houseid)
+stock UpdateHousePickup(houseid)
 {
 	if(IsValidDynamicPickup(hData[houseid][h_pickup]))
 	{
@@ -444,8 +492,8 @@ stock update_house_pickup(houseid)
 		CreateDynamicMapIcon(hData[houseid][enter_x], hData[houseid][enter_y], hData[houseid][enter_z], h_icon_model, 0xFFFFFF, 0, -1, -1,150);
 }
 
-forward house_interior_load();
-public house_interior_load()
+forward HousesInteriorLoaded();
+public HousesInteriorLoaded()
 {
 	new r;
 	cache_get_row_count(r);
@@ -478,10 +526,26 @@ public house_interior_load()
 		cache_get_value_name_float 	(x, "safe_z", 			intData[x][safe_z]);
 		cache_get_value_name_float 	(x, "safe_a", 			intData[x][safe_a]);
 		
-		CreateDynamic3DTextLabel("Чтобы выйти, нажмите клавишу '~k~~VEHICLE_ENTER_EXIT~'\n\nКупить/продать, нажмите клавишу 'ALT'\nлибо используйте /hmenu", color16_dark, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]+1, 5.0);
+		CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]+1, 5.0);
+
+		CreateDynamicPickup(19135, 1, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z], -1, intData[x][interior_id]);
+		intData[x][interior_area] = CreateDynamicSphere(intData[x][exit_x], intData[x][exit_y], intData[x][exit_z], 1.0, -1, intData[x][interior_id]);
 
 		TOTAL_HOUSE_INTERIOR ++;
 	}
 	printf("[ Загрузка ] Интерьеры домов загружены. %d шт.", TOTAL_HOUSE_INTERIOR);
 
+}
+
+hook OnPlayerEnterDynArea(playerid, areaid)
+{
+	if(areaid >= intData[0][interior_area] && areaid <= intData[TOTAL_HOUSE_INTERIOR-1][interior_area])
+	{
+		ShowPlayerDialog(playerid, d_house_exit, DIALOG_STYLE_LIST, "Выход", "\
+		{"#COLOR_GLOBAL"}> {ffffff}На улицу\n\
+		{"#COLOR_GLOBAL"}> {ffffff}В гараж", \
+		"Выйти", "Отмена");
+		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }

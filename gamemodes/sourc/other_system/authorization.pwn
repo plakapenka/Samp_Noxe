@@ -90,6 +90,10 @@ public PlayerLogged(playerid)
 	CancelSelectTextDraw(playerid);		// убираем курсор
 	GetPlayerHouse(playerid);		// проверяет есть ли у игрока дом
 
+	new query [512];
+	mysql_format(g_sql, query, sizeof query , "SELECT * FROM `cars` WHERE `owner` = '%s'", pData[playerid][pName]);
+	mysql_tquery(g_sql, query, "LoadPlayerCars", "i", playerid);
+
 	SpawnPlayer(playerid);				
 	return 1;
 }
