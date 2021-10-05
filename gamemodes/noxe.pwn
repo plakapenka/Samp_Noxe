@@ -78,8 +78,10 @@
 #include "/sourc/other_system/houses.pwn"				// Дома
 #include "/sourc/other_system/player_cars.pwn"
 
+#include "/sourc/other_system/sound_connect.pwn"		// музыка при входе
 // ================= Работы
 #include "/sourc/works/global.pwn"
+
 
 
 
@@ -97,7 +99,6 @@
 
 main() 
 { 
-
 	printf("===================================");
 	printf("!!! BEST MODE EVER !!!");
 	printf("===================================");

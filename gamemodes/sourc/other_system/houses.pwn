@@ -108,13 +108,20 @@ hook OnGameModeInit()
 // работа описана в core > area_detect_for
 stock OnPlayerLeaveHouseArea(playerid)
 {
-	DeletePVar(playerid, "house_id");
+	// Проверка на интерьер для того чтобы не удаляло при входе в дом
+	// т.к при тп в интерьер будет тоже LeaveArea
+	if(!GetPlayerInterior(playerid))
+		DeletePVar(playerid, "house_id");
 }
 stock OnPlayerEnterHouseArea(playerid, houseid)
 {
-	if(GetPVarInt(playerid, "house_id"))	// для того чтобы табличка не ебала голову при выходе из дома
-		return true;
-
+	if(GetPVarInt(playerid, "no_show_dialog"))
+	{
+		printf("noshow");
+		DeletePVar(playerid, "no_show_dialog");
+		return 1;
+	}
+printf("show");
 	SetPVarInt(playerid, "house_id", houseid+1);
 
 	new mes[312];
@@ -130,26 +137,26 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 	if(!strcmp(hData[houseid][h_owner],"None",true)) // на продажу
 	{			
 		format(mes,sizeof(mes),"\
-		{ffffff}\t\t{"#COLOR_DARK"}Дом № %d\n\n\
+		{ffffff}{"#COLOR_DARK"}Дом № %d\n\n\
 		{ffffff}Класс: \t\t\t\t{"#COLOR_GLOBAL"}%s\n\
-		{ffffff}Кол-о комнат:\t\t\t {"#COLOR_GLOBAL"}%d\n\
-		{ffffff}Гараж: \t\t\t\t{"#COLOR_GLOBAL"}%s\n\
-		{ffffff}Цена: \t\t\t\t{"#COLOR_GLOBAL"}%d\n\n\
+		{ffffff}Кол-о комнат:\t\t\t {"#COLOR_LIGHT"}%d\n\
+		{ffffff}Гараж: \t\t\t\t{"#COLOR_LIGHT"}%s\n\
+		{ffffff}Цена: \t\t\t\t{"#COLOR_LIGHT"}%d\n\n\
 		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, intData[hData[houseid][h_interior]][interior_room],
 		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), correct_price(hData[houseid][h_price]));
 	}
 	else
 	{
 		format(mes,sizeof(mes),"\
-		{ffffff}\t{"#COLOR_DARK"}Дом № %d\n\n\
-		{ffffff}Класс: {"#COLOR_GLOBAL"}%s\n\
-		{ffffff}Кол-о комнат: {"#COLOR_GLOBAL"}%d\n\
-		{ffffff}Гараж: {"#COLOR_GLOBAL"}%s\n\
-		{ffffff}Владелец: {"#COLOR_GLOBAL"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
+		{ffffff}{"#COLOR_LIGHT"}Дом № %d\n\n\
+		{ffffff}Класс: {"#COLOR_LIGHT"}%s\n\
+		{ffffff}Кол-о комнат: {"#COLOR_LIGHT"}%d\n\
+		{ffffff}Гараж: {"#COLOR_LIGHT"}%s\n\
+		{ffffff}Владелец: {"#COLOR_LIGHT"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
 		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][h_owner]);
 		
 	}
-	ShowPlayerDialog(playerid, d_house_enter, DIALOG_STYLE_MSGBOX,"{"#COLOR_DARK"}Частный дом",mes,"Войти","Отмена");
+	ShowPlayerDialog(playerid, d_house_enter, DIALOG_STYLE_MSGBOX," ",mes,"Войти","Отмена");
 	return true;
 }
 
@@ -255,7 +262,7 @@ stock ExitHouseToGarage(playerid)
 		}
 		case 6:
 		{
-			SetPlayerPosEx(playerid, 1378.3010, -14.0189, 1000.9258, 90.060, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1381.9276,-13.9854,1000.9240, 260.060, hData[house][h_garage], house, 4);
 			return 1;
 		}
 	}
@@ -264,6 +271,7 @@ stock ExitHouseToGarage(playerid)
 
 stock ExitHouseToStreet(playerid)
 {
+	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
 	SetPlayerPos(playerid, hData[house][enter_x], hData[house][enter_y], hData[house][enter_z]);
 	SetPlayerInterior(playerid, 0);
@@ -271,6 +279,7 @@ stock ExitHouseToStreet(playerid)
 }
 stock EnterHouse(playerid)
 {
+	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
 	new int = hData[house][h_interior];
 
@@ -528,10 +537,11 @@ public HousesInteriorLoaded()
 		
 		CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]+1, 5.0);
 
-		CreateDynamicPickup(19135, 1, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z], -1, intData[x][interior_id]);
+		CreateDynamicPickup(19135, 1, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]-0.5, -1, intData[x][interior_id]);
 		intData[x][interior_area] = CreateDynamicSphere(intData[x][exit_x], intData[x][exit_y], intData[x][exit_z], 1.0, -1, intData[x][interior_id]);
 
 		TOTAL_HOUSE_INTERIOR ++;
+
 	}
 	printf("[ Загрузка ] Интерьеры домов загружены. %d шт.", TOTAL_HOUSE_INTERIOR);
 
@@ -541,6 +551,11 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 {
 	if(areaid >= intData[0][interior_area] && areaid <= intData[TOTAL_HOUSE_INTERIOR-1][interior_area])
 	{
+		if(GetPVarInt(playerid, "no_show_dialog"))
+		{
+			DeletePVar(playerid, "no_show_dialog");
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
 		ShowPlayerDialog(playerid, d_house_exit, DIALOG_STYLE_LIST, "Выход", "\
 		{"#COLOR_GLOBAL"}> {ffffff}На улицу\n\
 		{"#COLOR_GLOBAL"}> {ffffff}В гараж", \

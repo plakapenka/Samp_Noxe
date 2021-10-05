@@ -352,7 +352,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			new str_res[100];
 			if(GetPVarInt(playerid, "driving_test_bad_question") > 1)
 			{
-				str_res = "{8c0904}Вы провалили тест. Удачи следующий раз!{ffffff}";
+				str_res = "{8c0904}Вы провалили тест. Удачи в следующий раз!{ffffff}";
 				DeletePVar(playerid, "driving_test_start");
 			}
 			else
@@ -402,7 +402,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{// если чел нажал H и он в машине
 
 		if(IsPlayerInDynamicArea(playerid, gates[gDriver_Scholl][gates_area]))
-		{// человек стоит перед шлакбаумом автошколы
+		{// человек стоит перед шлагбаумом автошколы
 			open_gate(gDriver_Scholl, 5000);
 		}
 		return Y_HOOKS_BREAK_RETURN_1;
