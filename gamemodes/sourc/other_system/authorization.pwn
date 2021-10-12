@@ -1,4 +1,4 @@
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 stock ShowLoginDialog(playerid)
 {
@@ -13,6 +13,7 @@ stock ShowLoginDialog(playerid)
 	ShowPlayerDialog(playerid, dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {"#COLOR_DARK"}Пароль", str_reg, "»", "x");
 	return 1;
 }
+
 
 stock check_float_time(float_time)
 {

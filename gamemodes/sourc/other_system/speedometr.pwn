@@ -1,4 +1,4 @@
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 new PlayerText:td_speed[MAX_PLAYERS][4];
 

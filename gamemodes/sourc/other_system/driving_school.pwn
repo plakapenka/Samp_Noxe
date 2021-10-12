@@ -10,7 +10,7 @@
 #include "/sourc/objects/driving_school_street.pwn"
 
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 
 new question_driving[][][] = { // текст вопроса, 1- утверждение верное, 0 нет

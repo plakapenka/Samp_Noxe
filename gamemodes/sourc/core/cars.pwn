@@ -3,7 +3,7 @@
 // система управления двигателем, дверьми, багажником и тп
 
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 #define VEHICLE_PARAMS_ENGINE 	0
 #define VEHICLE_PARAMS_LIGHTS 	1

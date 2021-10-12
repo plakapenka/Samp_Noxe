@@ -89,7 +89,7 @@ CMD:veh(playerid, params[])
 	new intt = GetPlayerInterior(playerid);
 	new mir = GetPlayerVirtualWorld(playerid);
 	
-	if(params[0] < 400 || params[0] > 611) 
+	if(params[0] < 400 || params[0] > 999999) 
 		return SendClientMessage(playerid, -1, " Введите: /veh [id авто] [Цвет №1] [Цвет №2]");
 	if(params[1] < 0 || params[1] > 235) 
 		return SendClientMessage(playerid, -1, " Введите: /veh [id авто] [Цвет №1] [Цвет №2]");

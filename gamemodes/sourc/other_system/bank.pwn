@@ -1,7 +1,7 @@
 
 #include "/sourc/objects/bank.pwn" // маппинг банка
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 
 #define TIME_UPDATE_BITCONE 30 // время в секундах за которое будет меняться курс биткоина

@@ -4,7 +4,7 @@
 // - skill
 #include "/sourc/objects/work_center.pwn" // интерьер центра занятости
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 #define JOB_TRUCKER 1
 

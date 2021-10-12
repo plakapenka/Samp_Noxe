@@ -2,7 +2,7 @@
 // == доп интерьеры
 #include "/sourc/objects/house_int37.pwn"
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 
 
@@ -23,7 +23,8 @@
 #define PRICE_IMPROOVE_STORE	200 // цена на ШКАФ, без учета базовой величины
 #define PRICE_IMPROOVE_SAFE		200 // цена на СЕЙФ, без учета базовой величины
 
-new max_car_in_garage[] = {3, 4, 5, 6};
+new pickup_garage_exit_to_house[4];
+new pickup_garage_exit_to_street[4];
 
 enum iinfo
 {
@@ -101,6 +102,36 @@ hook OnGameModeInit()
 	mysql_tquery(g_sql, "SELECT * FROM `house_interior`", "HousesInteriorLoaded");
 
 	mysql_tquery(g_sql, "SELECT * FROM `houses`", "HousesLoaded");
+
+	pickup_garage_exit_to_house[0] = CreateDynamicPickup(19133, 23, 1379.6615,-18.4743,1000.9251, -1, 3);
+	pickup_garage_exit_to_house[1] = CreateDynamicPickup(19133, 23, 1396.7749,-27.7808,1000.9203, -1, 4);
+	pickup_garage_exit_to_house[2] = CreateDynamicPickup(19133, 23, 1395.4806,-28.6034,1000.9128, -1, 5);
+	pickup_garage_exit_to_house[3] = CreateDynamicPickup(19133, 23, 1378.3011,-13.9973,1000.9258, -1, 6);
+
+	CreateDynamic3DTextLabel("Выход в дом", 0x9ccc65CC, 1379.6615,-18.4743,1000.9251, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 3);
+	CreateDynamic3DTextLabel("Выход в дом", 0x9ccc65CC, 1396.7749,-27.7808,1000.9203, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 4);
+	CreateDynamic3DTextLabel("Выход в дом", 0x9ccc65CC, 1395.4806,-28.6034,1000.9128, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 5);
+	CreateDynamic3DTextLabel("Выход в дом", 0x9ccc65CC, 1378.3011,-13.9973,1000.9258, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 6);
+
+	pickup_garage_exit_to_street[0] = CreateDynamicPickup(19133, 23, 1379.6626,-24.2467,1000.9251, -1, 3);
+	pickup_garage_exit_to_street[1] = CreateDynamicPickup(19133, 23, 1402.3676,-27.7795,1000.9203, -1, 4);
+	pickup_garage_exit_to_street[2] = CreateDynamicPickup(19133, 23, 1398.2615,-20.5570,1000.9160, -1, 5);
+	pickup_garage_exit_to_street[3] = CreateDynamicPickup(19133, 23, 1378.3022,-23.0363,1000.9258, -1, 6);
+
+	CreateDynamic3DTextLabel("Выход на улицу", 0x9ccc65CC, 1379.6626,-24.2467,1000.9251, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 3);
+	CreateDynamic3DTextLabel("Выход на улицу", 0x9ccc65CC, 1402.3676,-27.7795,1000.9203, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 4);
+	CreateDynamic3DTextLabel("Выход на улицу", 0x9ccc65CC, 1398.2615,-20.5570,1000.9160, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 5);
+	CreateDynamic3DTextLabel("Выход на улицу", 0x9ccc65CC, 1378.3022,-23.0363,1000.9258, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, -1, 6);
+}
+hook OnPlayerPickUpDynPickup(playerid, pickupid)
+{
+	if(pickupid >=  pickup_garage_exit_to_house[0] && pickupid <= pickup_garage_exit_to_house[3])
+	{
+		EnterHouse(playerid);
+		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	return Y_HOOKS_CONTINUE_RETURN_1;
+	
 }
 
 // вызывается когда игрок стал на какой-либо пикап дома. 
@@ -117,11 +148,9 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 {
 	if(GetPVarInt(playerid, "no_show_dialog"))
 	{
-		printf("noshow");
 		DeletePVar(playerid, "no_show_dialog");
 		return 1;
 	}
-printf("show");
 	SetPVarInt(playerid, "house_id", houseid+1);
 
 	new mes[312];
@@ -234,7 +263,7 @@ CMD:buyhouse(playerid)
 	return true;
 }
 
-stock ExitHouseToGarage(playerid)
+stock EnterGarageFromHouse(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 
@@ -247,7 +276,7 @@ stock ExitHouseToGarage(playerid)
 		}
 		case 3:
 		{
-			SetPlayerPosEx(playerid, 1381.8723, -21.7538, 1000.9240, 264.432, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1380.8544,-19.9282,1000.9245,251.9224, hData[house][h_garage], house, 4);
 			return 1;
 		}
 		case 4:
@@ -263,6 +292,41 @@ stock ExitHouseToGarage(playerid)
 		case 6:
 		{
 			SetPlayerPosEx(playerid, 1381.9276,-13.9854,1000.9240, 260.060, hData[house][h_garage], house, 4);
+			return 1;
+		}
+	}
+	return 1;
+}
+
+stock EnterGarageFromStreet(playerid)
+{
+	new house = GetPVarInt(playerid, "house_id")-1;
+
+	switch(hData[house][h_garage])
+	{
+		case 0..2:
+		{
+			SendClientMessage(playerid, COLOR_16ERROR, "У вас нет гаража!");
+			return 1;
+		}
+		case 3:
+		{
+			SetPlayerPosEx(playerid, 1381.9504,-24.3312,1000.9240,266.9626, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 4:
+		{
+			SetPlayerPosEx(playerid, 1402.4913,-25.3844,1000.9203,356.2401, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 5:
+		{
+			SetPlayerPosEx(playerid, 1395.5448,-20.2903,1000.9174,87.9773, hData[house][h_garage], house, 4);
+			return 1;
+		}
+		case 6:
+		{
+			SetPlayerPosEx(playerid, 1381.6597,-22.7782,1000.9241,263.4457, hData[house][h_garage], house, 4);
 			return 1;
 		}
 	}
@@ -402,13 +466,38 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		DeletePVar(playerid, "buy_improve_price");
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
+
 	if(dialogid == d_house_enter)
 	{
 		if(!response)return Y_HOOKS_BREAK_RETURN_1;
 
+		new houseid = GetPVarInt(playerid, "house_id")-1;
+		if(hData[houseid][h_garage])
+		{
+			ShowPlayerDialog(playerid, d_house_enter_to, DIALOG_STYLE_LIST, "Вход", "\
+			{"#COLOR_GLOBAL"}> {ffffff}В дом\n\
+			{"#COLOR_GLOBAL"}> {ffffff}В гараж", \
+			"Войти", "Отмена");
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
 		EnterHouse(playerid);
 
 		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	if(dialogid == d_house_enter_to)
+	{
+		if(!response)return Y_HOOKS_BREAK_RETURN_1;
+
+		if(listitem == 0)
+		{// в дом
+			EnterHouse(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+		else
+		{
+			EnterGarageFromStreet(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
 	}
 	if(dialogid == d_house_exit)
 	{
@@ -421,7 +510,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		}
 		else
 		{
-			ExitHouseToGarage(playerid);
+			EnterGarageFromHouse(playerid);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}

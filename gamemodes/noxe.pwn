@@ -1,10 +1,12 @@
 
 #include <a_samp>
-#include <streamer>
-#include <izcmd>
-#include <sscanf2>
-//#include <jit>
-#include <crashdetect>
+
+#include "../include/streamer"
+#include "../include/izcmd"
+#include "../include/sscanf2"
+//#include <../include/jit>
+#include "../include/Pawn.RakNet"
+#include "../include/m_custom-sync"
 
 
 #pragma warning disable 239, 214
@@ -39,9 +41,9 @@
 
 #define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
-#include <YSI_Data\y_iterate>
+#include "../include/YSI_Data\y_iterate"
 
 #include "/sourc/headers/variables.pwn" 	// все глобальные переменные
 #include "/sourc/headers/dialogs.pwn"		// список диалогов
@@ -49,7 +51,7 @@
 
 
 // =========== Текстдравы ===========
-#include "/sourc/textdraws/logo.pwn"
+#include "/sourc/textdraws/logo.pwn"	
 #include "/sourc/textdraws/select_skin.pwn"
 // 
 
@@ -83,6 +85,9 @@
 #include "/sourc/works/global.pwn"
 
 
+//#include "/sourc/other_system/farm.pwn"
+
+
 
 
 // ============= объекты
@@ -97,15 +102,20 @@
 //#include "/sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
 //#include "/sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
 
+
+new Float:bedData[] = {238.457275, 1152.229248, 12.208873};
+
+
 main() 
 { 
+	printf("X - %f, Y - %f, Z - %f", bedData[0], bedData[1], bedData[2]);
+
 	printf("===================================");
 	printf("!!! BEST MODE EVER !!!");
 	printf("===================================");
 	Streamer_SetTickRate(100);
 	printf("Streamer TickRate = %d",Streamer_GetTickRate());
 }
-
 
 stock SendMes(playerid, color, const text[], {Float, _}:...)
 {
@@ -152,7 +162,14 @@ public OnGameModeInit()
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
 	EnableStuntBonusForAll(0);
+
+	AddVehicleSyncModel(400, 612);
+
 	return 1;
+}
+public OnPlayerConnect(playerid)
+{
+	SetPlayerLauncher(playerid, true);
 }
 
 

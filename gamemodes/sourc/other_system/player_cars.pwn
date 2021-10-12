@@ -3,10 +3,8 @@
 #include "/sourc/objects/garage5.pwn"
 #include "/sourc/objects/garage6.pwn"
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 #define MAX_VEHICLES_PLAYER	6
-
-
 
 enum cars_p
 {
@@ -138,3 +136,6 @@ public LoadPlayerCars(playerid)
 	}
 	return 1;	
 }
+
+
+

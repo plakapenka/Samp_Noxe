@@ -4,7 +4,7 @@
 изменение статуса аккаунта в базе данных ( онлайн/оффлайн )
 */
 
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 // Маппинг интерьера авторизации
 #include "/sourc/objects/authorization.pwn"
@@ -12,7 +12,10 @@
 //
 #define		SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
 
-
+hook OnPlayerConnect(playerid)
+{
+	Streamer_UpdateEx(playerid, 2072.1445,2091.8442,26.5499);
+}
 hook OnPlayerRequestClass(playerid, classid)
 {
 

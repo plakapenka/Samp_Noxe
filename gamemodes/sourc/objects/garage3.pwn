@@ -1,4 +1,4 @@
-#include <YSI_Coding\y_hooks>
+#include "../include/YSI_Coding\y_hooks"
 
 //Map Exported with Texture Studio By: [uL]Pottus, Crayder, Svyatoy, encoder, devhub/////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,20 +77,19 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-30-percent", 0x00000000);
 	tmpobjid = CreateDynamicObject(19445, 1379.150390, -21.631292, 1001.662475, 0.000014, 0.000000, 179.999954, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 18646, "matcolours", "grey-30-percent", 0x00000000);
-	tmpobjid = CreateDynamicObject(2935, 1375.678100, -21.689283, 1001.362731, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
+	tmpobjid = CreateDynamicObject(2935, 1375.7472,  -24.2861, 1001.362731, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 5986, "chateau_lawn", "doorkb_1_256", 0xFFFFFFFF);
 	SetDynamicObjectMaterial(tmpobjid, 1, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
 	SetDynamicObjectMaterial(tmpobjid, 2, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
 	SetDynamicObjectMaterial(tmpobjid, 3, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
-	tmpobjid = CreateDynamicObject(2257, 1379.262207, -18.449981, 1001.588500, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
-	SetDynamicObjectMaterial(tmpobjid, 1, 2266, "picture_frame", "CJ_PAINTING30", 0x00000000);
-	tmpobjid = CreateDynamicObject(2257, 1379.262207, -24.870014, 1001.588500, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
-	SetDynamicObjectMaterial(tmpobjid, 1, 2266, "picture_frame", "CJ_PAINTING35", 0x00000000);
+	tmpobjid = CreateDynamicObject(2935, 1375.7472,  -18.5339, 1001.362731, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
+	SetDynamicObjectMaterial(tmpobjid, 0, 5986, "chateau_lawn", "doorkb_1_256", 0xFFFFFFFF);
+	SetDynamicObjectMaterial(tmpobjid, 1, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
+	SetDynamicObjectMaterial(tmpobjid, 2, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
+	SetDynamicObjectMaterial(tmpobjid, 3, 5986, "chateau_lawn", "doorkb_1_256", 0x00000000);
+
 	tmpobjid = CreateDynamicObject(2904, 1387.034545, -27.828584, 1001.215942, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 18835, "mickytextures", "whiteforletters", 0x00000000);
-	tmpobjid = CreateDynamicObject(638, 1379.641235, -24.832769, 1000.586486, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); 
-	SetDynamicObjectMaterial(tmpobjid, 0, 8618, "ceasersign", "ceaserspillar01_128", 0x00000000);
-	SetDynamicObjectMaterial(tmpobjid, 1, 4830, "airport2", "sm_Agave_2", 0x00000000);
 	tmpobjid = CreateDynamicObject(2904, 1379.992187, -27.828584, 1002.776611, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 18835, "mickytextures", "whiteforletters", 0x00000000);
 	tmpobjid = CreateDynamicObject(2904, 1379.992187, -27.828584, 1001.215576, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
@@ -107,9 +106,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmpobjid, 0, 18835, "mickytextures", "whiteforletters", 0x00000000);
 	tmpobjid = CreateDynamicObject(2904, 1400.405517, -27.828584, 1001.214965, 0.000000, 0.000000, 90.000000, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 18835, "mickytextures", "whiteforletters", 0x00000000);
-	tmpobjid = CreateDynamicObject(638, 1379.641235, -18.482749, 1000.586486, 0.000000, 0.000000, 0.000000, object_world, object_int, -1, 300.00, 300.00); 
-	SetDynamicObjectMaterial(tmpobjid, 0, 8618, "ceasersign", "ceaserspillar01_128", 0x00000000);
-	SetDynamicObjectMaterial(tmpobjid, 1, 4830, "airport2", "sm_Agave_2", 0x00000000);
 	tmpobjid = CreateDynamicObject(11714, 1383.100463, -16.616170, 1001.462036, 0.000000, 0.000000, 270.000000, object_world, object_int, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 14530, "estate2", "Auto_feltzer", 0x00000000);
 	tmpobjid = CreateDynamicObject(11714, 1397.252685, -16.616170, 1001.462036, 0.000000, 0.000000, 270.000000, object_world, object_int, -1, 300.00, 300.00); 
