@@ -31,4 +31,7 @@ enum
 
 	d_house_exit,
 	d_garage_exit,
+
+	d_farm_cloth,
+	d_farm_store,
 }

@@ -1,5 +1,5 @@
 #include "../include/YSI_Coding\y_hooks"
-#define AREA_FOR_HOUSE 5
+#define AREA_FOR_HOUSE 			5
 
 public OnPlayerEnterDynamicArea(playerid, areaid)
 {

@@ -580,7 +580,7 @@ stock UpdateHousePickup(houseid)
 	}
 	else
 	{
-		pick_model = 1272;
+		pick_model = 19522;
 		h_icon_model = 32;
 	}
 	hData[houseid][h_pickup] 	= 

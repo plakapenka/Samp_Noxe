@@ -4,13 +4,12 @@
 #include "../include/streamer"
 #include "../include/izcmd"
 #include "../include/sscanf2"
-//#include <../include/jit>
 #include "../include/Pawn.RakNet"
-#include "../include/m_custom-sync"
+//#include "../include/nex-ac"
 
-
+#pragma dynamic 999999
 #pragma warning disable 239, 214
-//#include <nex-ac>
+
 
 // ========= общая цветовая тема мода beta alpha pro max mini lite
 #define COLOR_GOOD 			98ee99
@@ -20,6 +19,9 @@
 #define COLOR_LIGHT  		9be7ff 		// светлый
 #define COLOR_DARK			2286c3 		// темный
 #define COLOR_ERROR 		d32f2f
+
+#define CDERR 				ab0000
+#define CDERRHELP			d4d4d4
 
 #define color16_global 		0x64b5f6FF
 #define color16_light 		0x9be7ffFF
@@ -79,15 +81,14 @@
 #include "/sourc/other_system/driving_school.pwn"		// Автошкола
 #include "/sourc/other_system/houses.pwn"				// Дома
 #include "/sourc/other_system/player_cars.pwn"
+#include "/sourc/other_system/bots.pwn"
 
 #include "/sourc/other_system/sound_connect.pwn"		// музыка при входе
 // ================= Работы
 #include "/sourc/works/global.pwn"
 
 
-//#include "/sourc/other_system/farm.pwn"
-
-
+#include "/sourc/other_system/farm.pwn"
 
 
 // ============= объекты
@@ -102,19 +103,15 @@
 //#include "/sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
 //#include "/sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
 
-
-new Float:bedData[] = {238.457275, 1152.229248, 12.208873};
-
-
 main() 
 { 
-	printf("X - %f, Y - %f, Z - %f", bedData[0], bedData[1], bedData[2]);
-
 	printf("===================================");
 	printf("!!! BEST MODE EVER !!!");
 	printf("===================================");
 	Streamer_SetTickRate(100);
 	printf("Streamer TickRate = %d",Streamer_GetTickRate());
+
+//	printf("%d", sizeof(bedData[0]));
 }
 
 stock SendMes(playerid, color, const text[], {Float, _}:...)
@@ -156,22 +153,16 @@ stock SendMes(playerid, color, const text[], {Float, _}:...)
 
 public OnGameModeInit()
 {
+
+	#include "objects.pwn"
 	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
 
 	SetGameModeText("Role Play");
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
 	EnableStuntBonusForAll(0);
-
-	AddVehicleSyncModel(400, 612);
-
 	return 1;
 }
-public OnPlayerConnect(playerid)
-{
-	SetPlayerLauncher(playerid, true);
-}
-
 
 // все команды в отдельном файле
 #include "/sourc/commands.pwn" 
@@ -202,3 +193,4 @@ stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, 
 	SetPlayerVirtualWorld(playerid, world);
 	return 1;
 }
+ 
