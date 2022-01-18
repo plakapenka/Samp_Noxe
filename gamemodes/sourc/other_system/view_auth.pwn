@@ -69,7 +69,7 @@ hook OnPlayerSpawn(playerid)
 		CreateAuthActor(playerid);
 
 		// Перемещаем в интерьер авторизации, чтобы прогрузились объекты
-		SetPlayerPos(playerid, 2072.1445,2091.8442,26.5499);
+		SetPlayerPos(playerid, 2072.1445, 2091.8442, 26.5499);
 		SetPlayerFacingAngle(playerid, 272.12);
 		SetPlayerVirtualWorld(playerid, playerid);
 
@@ -78,7 +78,7 @@ hook OnPlayerSpawn(playerid)
 
 		// Перемещаем камеру
 		SetPlayerCameraPos(playerid, 2076.843018, 2086.007080, 27.014999);
-		SetPlayerCameraLookAt(playerid, 2080.626953, 2089.272949, 27.093000, 2);
+		SetPlayerCameraLookAt(playerid, 2080.626953, 2089.272949, 27.093000);
 
 		return Y_HOOKS_BREAK_RETURN_1;
 	}

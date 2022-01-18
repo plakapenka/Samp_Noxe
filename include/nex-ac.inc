@@ -6,6 +6,7 @@
 #define _nex_ac_included
 
 #tryinclude <a_samp>
+#include "../include/YSI_Coding\y_hooks"
 
 #if !defined FILTERSCRIPT
 
@@ -23,7 +24,7 @@
 #endif
 
 #if !defined _nex_ac_lang_included
-	#include <nex-ac_en.lang>	//Localization
+	#include "../include/nex-ac_en.lang"	//Localization
 #endif
 
 #define	NEX_AC_VERSION				"1.9.58"
@@ -1086,10 +1087,9 @@ ac_fpublic ac_CreatePickup(pickupid, modelid, type, Float:ac_X, Float:ac_Y, Floa
 	}
 #endif
 
-#if defined Streamer_UpdateEx
-	stock ac_Streamer_UpdateEx(playerid, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, type = -1, compensatedtime = -1, freezeplayer = 1)
+hook function Streamer_UpdateEx(playerid, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, type = -1, compensatedtime = -1, freezeplayer = 1)
 	{
-		if(!Streamer_UpdateEx(playerid, x, y, z, worldid, interiorid, type, compensatedtime, freezeplayer)) return 0;
+		//if(!Streamer_UpdateEx(playerid, x, y, z, worldid, interiorid, type, compensatedtime, freezeplayer)) return 0;
 		if(compensatedtime >= 0)
 		{
 			ACInfo[playerid][acSet][7] = 4;
@@ -1104,16 +1104,9 @@ ac_fpublic ac_CreatePickup(pickupid, modelid, type, Float:ac_X, Float:ac_Y, Floa
 				if(!ACInfo[playerid][acUnFrozen]) FreezeSyncPacket(playerid, E_ALL_SYNC, false);
 			#endif
 		}
-		return 1;
+		return continue(playerid, x, y, z, worldid, interiorid, type, compensatedtime, freezeplayer);
 	}
 
-	#if defined _ALS_Streamer_UpdateEx
-		#undef Streamer_UpdateEx
-	#else
-		#define _ALS_Streamer_UpdateEx
-	#endif
-	#define Streamer_UpdateEx ac_Streamer_UpdateEx
-#endif
 
 #if defined GetPlayerVersion
 	stock ac_GetPlayerVersion(playerid, version[], len)
@@ -1558,21 +1551,24 @@ ac_fpublic ac_SetPlayerInterior(playerid, interiorid)
 	return 1;
 }
 
-ac_fpublic ac_SetPlayerPos(playerid, Float:ac_x, Float:ac_y, Float:ac_z)
+hook function SetPlayerPos(playerid, Float:x, Float:y, Float:z)
 {
-	if(!SetPlayerPos(playerid, ac_x, ac_y, ac_z)) return 0;
+//	printf("%f, %f, %f", x, y, z);
+//	if(!SetPlayerPos(playerid, x, y, ac_z)) return 0;
 	ACInfo[playerid][acSet][7] = 1;
 	ACInfo[playerid][acTpToZ] = false;
 	ACInfo[playerid][acNOPCount][10] = 0;
-	ACInfo[playerid][acSetPosX] = ac_x;
-	ACInfo[playerid][acSetPosY] = ac_y;
-	ACInfo[playerid][acSetPosZ] = ac_z;
+	ACInfo[playerid][acSetPosX] = x;
+	ACInfo[playerid][acSetPosY] = y;
+	ACInfo[playerid][acSetPosZ] = z;
 	ACInfo[playerid][acSetPosTick] =
 	ACInfo[playerid][acGtc][10] = GetTickCount() + 3850;
+
 	#if defined FreezeSyncPacket
 		if(!ACInfo[playerid][acUnFrozen]) FreezeSyncPacket(playerid, E_ALL_SYNC, false);
 	#endif
-	return 1;
+
+	return continue(playerid, x, y, z);
 }
 
 ac_fpublic ac_SetPlayerPosFindZ(playerid, Float:ac_x, Float:ac_y, Float:ac_z)
@@ -2741,23 +2737,6 @@ stock acc_SetPlayerInterior(playerid, interiorid)
 #endif
 #define SetPlayerInterior acc_SetPlayerInterior
 
-stock orig_SetPlayerPos(playerid, Float:x, Float:y, Float:z) return SetPlayerPos(playerid, x, y, z);
-
-stock acc_SetPlayerPos(playerid, Float:x, Float:y, Float:z)
-{
-	#if defined FILTERSCRIPT
-		return CallRemoteFunction("ac_SetPlayerPos", "ifff", playerid, x, y, z);
-	#else
-		return ac_SetPlayerPos(playerid, x, y, z);
-	#endif
-}
-
-#if defined _ALS_SetPlayerPos
-	#undef SetPlayerPos
-#else
-	#define _ALS_SetPlayerPos
-#endif
-#define SetPlayerPos acc_SetPlayerPos
 
 stock orig_SetPlayerPosFindZ(playerid, Float:x, Float:y, Float:z) return SetPlayerPosFindZ(playerid, x, y, z);
 
@@ -3762,7 +3741,7 @@ public OnPlayerDisconnect(playerid, reason)
 	forward ac_OnPlayerDisconnect(playerid, reason);
 #endif
 
-public OnPlayerSpawn(playerid)
+hook OnPlayerSpawn(playerid)
 {
 	if(ACInfo[playerid][acKicked] > 0) return 0;
 	new ac_i, bool:ac_ur;
@@ -3870,31 +3849,16 @@ public OnPlayerSpawn(playerid)
 	#if AC_USE_NPC
 		}
 	#endif
-	#if defined ac_OnPlayerSpawn
-		ac_i = ac_OnPlayerSpawn(playerid);
-	#endif
+	
 	if(ac_ur)
 	{
 		if(ACInfo[playerid][acSet][0] == -1) SetPlayerInterior(playerid, 0);
 		if(ACInfo[playerid][acSet][1] == -1) SetPlayerHealth(playerid, 100.0);
 		if(ACInfo[playerid][acSet][2] == -1) SetPlayerArmour(playerid, 0.0);
 	}
-	#if defined ac_OnPlayerSpawn
-		return ac_i;
-	#else
-		return 1;
-	#endif
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-#if defined _ALS_OnPlayerSpawn
-	#undef OnPlayerSpawn
-#else
-	#define _ALS_OnPlayerSpawn
-#endif
-#define OnPlayerSpawn ac_OnPlayerSpawn
-#if defined ac_OnPlayerSpawn
-	forward ac_OnPlayerSpawn(playerid);
-#endif
 
 public OnPlayerDeath(playerid, killerid, reason)
 {
@@ -5958,8 +5922,6 @@ public OnPlayerClickPlayer(playerid, clickedplayerid, source)
 		forward ac_OnPlayerClickTextDraw(playerid, Text:clickedid);
 	#endif
 #endif
-
-
 
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {

@@ -4,8 +4,8 @@
 #include "../include/streamer"
 #include "../include/izcmd"
 #include "../include/sscanf2"
-#include "../include/Pawn.RakNet"
-//#include "../include/nex-ac"
+//#include "../include/Pawn.RakNet"
+#include "../include/nex-ac"
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
@@ -153,8 +153,6 @@ stock SendMes(playerid, color, const text[], {Float, _}:...)
 
 public OnGameModeInit()
 {
-
-	#include "objects.pwn"
 	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
 
 	SetGameModeText("Role Play");

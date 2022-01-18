@@ -324,7 +324,6 @@ hook OnPlayerConnect(playerid)
 	// удаление здания на месте фермы 0
 	RemoveBuildingForPlayer(playerid, 16280, 293.6094, 1148.1797, 11.3047, 0.25);
 }
-
 hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
 	if(PRESSED(KEY_WALK))

@@ -1,12 +1,16 @@
 
-CMD:attach_trailer(playerid, params[])
+CMD:getpos(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) 
 		return true;
-	if(sscanf(params, "dd",params[0], params[1])) 
-		return	SendClientMessage(playerid, -1, "¬ведите: /attach_trailer [id] [id]");
+	//if(sscanf(params, "dd",params[0], params[1])) 
+	//	return	SendClientMessage(playerid, -1, "¬ведите: /attach_trailer [id] [id]");
 
-	AttachTrailerToVehicle(params[0], params[1]);
+	new Float: x, Float: y, Float: z;
+
+	GetPlayerPos(playerid, x, y, z);
+
+	SendMes(playerid, -1, "%f, %f, %f", x, y, z);
 	
 	return true;
 }
