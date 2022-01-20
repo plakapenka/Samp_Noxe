@@ -27,6 +27,7 @@ enum E_PLAYERS
 	pLast_Online,
 	pHouse,
 	pJob,
+	pNumber,
 	gg
 };
 new pData[MAX_PLAYERS][E_PLAYERS];

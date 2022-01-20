@@ -23,6 +23,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_int 	 (ormid,pData[playerid][pLicenses], 					"pLicenses");
 	orm_addvar_int 	 (ormid,pData[playerid][pLast_Online], 					"pLast_Online");
 	orm_addvar_int 	 (ormid,pData[playerid][pJob], 							"pJob");
+	orm_addvar_int 	 (ormid,pData[playerid][pNumber], 						"pNumber");
 	
 	orm_setkey(ormid, "pName");
 
@@ -53,6 +54,7 @@ stock ResetPlayerData(playerid)
 	pData[playerid][pLicenses]		= 0;
 	pData[playerid][pLast_Online]	= gettime();
 	pData[playerid][pJob]			= 0;
+	pData[playerid][pNumber]		= 0;
 }
 
 hook OnPlayerDisconnect(playerid)

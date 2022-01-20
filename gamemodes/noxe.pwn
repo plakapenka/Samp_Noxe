@@ -6,6 +6,13 @@
 #include "../include/sscanf2"
 //#include "../include/Pawn.RakNet"
 #include "../include/nex-ac"
+#include "../include/rustext"
+
+#include "../include/YSI_Coding\y_hooks"
+
+#include "../include/YSI_Data\y_iterate"
+
+#include "../include/progress2"
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
@@ -43,9 +50,7 @@
 
 #define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
 
-#include "../include/YSI_Coding\y_hooks"
 
-#include "../include/YSI_Data\y_iterate"
 
 #include "/sourc/headers/variables.pwn" 	// все глобальные переменные
 #include "/sourc/headers/dialogs.pwn"		// список диалогов
@@ -84,6 +89,8 @@
 #include "/sourc/other_system/bots.pwn"
 
 #include "/sourc/other_system/sound_connect.pwn"		// музыка при входе
+
+#include "/sourc/other_system/adv.pwn"		// объявления
 // ================= Работы
 #include "/sourc/works/global.pwn"
 

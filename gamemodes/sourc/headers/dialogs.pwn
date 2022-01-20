@@ -34,4 +34,6 @@ enum
 
 	d_farm_cloth,
 	d_farm_store,
+
+	d_ad_send,
 }

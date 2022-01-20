@@ -10,6 +10,8 @@
 // кол-о ферм
 #define MAX_FARM 2
 
+new PlayerBar:water_progress[MAX_PLAYERS];
+
 // количество грядок на фермах
 // ферма 			  0    1
 new MAX_BED_FARM[] = {24, 24};
