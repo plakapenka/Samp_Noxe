@@ -1290,13 +1290,6 @@ ac_fpublic ac_EnableStuntBonusForPlayer(playerid, enable)
 	return 1;
 }
 
-ac_fpublic ac_ShowPlayerDialog(playerid, dialogid)
-{
-	if(dialogid > 65535) dialogid %= 32768;
-	ACInfo[playerid][acDialog] = dialogid;
-	return 1;
-}
-
 ac_fpublic ac_fs_ShowPlayerDialog(playerid, dialogid)
 {
 	if(dialogid > 65535) dialogid %= 32768;
@@ -2434,27 +2427,11 @@ stock acc_EnableStuntBonusForPlayer(playerid, enable)
 #endif
 #define EnableStuntBonusForPlayer acc_EnableStuntBonusForPlayer
 
-stock orig_ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[]) return ShowPlayerDialog(playerid, dialogid, style, caption, info, button1, button2);
-
-stock acc_ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[])
+hook ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[])
 {
-	if(ShowPlayerDialog(playerid, dialogid, style, caption, info, button1, button2))
-	{
-		#if defined FILTERSCRIPT
-			return CallRemoteFunction("ac_fs_ShowPlayerDialog", "id", playerid, dialogid);
-		#else
-			return ac_ShowPlayerDialog(playerid, dialogid);
-		#endif
-	}
-	return 0;
+	if(dialogid > 65535) dialogid %= 32768;
+	ACInfo[playerid][acDialog] = dialogid;
 }
-
-#if defined _ALS_ShowPlayerDialog
-	#undef ShowPlayerDialog
-#else
-	#define _ALS_ShowPlayerDialog
-#endif
-#define ShowPlayerDialog acc_ShowPlayerDialog
 
 stock orig_TogglePlayerControllable(playerid, toggle) return TogglePlayerControllable(playerid, toggle);
 

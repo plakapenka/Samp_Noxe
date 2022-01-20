@@ -54,7 +54,7 @@ public OnPlayerDataLoaded(playerid)
 		}
 		case ERROR_NO_DATA:
 		{// регистрация нового аккаунта
-			show_register_dialog(playerid,dReg_pas);
+			Dialog_Show(playerid, Dialog:dReg_pas);
 		}
 	
 	}

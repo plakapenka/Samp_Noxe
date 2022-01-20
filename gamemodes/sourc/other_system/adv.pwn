@@ -9,7 +9,6 @@
 
 enum adven
 {
-	MySQL_ID,
 	Text[128],
 	Sender,
 	Status

@@ -1,10 +1,6 @@
 enum
 {
 	dNull,
-	dReg_pas,
-	dReg_mail,
-	dReg_promo,
-	dReg_sex,
 
 	dAutorization,
 

@@ -5,7 +5,7 @@
 #include "../include/izcmd"
 #include "../include/sscanf2"
 //#include "../include/Pawn.RakNet"
-#include "../include/nex-ac"
+//#include "../include/nex-ac"
 #include "../include/rustext"
 
 #include "../include/YSI_Coding\y_hooks"
@@ -13,6 +13,8 @@
 #include "../include/YSI_Data\y_iterate"
 
 #include "../include/progress2"
+
+#include "../include/mdialog"
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214

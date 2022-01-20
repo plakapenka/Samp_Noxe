@@ -4,153 +4,139 @@
 new fem_skin_reg[] = {40,55,90};				// Женские скины при регистрации
 new male_skin_reg[]= {137,200,230,239,212,79};	// Мужские скины при регистрации
 
-
-stock show_register_dialog(playerid, id)
+DialogCreate:dReg_pas(playerid)
 {
-	switch(id)
-	{
-		case dReg_pas:
-		{
-			new str_reg[512];
-			format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
-			Добро пожаловать на сервер {B4B5B7}Samp RP{FFFFFF}\n\
-			Регистрация нового персонажа\n\n\
-			Логин: {B4B5B7}%s{FFFFFF}\n\
-			Введите пароль:\n\n\
-			_______________________________________",pData[playerid][pName]);
-			ShowPlayerDialog(playerid, dReg_pas, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 1/4 | {ae433d}Пароль", str_reg, "»", "x");
-			return 1;
-		}
-		case dReg_mail:
-		{
-			ShowPlayerDialog(playerid, dReg_mail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 2/4 | {ae433d}Почта", "\
-			{ffffff}Введите правильный адрес электронной почты,\n\
-			если вы забудите пароль на него будет выслан новый", "Далее", "Пропуск");
-			return 1;
-		}
-		case dReg_promo:
-		{
-			ShowPlayerDialog(playerid,dReg_promo,DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 3/4 | {ae433d}Бонус", "\
-			{ffffff}Введите промокод", "Далее", "Пропуск");
-			return 1;
-		}
-		case dReg_sex:
-		{
-			ShowPlayerDialog(playerid,dReg_sex,DIALOG_STYLE_MSGBOX, "{FFFFFF}Регистрация 4/4 | {ae433d}Пол", "\
-			{FFFFFF}Какого пола будет ваш персонаж:\n", "Мужчина", "Женщина");
-			return 1;
-		}
-	}
-	return 1;
+	new str_reg[512];
+	format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
+	Добро пожаловать на сервер {B4B5B7}Samp RP{FFFFFF}\n\
+	Регистрация нового персонажа\n\n\
+	Логин: {B4B5B7}%s{FFFFFF}\n\
+	Введите пароль:\n\n\
+	_______________________________________",pData[playerid][pName]);
+
+    Dialog_Open(playerid, Dialog:dReg_pas, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 1/4 | {ae433d}Пароль", str_reg,"»", "x");
 }
 
-hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
+DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 {
-	switch(dialogid)
+    if(!response)
 	{
-		case dNull: return 1;
-		case dReg_pas: // регистрация пароль
-		{
-			if(!response)
-			{
-				SendClientMessage(playerid, COLOR_LIGHTRED, " Для выхода из игры используйте /q(uit)");
-				Kick(playerid);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
+		SendClientMessage(playerid, COLOR_LIGHTRED, " Для выхода из игры используйте /q(uit)");
+		Kick(playerid);
+		return 1;
+	}
 			
-			if(!strlen(inputtext))
-			{
-				show_register_dialog(playerid,dReg_pas);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			if(strlen(inputtext) < 6 || strlen(inputtext) > 16)
-			{
-				ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			for(new i = strlen(inputtext); i != 0; --i)
-			{
-				switch(inputtext[i])
-				{
-					case 'А'..'Я', 'а'..'я', ' ':
-					{
-						ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "\
-						{00FF21}Введенный вами пароль содержит русские буквы.\n\
-						Смените раскладку клавиатуры!", "Повтор", "");
-						return Y_HOOKS_BREAK_RETURN_1;
-					}
-				}
-			}
-			strmid(pData[playerid][pPassword],inputtext, 0, strlen(inputtext), 17);
-			show_register_dialog(playerid, dReg_mail); // показываем диалог ввода майла
-			
-			return Y_HOOKS_BREAK_RETURN_1;
-			
-		}
-		case dReg_mail: // регистрация - ввод майла
+	if(!strlen(inputtext))
+	{
+		Dialog_Show(playerid, Dialog:dReg_pas);
+		return 1;
+	}
+	if(strlen(inputtext) < 6 || strlen(inputtext) > 16)
+	{
+		//ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
+		return 1;
+	}
+	for(new i = strlen(inputtext); i != 0; --i)
+	{
+		switch(inputtext[i])
 		{
-			if(response)
+			case 'А'..'Я', 'а'..'я', ' ':
 			{
-				if(!strlen(inputtext))
-				{
-					show_register_dialog(playerid,dReg_mail);
-					return Y_HOOKS_BREAK_RETURN_1;
-				}
-				if(strlen(inputtext) < 6 || strlen(inputtext) > 32)
-				{
-					ShowPlayerDialog(playerid,dReg_mail,DIALOG_STYLE_MSGBOX, "Ошибка!", "{FF6347}Длина email должна быть от 6 до 32 символов", "Повтор", "");
-					return Y_HOOKS_BREAK_RETURN_1;
-				}
-				strmid(pData[playerid][pEmail],inputtext, 0, strlen(inputtext));
+				//ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "\
+				//{00FF21}Введенный вами пароль содержит русские буквы.\n\
+				//Смените раскладку клавиатуры!", "Повтор", "");
+				return 1;
 			}
-			show_register_dialog(playerid, dReg_promo); // показываем диалог ввода промокода
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		case dReg_promo: // регистрация - ввод промокода
-		{
-			if(response)
-			{
-				if(!strlen(inputtext))
-				{
-					show_register_dialog(playerid,dReg_promo);
-					return Y_HOOKS_BREAK_RETURN_1;
-				}
-				if(strlen(inputtext) < 3 || strlen(inputtext) > 10)
-				{
-					ShowPlayerDialog(playerid,dReg_promo,DIALOG_STYLE_MSGBOX, "Ошибка!", "{FF6347}Длина promo должна быть от 3 до 10 символов", "Повтор", "");
-					return Y_HOOKS_BREAK_RETURN_1;
-				}
-				strmid(pData[playerid][pPromocode],inputtext, 0, strlen(inputtext));
-			}
-			show_register_dialog(playerid, dReg_sex); // показываем диалог выбора пола
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		case dReg_sex: // регистрация - выбор пола
-		{
-			pData[playerid][pSex] 		= response;
-
-			InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
-			InterpolateCameraLookAt(playerid, 2080.637451, 2090.162109, 27.209436, 2073.040771, 2091.703857, 27.107011, 2000);
-
-			if(pData[playerid][pSex] == SEX_MALE)
-			{// мужик
-				SetPlayerSkin(playerid, male_skin_reg[0]);
-			}
-			else
-			{// тянка
-				SetPlayerSkin(playerid, fem_skin_reg[0]);
-			}
-			
-			show_select_skin_td(playerid);
-			SelectTextDraw(playerid, color16_global);
-			pData[playerid][pTDSelect] = SELECT_STATUS_SKIN_REG;
-			return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}
-	return 1;
+	strmid(pData[playerid][pPassword],inputtext, 0, strlen(inputtext), 17);
+	Dialog_Show(playerid, Dialog:dReg_mail);
+			
+    return 1;
 }
 
 
+
+DialogCreate:dReg_mail(playerid)
+{
+    Dialog_Open(playerid, Dialog:dReg_mail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 2/4 | {ae433d}Почта", "\
+	{ffffff}Введите правильный адрес электронной почты,\n\
+	если вы забудите пароль на него будет выслан новый", "Далее", "Пропуск");
+}
+
+DialogResponse:dReg_mail(playerid, response, listitem, inputtext[])
+{
+	if(response)
+	{
+		if(!strlen(inputtext))
+		{
+			Dialog_Show(playerid, Dialog:dReg_mail);
+			return 1;
+		}
+		if(strlen(inputtext) < 6 || strlen(inputtext) > 32)
+		{
+			Dialog_MessageEx(playerid, Dialog:dReg_mail, "Ошибка!", "{FF6347}Длина email должна быть от 6 до 32 символов", "Повтор", "");
+			return 1;
+		}
+		strmid(pData[playerid][pEmail],inputtext, 0, strlen(inputtext));
+	}
+	Dialog_Show(playerid, Dialog:dReg_promo); // показываем диалог ввода промокода
+	return 1;
+}
+
+DialogCreate:dReg_promo(playerid)
+{
+    Dialog_Open(playerid, Dialog:dReg_promo, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 3/4 | {ae433d}Бонус", "\
+	{ffffff}Введите промокод", "Далее", "Пропуск");
+}
+
+DialogResponse:dReg_promo(playerid, response, listitem, inputtext[])
+{
+	if(response)
+	{
+		if(!strlen(inputtext))
+		{
+			Dialog_Show(playerid, Dialog:dReg_promo);
+			return 1;
+		}
+		if(strlen(inputtext) < 3 || strlen(inputtext) > 10)
+		{
+			Dialog_MessageEx(playerid, Dialog:dReg_promo, "Ошибка!", "{FF6347}Длина promo должна быть от 3 до 10 символов", "Повтор", "");
+			return 1;
+		}
+		strmid(pData[playerid][pPromocode],inputtext, 0, strlen(inputtext));
+	}
+	Dialog_Show(playerid, Dialog:dReg_sex);// показываем диалог выбора пола
+	return 1;
+}
+
+DialogCreate:dReg_sex(playerid)
+{
+    Dialog_Open(playerid, Dialog:dReg_sex, DIALOG_STYLE_MSGBOX, "{FFFFFF}Регистрация 4/4 | {ae433d}Пол", "\
+	{FFFFFF}Какого пола будет ваш персонаж:\n", "Мужчина", "Женщина");
+}
+DialogResponse:dReg_sex(playerid, response, listitem, inputtext[])
+{
+	pData[playerid][pSex] 		= response;
+
+	InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
+	InterpolateCameraLookAt(playerid, 2080.637451, 2090.162109, 27.209436, 2073.040771, 2091.703857, 27.107011, 2000);
+
+	if(pData[playerid][pSex] == SEX_MALE)
+	{// мужик
+		SetPlayerSkin(playerid, male_skin_reg[0]);
+	}
+	else
+	{// тянка
+		SetPlayerSkin(playerid, fem_skin_reg[0]);
+	}
+			
+	show_select_skin_td(playerid);
+	SelectTextDraw(playerid, color16_global);
+	pData[playerid][pTDSelect] = SELECT_STATUS_SKIN_REG;
+	return 1;
+
+}
 
 hook OnPlayerClickTextDraw(playerid, Text:clickedid)
 {
