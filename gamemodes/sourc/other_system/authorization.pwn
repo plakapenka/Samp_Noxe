@@ -82,6 +82,12 @@ DialogResponse:dAutorization(playerid, response, listitem, inputtext[])
 forward PlayerLogged(playerid);
 public PlayerLogged(playerid)
 {
+	if (time_for_login[playerid])
+	{
+		KillTimer(time_for_login[playerid]);
+		time_for_login[playerid] = 0;
+	}
+	
 	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
 		
 	DestroyAuthActor(playerid); 		// удаление актеров при авторизации

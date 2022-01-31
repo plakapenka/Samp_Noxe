@@ -117,6 +117,8 @@ DialogCreate:dReg_sex(playerid)
 }
 DialogResponse:dReg_sex(playerid, response, listitem, inputtext[])
 {
+	DestroyAuthActor(playerid);
+	
 	pData[playerid][pSex] 		= response;
 
 	InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
