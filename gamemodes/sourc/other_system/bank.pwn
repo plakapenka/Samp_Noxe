@@ -1,7 +1,7 @@
 
-#include "/sourc/objects/bank.pwn" // маппинг банка
+#include "sourc/objects/bank.pwn" // маппинг банка
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 
 #define TIME_UPDATE_BITCONE 30 // время в секундах за которое будет меняться курс биткоина
@@ -98,193 +98,174 @@ hook OnGameModeExit()
 	mysql_query(g_sql, query, false);
 }
 
-stock show_bank_dialog(playerid, id)
+DialogCreate:dBankGlobal(playerid)
 {
-	switch(id)
+	Dialog_Open(playerid, Dialog:dBankGlobal, DIALOG_STYLE_LIST, \
+	"Чем я могу вам помочь?", "\
+	{01691b}> {ffffff}Банковский счет\n\
+	{01691b}> {ffffff}Оплата\n\
+	{01691b}> {ffffff}Вклады\n\
+	{01691b}> {ffffff}Криптовалюта\n\
+	", ">", "X");
+}
+DialogResponse:dBankGlobal(playerid, response, listitem, inputtext[])
+{
+	if(!response) 
+	{ // удаление из очереди при закрытии окна
+		new id_window;
+		if ( IsPlayerInDynamicArea(playerid, a_bank_window[0])) id_window = 0;
+		if ( IsPlayerInDynamicArea(playerid, a_bank_window[1])) id_window = 1;
+		if ( IsPlayerInDynamicArea(playerid, a_bank_window[2])) id_window = 2;
+
+		strmid(bank_info_list[id_window],"Свободно",0,MAX_PLAYER_NAME,MAX_PLAYER_NAME);
+
+		new str_bank[150];
+		format(str_bank, sizeof str_bank, "Клиент\n{ffffff}%s\n%s\n%s", bank_info_list[0],bank_info_list[1],bank_info_list[2]);
+		UpdateDynamic3DTextLabelText(bank_label_info, 0x018a04FF, str_bank);
+		return 1;
+	}
+
+
+	if(listitem == 0)
 	{
-		case dBankGlobal:
-		{
-			ShowPlayerDialog(playerid, dBankGlobal, DIALOG_STYLE_LIST, \
-			"Чем я могу вам помочь?", "\
-			{01691b}> {ffffff}Банковский счет\n\
-			{01691b}> {ffffff}Оплата\n\
-			{01691b}> {ffffff}Вклады\n\
-			{01691b}> {ffffff}Криптовалюта\n\
-			", ">", "X");
-			return 1;
-		}
-		case dBankBalance:
-		{
-			new str[240];
-			format(str, sizeof str, "\
-			{01691b}Ваш баланс:{ffffff} %d $\n\
-			{01691b}> {ffffff} Пополнить счёт\n\
-			{01691b}> {ffffff} Снять со счёта", pData[playerid][pBank]);
-
-			ShowPlayerDialog(playerid, dBankBalance, DIALOG_STYLE_LIST, "Банковский счет", str, ">", "<");
-			return 1;
-		}
-		case dBankBalanceDeposit:
-		{
-			ShowPlayerDialog(playerid, dBankBalanceDeposit, DIALOG_STYLE_INPUT, \
-			"Банковский счет {01691b}| Пополнение",\
-			"{ffffff}Введите сумму:", ">", "<");
-			return 1;
-		}
-		case dBankBalanceWithdraw:
-		{
-			ShowPlayerDialog(playerid, dBankBalanceWithdraw, DIALOG_STYLE_INPUT, \
-			"Банковский счет {01691b}| Вывод",\
-			"{ffffff}Введите сумму:", ">", "<");
-			return 1;
-		}
-		case dBank_deposit_global:
-		{
-			new query[103];
-			mysql_format(g_sql, query, sizeof query, "SELECT * FROM `bank_deposits` WHERE `player` = '%e'", pData[playerid][pName]);
-			mysql_tquery(g_sql, query, "mysql_show_deposits", "d", playerid);
-
-			ShowPlayerDialog(playerid, dBank_deposit_global, DIALOG_STYLE_TABLIST_HEADERS, \
-			"Вклады {01691b}| Ваши вклады",\
-			"Название\tСумма\tПроцент\tОсталось\n\
-			На дом\t100000$\t13%\t9 дней\n\
-			На машину\t5000000$\t25%\t22 дней\n\
-			> Создать депозит", ">", "<");
-
-	
-			return 1;
-		}
-		
+		Dialog_Show(playerid, Dialog:dBankBalance);
+		return 1;
+	}
+	if(listitem == 2)
+	{
+		Dialog_Show(playerid, Dialog:dBank_deposit_global);
+		return 1;
 	}
 	return 1;
 }
+
+DialogCreate:dBankBalance(playerid)
+{
+	new str[240];
+	format(str, sizeof str, "\
+	{01691b}Ваш баланс:{ffffff} %d $\n\
+	{01691b}> {ffffff} Пополнить счёт\n\
+	{01691b}> {ffffff} Снять со счёта", pData[playerid][pBank]);
+
+	Dialog_Open(playerid, Dialog:dBankBalance, DIALOG_STYLE_LIST, "Банковский счет", str, ">", "<");
+}
+DialogResponse:dBankBalance(playerid, response, listitem, inputtext[])
+{
+	if(!response)
+	{
+		Dialog_Show(playerid, Dialog:dBankGlobal);
+		return 1;
+	}
+	if(listitem == 1)
+	{// пополнение
+		Dialog_Show(playerid, Dialog:dBankBalanceDeposit);
+		return 1;
+	}
+	else if(listitem == 2)
+	{// снятие
+		Dialog_Show(playerid, Dialog:dBankBalanceWithdraw);
+		return 1;
+	}
+	return 1;
+}
+DialogCreate:dBankBalanceDeposit(playerid)
+{
+	Dialog_Open(playerid, Dialog:dBankBalanceDeposit, DIALOG_STYLE_INPUT, \
+	"Банковский счет {01691b}| Пополнение",\
+	"{ffffff}Введите сумму:", ">", "<");
+}
+DialogResponse:dBankBalanceDeposit(playerid, response, listitem, inputtext[])
+{
+	if(!response)
+	{
+		Dialog_Show(playerid, Dialog:dBankBalance);
+		return 1;
+	}
+	new money = strval(inputtext);
+	if(pData[playerid][pCash] < money || money <= 0)
+	{
+		Dialog_MessageEx(playerid, Dialog:dBankBalanceCheck, "Чек", "{bf0606}Недостаточно средств!", "Закрыть", "");
+		//Show
+		PlayerPlaySound(playerid, 1055, 0.0,0.0,0.0);
+		return 1;
+	}
+	give_money(playerid, -money);
+	pData[playerid][pBank] += money;
+
+	new str[240];
+	format(str, sizeof str, "{ffffff}\
+	\t\tЧек\n\
+	\tBank San Andreas\n\
+	______________________________\n\n\
+	{a3a3a3}Пополнение счета:{ffffff} %d $\n\
+	{a3a3a3}Текущий баланс:{ffffff} %d $\n\
+	______________________________\n\n\
+	\t\tСпасибо!", money, pData[playerid][pBank]);
+
+	Dialog_MessageEx(playerid, Dialog:dBankBalanceCheck, "Чек", str, "Закрыть", "");
+	PlayerPlaySound(playerid, 1054, 0.0,0.0,0.0);
+	return 1;
+}
+DialogCreate:dBankBalanceWithdraw(playerid)
+{
+	Dialog_Open(playerid, Dialog:dBankBalanceWithdraw, DIALOG_STYLE_INPUT, \
+	"Банковский счет {01691b}| Вывод",\
+	"{ffffff}Введите сумму:", ">", "<");
+}
+DialogResponse:dBankBalanceWithdraw(playerid, response, listitem, inputtext[])
+{
+	if(!response)
+	{
+		Dialog_Show(playerid, Dialog:dBankBalance);
+		return 1;
+	}
+	new money = strval(inputtext);
+	if(pData[playerid][pBank] < money || money <= 0)
+	{
+		Dialog_MessageEx(playerid, Dialog:dBankBalanceCheck, "Чек", "{bf0606}Недостаточно средств!", "Закрыть", "");
+		PlayerPlaySound(playerid, 1055, 0.0,0.0,0.0);
+		return 1;
+	}
+	give_money(playerid, money);
+	pData[playerid][pBank] -= money;
+
+	new str[240];
+	format(str, sizeof str, "{ffffff}\
+	\t\tЧек\n\
+	\tBank San Andreas\n\
+	______________________________\n\n\
+	{a3a3a3}Снятие наличных:{ffffff} %d $\n\
+	{a3a3a3}Остаток:{ffffff} %d $\n\
+	______________________________\n\n\
+	\t\tСпасибо!", money, pData[playerid][pBank]);
+
+	Dialog_MessageEx(playerid, Dialog:dBankBalanceCheck, "Чек", str, "Закрыть", "");
+	PlayerPlaySound(playerid, 1054, 0.0,0.0,0.0);
+	return 1;
+}
+DialogResponse:dBankBalanceCheck(playerid, response, listitem, inputtext[])
+{
+	Dialog_Show(playerid, Dialog:dBankGlobal);
+	return 1;
+}
+DialogCreate:dBank_deposit_global(playerid)
+{
+	new query[103];
+	mysql_format(g_sql, query, sizeof query, "SELECT * FROM `bank_deposits` WHERE `player` = '%e'", pData[playerid][pName]);
+	mysql_tquery(g_sql, query, "mysql_show_deposits", "d", playerid);
+
+	Dialog_Open(playerid, Dialog:dBank_deposit_global, DIALOG_STYLE_TABLIST_HEADERS, \
+	"Вклады {01691b}| Ваши вклады",\
+	"Название\tСумма\tПроцент\tОсталось\n\
+	На дом\t100000$\t13%\t9 дней\n\
+	На машину\t5000000$\t25%\t22 дней\n\
+	> Создать депозит", ">", "<");
+}
+
 forward mysql_show_deposits(playerid);
 public mysql_show_deposits(playerid)
 {
 	
-}
-hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
-{
-	if(dialogid == dBankGlobal)
-	{
-		if(!response) 
-		{ // удаление из очереди при закрытии окна
-			new id_window;
-			if ( IsPlayerInDynamicArea(playerid, a_bank_window[0])) id_window = 0;
-			if ( IsPlayerInDynamicArea(playerid, a_bank_window[1])) id_window = 1;
-			if ( IsPlayerInDynamicArea(playerid, a_bank_window[2])) id_window = 2;
-
-			strmid(bank_info_list[id_window],"Свободно",0,MAX_PLAYER_NAME,MAX_PLAYER_NAME);
-
-			new str_bank[150];
-			format(str_bank, sizeof str_bank, "Клиент\n{ffffff}%s\n%s\n%s", bank_info_list[0],bank_info_list[1],bank_info_list[2]);
-			UpdateDynamic3DTextLabelText(bank_label_info, 0x018a04FF, str_bank);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-
-
-		if(listitem == 0)
-		{
-			show_bank_dialog(playerid, dBankBalance);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		if(listitem == 2)
-		{
-			show_bank_dialog(playerid, dBank_deposit_global);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == dBankBalance)
-	{
-		if(!response)
-		{
-			show_bank_dialog(playerid, dBankGlobal);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		if(listitem == 1)
-		{// пополнение
-			show_bank_dialog(playerid, dBankBalanceDeposit);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		else if(listitem == 2)
-		{// снятие
-			show_bank_dialog(playerid, dBankBalanceWithdraw);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == dBankBalanceDeposit)
-	{
-		if(!response)
-		{
-			show_bank_dialog(playerid, dBankBalance);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		new money = strval(inputtext);
-		if(pData[playerid][pCash] < money || money <= 0)
-		{
-			ShowPlayerDialog(playerid, dBankBalanceCheck, DIALOG_STYLE_MSGBOX, "Чек", "{bf0606}Недостаточно средств!", "Закрыть", "");
-			PlayerPlaySound(playerid, 1055, 0.0,0.0,0.0);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		give_money(playerid, -money);
-		pData[playerid][pBank] += money;
-
-		new str[240];
-		format(str, sizeof str, "{ffffff}\
-		\t\tЧек\n\
-		\tBank San Andreas\n\
-		______________________________\n\n\
-		{a3a3a3}Пополнение счета:{ffffff} %d $\n\
-		{a3a3a3}Текущий баланс:{ffffff} %d $\n\
-		______________________________\n\n\
-		\t\tСпасибо!", money, pData[playerid][pBank]);
-
-		ShowPlayerDialog(playerid, dBankBalanceCheck, DIALOG_STYLE_MSGBOX, "Чек", str, "Закрыть", "");
-		PlayerPlaySound(playerid, 1054, 0.0,0.0,0.0);
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == dBankBalanceWithdraw)
-	{
-		if(!response)
-		{
-			show_bank_dialog(playerid, dBankBalance);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		new money = strval(inputtext);
-		if(pData[playerid][pBank] < money || money <= 0)
-		{
-			ShowPlayerDialog(playerid, dBankBalanceCheck, DIALOG_STYLE_MSGBOX, "Чек", "{bf0606}Недостаточно средств!", "Закрыть", "");
-			PlayerPlaySound(playerid, 1055, 0.0,0.0,0.0);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		give_money(playerid, money);
-		pData[playerid][pBank] -= money;
-
-		new str[240];
-		format(str, sizeof str, "{ffffff}\
-		\t\tЧек\n\
-		\tBank San Andreas\n\
-		______________________________\n\n\
-		{a3a3a3}Снятие наличных:{ffffff} %d $\n\
-		{a3a3a3}Остаток:{ffffff} %d $\n\
-		______________________________\n\n\
-		\t\tСпасибо!", money, pData[playerid][pBank]);
-
-		ShowPlayerDialog(playerid, dBankBalanceCheck, DIALOG_STYLE_MSGBOX, "Чек", str, "Закрыть", "");
-		PlayerPlaySound(playerid, 1054, 0.0,0.0,0.0);
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-
-	if(dialogid == dBankBalanceCheck)
-	{
-		show_bank_dialog(playerid, dBankGlobal);
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-
-	return 1;
 }
 
 
@@ -302,7 +283,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			format(str_bank, sizeof str_bank, "Клиент\n{ffffff}%s\n%s\n%s", bank_info_list[0],bank_info_list[1],bank_info_list[2]);
 			UpdateDynamic3DTextLabelText(bank_label_info, 0x018a04FF, str_bank);
 
-			show_bank_dialog(playerid, dBankGlobal);
+			Dialog_Show(playerid, Dialog:dBankGlobal);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 

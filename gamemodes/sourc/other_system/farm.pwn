@@ -1,4 +1,4 @@
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 #define FARM_TOOL_SHOVEL	5 	// ЛОПАТА
 #define FARM_TOOL_RAKE		6 	// ГРАБЛИ
@@ -388,7 +388,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			}
 			else
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", "{"#CDERR"}Ошибка! \n\n{"#CDERRHELP"}Вам нужно переодеться!", "Хорошо", "");
+				Dialog_Message(playerid, " ", "{"#CDERR"}Ошибка! \n\n{"#CDERRHELP"}Вам нужно переодеться!", "Хорошо");
 			}
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
@@ -414,9 +414,9 @@ stock ChangeStateBed(playerid, farm, bed)
 		{// ЗАРОСЛА
 			if(GetPVarInt(playerid, "farm_tool") != FARM_TOOL_SHOVEL)
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", "\
+				Dialog_Message(playerid, " ", "\
 				{"#CDERR"}У вас нет лопаты!\n\n\
-				{"#CDERRHELP"}Лопату можно взять в амбаре напротив", "Хорошо", "");
+				{"#CDERRHELP"}Лопату можно взять в амбаре напротив", "Хорошо");
 				return 1;
 			}
 			ApplyAnimation(playerid, "SWORD", "sword_4", 4.0, 1, 0, 0, 0, 0);
@@ -427,10 +427,10 @@ stock ChangeStateBed(playerid, farm, bed)
 		{// грядка пуста
 			if(GetPVarInt(playerid, "farm_tool") != FARM_TOOL_SEEDS)
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", "\
+				Dialog_Message(playerid, " ", "\
 				{"#CDERR"}У вас нет семян!\n\n\
 				{"#CDERRHELP"}Семена можно взять в амбаре напротив", 
-				"Хорошо", "");
+				"Хорошо");
 				return 1;
 			}
 			ApplyAnimation(playerid, "BOMBER", "BOM_Plant", 6.1, 0, 0, 0, 0, 0,1);
@@ -439,8 +439,8 @@ stock ChangeStateBed(playerid, farm, bed)
 		}
 		case BED_STAT_GROW:
 		{// растет
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", "\
-			{"#CDERR"}В настоящее время действие не требуется!\n\n", "Хорошо", "");
+			Dialog_Message(playerid, " ", "\
+			{"#CDERR"}В настоящее время действие не требуется!\n\n", "Хорошо");
 			return 1;
 			
 		}
@@ -448,10 +448,10 @@ stock ChangeStateBed(playerid, farm, bed)
 		{// растет
 			if(GetPVarInt(playerid, "farm_tool") != FARM_TOOL_RAKE)
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", "\
+				Dialog_Message(playerid, " ", "\
 				{"#CDERR"}У вас нет граблей!\n\n\
 				{"#CDERRHELP"}Грабли можно взять в амбаре напротив", 
-				"Хорошо", "");
+				"Хорошо");
 				return 1;
 			}
 			ApplyAnimation(playerid, "BOMBER", "BOM_Plant", 6.1, 0, 0, 0, 0, 0,1);
@@ -550,7 +550,7 @@ stock ShowFarmInfo(playerid, farmid)
 	",farmData[farmid][farm_owner], farmData[farmid][farm_salary], farmData[farmid][farm_balance], farm_crop_name[farmData[farmid][farm_crop_type]],
 	farmData[farmid][farm_seeds_count], farmData[farmid][farm_crop_count]); 
 	
-	ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", farm_info, "Закрыть", "");
+	Dialog_Message(playerid, " ", farm_info, "Закрыть");
 	return 1;
 }
 

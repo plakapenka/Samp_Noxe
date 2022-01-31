@@ -5,12 +5,12 @@
 // машины автошколы
 
 // Маппинг интерьера автошколы
-#include "/sourc/objects/driving_school_interior.pwn"
+#include "sourc/objects/driving_school_interior.pwn"
 // Маппинг вокруг автошколы	
-#include "/sourc/objects/driving_school_street.pwn"
+#include "sourc/objects/driving_school_street.pwn"
 
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 
 new question_driving[][][] = { // текст вопроса, 1- утверждение верное, 0 нет
@@ -108,7 +108,7 @@ hook OnPlayerExitVehicle(playerid, vehicleid)
 		DeletePVar(playerid, "driving_test_cp_id");
 		DeletePVar(playerid, "driving_test_start");
 		DisablePlayerRaceCheckpoint(playerid);
-		ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{d40023}Ошибка", "{ffffff}Нельзя покидать ТС во время экзамена!", "Готово", "");
+		Dialog_Message(playerid, "{d40023}Ошибка", "{ffffff}Нельзя покидать ТС во время экзамена!", "Готово");
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
@@ -140,41 +140,41 @@ hook OnPlayerEnterRaceCP(playerid)
 
 		if(driv_cp_id == 10)
 		{
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Message(playerid, "{4287f5}Экзамен", "\
 			{008009}Отлично!{ffffff}\n\n\
 			{ffffff}Теперь припаркуйтесь\n\
 			Используйте задний ход выполняя данный элемент\n\n",
-			"Готово", "");
+			"Готово");
 		}
 		if(driv_cp_id == 11)
 		{
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Message(playerid, "{4287f5}Экзамен", "\
 			{008009}Отлично!{ffffff}\n\n\
 			{ffffff}Продолжайте движение по маршруту\n\n",
-			"Готово", "");
+			"Готово");
 		}
 		if(driv_cp_id == 15)
 		{
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Message(playerid, "{4287f5}Экзамен", "\
 			{008009}Отлично!{ffffff}\n\n\
 			{ffffff}Давайте посмотрим как вы двигаетесь на задней передаче\n\
 			Выезжайте из гаража",
-			"Готово", "");
+			"Готово");
 		}
 		if(driv_cp_id == 18)
 		{
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Message(playerid, "{4287f5}Экзамен", "\
 			{008009}Хорошо!{ffffff}\n\n\
 			{ffffff}Давайте посмотрим как вы двигаетесь на задней передаче\n\
 			Заезжайте на парковочное место",
-			"Готово", "");
+			"Готово");
 		}
 		if(driv_cp_id == 19)
 		{
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Message(playerid,"{4287f5}Экзамен", "\
 			{008009}Отлично!{ffffff}\n\n\
 			{ffffff}Продолжайте движение по маршруту\n\n",
-			"Готово", "");
+			"Готово");
 		}
 		if(driv_cp_id == 24)
 		{
@@ -187,20 +187,20 @@ hook OnPlayerEnterRaceCP(playerid)
 			{
 				SetPVarInt(playerid, "driving_test_start", 4);
 
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+				Dialog_Message(playerid, "{4287f5}Экзамен", "\
 				{008009}Отлично!{ffffff}\n\n\
 				{ffffff}Вы хорошо себя показали\n\
 				Пройдите в кабинет начала экзамена для получения удостоверения\n\n",
-				"Готово", "");
+				"Готово");
 			}
 			else
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+				Dialog_Message(playerid, "{4287f5}Экзамен", "\
 				{d40023}Провал!{ffffff}\n\n\
 				{ffffff}Сожалем, но вы сильно повредили машину\n\
 				Будем рады снова вас увидеть на экзамене\n\
 				Удачи!\n\n",
-				"Готово", "");
+				"Готово");
 			}
 			SetVehicleToRespawn(vehicleid);
 			DisablePlayerRaceCheckpoint(playerid);
@@ -249,19 +249,19 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 		{
 			if(GetPVarInt(playerid, "driving_test_start") == 4)
 			{// сдал на права
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+				Dialog_Message(playerid, "{4287f5}Экзамен", "\
 				{008009}Поздравлем!{ffffff}\n\n\
 				Ваши водительские права уже готовы\n\
 				Желаем вам удачи на дорогах\n\n\
 				Ни гвоздя ни жезла ;)",
-				"Готово", "");
+				"Готово");
 				pData[playerid][pLicenses] |= LIC_DRIVER;
 				DeletePVar(playerid, "driving_test_start");
 				return Y_HOOKS_BREAK_RETURN_1;
 			}
 			else
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{d40023}Ошибка", "{ffffff}Вы уже начали экзамен!", "Готово", "");
+				Dialog_Message(playerid, "{d40023}Ошибка", "{ffffff}Вы уже начали экзамен!", "Готово");
 				return Y_HOOKS_BREAK_RETURN_1;
 			}
 		}
@@ -269,7 +269,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 		{
 			if(pData[playerid][pLicenses] & LIC_DRIVER)
 			{
-				ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{d40023}Ошибка", "{ffffff}У вас уже есть водительские права!", "Готово", "");
+				Dialog_Message(playerid, "{d40023}Ошибка", "{ffffff}У вас уже есть водительские права!", "Готово");
 				return Y_HOOKS_BREAK_RETURN_1;
 			}
 			ShowPlayerDialog(playerid, d_driving_test_start, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
@@ -370,7 +370,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			%s\n\n\
 			{bababa}Если тест успешно пройден - отправляйтесь на стоянку!", GetPVarInt(playerid, "driving_test_good_question"), GetPVarInt(playerid, "driving_test_bad_question"), str_res);
 
-			ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", g_str, "Готово", "");
+			Dialog_Message(playerid, "{4287f5}Экзамен", g_str, "Готово");
 			ClearAnimations(playerid);
 			DeletePVar(playerid, "driving_test_good_question");
 			DeletePVar(playerid, "driving_test_bad_question");
@@ -388,9 +388,9 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
 		SetPVarInt(playerid, "driving_test_start", 1); //  1 - тест пдд, 2 - вождение
 
-		ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "{ffffff}\
+		Dialog_Message(playerid, "{4287f5}Экзамен", "{ffffff}\
 		Вы начали экзамен.\n\n\
-		Пройдите в класс ПДД для прохождения теста", "Готово", "");
+		Пройдите в класс ПДД для прохождения теста", "Готово");
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;

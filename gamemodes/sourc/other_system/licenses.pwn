@@ -1,7 +1,7 @@
 // Здесь находятся проверки на лицензии игрока и некоторые другие функции
 //
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 #define LIC_DRIVER          0b1
 #define LIC_HELICOPTER  	0b10

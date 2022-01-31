@@ -4,10 +4,10 @@
 изменение статуса аккаунта в базе данных ( онлайн/оффлайн )
 */
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 // Маппинг интерьера авторизации
-#include "/sourc/objects/authorization.pwn"
+#include "sourc/objects/authorization.pwn"
 
 //
 #define		SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
@@ -50,7 +50,7 @@ public OnPlayerDataLoaded(playerid)
 	{
 		case ERROR_OK:
 		{// аккаунт зарегистрирован
-			ShowLoginDialog(playerid);
+			Dialog_Show(playerid, Dialog:dAutorization);
 		}
 		case ERROR_NO_DATA:
 		{// регистрация нового аккаунта

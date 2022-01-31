@@ -1,4 +1,4 @@
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 // Скины при регистрации - можете менять прям тут, как количество так и значения, больше нигде менять не нужно
 new fem_skin_reg[] = {40,55,90};				// Женские скины при регистрации
@@ -33,7 +33,7 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 	}
 	if(strlen(inputtext) < 6 || strlen(inputtext) > 16)
 	{
-		//ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
+		Dialog_MessageEx(playerid, Dialog:dReg_pas, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
 		return 1;
 	}
 	for(new i = strlen(inputtext); i != 0; --i)
@@ -42,9 +42,9 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 		{
 			case 'А'..'Я', 'а'..'я', ' ':
 			{
-				//ShowPlayerDialog(playerid,dReg_pas,DIALOG_STYLE_MSGBOX, "Ошибка!", "\
-				//{00FF21}Введенный вами пароль содержит русские буквы.\n\
-				//Смените раскладку клавиатуры!", "Повтор", "");
+				Dialog_MessageEx(playerid, Dialog:dReg_pas,  "Ошибка!", "\
+				{00FF21}Введенный вами пароль содержит русские буквы.\n\
+				Смените раскладку клавиатуры!", "Повтор", "");
 				return 1;
 			}
 		}

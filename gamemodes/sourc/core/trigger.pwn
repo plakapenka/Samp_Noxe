@@ -1,6 +1,6 @@
 // Триггерами я назвал цветные чекпоинты)
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 stock CreateTrigger(Float:x, Float:y, Float:z, color = 0xAA80FFDD, c_world = -1, c_int = -1)
 {

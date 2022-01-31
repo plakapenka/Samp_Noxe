@@ -1,8 +1,8 @@
 
 // == доп интерьеры
-#include "/sourc/objects/house_int37.pwn"
+#include "sourc/objects/house_int37.pwn"
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 
 
@@ -252,7 +252,7 @@ CMD:buyhouse(playerid)
 	Если на счету недостаточно денег, вас выселят\n\
 	Пополнить домашний счёт или узнать баланс можно через банк/банкомат\n\n\
 	{"#COLOR_GLOBAL"}/hmenu{ffffff} - меню управления домом");
-	ShowPlayerDialog(playerid, dNull, DIALOG_STYLE_MSGBOX, " ", str_d, "Готово", "");
+	Dialog_Message(playerid, " ", str_d, "Готово");
 
 	UpdateHousePickup(houseid);
 	new str_buy_house[213];

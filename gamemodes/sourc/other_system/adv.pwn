@@ -1,7 +1,7 @@
-#include "/sourc/textdraws/ad.pwn"
+#include "sourc/textdraws/ad.pwn"
 
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 
 #define MAX_ADV 30	

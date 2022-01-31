@@ -1,9 +1,9 @@
-#include "/sourc/objects/garage3.pwn"
-#include "/sourc/objects/garage4.pwn"
-#include "/sourc/objects/garage5.pwn"
-#include "/sourc/objects/garage6.pwn"
+#include "sourc/objects/garage3.pwn"
+#include "sourc/objects/garage4.pwn"
+#include "sourc/objects/garage5.pwn"
+#include "sourc/objects/garage6.pwn"
 
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 #define MAX_VEHICLES_PLAYER	6
 
 enum cars_p

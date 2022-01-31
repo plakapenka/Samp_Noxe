@@ -1,4 +1,4 @@
-#include "../include/YSI_Coding\y_hooks"
+#include <YSI_Coding\y_hooks>
 
 new url_sound[][] = {
 	{"http://localhost/server_sound/1.mp3"},
