@@ -1,6 +1,5 @@
 
 #include <a_samp>
-#include <crashdetect>
 #include <streamer>
 #include <izcmd>
 #include <sscanf2>
@@ -174,14 +173,14 @@ public OnGameModeInit()
 }
 
 // גסו ךמלאםהû ג מעהוכüםמל פאיכו
-#include "/sourc/commands.pwn" 
+#include "sourc/commands.pwn" 
 
 // OnPlayerSpawn ג מעהוכüםמל פאיכו
-#include "/sourc/callback/OnPlayerSpawn.pwn" 
+#include "sourc/callback/OnPlayerSpawn.pwn" 
 
 
 // OnSecondUpdate ג מעהוכüםמל פאיכו
-#include "/sourc/callback/OnSecondUpdate.pwn" 
+#include "sourc/callback/OnSecondUpdate.pwn" 
 
 stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, weather=12)
 {
