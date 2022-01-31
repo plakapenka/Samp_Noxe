@@ -10,7 +10,6 @@ DialogCreate:dAutorization(playerid)
 	Последний визит: {"#COLOR_GLOBAL"}%s{FFFFFF}\n\n\
 	Введите пароль:\n\
 	_______________________________________", pData[playerid][pName], check_float_time(pData[playerid][pLast_Online]));
-
 	Dialog_Open(playerid, Dialog:dAutorization, DIALOG_STYLE_INPUT, "{FFFFFF}Авторизация | {"#COLOR_DARK"}Пароль", str_reg, "»", "x");
 }
 

@@ -10,7 +10,8 @@
 #include "sourc/objects/authorization.pwn"
 
 //
-#define		SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
+#define	SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
+new time_for_login[MAX_PLAYERS];
 
 hook OnPlayerConnect(playerid)
 {
@@ -43,6 +44,7 @@ public OnPlayerDataLoaded(playerid)
 	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
 	SpawnPlayer(playerid);
 
+	time_for_login[playerid] = SetTimerEx("OnLoginTimeout", SECONDS_TO_LOGIN * 1000, false, "d", playerid);
 
 	orm_setkey(pData[playerid][ORM_ID], "pMySQL_ID");
 
@@ -58,6 +60,16 @@ public OnPlayerDataLoaded(playerid)
 		}
 	
 	}
+	return 1;
+}
+
+forward OnLoginTimeout(playerid);
+public OnLoginTimeout(playerid)
+{
+	time_for_login[playerid] = 0;
+
+	Dialog_Message(playerid, "Login", "You have been kicked for taking too long to login successfully to your account.", "Okay");
+	Kick(playerid);
 	return 1;
 }
 
@@ -88,6 +100,12 @@ hook OnPlayerSpawn(playerid)
 hook OnPlayerDisconnect(playerid, reason)
 {
 	DestroyAuthActor(playerid);
+
+	if (time_for_login[playerid])
+	{
+		KillTimer(time_for_login[playerid]);
+		time_for_login[playerid] = 0;
+	}
 }
 
 stock DestroyAuthActor(playerid)
