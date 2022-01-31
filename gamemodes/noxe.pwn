@@ -73,7 +73,6 @@
 // ================= Работы
 #include "sourc/works/global.pwn"
 
-
 #include "sourc/other_system/farm.pwn"
 
 #include "sourc/core/notification.pwn"
