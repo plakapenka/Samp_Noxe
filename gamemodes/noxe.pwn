@@ -13,7 +13,7 @@
 #include <YSI_Data\y_iterate>
 
 
-//#include <progress2>
+#include <progress2>
 
 #include <mdialog>
 
@@ -60,8 +60,6 @@
 #include "sourc/textdraws/logo.pwn"	
 #include "sourc/textdraws/select_skin.pwn"
 // 
-
-
 #include "sourc/core/mysql.pwn" 				// подключение к базе
 #include "sourc/core/gates.pwn"				// Шлагбаумы
 #include "sourc/core/cars.pwn"					// Машины
