@@ -49,9 +49,13 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 			}
 		}
 	}
-	strmid(pData[playerid][pPassword],inputtext, 0, strlen(inputtext), 17);
+	for (new i = 0; i < 16; i++) 
+	{
+		pData[playerid][pSalt][i] = random(94) + 33;
+	}
+	SHA256_PassHash(inputtext, pData[playerid][pSalt], pData[playerid][pPassword], 65);
+
 	Dialog_Show(playerid, Dialog:dReg_mail);
-			
     return 1;
 }
 

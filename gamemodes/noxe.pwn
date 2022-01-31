@@ -10,64 +10,44 @@
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
-
-// ========= общая цветовая тема мода beta alpha pro max mini lite
-
-#define COLOR_GOOD 			"98ee99"
-#define COLOR_BAD			"ef5350"
-
-#define color16_global 		0x64b5f6FF
-#define color16_light 		0x9be7ffFF
-#define color16_dark 		0x2286c3FF
-// основа
-#define COLOR_GLOBAL 		"64b5f6"
-#define COLOR_LIGHT  		"9be7ff"		// светлый
-#define COLOR_DARK			"2286c3"		// темный
-#define COLOR_ERROR 		"d32f2f"
-
-#define CDERR 				"ab0000"
-#define CDERRHELP			"d4d4d4"
-
-#define COLOR_16ERROR 		0xd32f2fFF
 // ===============================================
 
 #define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
 
 #define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
 
-#include "sourc/headers/variables.pwn" 	// все глобальные переменные
 #include "sourc/headers/defines.pwn"		// все глобальные дефайны
-
-
 // =========== Текстдравы ===========
 #include "sourc/textdraws/logo.pwn"	
 #include "sourc/textdraws/select_skin.pwn"
-// 
+
 #include "sourc/core/mysql.pwn" 				// подключение к базе
-#include "sourc/core/gates.pwn"				// Шлагбаумы
+
+// =========	player
+#include "sourc/player/orm_init.pwn"			// Массив pData, привязка переменных ORM
+#include "sourc/player/view_auth.pwn"			// Начало входа (вид)
+#include "sourc/player/registration.pwn" 		// система регистрации
+#include "sourc/player/authorization.pwn"		// система авторизации
+#include "sourc/player/licenses.pwn"			// Лицензии игрока
+
+// ======== 	основы каких-либо систем
+#include "sourc/core/notification.pwn"			// уведомления с планым исчезновением
+#include "sourc/core/gates.pwn"					// Шлагбаумы
 #include "sourc/core/cars.pwn"					// Машины
 #include "sourc/core/money.pwn" 				// система денег
 #include "sourc/core/time-wether.pwn" 			// система времени и погоды
 #include "sourc/core/trigger.pwn" 				// цветные чекпоинты (CreateTrigger)
 #include "sourc/core/area_detect_for.pwn" 		// чему пренадлежит сфера...??
 
-#include "sourc/core/orm_init.pwn"				// привязка переменных ORM
-#include "sourc/other_system/view_auth.pwn"			// Начало входа (вид)
-#include "sourc/other_system/registration.pwn" 		// система регистрации
-#include "sourc/other_system/authorization.pwn"		// система авторизации
-
-#include "sourc/other_system/licenses.pwn"			// Лицензии игрока
-#include "sourc/other_system/bank.pwn"				// Банк ЛС
 
 
+
+// 
+#include "sourc/other_system/bank.pwn"			// Банк ЛС
 #include "sourc/other_system/speedometr.pwn"			// Спидометр
- 
-
 #include "sourc/other_system/driving_school.pwn"		// Автошкола
 #include "sourc/other_system/houses.pwn"				// Дома
 #include "sourc/other_system/player_cars.pwn"
-
-#include "sourc/other_system/sound_connect.pwn"		// музыка при входе
 
 #include "sourc/other_system/adv.pwn"		// объявления
 // ================= Работы
@@ -75,10 +55,7 @@
 
 #include "sourc/other_system/farm.pwn"
 
-#include "sourc/core/notification.pwn"
-
-
-#include "sourc/other_system/blast_game.pwn"
+#include "sourc/other_system/shit/blast_game.pwn"
 
 #include "sourc/textdraws/taxicall.pwn"
 

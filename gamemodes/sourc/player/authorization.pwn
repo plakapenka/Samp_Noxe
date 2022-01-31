@@ -54,6 +54,9 @@ DialogResponse:dAutorization(playerid, response, listitem, inputtext[])
 		
 	}
 
+	new hashed_pass[65];
+	SHA256_PassHash(inputtext, pData[playerid][pSalt], hashed_pass, 65);
+
 	if(!strcmp(inputtext, pData[playerid][pPassword]))
 	{
 		DeletePVar(playerid, "err_password");
