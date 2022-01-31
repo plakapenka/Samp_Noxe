@@ -5,12 +5,11 @@
 	"output": "gamemodes//noxe.amx",
 	"dependencies": [
 		"sampctl/samp-stdlib",
-		"Zeex/samp-plugin-crashdetect",
 		"samp-incognito/samp-streamer-plugin:v2.9.5",
 		"YashasSamaga/I-ZCMD",
 		"maddinat0r/sscanf",
 		"ziggi/rustext",
-		"pawn-lang/YSI-Includes",
+		"pawn-lang/YSI-Includes@5.x",
 		"Southclaws/progress2",
 		"Open-GTO/mdialog",
 		"pBlueG/SA-MP-MySQL"
@@ -21,7 +20,7 @@
 		"mode": "noxe",
 		"rcon_password": "password",
 		"port": 7777,
-		"hostname": "Noxe Role Play | Классический РП",
+		"hostname": "Noxe Role Play | Классический РП сервер",
 		"maxplayers": 50,
 		"language": "",
 		"mapname": "San Andreas",
