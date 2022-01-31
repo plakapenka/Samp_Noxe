@@ -237,68 +237,6 @@ public FarmLoad(farmid)
 	return 1;
 }
 
-
-hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
-{
-	if(dialogid == d_farm_store)
-	{
-		if(!response) return Y_HOOKS_BREAK_RETURN_1;
-
-		if(GetPVarInt(playerid, "farm_tool"))
-		{
-			RemovePlayerAttachedObject(playerid, 3);
-			RemovePlayerAttachedObject(playerid, 4);
-		}
-
-		switch(listitem)
-		{
-			case 0:
-			{//лопата 
-				SetPlayerAttachedObject( playerid, 3, 2228, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
-				SetPVarInt(playerid, "farm_tool", FARM_TOOL_SHOVEL);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			case 1:
-			{//семена 
-				SetPlayerAttachedObject( playerid, 3, 2247, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
-				SetPVarInt(playerid, "farm_tool", FARM_TOOL_SEEDS);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			case 2:
-			{//грабли 
-				SetPlayerAttachedObject( playerid, 3, 18890, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
-				SetPVarInt(playerid, "farm_tool", FARM_TOOL_RAKE);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			case 3:
-			{//лейка 
-				SetPlayerAttachedObject( playerid, 3, 19621, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
-				SetPVarInt(playerid, "farm_tool", FARM_TOOL_BAILER);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-			case 4:
-			{//тележка
-				ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.0, 0, 0, 0, 1, 1);
-				SetPlayerAttachedObject(playerid, 4, 2936, 1, 0.184699, 0.426247, 0.000000, 259.531341, 80.949592, 0.000000, 0.476124, 0.468181, 0.470769);
-				SetPVarInt(playerid, "farm_tool", FARM_TOOL_CART);
-				return Y_HOOKS_BREAK_RETURN_1;
-			}
-		}
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == d_farm_cloth)
-	{
-		if(response)
-		{
-			SetPlayerSkin(playerid, 128);
-			SetPVarInt(playerid, "isFarmJob", 1);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	return Y_HOOKS_CONTINUE_RETURN_1;
-}
-
 stock LoadBedForFarm(farm)
 {
 
@@ -372,14 +310,14 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			Зарплата: %d за действие\n\n\
 			Хотите переодеться и начать работу?", farmData[farmid][farm_salary]);
 
-			ShowPlayerDialog(playerid, d_farm_cloth, DIALOG_STYLE_MSGBOX, "Раздевалка", str_farm, "Начать", "Отмена");
+			Dialog_Open(playerid, Dialog:d_farm_cloth, DIALOG_STYLE_MSGBOX, "Раздевалка", str_farm, "Начать", "Отмена");
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 		if(areaid == farmData[farmid][farm_store_area])
 		{
 			if(GetPVarInt(playerid, "isFarmJob"))
 			{
-				ShowPlayerDialog(playerid, d_farm_store, DIALOG_STYLE_LIST, "Выберите инструмент", "\
+				Dialog_Open(playerid, Dialog:d_farm_store, DIALOG_STYLE_LIST, "Выберите инструмент", "\
 				{00675b}>{ffffff} Лопата\n\
 				{00675b}>{ffffff} Семена\n\
 				{00675b}>{ffffff} Грабли\n\
@@ -395,6 +333,63 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	}
 
 	return Y_HOOKS_CONTINUE_RETURN_1;
+}
+DialogResponse:d_farm_store(playerid, response, listitem, inputtext[])
+{
+	if(!response) 
+		return 1;
+
+	if(GetPVarInt(playerid, "farm_tool"))
+	{
+		RemovePlayerAttachedObject(playerid, 3);
+		RemovePlayerAttachedObject(playerid, 4);
+	}
+
+	switch(listitem)
+	{
+		case 0:
+		{//лопата 
+			SetPlayerAttachedObject( playerid, 3, 2228, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPVarInt(playerid, "farm_tool", FARM_TOOL_SHOVEL);
+			return 1;
+		}
+		case 1:
+		{//семена 
+			SetPlayerAttachedObject( playerid, 3, 2247, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPVarInt(playerid, "farm_tool", FARM_TOOL_SEEDS);
+			return 1;
+		}
+		case 2:
+		{//грабли 
+			SetPlayerAttachedObject( playerid, 3, 18890, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPVarInt(playerid, "farm_tool", FARM_TOOL_RAKE);
+			return 1;
+		}
+		case 3:
+		{//лейка 
+			SetPlayerAttachedObject( playerid, 3, 19621, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPVarInt(playerid, "farm_tool", FARM_TOOL_BAILER);
+			return 1;
+		}
+		case 4:
+		{//тележка
+			ApplyAnimation(playerid, "CARRY", "crry_prtial", 4.0, 0, 0, 0, 1, 1);
+			SetPlayerAttachedObject(playerid, 4, 2936, 1, 0.184699, 0.426247, 0.000000, 259.531341, 80.949592, 0.000000, 0.476124, 0.468181, 0.470769);
+			SetPVarInt(playerid, "farm_tool", FARM_TOOL_CART);
+			return 1;
+		}
+	}
+	return 1;
+}
+DialogResponse:d_farm_cloth(playerid, response, listitem, inputtext[])
+{
+	if(response)
+	{
+		SetPlayerSkin(playerid, 128);
+		SetPVarInt(playerid, "isFarmJob", 1);
+		return 1;
+	}
+	return 1;
 }
 
 hook OnPlayerLeaveDynArea(playerid, areaid)

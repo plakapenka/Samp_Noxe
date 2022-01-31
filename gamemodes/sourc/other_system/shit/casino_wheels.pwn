@@ -43,79 +43,73 @@ hook OnGameModeInit()
 	wheels_timer[1] = -1;
 	wheels_timer[2] = -1;
 }
-
-hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
+DialogResponse:d_casino_wheels_bet(playerid, response, listitem, inputtext[])
 {
-	if(dialogid == d_casino_wheels_bet)
-	{
-	    if(!response)return 1;
+	if(!response)
+	 	return 1;
 
-	    new wheel;
+	new wheel;
 
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
 
-	    new d_cas_str[123];
-	    format(d_cas_str, sizeof d_cas_str, "Укажите ставку от %d до %d вирт", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
-	    ShowPlayerDialog(playerid, d_casino_wheels_bet_money, DIALOG_STYLE_INPUT, "{FFFFFF}Введите вашу ставку", d_cas_str, "Играть","Отмена");
+	new d_cas_str[123];
+	format(d_cas_str, sizeof d_cas_str, "Укажите ставку от %d до %d вирт", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
+	Dialog_Open(playerid, Dialog:d_casino_wheels_bet_money, DIALOG_STYLE_INPUT, "{FFFFFF}Введите вашу ставку", d_cas_str, "Играть","Отмена");
 	    
-	    switch(listitem)
-	    {
-	    	case 0: SetPVarInt(playerid, "wheels_bet_mult", 2); 	// X2
-	    	case 1: SetPVarInt(playerid, "wheels_bet_mult", 4); 	// X4
-	    	case 2: SetPVarInt(playerid, "wheels_bet_mult", 8); 	// X8
-	    	case 3: SetPVarInt(playerid, "wheels_bet_mult", 16); 	// X16
-	    	case 4: SetPVarInt(playerid, "wheels_bet_mult", 32); 	// X32
-	    }    
-	    return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == d_casino_wheels_bet_money)
+	switch(listitem)
 	{
-	    if(!response) 
-	    {
-	    	DeletePVar(playerid, "wheels_bet_mult");
-	        return Y_HOOKS_BREAK_RETURN_1;
-		}
-		new wheel;
-
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
-
-		if(strval(inputtext) < wheels_min_bet[wheel] || strval(inputtext) > (wheels_min_bet[wheel]*2)*10)
-		{
-			SendMes(playerid, 0xeb3434FF, "Сумма ставки от %d до %d", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-		
-		if(strval(inputtext) > pData[playerid][pCash])
-		{
-			SendClientMessage(playerid, 0xeb3434FF,"У вас недостаточно денег!");
-			return Y_HOOKS_BREAK_RETURN_1;
-		}
-
-	    if(wheels_timer[wheel] != -1)
-	    {
-	    	SendClientMessage(playerid, 0xeb3434FF,"Игра уже начата!");
-	    	return Y_HOOKS_BREAK_RETURN_1;
-	    }
-	        
-	    SetPVarInt(playerid, "wheels_bet_money", strval(inputtext));
-
-	    wheels_timer[wheel] = SetTimerEx("wheel_tooo",200,1,"d",wheel);
-	    SendMes(playerid, 0x00f7ceFF, "Ваша ставка %d$ на X%d", strval(inputtext), GetPVarInt(playerid, "wheels_bet_mult"));
-	    give_money(playerid, -strval(inputtext));
-
-	    PlayerPlaySound(playerid, 4200, 0.0,0.0,0.0);
-	    return Y_HOOKS_BREAK_RETURN_1;
-	        
+	    case 0: SetPVarInt(playerid, "wheels_bet_mult", 2); 	// X2
+	    case 1: SetPVarInt(playerid, "wheels_bet_mult", 4); 	// X4
+	    case 2: SetPVarInt(playerid, "wheels_bet_mult", 8); 	// X8
+	    case 3: SetPVarInt(playerid, "wheels_bet_mult", 16); 	// X16
+	    case 4: SetPVarInt(playerid, "wheels_bet_mult", 32); 	// X32
+	}    
+	return 1;
+}
+DialogResponse:d_casino_wheels_bet_money(playerid, response, listitem, inputtext[])
+{
+	if(!response) 
+	{
+	    DeletePVar(playerid, "wheels_bet_mult");
+	    return 1;
 	}
-	return Y_HOOKS_CONTINUE_RETURN_1;
+	new wheel;
+
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
+	if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
+
+	if(strval(inputtext) < wheels_min_bet[wheel] || strval(inputtext) > (wheels_min_bet[wheel]*2)*10)
+	{
+		SendMes(playerid, 0xeb3434FF, "Сумма ставки от %d до %d", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
+		return 1;
+	}
+		
+	if(strval(inputtext) > pData[playerid][pCash])
+	{
+		SendClientMessage(playerid, 0xeb3434FF,"У вас недостаточно денег!");
+		return 1;
+	}
+
+	if(wheels_timer[wheel] != -1)
+	{
+	    SendClientMessage(playerid, 0xeb3434FF,"Игра уже начата!");
+	    return 1;
+	}
+	        
+	SetPVarInt(playerid, "wheels_bet_money", strval(inputtext));
+
+	wheels_timer[wheel] = SetTimerEx("wheel_tooo",200,1,"d",wheel);
+	SendMes(playerid, 0x00f7ceFF, "Ваша ставка %d$ на X%d", strval(inputtext), GetPVarInt(playerid, "wheels_bet_mult"));
+	give_money(playerid, -strval(inputtext));
+
+	PlayerPlaySound(playerid, 4200, 0.0,0.0,0.0);
+	return 1;
 }
 
 forward wheel_tooo(idx);
-
 public wheel_tooo(idx)
 {
 	wheel_tick[idx] ++;
@@ -199,7 +193,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[0]) || IsPlayerInDynamicArea(playerid, wheels_sphere[1]) || IsPlayerInDynamicArea(playerid, wheels_sphere[2]))
 		{
-	    	ShowPlayerDialog(playerid, d_casino_wheels_bet, DIALOG_STYLE_LIST," Сделайте ставку","X2\nX4\nX8\nX16\nX32","Выбрать","Отмена");
+	    	Dialog_Open(playerid, Dialog:d_casino_wheels_bet, DIALOG_STYLE_LIST," Сделайте ставку","X2\nX4\nX8\nX16\nX32","Выбрать","Отмена");
 	    	return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}

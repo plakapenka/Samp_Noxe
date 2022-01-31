@@ -1,24 +1,15 @@
-
 #include <a_samp>
 #include <streamer>
 #include <izcmd>
 #include <sscanf2>
-//#include "../include/Pawn.RakNet"
-//#include "../include/nex-ac"
 #include <rustext>
-
 #include <YSI_Coding\y_hooks>
-
 #include <YSI_Data\y_iterate>
-
-
 #include <progress2>
-
 #include <mdialog>
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
-
 
 // ========= общая цветовая тема мода beta alpha pro max mini lite
 
@@ -28,9 +19,7 @@
 #define color16_global 		0x64b5f6FF
 #define color16_light 		0x9be7ffFF
 #define color16_dark 		0x2286c3FF
-
-
-			// основа
+// основа
 #define COLOR_GLOBAL 		"64b5f6"
 #define COLOR_LIGHT  		"9be7ff"		// светлый
 #define COLOR_DARK			"2286c3"		// темный
@@ -44,14 +33,9 @@
 
 #define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
 
-//new str_global_chat_message[144];
-//#define SendMes(%1,%2,%3)    format(str_global_chat_message,144,%3), SendClientMessage(%1,%2,str_global_chat_message)
-
 #define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
 
-
 #include "sourc/headers/variables.pwn" 	// все глобальные переменные
-#include "sourc/headers/dialogs.pwn"		// список диалогов
 #include "sourc/headers/defines.pwn"		// все глобальные дефайны
 
 
@@ -200,5 +184,4 @@ stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, 
 	SetPlayerInterior(playerid, int);
 	SetPlayerVirtualWorld(playerid, world);
 	return 1;
-}
- 
+} 

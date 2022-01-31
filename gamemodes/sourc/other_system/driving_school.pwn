@@ -214,14 +214,15 @@ hook OnPlayerEnterRaceCP(playerid)
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
-stock show_driving_test_question(playerid)
+
+DialogCreate:d_driving_test_question(playerid)
 {
 	new str[312];
 	format(str, sizeof str, "{ffffff}\
 	Определите, верно ли утверждение.\n\
 	Утверждение: {998000}%s{ffffff}\n\n\
 	Если вы согласны с ним, нажмите: {197801}Да{ffffff}, если считаете что утверждение ошибочно, нажмите: {910106}Нет", question_driving[GetPVarInt(playerid, "driving_test_number_question")][0][0]);
-	ShowPlayerDialog(playerid, d_driving_test_question, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", str, "Да", "Нет");
+	Dialog_Open(playerid, Dialog:d_driving_test_question, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", str, "Да", "Нет");
 }
 hook OnPlayerEnterDynArea(playerid, areaid)
 {
@@ -235,7 +236,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			ApplyAnimation(playerid, "PED", "SEAT_IDLE", 6.0, 1, 0, 0, 0, 0);
 			SetPVarInt(playerid, "driving_test_number_question", random(sizeof(question_driving)));
 			SetPVarInt(playerid, "driving_test_count_question", 1);
-			show_driving_test_question(playerid);
+			Dialog_Show(playerid, Dialog:d_driving_test_question);
 		}
 		else
 		{
@@ -272,7 +273,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 				Dialog_Message(playerid, "{d40023}Ошибка", "{ffffff}У вас уже есть водительские права!", "Готово");
 				return Y_HOOKS_BREAK_RETURN_1;
 			}
-			ShowPlayerDialog(playerid, d_driving_test_start, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
+			Dialog_Open(playerid, Dialog:d_driving_test_start, DIALOG_STYLE_MSGBOX, "{4287f5}Экзамен", "\
 			{ffffff}Стоимость экзамена составляет: {006e1a}500${ffffff}\n\
 			В случае провала экзамена, деньги возврату не подлежат.\n\n\
 			{998000}Желаете начать экзамен?",\
@@ -323,77 +324,72 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
-hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
+DialogResponse:d_driving_test_start(playerid, response, listitem, inputtext[])
 {
-	if(dialogid == d_driving_test_question)
-	{
-		new number_question = GetPVarInt(playerid, "driving_test_number_question");
-	
-		if(strval(question_driving[number_question][1][0]) == response)
-		{// если ответил правильно
+	if(!response)
+		return 1;
 
-			//SendClientMessage(playerid, 0x0364a1FF, "[Экзамен] {ffffff}Вы ответили верно!");
-			SetPVarInt(playerid, "driving_test_good_question", GetPVarInt(playerid, "driving_test_good_question")+1);
+	SetPVarInt(playerid, "driving_test_start", 1); //  1 - тест пдд, 2 - вождение
+
+	Dialog_Message(playerid, "{4287f5}Экзамен", "{ffffff}\
+	Вы начали экзамен.\n\n\
+	Пройдите в класс ПДД для прохождения теста", "Готово");
+	return 1;
+}
+DialogResponse:d_driving_test_question(playerid, response, listitem, inputtext[])
+{
+	new number_question = GetPVarInt(playerid, "driving_test_number_question");
+	
+	if(strval(question_driving[number_question][1][0]) == response)
+	{// если ответил правильно
+		//SendClientMessage(playerid, 0x0364a1FF, "[Экзамен] {ffffff}Вы ответили верно!");
+		SetPVarInt(playerid, "driving_test_good_question", GetPVarInt(playerid, "driving_test_good_question")+1);
+	}
+	else
+	{
+		//SendClientMessage(playerid, 0x0364a1FF, "[Экзамен] {ffffff}Вы ответили неверно!");
+		SetPVarInt(playerid, "driving_test_bad_question", GetPVarInt(playerid, "driving_test_bad_question")+1);
+	}
+	SetPVarInt(playerid, "driving_test_number_question",number_question+1);
+	if(number_question >= sizeof(question_driving)-1)
+    {//если последний в списке, начинаем список сначала
+    	SetPVarInt(playerid, "driving_test_number_question",0);
+    }
+	SetPVarInt(playerid, "driving_test_count_question", GetPVarInt(playerid, "driving_test_count_question")+1);
+
+	if(GetPVarInt(playerid, "driving_test_count_question") >= 6)
+	{// ответил на пять вопросов
+		new str_res[100];
+		if(GetPVarInt(playerid, "driving_test_bad_question") > 1)
+		{
+			str_res = "{8c0904}Вы провалили тест. Удачи в следующий раз!{ffffff}";
+			DeletePVar(playerid, "driving_test_start");
 		}
 		else
 		{
-			//SendClientMessage(playerid, 0x0364a1FF, "[Экзамен] {ffffff}Вы ответили неверно!");
-			SetPVarInt(playerid, "driving_test_bad_question", GetPVarInt(playerid, "driving_test_bad_question")+1);
-		}
-		SetPVarInt(playerid, "driving_test_number_question",number_question+1);
-		if(number_question >= sizeof(question_driving)-1)
-    	{//если последний в списке, начинаем список сначала
-    		SetPVarInt(playerid, "driving_test_number_question",0);
-    	}
-		SetPVarInt(playerid, "driving_test_count_question", GetPVarInt(playerid, "driving_test_count_question")+1);
-
-		if(GetPVarInt(playerid, "driving_test_count_question") >= 6)
-		{// ответил на пять вопросов
-			new str_res[100];
-			if(GetPVarInt(playerid, "driving_test_bad_question") > 1)
-			{
-				str_res = "{8c0904}Вы провалили тест. Удачи в следующий раз!{ffffff}";
-				DeletePVar(playerid, "driving_test_start");
-			}
-			else
-			{
-				str_res = "{246e02}Поздравлем, вы прошли тест!{ffffff}";
-				SetPVarInt(playerid, "driving_test_start", 2);
-			}
-
-			new g_str[250];
-			format(g_str, sizeof g_str, "{ffffff}\
-			Вы закончили тест ПДД\n\n\
-			Результат:\n\
-			Верных ответов: {246e02}%d{ffffff}\n\
-			Неверных ответов: {8c0904}%d{ffffff}\n\n\
-			%s\n\n\
-			{bababa}Если тест успешно пройден - отправляйтесь на стоянку!", GetPVarInt(playerid, "driving_test_good_question"), GetPVarInt(playerid, "driving_test_bad_question"), str_res);
-
-			Dialog_Message(playerid, "{4287f5}Экзамен", g_str, "Готово");
-			ClearAnimations(playerid);
-			DeletePVar(playerid, "driving_test_good_question");
-			DeletePVar(playerid, "driving_test_bad_question");
-			DeletePVar(playerid, "driving_test_number_question");
-			DeletePVar(playerid, "driving_test_count_question");
-			return Y_HOOKS_BREAK_RETURN_1;
+			str_res = "{246e02}Поздравлем, вы прошли тест!{ffffff}";
+			SetPVarInt(playerid, "driving_test_start", 2);
 		}
 
-		show_driving_test_question(playerid);
-		return Y_HOOKS_BREAK_RETURN_1;
-	}
-	if(dialogid == d_driving_test_start)
-	{
-		if(!response)return Y_HOOKS_BREAK_RETURN_1;
+		new g_str[250];
+		format(g_str, sizeof g_str, "{ffffff}\
+		Вы закончили тест ПДД\n\n\
+		Результат:\n\
+		Верных ответов: {246e02}%d{ffffff}\n\
+		Неверных ответов: {8c0904}%d{ffffff}\n\n\
+		%s\n\n\
+		{bababa}Если тест успешно пройден - отправляйтесь на стоянку!", GetPVarInt(playerid, "driving_test_good_question"), GetPVarInt(playerid, "driving_test_bad_question"), str_res);
 
-		SetPVarInt(playerid, "driving_test_start", 1); //  1 - тест пдд, 2 - вождение
-
-		Dialog_Message(playerid, "{4287f5}Экзамен", "{ffffff}\
-		Вы начали экзамен.\n\n\
-		Пройдите в класс ПДД для прохождения теста", "Готово");
-		return Y_HOOKS_BREAK_RETURN_1;
+		Dialog_Message(playerid, "{4287f5}Экзамен", g_str, "Готово");
+		ClearAnimations(playerid);
+		DeletePVar(playerid, "driving_test_good_question");
+		DeletePVar(playerid, "driving_test_bad_question");
+		DeletePVar(playerid, "driving_test_number_question");
+		DeletePVar(playerid, "driving_test_count_question");
+		return 1;
 	}
-	return Y_HOOKS_CONTINUE_RETURN_1;
+	Dialog_Show(playerid, Dialog:d_driving_test_question);
+	return 1;
 }
 
 hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
