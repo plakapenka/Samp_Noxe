@@ -38,10 +38,6 @@
 #include "sourc/core/time-wether.pwn" 			// система времени и погоды
 #include "sourc/core/trigger.pwn" 				// цветные чекпоинты (CreateTrigger)
 #include "sourc/core/area_detect_for.pwn" 		// чему пренадлежит сфера...??
-
-
-
-
 // 
 #include "sourc/other_system/bank.pwn"			// Банк ЛС
 #include "sourc/other_system/speedometr.pwn"			// Спидометр

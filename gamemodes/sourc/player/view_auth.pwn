@@ -3,7 +3,7 @@
 Здесь описана проверка аккаунта на наличие в базе, внешний вид фона авторизации/регистрации
 изменение статуса аккаунта в базе данных ( онлайн/оффлайн )
 */
-#include "sourc/player/sound_connect.pwn"		// музыка при входе
+//#include "sourc/player/sound_connect.pwn"		// музыка при входе
 
 #include <YSI_Coding\y_hooks>
 

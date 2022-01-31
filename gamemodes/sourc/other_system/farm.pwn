@@ -1,16 +1,17 @@
 #include <YSI_Coding\y_hooks>
 
+
 #define FARM_TOOL_SHOVEL	5 	// ЛОПАТА
 #define FARM_TOOL_RAKE		6 	// ГРАБЛИ
 #define FARM_TOOL_BAILER	7 	// ЛЕЙКА
 #define FARM_TOOL_CART		8 	// ТЕЛЕЖКА
 #define FARM_TOOL_SEEDS		9 	// СЕМЕНА
 
-
+new PlayerBar:water_progress[MAX_PLAYERS];
 // кол-о ферм
 #define MAX_FARM 2
 
-new PlayerBar:water_progress[MAX_PLAYERS];
+
 
 // количество грядок на фермах
 // ферма 			  0    1
@@ -369,6 +370,8 @@ DialogResponse:d_farm_store(playerid, response, listitem, inputtext[])
 		{//лейка 
 			SetPlayerAttachedObject( playerid, 3, 19621, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
 			SetPVarInt(playerid, "farm_tool", FARM_TOOL_BAILER);
+
+			ShowFarmWaterTD(playerid);
 			return 1;
 		}
 		case 4:
@@ -582,4 +585,13 @@ public FarmsLoaded()
 	}
 	printf("[ Загрузка ] Фермы загружены! %d шт.", r);
 	return 1;
+}
+
+stock ShowFarmWaterTD(playerid)
+{
+    water_progress[playerid] = CreatePlayerProgressBar(playerid, 510.000000, 186.000000, 93.000000, 5.000000, 16777215, 10.000000, 0);
+	SetPlayerProgressBarValue(playerid, water_progress[playerid], 0.000000);
+
+    ShowPlayerProgressBar(playerid, water_progress[playerid]);
+    return 1;
 }
