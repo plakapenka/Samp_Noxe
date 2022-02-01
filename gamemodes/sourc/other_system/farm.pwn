@@ -19,11 +19,11 @@ new MAX_BED_FARM[] = {24, 24};
 
 enum CropType
 {
-	CROP_TYPE_NONE,
-	CROP_TYPE_CARROT,
-	CROP_TYPE_ONION,
-	CROP_TYPE_STRAWBERRY,
-	CROP_TYPE_CUCUMBERS,
+	CROP_TYPE_NONE,			// нет
+	CROP_TYPE_CARROT,		// морковка
+	CROP_TYPE_ONION,		// лук
+	CROP_TYPE_STRAWBERRY,	// клубника
+	CROP_TYPE_CUCUMBERS,	// кукуруза
 };
 
 new farm_crop_name[][] = {"Морковка", "Лук", "Клубника", "Огурцы"};
@@ -37,11 +37,11 @@ enum BedStat
 	BED_STAT_WEED,		// грядка ожидает прополку
 }
 
-enum bb_en
+enum E_BED_DATA
 {
-	Float:bed_pos_x,
-	Float:bed_pos_y,
-	Float:bed_pos_z,
+	Float:bed_posX,
+	Float:bed_posY,
+	Float:bed_posZ,
 	BedStat:bed_stat,
 	CropType:bed_crop,
 	bed_timer,
@@ -51,11 +51,11 @@ enum bb_en
 
 }
 
-//new bedData[MAX_FARM][][bb_en];
+//new bed_Data[MAX_FARM][][bb_en];
 
 
 // Ферма 1
-new bedData[][][bb_en] = { // [ферма][грядка][данные]
+new bed_Data[][][E_BED_DATA] = { // [ферма][грядка][данные]
 
 	{//	----X------------Y----------Z--------Статус грядки--Что растет----Время
 
@@ -130,31 +130,31 @@ new bedData[][][bb_en] = { // [ферма][грядка][данные]
 	}
 };
 
-enum farm_en
+enum E_FARM_DATA
 {
-	MySQL_ID,
+	farm_ID,
 	farm_owner[MAX_PLAYER_NAME],	// Владелец
-	Text3D:farm_water_text,				// текст сколько воды в бочке
-	Text3D:farm_store_text,				// текст сколько урожая/семян в амбаре
-	farm_water_count,				// кол-о воды
-	farm_seeds_count,				// кол-о семян
-	farm_crop_count,				// кол-о урожая
-	farm_crop_type,					// вид культуры
+	Text3D:farm_waterText,			// текст сколько воды в бочке
+	Text3D:farm_storeText,			// текст сколько урожая/семян в амбаре
+	farm_waterCount,				// кол-о воды
+	farm_seedsCount,				// кол-о семян
+	farm_cropCount,					// кол-о урожая
+	farm_cropType,					// вид культуры
 	farm_salary,					// зарплата
 	farm_balance,					// баланс банка
-	farm_store_area,
-	farm_cloth_area,
-	farm_info_area
+	farm_storeArea,					// взять инструмент
+	farm_clothArea,					// раздевалка
+	farm_infoArea					// информация о ферме
 };
 
-new farmData[MAX_FARM][farm_en];
+new farm_Data[MAX_FARM][E_FARM_DATA];
 
 hook OnGameModeInit()
 {
 	for(new farmid = 0; farmid < MAX_FARM; farmid++)
 	{
 		new query[50];
-		mysql_format(g_sql, query, sizeof(query), "SELECT * FROM `farms` WHERE `MySQL_ID` ='%d'", farmid);
+		mysql_format(g_sql, query, sizeof(query), "SELECT * FROM `"TABLE_FARMS"` WHERE `farm_ID` ='%d'", farmid);
 		mysql_tquery(g_sql, query, "FarmLoad", "d", farmid);
 	}
 
@@ -193,48 +193,48 @@ public FarmLoad(farmid)
 
 	if(!r) 
 	{
-		printf("[! Ошибка !] Данные из farms не получены! farmid = %d", farmid);
+		printf("[! Ошибка !] Данные из "TABLE_FARMS" не получены! farmid = %d", farmid);
 		return 1;
 	}
 
-	cache_get_value_name_int 	(0, "MySQL_ID", 			farmData[farmid][MySQL_ID]);
+	cache_get_value_name_int 	(0, "farm_ID", 			farm_Data[farmid][farm_ID]);
 
-	cache_get_value_name 		(0, "farm_owner", 			farmData[farmid][farm_owner]);
+	cache_get_value_name 		(0, "farm_owner", 		farm_Data[farmid][farm_owner]);
 
-	cache_get_value_name_int 	(0, "farm_water_count", 	farmData[farmid][farm_water_count]);
-	cache_get_value_name_int 	(0, "farm_seeds_count", 	farmData[farmid][farm_seeds_count]);
-	cache_get_value_name_int 	(0, "farm_crop_count", 		farmData[farmid][farm_crop_count]);
-	cache_get_value_name_int 	(0, "farm_crop_type", 		farmData[farmid][farm_crop_type]);
-	cache_get_value_name_int 	(0, "farm_salary", 			farmData[farmid][farm_salary]);
-	cache_get_value_name_int 	(0, "farm_balance", 		farmData[farmid][farm_balance]);
+	cache_get_value_name_int 	(0, "farm_waterCount", 	farm_Data[farmid][farm_waterCount]);
+	cache_get_value_name_int 	(0, "farm_seedsCount", 	farm_Data[farmid][farm_seedsCount]);
+	cache_get_value_name_int 	(0, "farm_cropCount", 	farm_Data[farmid][farm_cropCount]);
+	cache_get_value_name_int 	(0, "farm_cropType", 	farm_Data[farmid][farm_cropType]);
+	cache_get_value_name_int 	(0, "farm_salary", 		farm_Data[farmid][farm_salary]);
+	cache_get_value_name_int 	(0, "farm_balance", 	farm_Data[farmid][farm_balance]);
 
 	new str_water[150];
-	format(str_water, sizeof str_water, "Бочка с водой\n\n{ffffff}%d литров {00675b} из {ffffff} 1000", farmData[farmid][farm_water_count]);
-	farmData[farmid][farm_water_text] =
+	format(str_water, sizeof str_water, "Бочка с водой\n\n{ffffff}%d литров {00675b} из {ffffff} 1000", farm_Data[farmid][farm_waterCount]);
+	farm_Data[farmid][farm_waterText] =
 		CreateDynamic3DTextLabel(str_water, 0x00675bFF, farm_coords[farmid][0][0], farm_coords[farmid][0][1], farm_coords[farmid][0][2], 30.0);
 
-	format(str_water, sizeof str_water, "Склад\n\nУрожай: {ffffff}%d{00675b} из {ffffff}50000\n{00675b}Семена: {ffffff}%d{00675b} из {ffffff}1000", farmData[farmid][farm_crop_count], farmData[farmid][farm_seeds_count]);
-	farmData[farmid][farm_store_text] =
+	format(str_water, sizeof str_water, "Склад\n\nУрожай: {ffffff}%d{00675b} из {ffffff}50000\n{00675b}Семена: {ffffff}%d{00675b} из {ffffff}1000", farm_Data[farmid][farm_cropCount], farm_Data[farmid][farm_seedsCount]);
+	farm_Data[farmid][farm_storeText] =
 		CreateDynamic3DTextLabel(str_water, 0x00675bFF, farm_coords[farmid][1][0], farm_coords[farmid][1][1], farm_coords[farmid][1][2], 20.0);
 
 	// === раздевалка
 	CreateDynamicPickup(1275, 1, farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2]);
-	farmData[farmid][farm_cloth_area] = CreateDynamicSphere(farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2], 1.0);
+	farm_Data[farmid][farm_clothArea] = CreateDynamicSphere(farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2], 1.0);
 
 
 	// === инфо
 	CreateDynamicPickup(1239, 1, farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2]);
 	CreateDynamic3DTextLabel("Информация", 0x009688FF, farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2], 10.0);
-	farmData[farmid][farm_info_area] = CreateDynamicSphere(farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2], 1.0);
+	farm_Data[farmid][farm_infoArea] = CreateDynamicSphere(farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2], 1.0);
 
 	// === Чекпоинт разгрузки урожая
 	CreateDynamicCP(farm_coords[farmid][1][0], farm_coords[farmid][1][1], farm_coords[farmid][1][2], 1.9);
 
 	// === Пикап с инструментами
 	CreateDynamicPickup(2228, 1, 293.3154, 1141.6218, 9.2814);
-	farmData[farmid][farm_store_area] = CreateDynamicSphere(293.3154, 1141.6218, 9.2814, 1.0);
+	farm_Data[farmid][farm_storeArea] = CreateDynamicSphere(293.3154, 1141.6218, 9.2814, 1.0);
 
-	printf("[ Загрузка ] Ферма %d загружена!", farmid);
+	printf("> Ферма %d загружена!", farmid);
 	return 1;
 }
 
@@ -245,17 +245,17 @@ stock LoadBedForFarm(farm)
 	{
 		new tmpobjid =
 
-		CreateDynamicObject(16305, bedData[farm][bed][bed_pos_x], bedData[farm][bed][bed_pos_y], bedData[farm][bed][bed_pos_z], 0.0, 0.0, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 1
+		CreateDynamicObject(16305, bed_Data[farm][bed][bed_posX], bed_Data[farm][bed][bed_posY], bed_Data[farm][bed][bed_posZ], 0.0, 0.0, 0.000000, -1, -1, -1, STREAMER_OBJECT_SD, 300.0); // 1
 		SetDynamicObjectMaterial(tmpobjid, 0, 3980, "cityhall_lan", "sl_LAbedingsoil", 0);
 
-		bedData[farm][bed][bed_text] 
-			= CreateDynamic3DTextLabel("Грядка заросла\n\n{004c40}Используйте лопату чтобы вскопать землю\nALT", 0x48a999DD, bedData[farm][bed][bed_pos_x], bedData[farm][bed][bed_pos_y], bedData[farm][bed][bed_pos_z], 6.0);
+		bed_Data[farm][bed][bed_text] 
+			= CreateDynamic3DTextLabel("Грядка заросла\n\n{004c40}Используйте лопату чтобы вскопать землю\nALT", 0x48a999DD, bed_Data[farm][bed][bed_posX], bed_Data[farm][bed][bed_posY], bed_Data[farm][bed][bed_posZ], 6.0);
 
-		bedData[farm][bed][bed_area] 
-			= CreateDynamicSphere(bedData[farm][bed][bed_pos_x], bedData[farm][bed][bed_pos_y], bedData[farm][bed][bed_pos_z], 5.0);
+		bed_Data[farm][bed][bed_area] 
+			= CreateDynamicSphere(bed_Data[farm][bed][bed_posX], bed_Data[farm][bed][bed_posY], bed_Data[farm][bed][bed_posZ], 5.0);
 
 		//printf("%f, %f, %f", );
-		bedData[farm][bed][bed_object] = INVALID_OBJECT_ID;
+		bed_Data[farm][bed][bed_object] = INVALID_OBJECT_ID;
 	}
 	
 }
@@ -287,21 +287,21 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	{
 		
 		new farm = GetPVarInt(playerid, "farm_number");
-		if(areaid >= bedData[farm][0][bed_area] && areaid <= bedData[farm][(MAX_BED_FARM[farm]-1)][bed_area])
+		if(areaid >= bed_Data[farm][0][bed_area] && areaid <= bed_Data[farm][(MAX_BED_FARM[farm]-1)][bed_area])
 		{
-			SetPVarInt(playerid, "bed_number", (areaid-bedData[farm][0][bed_area])+1);
+			SetPVarInt(playerid, "bed_number", (areaid-bed_Data[farm][0][bed_area])+1);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}
 	
 	for(new farmid = 0; farmid < MAX_FARM; farmid ++)
 	{
-		if(areaid == farmData[farmid][farm_info_area])
+		if(areaid == farm_Data[farmid][farm_infoArea])
 		{
 			ShowFarmInfo(playerid, farmid);
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
-		if(areaid == farmData[farmid][farm_cloth_area])
+		if(areaid == farm_Data[farmid][farm_clothArea])
 		{
 			SetPVarInt(playerid, "farm_number", farmid);
 
@@ -309,12 +309,12 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			format(str_farm, sizeof(str_farm), "\
 			Здесь вы можете подработать фермером\n\
 			Зарплата: %d за действие\n\n\
-			Хотите переодеться и начать работу?", farmData[farmid][farm_salary]);
+			Хотите переодеться и начать работу?", farm_Data[farmid][farm_salary]);
 
 			Dialog_Open(playerid, Dialog:d_farm_cloth, DIALOG_STYLE_MSGBOX, "Раздевалка", str_farm, "Начать", "Отмена");
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
-		if(areaid == farmData[farmid][farm_store_area])
+		if(areaid == farm_Data[farmid][farm_storeArea])
 		{
 			if(GetPVarInt(playerid, "isFarmJob"))
 			{
@@ -406,7 +406,7 @@ hook OnPlayerLeaveDynArea(playerid, areaid)
 
 stock ChangeStateBed(playerid, farm, bed)
 {
-	switch(bedData[farm][bed][bed_stat])
+	switch(bed_Data[farm][bed][bed_stat])
 	{
 		case BED_STAT_OVERGROW:
 		{// ЗАРОСЛА
@@ -471,23 +471,23 @@ hook function player_second_update(playerid)
 
 			if(GetPVarInt(playerid, "farm_tool") == FARM_TOOL_SHOVEL)
 			{
-				bedData[farm][bed][bed_stat] = BED_STAT_FREE;
+				bed_Data[farm][bed][bed_stat] = BED_STAT_FREE;
 
-				UpdateDynamic3DTextLabelText(bedData[farm][bed][bed_text], 0x48a999FF, "\
+				UpdateDynamic3DTextLabelText(bed_Data[farm][bed][bed_text], 0x48a999FF, "\
 				Выкопана ямка\n\n{004c40}Используйте семена чтобы посадить\nALT"); 
 			}
 			if(GetPVarInt(playerid, "farm_tool") == FARM_TOOL_SEEDS)
 			{
-				bedData[farm][bed][bed_stat] = BED_STAT_GROW;
-				bedData[farm][bed][bed_timer] = 10;
+				bed_Data[farm][bed][bed_stat] = BED_STAT_GROW;
+				bed_Data[farm][bed][bed_timer] = 10;
 
 			}
 			if(GetPVarInt(playerid, "farm_tool") == FARM_TOOL_RAKE)
 			{
 				new str_bed[75];
-				DestroyDynamicObject(bedData[farm][bed][bed_object]);	// убираем траву
-				format(str_bed, sizeof(str_bed), "%s ожидает поливку\n\n{004c40}Используйте ведро чтобы полить\nALT", farm_crop_name[farmData[farm][farm_crop_type]]);
-				UpdateDynamic3DTextLabelText(bedData[farm][bed][bed_text], 0x48a999FF, str_bed);
+				DestroyDynamicObject(bed_Data[farm][bed][bed_object]);	// убираем траву
+				format(str_bed, sizeof(str_bed), "%s ожидает поливку\n\n{004c40}Используйте ведро чтобы полить\nALT", farm_crop_name[farm_Data[farm][farm_cropType]]);
+				UpdateDynamic3DTextLabelText(bed_Data[farm][bed][bed_text], 0x48a999FF, str_bed);
 
 			}
 			DeletePVar(playerid, "farm_work_time");
@@ -505,25 +505,25 @@ hook function OnSecondUpdate()
 	{
 		for(new bed = 0; bed < MAX_BED_FARM[farm]; bed++)
 		{
-			if(bedData[farm][bed][bed_timer])
+			if(bed_Data[farm][bed][bed_timer])
 			{
-				bedData[farm][bed][bed_timer] --;
+				bed_Data[farm][bed][bed_timer] --;
 				new str_bed[70];
 
-				if(!bedData[farm][bed][bed_timer])
+				if(!bed_Data[farm][bed][bed_timer])
 				{
-					bedData[farm][bed][bed_stat] = BED_STAT_WEED;
-					bedData[farm][bed][bed_object] = 
-						CreateDynamicObject(827, bedData[farm][bed][bed_pos_x], bedData[farm][bed][bed_pos_y], bedData[farm][bed][bed_pos_z]-3, 0.0, 0.0, 0.0);
+					bed_Data[farm][bed][bed_stat] = BED_STAT_WEED;
+					bed_Data[farm][bed][bed_object] = 
+						CreateDynamicObject(827, bed_Data[farm][bed][bed_posX], bed_Data[farm][bed][bed_posY], bed_Data[farm][bed][bed_posZ]-3, 0.0, 0.0, 0.0);
 
-					format(str_bed, sizeof(str_bed), "%s ожидает прополку\n\n{004c40}Используйте грабли чтобы прополоть\nALT", farm_crop_name[farmData[farm][farm_crop_type]]);
+					format(str_bed, sizeof(str_bed), "%s ожидает прополку\n\n{004c40}Используйте грабли чтобы прополоть\nALT", farm_crop_name[farm_Data[farm][farm_cropType]]);
 				}
 				else
 				{
-					format(str_bed, sizeof(str_bed), "Растет %s\n\n{004c40}Осталось %d сек.", farm_crop_name[farmData[farm][farm_crop_type]], bedData[farm][bed][bed_timer]);
+					format(str_bed, sizeof(str_bed), "Растет %s\n\n{004c40}Осталось %d сек.", farm_crop_name[farm_Data[farm][farm_cropType]], bed_Data[farm][bed][bed_timer]);
 				}
 				
-				UpdateDynamic3DTextLabelText(bedData[farm][bed][bed_text], 0x48a999FF, str_bed);
+				UpdateDynamic3DTextLabelText(bed_Data[farm][bed][bed_text], 0x48a999FF, str_bed);
 
 			}
 		}
@@ -545,8 +545,8 @@ stock ShowFarmInfo(playerid, farmid)
 	{52c7b8}Выращиваемая культура:{ffffff} %s\n\
 	{52c7b8}Количество семян:{ffffff} %i\n\
 	{52c7b8}Количество урожая:{ffffff} %i\n\
-	",farmData[farmid][farm_owner], farmData[farmid][farm_salary], farmData[farmid][farm_balance], farm_crop_name[farmData[farmid][farm_crop_type]],
-	farmData[farmid][farm_seeds_count], farmData[farmid][farm_crop_count]); 
+	",farm_Data[farmid][farm_owner], farm_Data[farmid][farm_salary], farm_Data[farmid][farm_balance], farm_crop_name[farm_Data[farmid][farm_cropType]],
+	farm_Data[farmid][farm_seedsCount], farm_Data[farmid][farm_cropCount]); 
 	
 	Dialog_Message(playerid, " ", farm_info, "Закрыть");
 	return 1;
@@ -571,16 +571,16 @@ public FarmsLoaded()
 
 	for(new x = 0; x < r; x++)
 	{
-		cache_get_value_name_int 	(x, "MySQL_ID", 			farmData[x][MySQL_ID]);
+		cache_get_value_name_int 	(x, "farm_ID", 			farm_Data[x][farm_ID]);
 
-		cache_get_value_name 		(x, "farm_owner", 			farmData[x][farm_owner]);
+		cache_get_value_name 		(x, "farm_owner", 			farm_Data[x][farm_owner]);
 
-		cache_get_value_name_int 	(x, "farm_water_count", 	farmData[x][farm_water_count]);
-		cache_get_value_name_int 	(x, "farm_seeds_count", 	farmData[x][farm_seeds_count]);
-		cache_get_value_name_int 	(x, "farm_crop_count", 		farmData[x][farm_crop_count]);
-		cache_get_value_name_int 	(x, "farm_crop_type", 		farmData[x][farm_crop_type]);
-		cache_get_value_name_int 	(x, "farm_salary", 			farmData[x][farm_salary]);
-		cache_get_value_name_int 	(x, "farm_balance", 		farmData[x][farm_balance]);
+		cache_get_value_name_int 	(x, "farm_waterCount", 	farm_Data[x][farm_waterCount]);
+		cache_get_value_name_int 	(x, "farm_seedsCount", 	farm_Data[x][farm_seedsCount]);
+		cache_get_value_name_int 	(x, "farm_cropCount", 		farm_Data[x][farm_cropCount]);
+		cache_get_value_name_int 	(x, "farm_cropType", 		farm_Data[x][farm_cropType]);
+		cache_get_value_name_int 	(x, "farm_salary", 			farm_Data[x][farm_salary]);
+		cache_get_value_name_int 	(x, "farm_balance", 		farm_Data[x][farm_balance]);
 
 	}
 	printf("[ Загрузка ] Фермы загружены! %d шт.", r);

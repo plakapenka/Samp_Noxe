@@ -7,6 +7,7 @@
 #include <YSI_Data\y_iterate>
 #include <progress2>
 #include <mdialog>
+#include <crashdetect>
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
@@ -70,14 +71,7 @@
 
 main() 
 { 
-
-	printf("===================================");
-	printf("!!! BEST MODE EVER !!!");
-	printf("===================================");
-
-	printf("Частота обновления Streamer = %d",Streamer_GetTickRate());
-
-//	printf("%d", sizeof(bedData[0]));
+	printf("Частота обновления Streamer = %d мс",Streamer_GetTickRate());
 }
 
 stock SendMes(playerid, color, const text[], {Float, _}:...)

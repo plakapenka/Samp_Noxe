@@ -1,7 +1,7 @@
 
 // == доп интерьеры
 #include "sourc/objects/house_int37.pwn"
-
+#include "sourc/other_system/house_interiors.pwn"
 #include <YSI_Coding\y_hooks>
 
 
@@ -12,8 +12,6 @@
 #define HOUSE_CLASS_COMFORT		2
 #define HOUSE_CLASS_BUSINESS	3
 #define HOUSE_CLASS_PREMIUM		4
-
-#define MAX_HOUSE_INTERIOR 		42
 
 #define HOUSE_IMPROOVE_SAFE 		0b1 	//сейф
 #define HOUSE_IMPROOVE_STORE 		0b10    //шкаф
@@ -26,69 +24,35 @@
 new pickup_garage_exit_to_house[4];
 new pickup_garage_exit_to_street[4];
 
-enum iinfo
+enum E_HOUSE_DATA
 {
-	MySQL_ID,
-	// сам инт
-	Float:exit_x,
-	Float:exit_y,
-	Float:exit_z,
-	Float:exit_area,
-	interior_id,
-	interior_class,
-	interior_room,
-	interior_area,
-	// шкаф
-	Float:store_x,
-	Float:store_y,
-	Float:store_z,
-	Float:store_a,
-	store_area,
-	//холодильник
-	Float:freez_x,
-	Float:freez_y,
-	Float:freez_z,
-	Float:freez_a,
-	freez_area,
-	//сейф
-	Float:safe_x,
-	Float:safe_y,
-	Float:safe_z,
-	Float:safe_a,
-	safe_area,
-	//
-}
-new intData[MAX_HOUSE_INTERIOR][iinfo];
-new TOTAL_HOUSE_INTERIOR;
-
-enum hInfo
-{
-	MySQL_ID,
-	Float:enter_x,
-	Float:enter_y,
-	Float:enter_z,
-	Float:car_x,
-	Float:car_y,
-	Float:car_z,
-	Float:car_a,
-	h_owner[MAX_PLAYER_NAME],
-	h_price,
-	h_interior,
-	h_lock,
-	h_pickup,
-	h_icon,
-	h_improve,
-	h_product,
-	h_garage
+	house_ID,
+	Float:house_enterX,
+	Float:house_enterY,
+	Float:house_enterZ,
+	Float:house_carX,
+	Float:house_carY,
+	Float:house_carZ,
+	Float:house_carA,
+	house_owner[MAX_PLAYER_NAME],
+	house_price,
+	house_interior,
+	house_lock,
+	house_pickup,
+	house_icon,
+	house_improove,
+	house_product,
+	house_garage
 };
-new hData[1000][hInfo];
+new hData[1000][E_HOUSE_DATA];
+
 new TOTAL_HOUSES;
 
 stock GetPlayerHouse(playerid)
 {
 	for(new house; house < TOTAL_HOUSES; house++)
 	{
-		if(strcmp(hData[house][h_owner], pData[playerid][pName]) == 0)
+		if(strcmp(hData[house][house_owner], pData[playerid][pName]) == 0)
 		{
 			pData[playerid][pHouse] = house;
 			return 1;
@@ -99,9 +63,7 @@ stock GetPlayerHouse(playerid)
 }
 hook OnGameModeInit()
 {
-	mysql_tquery(g_sql, "SELECT * FROM `house_interior`", "HousesInteriorLoaded");
-
-	mysql_tquery(g_sql, "SELECT * FROM `houses`", "HousesLoaded");
+	mysql_tquery(g_sql, "SELECT * FROM `"TABLE_HOUSES"`", "HousesLoaded");
 
 	pickup_garage_exit_to_house[0] = CreateDynamicPickup(19133, 23, 1379.6615,-18.4743,1000.9251, -1, 3);
 	pickup_garage_exit_to_house[1] = CreateDynamicPickup(19133, 23, 1396.7749,-27.7808,1000.9203, -1, 4);
@@ -155,7 +117,7 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 
 	new mes[312];
 	new classname[20];			
-	switch(intData[hData[houseid][h_interior]][interior_class])
+	switch(interior_Data[hData[houseid][house_interior]][interior_class])
 	{
 		case HOUSE_CLASS_ECONOM:	classname = "{FF0000}Эконом";
 		case HOUSE_CLASS_COMFORT:	classname = "{ff6600}Комфорт";
@@ -163,7 +125,7 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		case HOUSE_CLASS_PREMIUM:	classname = "{99ff00}Премиум";
 	}
 
-	if(!strcmp(hData[houseid][h_owner],"None",true)) // на продажу
+	if(!strcmp(hData[houseid][house_owner],"None",true)) // на продажу
 	{			
 		format(mes,sizeof(mes),"\
 		{ffffff}{"#COLOR_DARK"}Дом № %d\n\n\
@@ -171,8 +133,8 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		{ffffff}Кол-о комнат:\t\t\t {"#COLOR_LIGHT"}%d\n\
 		{ffffff}Гараж: \t\t\t\t{"#COLOR_LIGHT"}%s\n\
 		{ffffff}Цена: \t\t\t\t{"#COLOR_LIGHT"}%d\n\n\
-		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, intData[hData[houseid][h_interior]][interior_room],
-		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), correct_price(hData[houseid][h_price]));
+		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, interior_Data[hData[houseid][house_interior]][interior_room],
+		((hData[houseid][house_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), correct_price(hData[houseid][house_price]));
 	}
 	else
 	{
@@ -181,8 +143,8 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		{ffffff}Класс: {"#COLOR_LIGHT"}%s\n\
 		{ffffff}Кол-о комнат: {"#COLOR_LIGHT"}%d\n\
 		{ffffff}Гараж: {"#COLOR_LIGHT"}%s\n\
-		{ffffff}Владелец: {"#COLOR_LIGHT"}%s",houseid,classname,intData[hData[houseid][h_interior]][interior_room],
-		((hData[houseid][h_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][h_owner]);
+		{ffffff}Владелец: {"#COLOR_LIGHT"}%s",houseid,classname,interior_Data[hData[houseid][house_interior]][interior_room],
+		((hData[houseid][house_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][house_owner]);
 		
 	}
 	Dialog_Open(playerid, Dialog:d_house_enter, DIALOG_STYLE_MSGBOX," ",mes,"Войти","Отмена");
@@ -194,7 +156,7 @@ DialogResponse:d_house_enter(playerid, response, listitem, inputtext[])
 		return 1;
 
 	new houseid = GetPVarInt(playerid, "house_id")-1;
-	if(hData[houseid][h_garage])
+	if(hData[houseid][house_garage])
 	{
 		Dialog_Open(playerid, Dialog:d_house_enter_to, DIALOG_STYLE_LIST, "Вход", "\
 		{"#COLOR_GLOBAL"}> {ffffff}В дом\n\
@@ -240,8 +202,8 @@ DialogCreate:d_house_menu_global(playerid)
 	{"#COLOR_GLOBAL"}> {ffffff}Улучшения\n\
 	{"#COLOR_GLOBAL"}> {ffffff}Информация",
 
-	((strcmp(hData[houseid][h_owner],"None",true)) ? ("Продать дом"):("{43a047}Купить дом")),
-	((hData[houseid][h_lock]) ? ("{FFFFFF}Открыть дверь"):("{AFAFAF}Закрыть дверь")) );
+	((strcmp(hData[houseid][house_owner],"None",true)) ? ("Продать дом"):("{43a047}Купить дом")),
+	((hData[houseid][house_lock]) ? ("{FFFFFF}Открыть дверь"):("{AFAFAF}Закрыть дверь")) );
 
 	Dialog_Open(playerid, Dialog:d_house_menu_global, 2, "Меню дома", str_h_menu, "Выбор","Закрыть");
 }
@@ -270,9 +232,9 @@ DialogCreate:d_house_menu_improve(playerid)
 
 	new str_h_menu[512];
 	format(str_h_menu, sizeof str_h_menu, "%s\n%s\n%s",\
-	((hData[house][h_improve] & HOUSE_IMPROOVE_FREEZ) 	? ("{FFFFFF}Холодильник"):("{AFAFAF}Холодильник")),
-	((hData[house][h_improve] & HOUSE_IMPROOVE_SAFE) 	? ("{FFFFFF}Сейф"):("{AFAFAF}Сейф")),\
-	((hData[house][h_improve] & HOUSE_IMPROOVE_STORE) 	? ("{FFFFFF}Шкаф"):("{AFAFAF}Шкаф")) );
+	((hData[house][house_improove] & HOUSE_IMPROOVE_FREEZ) 	? ("{FFFFFF}Холодильник"):("{AFAFAF}Холодильник")),
+	((hData[house][house_improove] & HOUSE_IMPROOVE_SAFE) 	? ("{FFFFFF}Сейф"):("{AFAFAF}Сейф")),\
+	((hData[house][house_improove] & HOUSE_IMPROOVE_STORE) 	? ("{FFFFFF}Шкаф"):("{AFAFAF}Шкаф")) );
 	Dialog_Open(playerid, Dialog:d_house_menu_improve, 2,"Управление домом",str_h_menu,"Купить","Отмена");
 }
 
@@ -283,7 +245,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 
 	if(listitem == 0)
 	{
-		if(hData[house][h_improve] & HOUSE_IMPROOVE_FREEZ)
+		if(hData[house][house_improove] & HOUSE_IMPROOVE_FREEZ)
 			return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть холодильник!");
 
 		format(str_buy_improve, sizeof str_buy_improve, "\
@@ -300,7 +262,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 	}
 	if(listitem == 1)
 	{
-		if(hData[house][h_improve] & HOUSE_IMPROOVE_SAFE)
+		if(hData[house][house_improove] & HOUSE_IMPROOVE_SAFE)
 			return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть сейф!");
 
 		format(str_buy_improve, sizeof str_buy_improve, "\
@@ -317,7 +279,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 	}
 	if(listitem == 2)
 	{
-		if(hData[house][h_improve] & HOUSE_IMPROOVE_STORE)
+		if(hData[house][house_improove] & HOUSE_IMPROOVE_STORE)
 			return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть шкаф!");
 
 		format(str_buy_improve, sizeof str_buy_improve, "\
@@ -339,23 +301,23 @@ DialogResponse:d_house_menu_improve_buy(playerid, response, listitem, inputtext[
 	if(response)
 	{
 		new house = GetPVarInt(playerid, "house_id")-1;
-		new int = hData[house][h_interior];
+		new int = hData[house][house_interior];
 
 		if(pData[playerid][pCash] >= GetPVarInt(playerid, "buy_improve_price"))
 		{
 			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_FREEZ)
 			{
-				CreateDynamicObject(2141, intData[int][freez_x],intData[int][freez_y], intData[int][freez_z], 0,0,intData[int][freez_a], house);
+				CreateDynamicObject(2141, interior_Data[int][interior_freezX],interior_Data[int][interior_freezY], interior_Data[int][interior_freezZ], 0,0,interior_Data[int][interior_freezA], house);
 			}
 			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_SAFE)
 			{
-				CreateDynamicObject(2332, intData[int][safe_x],intData[int][safe_y], intData[int][safe_z], 0,0,intData[int][safe_a], house);
+				CreateDynamicObject(2332, interior_Data[int][interior_safeX],interior_Data[int][interior_safeY], interior_Data[int][interior_safeZ], 0,0,interior_Data[int][interior_safeA], house);
 			}
 			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_STORE)
 			{
-				CreateDynamicObject(2708, intData[int][store_x], intData[int][store_y], intData[int][store_z], 0,0,intData[int][store_a], house);
+				CreateDynamicObject(2708, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], 0,0,interior_Data[int][interior_storeA], house);
 			}
-			hData[house][h_improve] |= GetPVarInt(playerid, "buy_improve_what");
+			hData[house][house_improove] |= GetPVarInt(playerid, "buy_improve_what");
 			give_money(playerid, -GetPVarInt(playerid, "buy_improve_price"));
 		}
 	}
@@ -395,20 +357,20 @@ CMD:buyhouse(playerid)
 
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 
-	if(pData[playerid][pCash] < correct_price(hData[houseid][h_price])) 
+	if(pData[playerid][pCash] < correct_price(hData[houseid][house_price])) 
 		return SendClientMessage(playerid, COLOR_16ERROR, "Недостаточно денег для покупки!");
 
 	if(pData[playerid][pHouse] != INVALID_HOUSE_ID) 
 		return SendClientMessage(playerid, COLOR_16ERROR, "У вас уже есть дом!");
 
-	if(strcmp(hData[houseid][h_owner],"None",true) != 0)
+	if(strcmp(hData[houseid][house_owner],"None",true) != 0)
 		return SendClientMessage(playerid, COLOR_16ERROR, "Этот дом не продается!"); 
 	
 	pData[playerid][pHouse] = houseid;
 		
-	strmid(hData[houseid][h_owner], pData[playerid][pName], 0, strlen(pData[playerid][pName]), 24);
+	strmid(hData[houseid][house_owner], pData[playerid][pName], 0, strlen(pData[playerid][pName]), 24);
 		
-	give_money(playerid, -correct_price(hData[houseid][h_price]));
+	give_money(playerid, -correct_price(hData[houseid][house_price]));
 	EnterHouse(playerid);
 	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 
@@ -424,7 +386,7 @@ CMD:buyhouse(playerid)
 
 	UpdateHousePickup(houseid);
 	new str_buy_house[213];
-	mysql_format(g_sql, str_buy_house, sizeof str_buy_house, "UPDATE `houses` SET `h_owner`='%e' WHERE MySQL_ID = %d",pData[playerid][pName], hData[houseid][MySQL_ID]);
+	mysql_format(g_sql, str_buy_house, sizeof str_buy_house, "UPDATE `"TABLE_HOUSES"` SET `house_owner`='%e' WHERE house_ID = %d",pData[playerid][pName], hData[houseid][house_ID]);
 	mysql_tquery(g_sql, str_buy_house);
 
 	//SpawnHouseCars(playerid);
@@ -435,7 +397,7 @@ stock EnterGarageFromHouse(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 
-	switch(hData[house][h_garage])
+	switch(hData[house][house_garage])
 	{
 		case 0..2:
 		{
@@ -444,22 +406,22 @@ stock EnterGarageFromHouse(playerid)
 		}
 		case 3:
 		{
-			SetPlayerPosEx(playerid, 1380.8544,-19.9282,1000.9245,251.9224, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1380.8544,-19.9282,1000.9245,251.9224, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 4:
 		{
-			SetPlayerPosEx(playerid, 1396.4639, -25.9657, 1000.9203, 0.0, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1396.4639, -25.9657, 1000.9203, 0.0, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 5:
 		{
-			SetPlayerPosEx(playerid, 1393.3198, -28.7928, 1000.9128, 82.0473, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1393.3198, -28.7928, 1000.9128, 82.0473, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 6:
 		{
-			SetPlayerPosEx(playerid, 1381.9276,-13.9854,1000.9240, 260.060, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1381.9276,-13.9854,1000.9240, 260.060, hData[house][house_garage], house, 4);
 			return 1;
 		}
 	}
@@ -470,7 +432,7 @@ stock EnterGarageFromStreet(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 
-	switch(hData[house][h_garage])
+	switch(hData[house][house_garage])
 	{
 		case 0..2:
 		{
@@ -479,22 +441,22 @@ stock EnterGarageFromStreet(playerid)
 		}
 		case 3:
 		{
-			SetPlayerPosEx(playerid, 1381.9504,-24.3312,1000.9240,266.9626, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1381.9504,-24.3312,1000.9240,266.9626, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 4:
 		{
-			SetPlayerPosEx(playerid, 1402.4913,-25.3844,1000.9203,356.2401, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1402.4913,-25.3844,1000.9203,356.2401, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 5:
 		{
-			SetPlayerPosEx(playerid, 1395.5448,-20.2903,1000.9174,87.9773, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1395.5448,-20.2903,1000.9174,87.9773, hData[house][house_garage], house, 4);
 			return 1;
 		}
 		case 6:
 		{
-			SetPlayerPosEx(playerid, 1381.6597,-22.7782,1000.9241,263.4457, hData[house][h_garage], house, 4);
+			SetPlayerPosEx(playerid, 1381.6597,-22.7782,1000.9241,263.4457, hData[house][house_garage], house, 4);
 			return 1;
 		}
 	}
@@ -505,7 +467,7 @@ stock ExitHouseToStreet(playerid)
 {
 	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
-	SetPlayerPos(playerid, hData[house][enter_x], hData[house][enter_y], hData[house][enter_z]);
+	SetPlayerPos(playerid, hData[house][house_enterX], hData[house][house_enterY], hData[house][house_enterZ]);
 	SetPlayerInterior(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 0);
 }
@@ -513,10 +475,10 @@ stock EnterHouse(playerid)
 {
 	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
-	new int = hData[house][h_interior];
+	new int = hData[house][house_interior];
 
-	SetPlayerPos(playerid, intData[int][exit_x], intData[int][exit_y], intData[int][exit_z]);
-	SetPlayerInterior(playerid, intData[int][interior_id]);
+	SetPlayerPos(playerid, interior_Data[int][interior_exitX], interior_Data[int][interior_exitY], interior_Data[int][interior_exitZ]);
+	SetPlayerInterior(playerid, interior_Data[int][interior_id]);
 	SetPlayerVirtualWorld(playerid, house);
 }
 
@@ -526,31 +488,32 @@ public HousesLoaded()
 	new r;
 	cache_get_row_count(r);
 
-	if(!r) printf("[! Ошибка !] Данные из houses не получены!");
+	if(!r) printf("[! Ошибка !] Данные из "TABLE_HOUSES" не получены!");
 
 	for(new x = 0; x < r; x++)
 	{
-		cache_get_value_name_int 	(x, "MySQL_ID", 	hData[x][MySQL_ID]);
+		cache_get_value_name_int 	(x, "house_ID", 		hData[x][house_ID]);
 
-		cache_get_value_name_float 	(x, "enter_x", 		hData[x][enter_x]);
-		cache_get_value_name_float 	(x, "enter_y", 		hData[x][enter_y]);
-		cache_get_value_name_float 	(x, "enter_z", 		hData[x][enter_z]);
+		cache_get_value_name_float 	(x, "house_enterX", 	hData[x][house_enterX]);
+		cache_get_value_name_float 	(x, "house_enterY", 	hData[x][house_enterY]);
+		cache_get_value_name_float 	(x, "house_enterZ", 	hData[x][house_enterZ]);
 
-		cache_get_value_name_float 	(x, "car_x", 		hData[x][car_x]);
-		cache_get_value_name_float 	(x, "car_y", 		hData[x][car_y]);
-		cache_get_value_name_float 	(x, "car_z", 		hData[x][car_z]);
-		cache_get_value_name_float 	(x, "car_a", 		hData[x][car_a]);
+		cache_get_value_name_float 	(x, "house_carX", 		hData[x][house_carX]);
+		cache_get_value_name_float 	(x, "house_carY", 		hData[x][house_carY]);
+		cache_get_value_name_float 	(x, "house_carZ", 		hData[x][house_carZ]);
+		cache_get_value_name_float 	(x, "house_carA", 		hData[x][house_carA]);
 
-		cache_get_value_name 		(x, "h_owner", 		hData[x][h_owner]);
+		cache_get_value_name 		(x, "house_owner", 		hData[x][house_owner]);
 
-		cache_get_value_name_int 	(x, "h_price", 		hData[x][h_price]);
-		cache_get_value_name_int 	(x, "h_interior", 	hData[x][h_interior]);
-		cache_get_value_name_int 	(x, "h_lock", 		hData[x][h_lock]);
-		cache_get_value_name_int 	(x, "h_garage", 	hData[x][h_garage]);
+		cache_get_value_name_int 	(x, "house_price", 		hData[x][house_price]);
+		cache_get_value_name_int 	(x, "house_interior", 	hData[x][house_interior]);
+		cache_get_value_name_int 	(x, "house_lock", 		hData[x][house_lock]);
+		cache_get_value_name_int 	(x, "house_product", 	hData[x][house_product]);
+		cache_get_value_name_int 	(x, "house_garage", 	hData[x][house_garage]);
 
 		UpdateHousePickup(x);
 
-		new tmp_area = CreateDynamicSphere(hData[x][enter_x], hData[x][enter_y], hData[x][enter_z], 1.5);
+		new tmp_area = CreateDynamicSphere(hData[x][house_enterX], hData[x][house_enterY], hData[x][house_enterZ], 1.5);
 
 		new _arrayData[2];
 		_arrayData[0] = AREA_FOR_HOUSE;
@@ -559,90 +522,46 @@ public HousesLoaded()
 
 		TOTAL_HOUSES++;
 	}
-	printf("[ Загрузка ] Дома успешно загружены! %d шт.", TOTAL_HOUSES);
+	printf("> Данные из "TABLE_HOUSES" успешно загружены! %d шт", TOTAL_HOUSES);
 
 
 }
 
 stock UpdateHousePickup(houseid)
 {
-	if(IsValidDynamicPickup(hData[houseid][h_pickup]))
+	if(IsValidDynamicPickup(hData[houseid][house_pickup]))
 	{
-		DestroyDynamicPickup(hData[houseid][h_pickup]);
+		DestroyDynamicPickup(hData[houseid][house_pickup]);
 	} 
-	if(IsValidDynamicMapIcon(hData[houseid][h_icon]))
+	if(IsValidDynamicMapIcon(hData[houseid][house_icon]))
 	{
-		DestroyDynamicMapIcon(hData[houseid][h_icon]);
+		DestroyDynamicMapIcon(hData[houseid][house_icon]);
 	}	
 
-	new pick_model, h_icon_model;
+	new pick_model, house_icon_model;
 
-	if(!strcmp(hData[houseid][h_owner],"None",true))// нет хозяина
+	if(!strcmp(hData[houseid][house_owner],"None",true))// нет хозяина
 	{
 		pick_model = 1273;
-		h_icon_model = 31;
+		house_icon_model = 31;
 	}
 	else
 	{
 		pick_model = 19522;
-		h_icon_model = 32;
+		house_icon_model = 32;
 	}
-	hData[houseid][h_pickup] 	= 
-		CreateDynamicPickup(pick_model, 1, hData[houseid][enter_x], hData[houseid][enter_y], hData[houseid][enter_z]);
+	hData[houseid][house_pickup] 	= 
+		CreateDynamicPickup(pick_model, 1, hData[houseid][house_enterX], hData[houseid][house_enterY], hData[houseid][house_enterZ]);
 			
-	hData[houseid][h_icon] 	= 
-		CreateDynamicMapIcon(hData[houseid][enter_x], hData[houseid][enter_y], hData[houseid][enter_z], h_icon_model, 0xFFFFFF, 0, -1, -1,150);
+	hData[houseid][house_icon] 	= 
+		CreateDynamicMapIcon(hData[houseid][house_enterX], hData[houseid][house_enterY], hData[houseid][house_enterZ], house_icon_model, 0xFFFFFF, 0, -1, -1,150);
 }
 
-forward HousesInteriorLoaded();
-public HousesInteriorLoaded()
-{
-	new r;
-	cache_get_row_count(r);
 
-	if(!r) printf("[! Ошибка !] Данные из house_h_interior не получены!");
-
-	for(new x = 0; x < r; x++)
-	{
-		cache_get_value_name_int 	(x, "MySQL_ID", 		intData[x][MySQL_ID]);
-		cache_get_value_name_float 	(x, "exit_x", 			intData[x][exit_x]);
-		cache_get_value_name_float 	(x, "exit_y", 			intData[x][exit_y]);
-		cache_get_value_name_float 	(x, "exit_z", 			intData[x][exit_z]);
-
-		cache_get_value_name_int 	(x, "interior_id", 		intData[x][interior_id]);
-		cache_get_value_name_int 	(x, "interior_class", 	intData[x][interior_class]);
-		cache_get_value_name_int 	(x, "interior_room", 	intData[x][interior_room]);
-
-		cache_get_value_name_float 	(x, "store_x", 			intData[x][store_x]);
-		cache_get_value_name_float 	(x, "store_y", 			intData[x][store_y]);
-		cache_get_value_name_float 	(x, "store_z", 			intData[x][store_z]);
-		cache_get_value_name_float 	(x, "store_a", 			intData[x][store_a]);
-
-		cache_get_value_name_float 	(x, "freez_x", 			intData[x][freez_x]);
-		cache_get_value_name_float 	(x, "freez_y", 			intData[x][freez_y]);
-		cache_get_value_name_float 	(x, "freez_z", 			intData[x][freez_z]);
-		cache_get_value_name_float 	(x, "freez_a", 			intData[x][freez_a]);
-
-		cache_get_value_name_float 	(x, "safe_x", 			intData[x][safe_x]);
-		cache_get_value_name_float 	(x, "safe_y", 			intData[x][safe_y]);
-		cache_get_value_name_float 	(x, "safe_z", 			intData[x][safe_z]);
-		cache_get_value_name_float 	(x, "safe_a", 			intData[x][safe_a]);
-		
-		CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]+1, 5.0);
-
-		CreateDynamicPickup(19135, 1, intData[x][exit_x], intData[x][exit_y], intData[x][exit_z]-0.5, -1, intData[x][interior_id]);
-		intData[x][interior_area] = CreateDynamicSphere(intData[x][exit_x], intData[x][exit_y], intData[x][exit_z], 1.0, -1, intData[x][interior_id]);
-
-		TOTAL_HOUSE_INTERIOR ++;
-
-	}
-	printf("[ Загрузка ] Интерьеры домов загружены. %d шт.", TOTAL_HOUSE_INTERIOR);
-
-}
 
 hook OnPlayerEnterDynArea(playerid, areaid)
 {
-	if(areaid >= intData[0][interior_area] && areaid <= intData[TOTAL_HOUSE_INTERIOR-1][interior_area])
+	if(areaid >= interior_exitArea[0] && areaid <= interior_exitArea[TOTAL_HOUSE_INTERIOR-1])
 	{
 		if(GetPVarInt(playerid, "no_show_dialog"))
 		{

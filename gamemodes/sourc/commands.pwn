@@ -58,18 +58,7 @@ CMD:gggg(playerid, params[])
 	
 	return true;
 }
-CMD:g_int_house(playerid, params[])
-{
-	if(pData[playerid][pAdmin] < 5) 
-		return true;
-	if(sscanf(params, "d",params[0])) 
-		return	SendClientMessage(playerid, -1, "¬ведите: /g_int_house [interior]");
 
-	SetPlayerPos(playerid, intData[params[0]][exit_x], intData[params[0]][exit_y], intData[params[0]][exit_z]);
-	SetPlayerInterior(playerid, intData[params[0]][interior_id]);
-	
-	return true;
-}
 CMD:givemoney(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 10) 

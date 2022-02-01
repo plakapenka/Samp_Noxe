@@ -38,12 +38,10 @@ public bank_load()
 		cache_get_value_name_int(0, "base_value", base_value);
 		bank_bitcoin_current = bank_bitcoin_start;
 
+		UpdateDeposit(deposit_value);
 		new str_bank[213];
 		format(str_bank, sizeof str_bank, "Курс Bitcoin сейчас\%d $\n\nЗа сегодня\n{ff0505} 0$ ", bank_bitcoin_current);
 		bank_label_crypto = CreateDynamic3DTextLabel(str_bank, 0x018a04FF, 1535.0609,-1235.4969,1390.2891, 8.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 36, 8);
-
-		format(str_bank, sizeof str_bank, "Текущий доход по вкладам\n %d %% в день", deposit_value);
-		bank_label_deposit = CreateDynamic3DTextLabel(str_bank, 0x018a04FF, 1527.5970,-1235.3594,1390.1053, 8.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 36, 8);
 
 		format(str_bank, sizeof str_bank, "Базовая величина в штате:\n %d $", base_value);
 		bank_label_inflation = CreateDynamic3DTextLabel(str_bank, 0x018a04FF, 1527.80,-1215.6796,1390.0957, 8.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 36, 8);
@@ -59,8 +57,20 @@ public bank_load()
 	printf("Не удалось загрузить курсы валют!");
 	return 1;
 }
+
+stock UpdateDeposit(value)
+{
+	deposit_value = value;
+	
+	new str_bank[213];
+	format(str_bank, sizeof str_bank, "Текущий доход по вкладам\n %d %% в день", deposit_value);
+	UpdateDynamic3DTextLabelText(bank_label_deposit, 0x018a04FF, str_bank);
+}
+
 hook OnGameModeInit()
 {	
+	bank_label_deposit = CreateDynamic3DTextLabel("Текущий доход по вкладам\n - в день", 0x018a04FF, 1527.5970,-1235.3594,1390.1053, 8.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 36, 8);
+
 	a_bank_window[0] = CreateDynamicSphere(1540.7819,-1223.3064,1388.3552, 0.8, 36, 1);
 	a_bank_window[1] = CreateDynamicSphere(1540.7831,-1225.7146,1388.3552, 0.8, 36, 1);
 	a_bank_window[2] = CreateDynamicSphere(1540.7806,-1227.8909,1388.3552, 0.8, 36, 1);

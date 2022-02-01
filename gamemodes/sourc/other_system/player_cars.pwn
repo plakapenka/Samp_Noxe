@@ -25,7 +25,7 @@ stock SpawnPlayerVehicle(playerid, slot)
 
 	new houseid = pData[playerid][pHouse];
 
-	if(!hData[houseid][h_garage])
+	if(!hData[houseid][house_garage])
 	{// нет гаража
 
 	}
@@ -41,74 +41,74 @@ stock SpawnPlayerVehicle(playerid, slot)
 	{
 		case 0:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1397.2958, -21.3153, 1000.6000, 180.0000, color1, color2, 60000);
 
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1396.0000, -25.0000, 1000.6000, -90.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1380.0000, -13.4861, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1390.0000, -12.9679, 1000.6000, -142.0000, color1, color2, 60000);
 		}
 		case 1:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,   1390.3330, -21.3153, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1395.8748, -21.0000, 1000.6000, -90.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1384.0000, -13.4861, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1397.0000, -12.9679, 1000.6000, -142.0000, color1, color2, 60000);
 		}
 		case 2:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1384.6168, -21.3153, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1396.0000, -17.0000, 1000.6000, -90.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1388.0000, -13.4861, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1404.0000, -12.9679, 1000.6000, -142.0000, color1, color2, 60000);
 		}
 		case 3:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1396.0000, -13.0000, 1000.6000, -90.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1392.0000, -13.4861, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1390.0000, -24.4551, 1000.6000, -42.00000, color1, color2, 60000);
 		}
 		case 4:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1396.0000, -13.4861, 1000.6000, 180.0000, color1, color2, 60000);
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1397.0000, -24.4551, 1000.6000, -42.00000, color1, color2, 60000);
 
 		}
 		case 5:
 		{
-			if(hData[houseid][h_garage] == 3)
+			if(hData[houseid][house_garage] == 3)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 4)
+			if(hData[houseid][house_garage] == 4)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 5)
+			if(hData[houseid][house_garage] == 5)
 				return SendClientMessage(playerid, COLOR_16ERROR, "В гараже нет места для этой машины!");
-			if(hData[houseid][h_garage] == 6)
+			if(hData[houseid][house_garage] == 6)
 				cars_player[playerid][slot][cVehicleid] = CreateVehicle(modelid,  1404.0000, -24.4551, 1000.6000, -42.00000, color1, color2, 60000);
 		}
 	}
-	LinkVehicleToInterior(cars_player[playerid][slot][cVehicleid], hData[houseid][h_garage]);
+	LinkVehicleToInterior(cars_player[playerid][slot][cVehicleid], hData[houseid][house_garage]);
 	SetVehicleVirtualWorld(cars_player[playerid][slot][cVehicleid], pData[playerid][pHouse]);
 	return 1;
 

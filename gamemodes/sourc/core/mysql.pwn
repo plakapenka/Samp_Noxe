@@ -1,6 +1,9 @@
 #include <YSI_Coding\y_hooks>
 #include <a_mysql>
 
+#define TABLE_HOUSES	"houses"
+#define TABLE_FARMS		"farms"
+
 new MySQL: g_sql; // идентификатор подключения
 
 hook OnGameModeInit()
