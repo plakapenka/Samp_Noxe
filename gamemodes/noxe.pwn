@@ -13,10 +13,6 @@
 #pragma warning disable 239, 214
 // ===============================================
 
-#define PRESSED(%0) (((newkeys & (%0)) == (%0)) && ((oldkeys & (%0)) != (%0)))
-
-#define MULT_DELAY 10 		// Множитель задержки для телепортации в интерьеры через Streamer. Задержка = пинг * множитель
-
 #include "sourc/headers/defines.pwn"		// все глобальные дефайны
 // =========== Текстдравы ===========
 #include "sourc/textdraws/logo.pwn"	
