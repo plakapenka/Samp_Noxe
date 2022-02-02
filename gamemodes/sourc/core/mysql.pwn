@@ -10,7 +10,7 @@ hook OnGameModeInit()
 {
 	printf("======================================");
 	
-	g_sql = mysql_connect("localhost", "root", "", "new_mode");
+	g_sql = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQK_DATABASE);
 
 	if (g_sql == MYSQL_INVALID_HANDLE || mysql_errno(g_sql) != 0)
 	{

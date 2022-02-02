@@ -4,7 +4,7 @@
 new fem_skin_reg[] = {40,55,90};				// Женские скины при регистрации
 new male_skin_reg[]= {137,200,230,239,212,79};	// Мужские скины при регистрации
 
-DialogCreate:dReg_pas(playerid)
+DialogCreate:RegPass(playerid)
 {
 	new str_reg[512];
 	format(str_reg, sizeof str_reg, "{FFFFFF}_______________________________________\n\n\
@@ -14,10 +14,10 @@ DialogCreate:dReg_pas(playerid)
 	Введите пароль:\n\n\
 	_______________________________________",pData[playerid][pName]);
 
-    Dialog_Open(playerid, Dialog:dReg_pas, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 1/4 | {ae433d}Пароль", str_reg,"»", "x");
+    Dialog_Open(playerid, Dialog:RegPass, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 1/4 | {ae433d}Пароль", str_reg,"»", "x");
 }
 
-DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
+DialogResponse:RegPass(playerid, response, listitem, inputtext[])
 {
     if(!response)
 	{
@@ -28,12 +28,12 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 			
 	if(!strlen(inputtext))
 	{
-		Dialog_Show(playerid, Dialog:dReg_pas);
+		Dialog_Show(playerid, Dialog:RegPass);
 		return 1;
 	}
 	if(strlen(inputtext) < 6 || strlen(inputtext) > 16)
 	{
-		Dialog_MessageEx(playerid, Dialog:dReg_pas, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
+		Dialog_MessageEx(playerid, Dialog:RegPass, "Ошибка!", "{FF6347}Длина пароля должна быть от 6 до 15 символов", "Повтор", "");
 		return 1;
 	}
 	for(new i = strlen(inputtext); i != 0; --i)
@@ -42,7 +42,7 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 		{
 			case 'А'..'Я', 'а'..'я', ' ':
 			{
-				Dialog_MessageEx(playerid, Dialog:dReg_pas,  "Ошибка!", "\
+				Dialog_MessageEx(playerid, Dialog:RegPass,  "Ошибка!", "\
 				{00FF21}Введенный вами пароль содержит русские буквы.\n\
 				Смените раскладку клавиатуры!", "Повтор", "");
 				return 1;
@@ -55,71 +55,94 @@ DialogResponse:dReg_pas(playerid, response, listitem, inputtext[])
 	}
 	SHA256_PassHash(inputtext, pData[playerid][pSalt], pData[playerid][pPassword], 65);
 
-	Dialog_Show(playerid, Dialog:dReg_mail);
+	Dialog_Show(playerid, Dialog:RegProtect);
     return 1;
 }
-
-
-
-DialogCreate:dReg_mail(playerid)
+DialogCreate:RegProtect(playerid)
 {
-    Dialog_Open(playerid, Dialog:dReg_mail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 2/4 | {ae433d}Почта", "\
+	Dialog_Open(playerid, Dialog:RegProtect, DIALOG_STYLE_LIST, "{FFFFFF}Регистрация 2/4 | {ae433d}Защита", "\
+	{ffffff}Выберите способ восстановления\n\
+	Привязать {4a8fff}ВКонтакте{ffffff}\n\
+	Привязять {a88e0c}E-mail", "Выбрать", "Пропуск");
+}
+DialogResponse:RegProtect(playerid, response, listitem, inputtext[])
+{
+	if(response)
+	{
+		switch(listitem)
+		{
+			case 1:
+			{//VK
+				Dialog_Show(playerid, Dialog:VkConnect);
+				return 1;
+			}
+		}
+	}
+	else
+	{
+		Dialog_Show(playerid, Dialog:RegPromo);
+	}
+	return 1;
+}
+DialogCreate:RegMail(playerid)
+{
+    Dialog_Open(playerid, Dialog:RegMail, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 2/4 | {ae433d}Почта", "\
 	{ffffff}Введите правильный адрес электронной почты,\n\
 	если вы забудите пароль на него будет выслан новый", "Далее", "Пропуск");
 }
 
-DialogResponse:dReg_mail(playerid, response, listitem, inputtext[])
+DialogResponse:RegMail(playerid, response, listitem, inputtext[])
 {
 	if(response)
 	{
 		if(!strlen(inputtext))
 		{
-			Dialog_Show(playerid, Dialog:dReg_mail);
+			Dialog_Show(playerid, Dialog:RegMail);
 			return 1;
 		}
 		if(strlen(inputtext) < 6 || strlen(inputtext) > 32)
 		{
-			Dialog_MessageEx(playerid, Dialog:dReg_mail, "Ошибка!", "{FF6347}Длина email должна быть от 6 до 32 символов", "Повтор", "");
+			Dialog_MessageEx(playerid, Dialog:RegMail, "Ошибка!", "{FF6347}Длина email должна быть от 6 до 32 символов", "Повтор", "");
 			return 1;
 		}
 		strmid(pData[playerid][pEmail],inputtext, 0, strlen(inputtext));
 	}
-	Dialog_Show(playerid, Dialog:dReg_promo); // показываем диалог ввода промокода
+	Dialog_Show(playerid, Dialog:RegPromo); // показываем диалог ввода промокода
 	return 1;
 }
 
-DialogCreate:dReg_promo(playerid)
+DialogCreate:RegPromo(playerid)
 {
-    Dialog_Open(playerid, Dialog:dReg_promo, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 3/4 | {ae433d}Бонус", "\
+    Dialog_Open(playerid, Dialog:RegPromo, DIALOG_STYLE_INPUT, "{FFFFFF}Регистрация 3/4 | {ae433d}Бонус", "\
 	{ffffff}Введите промокод", "Далее", "Пропуск");
 }
 
-DialogResponse:dReg_promo(playerid, response, listitem, inputtext[])
+DialogResponse:RegPromo(playerid, response, listitem, inputtext[])
 {
 	if(response)
 	{
 		if(!strlen(inputtext))
 		{
-			Dialog_Show(playerid, Dialog:dReg_promo);
+			Dialog_Show(playerid, Dialog:RegPromo);
 			return 1;
 		}
 		if(strlen(inputtext) < 3 || strlen(inputtext) > 10)
 		{
-			Dialog_MessageEx(playerid, Dialog:dReg_promo, "Ошибка!", "{FF6347}Длина promo должна быть от 3 до 10 символов", "Повтор", "");
+			Dialog_MessageEx(playerid, Dialog:RegPromo, "Ошибка!", "{FF6347}Длина promo должна быть от 3 до 10 символов", "Повтор", "");
 			return 1;
 		}
 		strmid(pData[playerid][pPromocode],inputtext, 0, strlen(inputtext));
 	}
-	Dialog_Show(playerid, Dialog:dReg_sex);// показываем диалог выбора пола
+	Dialog_Show(playerid, Dialog:RegSex);// показываем диалог выбора пола
 	return 1;
 }
 
-DialogCreate:dReg_sex(playerid)
+DialogCreate:RegSex(playerid)
 {
-    Dialog_Open(playerid, Dialog:dReg_sex, DIALOG_STYLE_MSGBOX, "{FFFFFF}Регистрация 4/4 | {ae433d}Пол", "\
+    Dialog_Open(playerid, Dialog:RegSex, DIALOG_STYLE_MSGBOX, "{FFFFFF}Регистрация 4/4 | {ae433d}Пол", "\
 	{FFFFFF}Какого пола будет ваш персонаж:\n", "Мужчина", "Женщина");
 }
-DialogResponse:dReg_sex(playerid, response, listitem, inputtext[])
+DialogResponse:RegSex(playerid, response, listitem, inputtext[])
 {
 	DestroyAuthActor(playerid);
 	
@@ -211,6 +234,8 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
 
     	if(clickedid == select_skin_td[7]) 
     	{// кнопка SELECT
+			DeletePVar(playerid, "OnReg");
+
     		strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, MAX_IP_LENGTH, MAX_IP_LENGTH);
 			orm_save(pData[playerid][ORM_ID], "PlayerLogged", "d", playerid);
 

@@ -128,10 +128,10 @@ stock CreateNotificationText(playerid, text[], colortext, colorbox)
 	PlayerTextDrawSetProportional(playerid, notification_text[playerid][3], 1);
 	PlayerTextDrawSetSelectable(playerid, notification_text[playerid][3], 0);
 
-	notification_text[playerid][4] = CreatePlayerTextDraw(playerid, 479.000000, 200.000000, text);
+	notification_text[playerid][4] = CreatePlayerTextDraw(playerid, 479.000000, 202.000000, text);
 	PlayerTextDrawFont(playerid, notification_text[playerid][4], 1);
-	PlayerTextDrawLetterSize(playerid, notification_text[playerid][4], 0.187500, 0.899999);
-	PlayerTextDrawTextSize(playerid, notification_text[playerid][4], 573.000000, 10.500000);
+	PlayerTextDrawLetterSize(playerid, notification_text[playerid][4], 0.16, 0.64);
+	PlayerTextDrawTextSize(playerid, notification_text[playerid][4], 576.00, 10.50);
 	PlayerTextDrawSetOutline(playerid, notification_text[playerid][4], 0);
 	PlayerTextDrawSetShadow(playerid, notification_text[playerid][4], 0);
 	PlayerTextDrawAlignment(playerid, notification_text[playerid][4], 1);

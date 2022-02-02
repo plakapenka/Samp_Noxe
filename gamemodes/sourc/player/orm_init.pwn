@@ -1,7 +1,8 @@
 
-#define MAX_IP_LENGTH 16
-#define MAX_MAIL_LENGTH 26
-#define MAX_PROMO_LENGTH 11
+#define MAX_IP_LENGTH 15+1
+#define MAX_MAIL_LENGTH 15+1
+#define MAX_PROMO_LENGTH 15+1
+#define MAX_VK_LENGHT	32+1
 
 enum E_PLAYERS
 {
@@ -11,6 +12,7 @@ enum E_PLAYERS
 	pPassword[65],
 	pSalt[17],
 	pLogged,
+	pVK[MAX_VK_LENGHT],
 	pIP_reg[MAX_IP_LENGTH], 	// ip регистрационный
 	pIP_last[MAX_IP_LENGTH],	// ip последней сессии
 	pIP_cur[MAX_IP_LENGTH],	// ip текущей сессии
@@ -44,6 +46,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_string(ormid, pData[playerid][pPassword], 65, "pPassword");
 	orm_addvar_string(ormid, pData[playerid][pSalt], 17, "pSalt");
 	orm_addvar_int(ormid,pData[playerid][pLogged], "pLogged");
+	orm_addvar_string(ormid,pData[playerid][pVK], MAX_VK_LENGHT, "pVK");
 	orm_addvar_string(ormid,pData[playerid][pIP_reg], MAX_IP_LENGTH, "pIP_reg");
 	orm_addvar_string(ormid,pData[playerid][pIP_last], MAX_IP_LENGTH, "pIP_last");
 	orm_addvar_string(ormid,pData[playerid][pEmail], MAX_MAIL_LENGTH, "pEmail");
@@ -75,6 +78,7 @@ stock ResetPlayerData(playerid)
 	GetPlayerIp(playerid, pData[playerid][pIP_cur], MAX_IP_LENGTH);
 	strmid(pData[playerid][pEmail], "None", 0, strlen("None"));
 	strmid(pData[playerid][pPromocode], "None", 0, strlen("None"));
+	strmid(pData[playerid][pVK], "None", 0, strlen("None"));
 
 	pData[playerid][ORM_ID] 		= MYSQL_INVALID_ORM;
 	pData[playerid][pMySQL_ID] 		= 0;
@@ -93,10 +97,14 @@ stock ResetPlayerData(playerid)
 }
 
 hook OnPlayerDisconnect(playerid)
-{
-	pData[playerid][pLast_Online] = gettime();
+{	
+	if(!GetPVarInt(playerid, "OnReg"))
+	{
+		pData[playerid][pLast_Online] = gettime();
 
-	orm_save(pData[playerid][ORM_ID]);
+		orm_save(pData[playerid][ORM_ID]);
+	}
+	
 	orm_destroy(pData[playerid][ORM_ID]);
 
 	return Y_HOOKS_CONTINUE_RETURN_1;

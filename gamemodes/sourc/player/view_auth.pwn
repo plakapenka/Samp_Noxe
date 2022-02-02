@@ -45,7 +45,7 @@ public OnPlayerDataLoaded(playerid)
 	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
 	SpawnPlayer(playerid);
 
-	time_for_login[playerid] = SetTimerEx("OnLoginTimeout", SECONDS_TO_LOGIN * 1000, false, "d", playerid);
+	
 
 	orm_setkey(pData[playerid][ORM_ID], "pMySQL_ID");
 
@@ -53,11 +53,13 @@ public OnPlayerDataLoaded(playerid)
 	{
 		case ERROR_OK:
 		{// аккаунт зарегистрирован
+			time_for_login[playerid] = SetTimerEx("OnLoginTimeout", SECONDS_TO_LOGIN * 1000, false, "d", playerid);
 			Dialog_Show(playerid, Dialog:dAutorization);
 		}
 		case ERROR_NO_DATA:
 		{// регистрация нового аккаунта
-			Dialog_Show(playerid, Dialog:dReg_pas);
+			SetPVarInt(playerid, "OnReg", 1);
+			Dialog_Show(playerid, Dialog:RegPass);
 		}
 	
 	}

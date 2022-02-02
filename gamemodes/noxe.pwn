@@ -1,4 +1,5 @@
 #include <a_samp>
+#include <a_http>
 #include <streamer>
 #include <izcmd>
 #include <sscanf2>
@@ -13,6 +14,7 @@
 #pragma warning disable 239, 214
 // ===============================================
 
+#include "config.pwn"
 #include "sourc/headers/defines.pwn"		// все глобальные дефайны
 // =========== Текстдравы ===========
 #include "sourc/textdraws/logo.pwn"	
@@ -28,6 +30,7 @@
 #include "sourc/player/licenses.pwn"			// Лицензии игрока
 
 // ======== 	основы каких-либо систем
+#include "sourc/core/vk.pwn"			// уведомления с планым исчезновением
 #include "sourc/core/notification.pwn"			// уведомления с планым исчезновением
 #include "sourc/core/gates.pwn"					// Шлагбаумы
 #include "sourc/core/cars.pwn"					// Машины
@@ -111,7 +114,10 @@ public OnGameModeInit()
 {
 	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
 
-	SetGameModeText("Role Play");
+	SetGameModeText(GAMEMODE_TEXT);
+	SendRconCommand("hostname "HOST_NAME"");
+	SendRconCommand("language "LANGUAGE_TEXT"");
+
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
 	EnableStuntBonusForAll(0);
