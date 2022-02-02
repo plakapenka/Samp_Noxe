@@ -3,6 +3,22 @@
 	"repo": "noxe",
 	"entry": "gamemodes//noxe.pwn",
 	"output": "gamemodes//noxe.amx",
+	"builds": [
+		{
+		  "name": "dev",
+		  "args": ["-;+", "-(+", "-d3", "-Z+"],
+		  "constants": {
+			"MAX_PLAYERS": "10"
+		  }
+		},
+		{
+		  "name": "live",
+		  "args": ["-;+", "-(+", "-O2", "-Z+"],
+		  "constants": {
+			"MAX_PLAYERS": "250"
+		  }
+		}
+	],
 	"dependencies": [
 		"Zeex/samp-plugin-crashdetect:v4.19.4",
 		"sampctl/samp-stdlib",
@@ -21,7 +37,7 @@
 		"mode": "noxe",
 		"rcon_password": "password",
 		"port": 7777,
-		"hostname": "Noxe Role Play",
+		"hostname": "Noxe",
 		"maxplayers": 50,
 		"language": "",
 		"mapname": "San Andreas",

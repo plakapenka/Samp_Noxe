@@ -144,8 +144,6 @@ DialogCreate:RegSex(playerid)
 }
 DialogResponse:RegSex(playerid, response, listitem, inputtext[])
 {
-	DestroyAuthActor(playerid);
-	
 	pData[playerid][pSex] 		= response;
 
 	InterpolateCameraPos(playerid, 2077.037109, 2086.692626, 27.186000, 2077.936035, 2091.563720, 28.115669, 2000);
@@ -240,7 +238,6 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
 			orm_save(pData[playerid][ORM_ID], "PlayerLogged", "d", playerid);
 
     		hide_select_skin_td(playerid);
-    		CancelSelectTextDraw(playerid);
     		return Y_HOOKS_BREAK_RETURN_1;
     	}
     }

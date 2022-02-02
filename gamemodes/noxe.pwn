@@ -8,7 +8,6 @@
 #include <YSI_Data\y_iterate>
 #include <progress2>
 #include <mdialog>
-#include <crashdetect>
 
 #pragma dynamic 999999
 #pragma warning disable 239, 214
@@ -127,12 +126,33 @@ public OnGameModeInit()
 // все команды в отдельном файле
 #include "sourc/commands.pwn" 
 
-// OnPlayerSpawn в отдельном файле
-#include "sourc/callback/OnPlayerSpawn.pwn" 
+// дефолт спавн сломаная хуйня. Лучше не юзать его и просто перемещать
+stock RespawnPlayer(playerid)
+{
+	SetPlayerSkin(playerid, pData[playerid][pSkin]);
+	update_money(playerid);
+	SetCameraBehindPlayer(playerid);
 
+	if(pData[playerid][pHouse] == INVALID_HOUSE_ID)
+	{
+		if(pData[playerid][pLvl] >= 1)
+		{
+			SetPlayerPos(playerid, 1154.1310,-1769.4207,16.5938);
+			SetPlayerInterior(playerid, 0);
+			SetPlayerVirtualWorld(playerid, 0);
+		}
+	}
+}
 
-// OnSecondUpdate в отдельном файле
-#include "sourc/callback/OnSecondUpdate.pwn" 
+public OnPlayerSpawn(playerid)
+{
+	// смерть вызовет стандартный. по этому надо
+	if(!IsPlayerNPC(playerid))
+		return 1;
+
+	RespawnPlayer(playerid);
+	return 1;
+}
 
 stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, weather=12)
 {
@@ -153,3 +173,12 @@ stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, 
 	SetPlayerVirtualWorld(playerid, world);
 	return 1;
 } 
+
+forward OnSecondUpdate();
+public OnSecondUpdate()
+{
+	foreach (new playerid : Player)
+	{
+		player_second_update(playerid);		
+	}
+}

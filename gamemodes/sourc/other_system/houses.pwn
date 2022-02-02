@@ -182,15 +182,14 @@ DialogResponse:d_house_enter_to(playerid, response, listitem, inputtext[])
 	}
 	return 1;
 }
-hook OnPlayerSpawn(playerid)
+hook function RespawnPlayer(playerid)
 {
-	new houseid = pData[playerid][pHouse];
-	if(houseid != INVALID_HOUSE_ID)
+	if(pData[playerid][pHouse] != INVALID_HOUSE_ID)
 	{
 		SetPVarInt(playerid, "house_id", pData[playerid][pHouse]+1);
 		EnterHouse(playerid);
 	}
-	return Y_HOOKS_CONTINUE_RETURN_1;
+	return continue(playerid);
 }
 DialogCreate:d_house_menu_global(playerid)
 {

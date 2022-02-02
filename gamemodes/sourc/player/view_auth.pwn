@@ -45,8 +45,6 @@ public OnPlayerDataLoaded(playerid)
 	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
 	SpawnPlayer(playerid);
 
-	
-
 	orm_setkey(pData[playerid][ORM_ID], "pMySQL_ID");
 
 	switch (orm_errno(pData[playerid][ORM_ID]))

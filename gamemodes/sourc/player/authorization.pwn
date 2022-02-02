@@ -94,7 +94,7 @@ public PlayerLogged(playerid)
 	pData[playerid][pLogged] = LOGIN_STATUS_ONLINE;
 		
 	DestroyAuthActor(playerid); 		// удаление актеров при авторизации
-	SetCameraBehindPlayer(playerid);	// Возвращение камеры к игроку
+		// Возвращение камеры к игроку
 	CancelSelectTextDraw(playerid);		// убираем курсор
 	GetPlayerHouse(playerid);		// проверяет есть ли у игрока дом
 
@@ -102,6 +102,6 @@ public PlayerLogged(playerid)
 	mysql_format(g_sql, query, sizeof query , "SELECT * FROM `cars` WHERE `owner` = '%s'", pData[playerid][pName]);
 	mysql_tquery(g_sql, query, "LoadPlayerCars", "i", playerid);
 
-	SpawnPlayer(playerid);				
+	RespawnPlayer(playerid);				
 	return 1;
 }
