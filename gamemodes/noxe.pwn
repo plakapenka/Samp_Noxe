@@ -59,6 +59,7 @@
 #include "sourc/admin/commands.pwn"
 #pragma dynamic 9999999
 // ============= объекты
+#include "sourc/objects/ls_spawn.pwn"
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там
 			
  

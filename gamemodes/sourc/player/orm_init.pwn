@@ -120,4 +120,6 @@ hook OnPlayerDisconnect(playerid)
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
+#include "sourc/player/stats.pwn"
+#include "sourc/player/commands/mainmenu.pwn"
 #include "sourc/player/commands/time.pwn"
