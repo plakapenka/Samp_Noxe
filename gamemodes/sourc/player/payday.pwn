@@ -1,0 +1,4 @@
+stock PayDay(playerid)
+{
+    
+}

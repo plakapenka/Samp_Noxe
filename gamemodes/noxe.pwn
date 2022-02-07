@@ -20,6 +20,7 @@
 #include "sourc/textdraws/select_skin.pwn"
 
 #include "sourc/core/mysql.pwn" 				// подключение к базе
+#include "sourc/core/time-wether.pwn" 			// система времени и погоды
 
 // =========	player
 #include "sourc/player/orm_init.pwn"			// Массив pData, привязка переменных ORM
@@ -27,14 +28,14 @@
 #include "sourc/player/registration.pwn" 		// система регистрации
 #include "sourc/player/authorization.pwn"		// система авторизации
 #include "sourc/player/licenses.pwn"			// Лицензии игрока
+#include "sourc/player/payday.pwn"			// Лицензии игрока
 
-// ======== 	основы каких-либо систем
-#include "sourc/core/vk.pwn"			// уведомления с планым исчезновением
+
+#include "sourc/core/vk.pwn"					// vk
 #include "sourc/core/notification.pwn"			// уведомления с планым исчезновением
 #include "sourc/core/gates.pwn"					// Шлагбаумы
 #include "sourc/core/cars.pwn"					// Машины
 #include "sourc/core/money.pwn" 				// система денег
-#include "sourc/core/time-wether.pwn" 			// система времени и погоды
 #include "sourc/core/trigger.pwn" 				// цветные чекпоинты (CreateTrigger)
 #include "sourc/core/area_detect_for.pwn" 		// чему пренадлежит сфера...??
 // 
@@ -47,6 +48,7 @@
 #include "sourc/other_system/adv.pwn"		// объявления
 // ================= Работы
 #include "sourc/works/global.pwn"
+#include "sourc/works/taxi.pwn"
 
 #include "sourc/other_system/farm.pwn"
 
@@ -54,6 +56,7 @@
 
 #include "sourc/textdraws/taxicall.pwn"
 
+#include "sourc/admin/commands.pwn"
 #pragma dynamic 9999999
 // ============= объекты
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там
@@ -64,12 +67,13 @@
 
 // for for
 //#include "//sourc/other_system/shit/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
-//#include "//sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
+#include "//sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
 //#include "//sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
 
 main() 
 { 
-	printf("Частота обновления Streamer = %d мс",Streamer_GetTickRate());
+
+	printf(">> Частота обновления Streamer = %d мс",Streamer_GetTickRate());
 }
 
 stock SendMes(playerid, color, const text[], {Float, _}:...)
@@ -138,6 +142,7 @@ stock RespawnPlayer(playerid)
 		if(pData[playerid][pLvl] >= 1)
 		{
 			SetPlayerPos(playerid, 1154.1310,-1769.4207,16.5938);
+			SetPlayerFacingAngle(playerid, 0.0);
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 		}
@@ -177,8 +182,16 @@ stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, 
 forward OnSecondUpdate();
 public OnSecondUpdate()
 {
+	if(serv_minute == 0 && serv_second == 0)
+	{
+		foreach (new playerid : Player)
+		{
+			PayDay(playerid);
+		}
+	}
 	foreach (new playerid : Player)
 	{
 		player_second_update(playerid);		
 	}
 }
+ 

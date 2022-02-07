@@ -1,4 +1,8 @@
-
+enum E_JOBS_PLAYER
+{
+	JOB_TAXI,
+	JOB_TRUCKER
+}
 #define MAX_IP_LENGTH 15+1
 #define MAX_MAIL_LENGTH 15+1
 #define MAX_PROMO_LENGTH 15+1
@@ -20,6 +24,7 @@ enum E_PLAYERS
 	pPromocode[MAX_PROMO_LENGTH],
 	pSex,
 	pLvl,
+	pExp,
 	pSkin, // текущий скин персонажа
 	pTDSelect,
 	pAdmin,
@@ -30,6 +35,7 @@ enum E_PLAYERS
 	pLast_Online,
 	pHouse,
 	pJob,
+	pJob_Skill[2],
 	pNumber,
 	gg
 };
@@ -53,6 +59,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_string(ormid,pData[playerid][pPromocode], MAX_PROMO_LENGTH, "pPromocode");
 	orm_addvar_int(ormid,pData[playerid][pSex], "pSex");
 	orm_addvar_int(ormid,pData[playerid][pLvl], "pLvl");
+	orm_addvar_int(ormid,pData[playerid][pExp], "pExp");
 	orm_addvar_int(ormid,pData[playerid][pSkin],"pSkin");
 	orm_addvar_int(ormid,pData[playerid][pAdmin],"pAdmin");
 	orm_addvar_int(ormid,pData[playerid][pCash], "pCash");
@@ -61,6 +68,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_int(ormid,pData[playerid][pLicenses], "pLicenses");
 	orm_addvar_int(ormid,pData[playerid][pLast_Online], "pLast_Online");
 	orm_addvar_int(ormid,pData[playerid][pJob], "pJob");
+	orm_addvar_int(ormid,pData[playerid][pJob_Skill][JOB_TAXI], "pSkill_Taxi");
 	orm_addvar_int(ormid,pData[playerid][pNumber], "pNumber");
 	
 	orm_setkey(ormid, "pName");
@@ -80,20 +88,22 @@ stock ResetPlayerData(playerid)
 	strmid(pData[playerid][pPromocode], "None", 0, strlen("None"));
 	strmid(pData[playerid][pVK], "None", 0, strlen("None"));
 
-	pData[playerid][ORM_ID] 		= MYSQL_INVALID_ORM;
-	pData[playerid][pMySQL_ID] 		= 0;
-	pData[playerid][pLogged]		= LOGIN_STATUS_OFFLINE;
-	pData[playerid][pSex]			= 0;
-	pData[playerid][pLvl]			= 1;
-	pData[playerid][pSkin]			= 15;
-	pData[playerid][pAdmin]			= 0;	
-	pData[playerid][pCash]			= 0;
-	pData[playerid][pBank]			= 0;
-	pData[playerid][pBitcoin]		= 0;
-	pData[playerid][pLicenses]		= 0;
-	pData[playerid][pLast_Online]	= gettime();
-	pData[playerid][pJob]			= 0;
-	pData[playerid][pNumber]		= 0;
+	pData[playerid][ORM_ID] 				= MYSQL_INVALID_ORM;
+	pData[playerid][pMySQL_ID] 				= 0;
+	pData[playerid][pLogged]				= LOGIN_STATUS_OFFLINE;
+	pData[playerid][pSex]					= 0;
+	pData[playerid][pLvl]					= 1;
+	pData[playerid][pExp]					= 0;
+	pData[playerid][pSkin]					= 15;
+	pData[playerid][pAdmin]					= 0;	
+	pData[playerid][pCash]					= 0;
+	pData[playerid][pBank]					= 0;
+	pData[playerid][pBitcoin]				= 0;
+	pData[playerid][pLicenses]				= 0;
+	pData[playerid][pLast_Online]			= gettime();
+	pData[playerid][pJob]					= 0;
+	pData[playerid][pNumber]				= 0;
+	pData[playerid][pJob_Skill][JOB_TAXI] 	= 0;
 }
 
 hook OnPlayerDisconnect(playerid)
@@ -109,3 +119,5 @@ hook OnPlayerDisconnect(playerid)
 
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
+
+#include "sourc/player/commands/time.pwn"

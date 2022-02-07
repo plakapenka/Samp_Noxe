@@ -1,13 +1,16 @@
 #include <YSI_Coding\y_hooks>
 
-// Минимальная ставка для каждого из колес. Максимальная ставка = минX2*10
-// Максимальную ставку менять не советую, это основы казика, для того чтобы не работала стратегия аля проиграл > поставил х2
-
-new wheels_min_bet[] = {1000, 5000, 10000};
-
-new wheels_sphere[3];			// область игры для колеса
-new wheel_tick[3];				// количество рандомных значений до конца раунда
-new wheels_timer[3];			// таймер раунда	
+enum E_LUCKYWHEEL
+{
+	wheelObject,
+	wheelOffset, 
+	Float:wheelMoveSpeed,
+	wheelState,
+	wheelSphere,
+	wheelCount,
+	wheelMinBet,
+}
+new wheelData[3][E_LUCKYWHEEL];
 
 hook OnPlayerConnect(playerid)
 {
@@ -15,11 +18,14 @@ hook OnPlayerConnect(playerid)
 	RemoveBuildingForPlayer(playerid, 1895, 1940.6875, 989.1719, 992.8828, 0.01);// casinno fortune
 	RemoveBuildingForPlayer(playerid, 1895, 1943.2188, 986.5234, 992.8828, 0.01);// casinno fortune
 }
-
+stock CreateWheel(wID, Float:wX, Float:wY, Float:wZ, Float:wRz, wBet)
+{
+	wheelData[wID][wheelObject] = CreateObject(1895, wX, wY, wZ, 0.00000, 0.00000, wRz);
+	wheelData[wID][wheelSphere] = CreateDynamicSphere(wX, wY, wZ, 3.0);
+	wheelData[wID][wheelMinBet] = wBet;
+}
 hook OnGameModeInit()
 {
-	CreateDynamicObject(411, 139.2579, 1778.1892, 17.0000, 0.0, 0.0, 0.0);// worldid = -1, interiorid = -1, playerid = -1, Float:streamdistance = STREAMER_OBJECT_SD, Float:drawdistance = STREAMER_OBJECT_DD, STREAMER_TAG_AREA areaid = STREAMER_TAG_AREA -1, priority = 0)
-	CreateObject(411,139.2579, 1778.1892, 17.0000, 0,0,0);
 	// =============== Актеры  (4 дракона)
 	new tmp_actor = CreateActor(11, 1939.2841,989.3802,992.4609,0.0);
 	SetActorVirtualWorld(tmp_actor, 1);
@@ -28,35 +34,24 @@ hook OnGameModeInit()
 	tmp_actor = CreateActor(11, 1943.4309,987.9624,992.4688,274.9825);
 	SetActorVirtualWorld(tmp_actor, 1);
 
-	// =============== Сами колеса фртуны (4 дракона)
+	// ===============колеса фртуны (4 дракона)
 
-    CreateDynamicObject(1895, 1943.20886, 986.55798, 992.89868, 0.00000, 0.00000, 90.00000);
-	CreateDynamicObject(1895, 1940.68750, 989.17188, 992.88281, 0.00000, 0.00000, 180.00000);
-	CreateDynamicObject(1895, 1938.02686, 986.62500, 992.88281, 360.00000, 0.00000, 270.00000);
-	
-	// =============== Игровая зона(4 дракона)
-	wheels_sphere[0] = CreateDynamicSphere(1944.9143,986.5558,992.4688, 3.0);
-	wheels_sphere[1] = CreateDynamicSphere(1940.6801,990.7109,992.4609, 3.0);
-	wheels_sphere[2] = CreateDynamicSphere(1936.5737,986.4600,992.4745, 3.0);
-	
-	wheels_timer[0] = -1;
-	wheels_timer[1] = -1;
-	wheels_timer[2] = -1;
+	// --------id------x----------y----------z-------Rz-----minBet
+	CreateWheel(0, 1943.20886, 986.55798, 992.89868, 90.0,  1000);
+	CreateWheel(1, 1940.68750, 989.17188, 992.88281, 180.0, 2000);
+	CreateWheel(2, 1938.02686, 986.62500, 992.88281, 270.0, 3000);
+
 }
-DialogResponse:d_casino_wheels_bet(playerid, response, listitem, inputtext[])
+DialogResponse:WheelBet(playerid, response, listitem, inputtext[])
 {
 	if(!response)
 	 	return 1;
 
-	new wheel;
-
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
+	new wheel = GetPlayerWheel(playerid);
 
 	new d_cas_str[123];
-	format(d_cas_str, sizeof d_cas_str, "Укажите ставку от %d до %d вирт", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
-	Dialog_Open(playerid, Dialog:d_casino_wheels_bet_money, DIALOG_STYLE_INPUT, "{FFFFFF}Введите вашу ставку", d_cas_str, "Играть","Отмена");
+	format(d_cas_str, sizeof d_cas_str, "Укажите ставку от %d до %d вирт",wheelData[wheel][wheelMinBet], (wheelData[wheel][wheelMinBet])*10);
+	Dialog_Open(playerid, Dialog:WheelBetMoney, DIALOG_STYLE_INPUT, "{FFFFFF}Введите вашу ставку", d_cas_str, "Играть","Отмена");
 	    
 	switch(listitem)
 	{
@@ -68,22 +63,32 @@ DialogResponse:d_casino_wheels_bet(playerid, response, listitem, inputtext[])
 	}    
 	return 1;
 }
-DialogResponse:d_casino_wheels_bet_money(playerid, response, listitem, inputtext[])
+stock GetPlayerWheel(playerid)
+{
+	new wheel_id = -1;
+	for(new ww = 0; ww < sizeof(wheelData); ww++)
+	{
+		if(IsPlayerInDynamicArea(playerid, wheelData[ww][wheelSphere]))
+		{
+			wheel_id = ww;
+			break;
+		}
+	}
+	return wheel_id;
+}
+
+DialogResponse:WheelBetMoney(playerid, response, listitem, inputtext[])
 {
 	if(!response) 
 	{
 	    DeletePVar(playerid, "wheels_bet_mult");
 	    return 1;
 	}
-	new wheel;
+	new wheel = GetPlayerWheel(playerid);
 
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[0])) wheel = 0;
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[1])) wheel = 1;
-	if(IsPlayerInDynamicArea(playerid, wheels_sphere[2])) wheel = 2;
-
-	if(strval(inputtext) < wheels_min_bet[wheel] || strval(inputtext) > (wheels_min_bet[wheel]*2)*10)
+	if( strval(inputtext) < wheelData[wheel][wheelMinBet] || strval(inputtext) > (wheelData[wheel][wheelMinBet]*10) )
 	{
-		SendMes(playerid, 0xeb3434FF, "Сумма ставки от %d до %d", wheels_min_bet[wheel], (wheels_min_bet[wheel]*2)*10);
+		SendMes(playerid, 0xeb3434FF, "Сумма ставки от %d до %d", wheelData[wheel][wheelMinBet], (wheelData[wheel][wheelMinBet]*10));
 		return 1;
 	}
 		
@@ -93,107 +98,159 @@ DialogResponse:d_casino_wheels_bet_money(playerid, response, listitem, inputtext
 		return 1;
 	}
 
-	if(wheels_timer[wheel] != -1)
+	if(wheelData[wheel][wheelState])
 	{
 	    SendClientMessage(playerid, 0xeb3434FF,"Игра уже начата!");
 	    return 1;
 	}
-	        
+	wheelData[wheel][wheelState] = true;
+
+	wheelData[0][wheelMoveSpeed] = 0.2;
+	WheelMove(wheel);
+
+
 	SetPVarInt(playerid, "wheels_bet_money", strval(inputtext));
 
-	wheels_timer[wheel] = SetTimerEx("wheel_tooo",200,1,"d",wheel);
 	SendMes(playerid, 0x00f7ceFF, "Ваша ставка %d$ на X%d", strval(inputtext), GetPVarInt(playerid, "wheels_bet_mult"));
 	give_money(playerid, -strval(inputtext));
 
-	PlayerPlaySound(playerid, 4200, 0.0,0.0,0.0);
+	PlayerPlaySound(playerid, 33400, 0.0,0.0,0.0);
 	return 1;
 }
 
-forward wheel_tooo(idx);
-public wheel_tooo(idx)
+stock WheelMove(wheel)
 {
-	wheel_tick[idx] ++;
-	new wheel_xxx = random(100);
-	new wheel_mult, wheel_name[13];
+    new Float:x, Float:y, Float:z, Float:Rx, Float:Ry, Float:Rz;
 
-	switch(wheel_xxx)
+	GetObjectPos(wheelData[wheel][wheelObject], x, y, z);
+
+	GetObjectRot(wheelData[wheel][wheelObject], Rx, Ry, Rz);
+
+
+    Ry += 36.0; 
+    if(Ry >= 360.0) {
+		Ry = 0.0;
+    } 
+	if(wheelData[wheel][wheelOffset])
+		z += 0.02;
+	else
+		z -= 0.02;
+
+	wheelData[0][wheelOffset] = !wheelData[wheel][wheelOffset];
+
+    MoveObject( wheelData[wheel][wheelObject], x, y, z, wheelData[wheel][wheelMoveSpeed], Rx, Ry, Rz );
+}
+
+hook OnObjectMoved(objectid)
+{
+	for(new wheel = 0; wheel < sizeof(wheelData); wheel++)
 	{
-		case 0..47: 
+		if(wheelData[wheel][wheelObject] == objectid)
 		{
-			wheel_mult = 2;
-			wheel_name = "~g~X2";
-		}
-		case 48..71:
-		{
-			wheel_mult = 4;
-			wheel_name = "~y~X4";
-		}
-		case 72..83: 
-		{
-			wheel_mult = 8;
-			wheel_name = "~b~X8";
-		}
-		case 84..89: 
-		{
-			wheel_mult = 16;
-			wheel_name = "~w~X16";
-		}
-		case 90..93: 
-		{
-			wheel_mult = 32;
-			wheel_name = "~p~X32";
-		}
-		default: 
-		{
-			wheel_mult = 0;
-			wheel_name = "~r~X0";
-		}
-	}
+			new wheel_xxx = random(100);
+			new wheel_mult, wheel_name[15];
 
-	foreach(new i: Player)
-	{
- 		if( IsPlayerInDynamicArea(i, wheels_sphere[idx]) )
-   		{
-			GameTextForPlayer(i, wheel_name, 4000, 6);
-		}
-	}
+			switch(wheel_xxx)
+			{
+				case 0..47: 
+				{
+					wheel_mult = 2;
+					wheel_name = "~g~X2";
+				}
+				case 48..71:
+				{
+					wheel_mult = 4;
+					wheel_name = "~y~X4";
+				}
+				case 72..83: 
+				{
+					wheel_mult = 8;
+					wheel_name = "~b~X8";
+				}
+				case 84..89: 
+				{
+					wheel_mult = 16;
+					wheel_name = "~w~X16";
+				}
+				case 90..93: 
+				{
+					wheel_mult = 32;
+					wheel_name = "~p~X32";
+				}
+				default: 
+				{
+					wheel_mult = 0;
+					wheel_name = "~r~X0";
+				}
+			}
 
-	if(wheel_tick[idx] > 30)
-	{
-	    KillTimer(wheels_timer[idx]);
-	    wheels_timer[idx] = -1;
-	    wheel_tick[idx] = 0;
+			wheelData[wheel][wheelCount] ++;
+			if(wheelData[wheel][wheelCount] > 3)
+			{
+				wheelData[wheel][wheelCount] = 0;
+			}
+			new str_offset[10];
+			for(new offset = 0; offset < wheelData[wheel][wheelCount]; offset++)
+			{
+				strins(str_offset, "~n~", 0);
+			}
+			strins(wheel_name, str_offset, 0);
 
-	    foreach(new i: Player)
-		{
-		    if( IsPlayerInDynamicArea(i, wheels_sphere[idx]) )
-		    {
-		    	SendMes(i, 0x00f7ceFF, "Выпало X%d", wheel_mult);
-		    	if(GetPVarInt(i, "wheels_bet_mult") == wheel_mult && GetPVarInt(i, "wheels_bet_money") > 0)
-		    	{
-		    		SendMes(i, 0x00a80bFF, "Поздравляем! Вы выиграли %d $",GetPVarInt(i, "wheels_bet_money")*wheel_mult);
-		    		give_money(i, GetPVarInt(i, "wheels_bet_money")*wheel_mult);
-		    		PlayerPlaySound(i, 31205, 0.0, 0.0, 0.0);
 
-		    	} 
-		    	else
-		    	{
-		    		SendClientMessage(i, 0xeb3734FF, "Сожалеем, но вы проиграли!");
-		    	}
-		    	DeletePVar(i, "wheels_bet_money");
-		    	DeletePVar(i, "wheels_bet_mult");
+			if(wheelData[wheel][wheelMoveSpeed] <= 0.02)
+			{ // остановилось. конец игры
+				wheelData[wheel][wheelState] = false;
+				foreach(new i: Player)
+				{
+					if( IsPlayerInDynamicArea(i, wheelData[wheel][wheelSphere]) )
+					{
+						GameTextForPlayer(i, wheel_name, 4000, 6);
+
+						SendMes(i, 0x00f7ceFF, "Выпало X%d", wheel_mult);
+						if(GetPVarInt(i, "wheels_bet_mult") == wheel_mult && GetPVarInt(i, "wheels_bet_money") > 0)
+						{
+							SendMes(i, 0x00a80bFF, "Поздравляем! Вы выиграли %d $",GetPVarInt(i, "wheels_bet_money")*wheel_mult);
+							give_money(i, GetPVarInt(i, "wheels_bet_money")*wheel_mult);
+							PlayerPlaySound(i, 31205, 0.0, 0.0, 0.0);
+
+						} 
+						else
+						{
+							PlayerPlaySound(i, 31202, 0.0, 0.0, 0.0);
+							SendClientMessage(i, 0xeb3734FF, "Сожалеем, но вы проиграли!");
+						}
+						DeletePVar(i, "wheels_bet_money");
+						DeletePVar(i, "wheels_bet_mult");
+					}
+				}
+			}
+			else
+			{
+				foreach(new i: Player)
+				{
+					if( IsPlayerInDynamicArea(i, wheelData[wheel][wheelSphere]) )
+					{
+						GameTextForPlayer(i, wheel_name, 4000, 6);
+					}
+				}
+
+				wheelData[wheel][wheelMoveSpeed] -= 0.01;
+				WheelMove(wheel);
 			}
 		}
+		return Y_HOOKS_BREAK_RETURN_1;
 	}
+	
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
 	if(!(newkeys & KEY_SECONDARY_ATTACK) && oldkeys & KEY_SECONDARY_ATTACK)
 	{
-	    if(IsPlayerInDynamicArea(playerid, wheels_sphere[0]) || IsPlayerInDynamicArea(playerid, wheels_sphere[1]) || IsPlayerInDynamicArea(playerid, wheels_sphere[2]))
+	    if(GetPlayerWheel(playerid) != -1)
 		{
-	    	Dialog_Open(playerid, Dialog:d_casino_wheels_bet, DIALOG_STYLE_LIST," Сделайте ставку","X2\nX4\nX8\nX16\nX32","Выбрать","Отмена");
+	    	Dialog_Open(playerid, Dialog:WheelBet, DIALOG_STYLE_LIST," Сделайте ставку","X2\nX4\nX8\nX16\nX32","Выбрать","Отмена");
 	    	return Y_HOOKS_BREAK_RETURN_1;
 		}
 	}

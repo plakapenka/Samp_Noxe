@@ -18,9 +18,9 @@ hook OnGameModeInit()
 		SendRconCommand("exit"); // close the server if there is no connection
 		return 1;
 	}
-	mysql_log(WARNING);
+	mysql_log(DEBUG);
 	
 
-	print("Подключение к базе MySQL успешно!");
+	print(">> Подключение к базе MySQL успешно!");
 	return 1;
 }

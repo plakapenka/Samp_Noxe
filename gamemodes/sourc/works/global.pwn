@@ -6,7 +6,7 @@
 
 #include <YSI_Coding\y_hooks>
 
-#define JOB_TRUCKER 1
+#define JobLVL(%0) (floatround(%0/100)+1)
 
 new pickup_workCenter_enter;
 new pickup_workCenter_exit;
@@ -18,8 +18,8 @@ hook OnGameModeInit()
 	pickup_workCenter_enter 	= CreateDynamicPickup(19132, 23, 1081.2308, -1696.7837, 13.5469);
 	pickup_workCenter_exit	 	= CreateDynamicPickup(19132, 23, -25.9915,-298.6004,1007.4140, 55, 15);
 
-	new workCenter_actor = CreateActor(150, -26.0479,-287.7954,1007.5390,180.0); // актеры в банке на кассе
-	ApplyActorAnimation(workCenter_actor, "PED", "SEAT_down",4.1, 0, 1, 1, 1, 1);
+	new workCenter_actor = CreateActor(150, -26.0479,-287.7954,1007.5390,180.0); // актеры в центре занятости
+	ApplyActorAnimation(workCenter_actor, "PED", "SEAT_down",4.1, 0, 1, 1, 1, 1);// на бутылку
 	SetActorVirtualWorld(workCenter_actor, 55);
 
 	CreateDynamicPickup(1314, 23, -25.7811,-290.3087,1007.5390, 55, 15);
