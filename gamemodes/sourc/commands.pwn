@@ -1,20 +1,3 @@
-
-CMD:getpos(playerid, params[])
-{
-	if(pData[playerid][pAdmin] < 5) 
-		return true;
-	//if(sscanf(params, "dd",params[0], params[1])) 
-	//	return	SendClientMessage(playerid, -1, "¬ведите: /attach_trailer [id] [id]");
-
-	new Float: x, Float: y, Float: z;
-
-	GetPlayerPos(playerid, x, y, z);
-
-	SendMes(playerid, -1, "%f, %f, %f", x, y, z);
-	
-	return true;
-}
-
 CMD:setskin(playerid, params[])
 {
 	if(pData[playerid][pAdmin] < 5) 
@@ -27,37 +10,6 @@ CMD:setskin(playerid, params[])
 	return true;
 }
 
-CMD:cree(playerid, params[])
-{
-	if(pData[playerid][pAdmin] < 5) 
-		return true;
-	if(sscanf(params, "d",params[0])) 
-		return	SendClientMessage(playerid, -1, "¬ведите: /givemoney [id] [money]");
-
-	new tmpobjid = CreateDynamicObject(2640,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-    AttachDynamicObjectToVehicle(tmpobjid, params[0], 0.000, 3.131, 3.779, 0.000, 0.000, 0.000);
-    tmpobjid = CreateDynamicObject(2640,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-    AttachDynamicObjectToVehicle(tmpobjid, params[0], 0.000, 0.310, 2.969, 0.000, 0.000, 0.000);
-
-//	SetPlayerPos(playerid, x, y, z);
-	
-	return true;
-}
-
-CMD:gggg(playerid, params[])
-{
-	if(pData[playerid][pAdmin] < 5) 
-		return true;
-	if(sscanf(params, "d",params[0])) 
-		return	SendClientMessage(playerid, -1, "¬ведите: /givemoney [id] [money]");
-
-	new Float:x, Float:y, Float:z;
-	GetDynamicObjectPos(params[0], x, y, z);
-
-	SetPlayerPos(playerid, x, y, z);
-	
-	return true;
-}
 
 CMD:givemoney(playerid, params[])
 {

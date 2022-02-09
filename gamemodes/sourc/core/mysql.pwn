@@ -22,5 +22,5 @@ hook OnGameModeInit()
 	
 
 	print(">> Подключение к базе MySQL успешно!");
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }

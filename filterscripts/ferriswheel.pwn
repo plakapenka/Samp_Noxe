@@ -53,6 +53,10 @@ public RotateWheel()
 
 public OnFilterScriptInit()
 {
+task Ping[1000]()
+{
+____printf("Ping");
+}
 	gFerrisWheel = CreateObject( 1895, gFerrisOrigin[0], gFerrisOrigin[1], gFerrisOrigin[2],
 	  							 0.0, 0.0, -90, 300 );
 

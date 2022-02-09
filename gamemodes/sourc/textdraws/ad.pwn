@@ -50,7 +50,7 @@ hook OnGameModeInit()
 	TextDrawSetProportional(aDvTextDraw[2], 1);
 	TextDrawSetSelectable(aDvTextDraw[2], 0);
 
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 hook GameModeExit()

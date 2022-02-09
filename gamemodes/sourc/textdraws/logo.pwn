@@ -204,5 +204,5 @@ hook OnGameModeInit()
 	TextDrawFont(g_szServerLogo[19], 4);
 
 
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }

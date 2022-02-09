@@ -218,21 +218,18 @@ public FarmLoad(farmid)
 		CreateDynamic3DTextLabel(str_water, 0x00675bFF, farm_coords[farmid][1][0], farm_coords[farmid][1][1], farm_coords[farmid][1][2], 20.0);
 
 	// === раздевалка
-	CreateDynamicPickup(1275, 1, farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2]);
-	farm_Data[farmid][farm_clothArea] = CreateDynamicSphere(farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2], 1.0);
+	farm_Data[farmid][farm_clothArea] = CreatePick(1275, farm_coords[farmid][2][0], farm_coords[farmid][2][1], farm_coords[farmid][2][2]);
 
 
 	// === инфо
-	CreateDynamicPickup(1239, 1, farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2]);
 	CreateDynamic3DTextLabel("Информация", 0x009688FF, farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2], 10.0);
-	farm_Data[farmid][farm_infoArea] = CreateDynamicSphere(farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2], 1.0);
+	farm_Data[farmid][farm_infoArea] = CreatePick(1239, farm_coords[farmid][4][0], farm_coords[farmid][4][1], farm_coords[farmid][4][2]);
 
 	// === Чекпоинт разгрузки урожая
 	CreateDynamicCP(farm_coords[farmid][1][0], farm_coords[farmid][1][1], farm_coords[farmid][1][2], 1.9);
 
 	// === Пикап с инструментами
-	CreateDynamicPickup(2228, 1, 293.3154, 1141.6218, 9.2814);
-	farm_Data[farmid][farm_storeArea] = CreateDynamicSphere(293.3154, 1141.6218, 9.2814, 1.0);
+	farm_Data[farmid][farm_storeArea] = CreatePick(2228, 293.3154, 1141.6218, 9.2814);
 
 	printf("> Ферма %d загружена!", farmid);
 	return 1;

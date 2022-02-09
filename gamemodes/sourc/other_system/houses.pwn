@@ -1,7 +1,8 @@
-
-// == доп интерьеры
-#include "sourc/objects/house_int37.pwn"
 #include "sourc/other_system/house_interiors.pwn"
+#include "sourc/objects/houses/37hint.pwn"
+#include "sourc/objects/houses/38hint.pwn"
+
+
 #include <YSI_Coding\y_hooks>
 
 

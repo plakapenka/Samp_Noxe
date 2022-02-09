@@ -13,7 +13,7 @@ hook OnGameModeInit()
 
     CreateDynamic3DTextLabel("Вокзал ЛС - Фермы - Автошкола\n« Проезд бесплатный »", 0x33AA33FF, 0.0, 0.0, 2.25, 50.0, INVALID_PLAYER_ID, bot_bus);
     
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 hook OnPlayerSpawn(playerid)
