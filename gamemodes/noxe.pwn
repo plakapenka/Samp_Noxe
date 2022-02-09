@@ -160,13 +160,17 @@ public OnPlayerSpawn(playerid)
 	return 1;
 }
 
-stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int, world, weather=12)
+stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int = 0, world = 0, weather=-1)
 {
 	if(int)
 	{
 		Streamer_UpdateEx(playerid, x, y, z, world, int, 0, GetPlayerPing(playerid)*MULT_DELAY);
 		SetPlayerTime(playerid, 12,00);
-		SetPlayerWeather(playerid, weather);
+
+		if(weather == -1) 
+			SetPlayerWeather(playerid, serv_weather);
+		else 
+			SetPlayerWeather(playerid, weather);
 	}
 	else
 	{
@@ -195,4 +199,9 @@ public OnSecondUpdate()
 		player_second_update(playerid);		
 	}
 }
- 
+
+CreatePick(model, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, playerid = -1)
+{
+	CreateDynamicPickup(model, 1, x, y, z, worldid, interiorid, playerid);
+	return CreateDynamicSphere(x, y, z, 1.0, worldid, interiorid, playerid);
+}
