@@ -23,6 +23,9 @@ enum e_vehicle
 	vDoor_BL,	// дверь задн€€ лева€
 	vDoor_BR,	// дверь задн€€ права€
 	Float:vFuell,		// бензин
+	vLoad,
+	vPickUp,
+	Text3D:vLabel,
 	vOwner_type,
 	vOwner_name,
 	vGarage_slot
@@ -36,8 +39,7 @@ new PlayerText:td_car_control_p[MAX_PLAYERS][9];
 #define color_control_car_on 	color16_light
 #define color_control_car_off 	color16_dark
 
-// вызов в OnSecondUpdate
-stock player_second_update(playerid)
+hook function player_second_update(playerid)
 {
 	new vehicleid = GetPlayerVehicleID(playerid);
 
@@ -55,6 +57,7 @@ stock player_second_update(playerid)
 			//SendClientMessage(playerid, 0xab0000FF, "ƒвигатель заглох! ѕроверьте уровень топлива!");
 		}
 	}
+	return continue(playerid);
 }
 
 stock vehicle_params_set(vehicleid, params, set)

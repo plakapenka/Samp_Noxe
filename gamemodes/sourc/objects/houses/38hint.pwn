@@ -103,8 +103,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 1355, "break_s_bins", "CJ_WOOD_DARK", 0);
 	tmp_obj = CreateDynamicObject(19087, 248.371933, -8.637866, 1501.670166, 0.000000, 0.000007, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 1560, "7_11_door", "CJ_CHROME2", 0);
-	tmp_obj = CreateDynamicObject(11737, 250.553329, -8.382249, 1499.995361, 0.000000, 0.000000, 0.000000, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14812, "lee_studhall", "carpet", 0);
 	tmp_obj = CreateDynamicObject(19087, 250.521225, -3.866380, 1500.853149, 0.000000, 0.000014, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 1560, "7_11_door", "CJ_CHROME2", 0);
 	tmp_obj = CreateDynamicObject(2714, 251.267441, -7.033495, 1502.631836, 89.999992, 90.000015, -89.999962, -1, tmp_int); // 2
@@ -135,8 +133,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(19353, 248.520981, -3.509569, 1501.739624, 0.000000, 0.000000, 270.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 12944, "ce_bankalley2", "sw_brick04", 0);
-	tmp_obj = CreateDynamicObject(2948, 249.625717, -8.987110, 1499.999390, 0.000000, 0.000000, 470.000000, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 6284, "bev_law2", "comptwindo2", 0xFFFFFFFF);
 	tmp_obj = CreateDynamicObject(19477, 249.431992, -3.412523, 1501.780029, 90.000000, 0.000000, -90.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 17851, "cinemart_alpha", "shadow_law", 0x11000000);
 	tmp_obj = CreateDynamicObject(19087, 250.521225, -3.546068, 1500.853149, 0.000000, 0.000014, 0.000000, -1, tmp_int); // 1
@@ -153,8 +149,6 @@ hook OnGameModeInit()
 	CreateDynamicObject(2855, 250.976669, -3.720506, 1500.419800, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(19939, 250.966782, -3.701342, 1500.427612, 0.000014, 0.000000, 89.999954, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 15040, "cuntcuts", "GB_mike01", 0);
-	tmp_obj = CreateDynamicObject(2689, 250.064316, -9.334156, 1500.986328, 0.000000, -0.000029, 179.999817, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 14846, "genintintpoliceb", "copbtm_green", 0);
 	tmp_obj = CreateDynamicObject(19426, 250.047226, -4.237109, 1498.639282, 0.000000, 0.000000, 180.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(19087, 251.398056, -3.866380, 1500.853149, 0.000000, 0.000007, 0.000000, -1, tmp_int); // 1
@@ -163,11 +157,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 3694, "ryderholes", "ryd_holes", 0x22000000);
 	tmp_obj = CreateDynamicObject(8875, 251.756699, -4.236620, 1501.767578, 0.000000, 0.000000, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 1, 14789, "ab_sfgymmain", "ab_wood02", 0);
-	tmp_obj = CreateDynamicObject(2689, 250.064316, -9.534350, 1500.986328, 0.000000, -0.000029, 179.999817, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 2819, "gb_bedroomclths01", "GB_clothesbed02", 0);
-	CreateDynamicObject(2386, 250.212387, -9.387621, 1501.860352, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(2689, 250.804550, -9.267381, 1500.986328, 0.000000, -0.000029, 239.999817, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 2819, "gb_bedroomclths01", "GB_clothesbed01", 0);
 	tmp_obj = CreateDynamicObject(1770, 250.955551, -3.352098, 1500.532593, -0.000007, 90.000000, -89.999977, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 1560, "7_11_door", "CJ_CHROME2", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
@@ -183,10 +172,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 2, 14665, "genintint711_1", "interiorwindowglow", 0);
 	SetDynamicObjectMaterial(tmp_obj, 1, 14665, "genintint711_1", "interiorwindowglow", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "ab_panel5", 0);
-	tmp_obj = CreateDynamicObject(2654, 250.611557, -9.392259, 1500.189575, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(2689, 251.062607, -9.300829, 1500.986328, 0.000000, -0.000029, 209.999817, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 2819, "gb_bedroomclths01", "GB_clothesbed04", 0);
 	tmp_obj = CreateDynamicObject(2707, 249.318222, -2.970386, 1502.370239, 0.000000, 0.000007, 0.000000, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 14789, "ab_sfgymmain", "ab_wood02", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
@@ -195,42 +180,24 @@ hook OnGameModeInit()
 	tmp_obj = CreateDynamicObject(1770, 250.955551, -3.352098, 1499.712158, -0.000007, 90.000000, -89.999977, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 1560, "7_11_door", "CJ_CHROME2", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(2654, 250.611557, -9.392259, 1502.360352, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 3
-	SetDynamicObjectMaterial(tmp_obj, 2, 18034, "cj_ammun_extra", "CJ_BULLETBOX2c", 0);
-	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 981, "helixbarrier", "colourboxes", 0);
 	tmp_obj = CreateDynamicObject(19353, 248.528915, -3.504565, 1498.639282, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	CreateDynamicObject(19814, 248.166977, -2.724291, 1501.310059, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(2948, 251.595566, -8.978321, 1499.999390, 0.000000, 0.000000, 200.000000, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 6284, "bev_law2", "comptwindo2", 0xFFFFFFFF);
 	tmp_obj = CreateDynamicObject(19477, 248.174789, -2.731859, 1501.780029, 90.000000, 0.000000, -180.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 17851, "cinemart_alpha", "shadow_law", 0x11000000);
 	tmp_obj = CreateDynamicObject(19353, 248.006577, -8.932298, 1498.639282, -0.000014, -0.000007, -89.999939, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(19482, 250.574570, -9.631640, 1500.008301, 90.000000, 0.000000, 90.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0xF04F4F2F);
-	CreateDynamicObject(2384, 251.133286, -9.387621, 1501.860352, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(19482, 248.103622, -9.830370, 1501.650513, 90.000000, 0.000000, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 3694, "ryderholes", "ryd_holes", 0x22000000);
-	tmp_obj = CreateDynamicObject(2689, 251.102646, -9.551074, 1500.986328, 0.000000, -0.000029, 179.999817, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 2819, "gb_bedroomclths01", "GB_clothesbed03", 0);
-	CreateDynamicObject(11735, 251.339951, -9.274095, 1500.010986, 0.000000, 0.000000, 180.000000, -1, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(2274, 252.399399, -8.359544, 1501.149414, 0.000000, -0.000007, 179.999847, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 14420, "dr_gsbits", "mp_apt1_pic6", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 1746, "cj_sofa", "CJ_WOOD_RUN", 0);
-	tmp_obj = CreateDynamicObject(19174, 250.573959, -9.796192, 1501.749634, -90.000000, 0.000000, 0.000000, -1, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 1560, "7_11_door", "CJ_CHROME2", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 1355, "break_s_bins", "CJ_WOOD_DARK", 0);
 	tmp_obj = CreateDynamicObject(2274, 252.399399, -8.359544, 1501.679932, 0.000000, -0.000007, 179.999847, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 14420, "dr_gsbits", "mp_apt1_pic8", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 1746, "cj_sofa", "CJ_WOOD_RUN", 0);
-	CreateDynamicObject(11735, 251.470078, -9.274095, 1500.010986, 0.000000, 0.000000, 180.000000, -1, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(19353, 248.008530, -9.900196, 1501.739624, 0.000000, 0.000000, 180.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19853, "mihouse1", "redwall1", 0);
-	tmp_obj = CreateDynamicObject(19174, 250.573959, -9.796192, 1502.139893, -90.000000, 0.000000, 0.000000, -1, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 1560, "7_11_door", "CJ_CHROME2", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 1355, "break_s_bins", "CJ_WOOD_DARK", 0);
 	tmp_obj = CreateDynamicObject(19353, 248.521103, -4.953295, 1504.739258, 0.000000, 180.000000, 90.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(19445, 248.012680, -7.172288, 1504.739258, 0.000000, 180.000000, 180.000000, -1, tmp_int); // 1
@@ -240,9 +207,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(18763, 248.125107, -10.497364, 1501.339233, -0.000014, -0.000014, -179.999893, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 1355, "break_s_bins", "CJ_WOOD_DARK", 0xFFFFFFFF);
-	tmp_obj = CreateDynamicObject(14494, 250.574570, -10.439012, 1500.950928, -0.000050, 0.000000, -89.999840, -1, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 15040, "cuntcuts", "GB_mike01", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(2559, 248.578232, -1.877611, 1500.929688, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 14702, "masmall3int2", "HS2_Curt2", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 1560, "7_11_door", "CJ_CHROME2", 0);
@@ -255,9 +219,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(19353, 248.012680, -9.912158, 1498.639282, 0.000000, 0.000000, 180.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
-	tmp_obj = CreateDynamicObject(14494, 250.574570, -10.439012, 1499.820435, -0.000050, 0.000000, -89.999840, -1, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 15040, "cuntcuts", "GB_mike01", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(19445, 249.857162, -8.932298, 1504.739258, -0.000014, 180.000000, -89.999939, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	CreateDynamicObject(2829, 248.543930, -1.639086, 1501.106445, 0.000000, 0.000000, 0.000000, -1, tmp_int); // 0
@@ -431,9 +392,6 @@ hook OnGameModeInit()
 	tmp_obj = CreateDynamicObject(2630, 255.044296, -4.266283, 1502.662720, -89.999992, -6.773983, 83.225975, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 2, 14534, "ab_wooziea", "light_full", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 10765, "airportgnd_sfse", "white", 0);
-	tmp_obj = CreateDynamicObject(2128, 248.650131, 0.054882, 1500.059448, 0.000014, 0.000000, 89.999954, -1, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 14665, "genintint711_1", "interiorwindowglow", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "ab_panel5", 0);
 	tmp_obj = CreateDynamicObject(19939, 254.416489, -2.499926, 1500.874756, 0.000000, 0.000014, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14789, "ab_sfgymmain", "ab_wood02", 0);
 	tmp_obj = CreateDynamicObject(19426, 255.470932, -4.977587, 1501.739624, 0.000000, -0.000044, -89.999672, -1, tmp_int); // 1
@@ -600,7 +558,7 @@ hook OnGameModeInit()
 	tmp_obj = CreateDynamicObject(2251, 251.786240, 1.718088, 1501.839966, 0.000000, 0.000000, 0.000000, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	CreateDynamicObject(2689, 257.345673, -4.085741, 1500.613770, 0.000003, 0.000003, 44.999989, -1, tmp_int); // 0
+
 	tmp_obj = CreateDynamicObject(19426, 254.776718, -1.093309, 1504.739258, -0.000007, 180.000000, -89.999947, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14581, "ab_mafiasuitea", "ab_wood01", 0);
 	tmp_obj = CreateDynamicObject(949, 254.435654, 0.426586, 1501.042358, -0.000022, -0.000007, -179.999603, -1, tmp_int); // 3
@@ -1047,8 +1005,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(18764, 260.580200, -1.554124, 1497.499146, 0.000000, 90.000000, 0.000000, -1, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14389, "madpoolbit", "AH_flroortile4", 0);
-	tmp_obj = CreateDynamicObject(11737, 261.067474, -1.482226, 1499.999146, 0.000000, 0.000000, 90.000000, -1, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14812, "lee_studhall", "carpet", 0);
 	tmp_obj = CreateDynamicObject(18066, 260.323090, -0.003588, 1502.507324, 89.999992, 414.060547, -54.060608, -1, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 1355, "break_s_bins", "CJ_WOOD_DARK", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 1355, "break_s_bins", "CJ_WOOD_DARK", 0);

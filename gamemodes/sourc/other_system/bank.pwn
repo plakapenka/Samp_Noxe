@@ -313,7 +313,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-hook OnSecondUpdate()
+hook function OnSecondUpdate()
 {
 	bank_timer ++;
 	if(bank_timer >= TIME_UPDATE_BITCONE)
@@ -342,5 +342,5 @@ hook OnSecondUpdate()
 		}
 		UpdateDynamic3DTextLabelText(Text3D:bank_label_crypto, 0x018a04FF, format_str);
 	}
-	return Y_HOOKS_CONTINUE_RETURN_1;
+	return continue();
 }

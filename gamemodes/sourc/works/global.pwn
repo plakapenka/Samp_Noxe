@@ -6,7 +6,7 @@
 
 #include <YSI_Coding\y_hooks>
 
-#define JobLVL(%0) (floatround(%0/100)+1)
+#define JOBLVL(%0) (floatround(%0/100)+1)
 
 new pickup_workCenter_enter;
 new pickup_workCenter_exit;
@@ -50,4 +50,83 @@ hook OnPlayerPickUpDynPickup(playerid, pickupid)
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
+}
+hook OnPlayerEnterDynArea(playerid, areaid)
+{
+	if(areaid == pickup_workCenter_jobs)
+	{
+		Dialog_Show(playerid, Dialog:JobsList);
+		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	return Y_HOOKS_CONTINUE_RETURN_1;
+}
+DialogCreate:JobsList(playerid)
+{
+	Dialog_Open(playerid, Dialog:JobsList, DIALOG_STYLE_LIST, "Список работ", "\
+	> Мусорщик\n\
+	> Таксист", "Устроиться", "Закрыть");
+}
+DialogResponse:JobsList(playerid, response, listitem, inputtext[])
+{
+	if(!response)
+		return 1;
+
+	switch(listitem)
+	{
+		case 0:
+		{
+			pData[playerid][pJob] = JOB_CLEANER;
+			ShowJobInfo(playerid, JOB_CLEANER);
+			return 1;
+		}
+		
+	}
+	return 1;
+}
+stock ShowJobInfo(playerid, job)
+{
+	switch(job)
+	{
+		case JOB_CLEANER:
+		{
+			Dialog_Message(playerid, "О работе мусорщика", "\
+			{a1887f}Мусорщик опорожняет контейнеры или собирает требующие опорожнения контейнеры и \n\
+			доставляет их на мусорную свалку или на пункт сбора отходов. \n\n\
+			До начала рабочего дня водитель получает от диспетчера маршрут сбора мусора, \n\
+			на котором указан самый короткий путь для того, чтобы собрать мусор.\n\n\n\
+			{ffffff}Команды:\n\
+			  {a1887f}/trash {ffffff}- начать загрузку мусоровоза\n\
+			  {a1887f}'Y' {ffffff}- забрать мусор из контейнера", "Хорошо");
+			
+		}
+	}
+}
+
+CMD:jskill(playerid)
+{
+	new job_skill_str[1028], job_str[250];
+	new exp;
+
+	exp = floatround(pData[playerid][pJob_Skill][JOB_CLEANER]-floatround(pData[playerid][pJob_Skill][JOB_CLEANER]/100, floatround_floor)*100 );
+	format(job_str,sizeof(job_str), "{fdd835}Мусорщик:\t\t{ffffff}Уровень - {fdd835}%d{ffffff}, Опыт - {fdd835}%s %d/100\n",
+	JOBLVL(pData[playerid][pJob_Skill][JOB_CLEANER]), ToDevelopSkills(exp, 100-exp), exp);
+	strcat(job_skill_str, job_str);
+
+	ShowPlayerDialog(playerid,1100,DIALOG_STYLE_MSGBOX, " ",job_skill_str, "Готово", "");
+	return 1;
+}
+
+stock GiveJobSkill(playerid, job, count)
+{
+	pData[playerid][pJob_Skill][job] += count;
+}
+
+stock ToDevelopSkills(Slashes,Points)
+{
+	new SlashesAndPoints[200];
+	new Slash[2] = "|";
+	new Point[2] = "'";
+	for(new i = 0; i < Slashes; i++) strcat(SlashesAndPoints, Slash);
+	for(new i = 0; i < Points; i++) strcat(SlashesAndPoints, Point);
+	return SlashesAndPoints;
 }

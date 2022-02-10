@@ -347,19 +347,19 @@ DialogResponse:d_farm_store(playerid, response, listitem, inputtext[])
 	{
 		case 0:
 		{//лопата 
-			SetPlayerAttachedObject( playerid, 3, 2228, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPlayerAttachedObject(playerid, 0, 2228, 4, 0.6289, -0.2339, -0.0280, -71.5000, -3.4999, 0.0000, 1.0000, 1.0000, 1.0000, 0, 0); //Правая рука
 			SetPVarInt(playerid, "farm_tool", FARM_TOOL_SHOVEL);
 			return 1;
 		}
 		case 1:
 		{//семена 
-			SetPlayerAttachedObject( playerid, 3, 2247, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPlayerAttachedObject( playerid, 0, 2247, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
 			SetPVarInt(playerid, "farm_tool", FARM_TOOL_SEEDS);
 			return 1;
 		}
 		case 2:
 		{//грабли 
-			SetPlayerAttachedObject( playerid, 3, 18890, 6, 0.003288, 0.105444, 0.187527, 1.000000,1.000000,1.000000,1.000000,1.000000); //Правая рука
+			SetPlayerAttachedObject(playerid, 0, 18890, 4, 0.5400, 0.2209, 0.1909, -71.5000, -3.4999, 0.0000, 1.0000, 1.0000, 1.0000, 0, 0); //Правая рука
 			SetPVarInt(playerid, "farm_tool", FARM_TOOL_RAKE);
 			return 1;
 		}

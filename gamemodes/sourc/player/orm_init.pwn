@@ -1,5 +1,6 @@
-enum E_JOBS_PLAYER
+enum
 {
+	JOB_CLEANER,
 	JOB_TAXI,
 	JOB_TRUCKER
 }
@@ -35,7 +36,7 @@ enum E_PLAYERS
 	pLast_Online,
 	pHouse,
 	pJob,
-	pJob_Skill[2],
+	pJob_Skill[4],
 	pNumber,
 	gg
 };
@@ -68,7 +69,9 @@ stock InitPlayerData(playerid)
 	orm_addvar_int(ormid,pData[playerid][pLicenses], "pLicenses");
 	orm_addvar_int(ormid,pData[playerid][pLast_Online], "pLast_Online");
 	orm_addvar_int(ormid,pData[playerid][pJob], "pJob");
+	orm_addvar_int(ormid,pData[playerid][pJob_Skill][JOB_CLEANER], "pSkill_Cleaner");
 	orm_addvar_int(ormid,pData[playerid][pJob_Skill][JOB_TAXI], "pSkill_Taxi");
+	orm_addvar_int(ormid,pData[playerid][pJob_Skill][JOB_TRUCKER], "pSkill_Trucker");
 	orm_addvar_int(ormid,pData[playerid][pNumber], "pNumber");
 	
 	orm_setkey(ormid, "pName");
@@ -88,22 +91,24 @@ stock ResetPlayerData(playerid)
 	strmid(pData[playerid][pPromocode], "None", 0, strlen("None"));
 	strmid(pData[playerid][pVK], "None", 0, strlen("None"));
 
-	pData[playerid][ORM_ID] 				= MYSQL_INVALID_ORM;
-	pData[playerid][pMySQL_ID] 				= 0;
-	pData[playerid][pLogged]				= LOGIN_STATUS_OFFLINE;
-	pData[playerid][pSex]					= 0;
-	pData[playerid][pLvl]					= 1;
-	pData[playerid][pExp]					= 0;
-	pData[playerid][pSkin]					= 15;
-	pData[playerid][pAdmin]					= 0;	
-	pData[playerid][pCash]					= 0;
-	pData[playerid][pBank]					= 0;
-	pData[playerid][pBitcoin]				= 0;
-	pData[playerid][pLicenses]				= 0;
-	pData[playerid][pLast_Online]			= gettime();
-	pData[playerid][pJob]					= 0;
-	pData[playerid][pNumber]				= 0;
-	pData[playerid][pJob_Skill][JOB_TAXI] 	= 0;
+	pData[playerid][ORM_ID] 					= MYSQL_INVALID_ORM;
+	pData[playerid][pMySQL_ID] 					= 0;
+	pData[playerid][pLogged]					= LOGIN_STATUS_OFFLINE;
+	pData[playerid][pSex]						= 0;
+	pData[playerid][pLvl]						= 1;
+	pData[playerid][pExp]						= 0;
+	pData[playerid][pSkin]						= 15;
+	pData[playerid][pAdmin]						= 0;	
+	pData[playerid][pCash]						= 0;
+	pData[playerid][pBank]						= 0;
+	pData[playerid][pBitcoin]					= 0;
+	pData[playerid][pLicenses]					= 0;
+	pData[playerid][pLast_Online]				= gettime();
+	pData[playerid][pJob]						= 0;
+	pData[playerid][pNumber]					= 0;
+	pData[playerid][pJob_Skill][JOB_TAXI] 		= 0;
+	pData[playerid][pJob_Skill][JOB_CLEANER] 	= 0;
+	pData[playerid][pJob_Skill][JOB_TRUCKER] 	= 0;
 }
 
 hook OnPlayerDisconnect(playerid)

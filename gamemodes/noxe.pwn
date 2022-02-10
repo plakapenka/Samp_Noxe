@@ -49,6 +49,7 @@
 // ================= Работы
 #include "sourc/works/global.pwn"
 #include "sourc/works/taxi.pwn"
+#include "sourc/works/cleaner.pwn"
 
 #include "sourc/other_system/farm.pwn"
 
@@ -116,7 +117,7 @@ stock SendMes(playerid, color, const text[], {Float, _}:...)
 
 public OnGameModeInit()
 {
-	SetTimer("OnSecondUpdate", 1000, 1); // таймер каждую секунду
+	Timer1sec(); // таймер каждую секунду
 
 	SetGameModeText(GAMEMODE_TEXT);
 	SendRconCommand("hostname "HOST_NAME"");
@@ -184,9 +185,10 @@ stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int = 0, wor
 	return 1;
 } 
 
-forward OnSecondUpdate();
-public OnSecondUpdate()
+forward Timer1sec();
+public Timer1sec()
 {
+	OnSecondUpdate();
 	if(serv_minute == 0 && serv_second == 0)
 	{
 		foreach (new playerid : Player)
@@ -198,6 +200,15 @@ public OnSecondUpdate()
 	{
 		player_second_update(playerid);		
 	}
+	SetTimer("Timer1sec", 1000, false);
+}
+stock OnSecondUpdate()
+{
+
+}
+stock player_second_update(playerid)
+{
+
 }
 
 CreatePick(model, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, playerid = -1)
