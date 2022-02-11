@@ -14,13 +14,13 @@ hook OnGameModeInit()
 
 	if (g_sql == MYSQL_INVALID_HANDLE || mysql_errno(g_sql) != 0)
 	{
-		print("Ошибка подключения MySQL. Сервер выключается.");
+		print("MySQL connection error. The server is shutting down.");
 		SendRconCommand("exit"); // close the server if there is no connection
 		return 1;
 	}
 	mysql_log(DEBUG);
 	
 
-	print(">> Подключение к базе MySQL успешно!");
+	print(">> Connection to MySQL database successfully!");
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }

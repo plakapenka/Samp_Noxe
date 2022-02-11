@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build only",
+            "label": "build dev",
             "type": "shell",
-            "command": "sampctl package build",
+            "command": "sampctl package build dev",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -15,6 +15,22 @@
                 "panel": "dedicated"
             },
             "problemMatcher": "$sampctl"
+        },
+        {
+            "label": "build live",
+            "type": "shell",
+            "command": "sampctl package build live",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "isBackground": false,
+            "presentation": {
+                "reveal": "silent",
+                "panel": "dedicated"
+            },
+            "problemMatcher": "$sampctl"
         }
     ]
+    
 }

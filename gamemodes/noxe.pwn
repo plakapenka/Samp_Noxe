@@ -14,7 +14,8 @@
 // ===============================================
 
 #include "config.pwn"
-#include "sourc/headers/defines.pwn"		// все глобальные дефайны
+#include "sourc/headers/defines.pwn"		
+#include "sourc/headers/colors.pwn"
 // =========== Текстдравы ===========
 #include "sourc/textdraws/logo.pwn"	
 #include "sourc/textdraws/select_skin.pwn"
@@ -75,7 +76,7 @@
 main() 
 { 
 
-	printf(">> Частота обновления Streamer = %d мс",Streamer_GetTickRate());
+	printf(">> Streamer TickRate = %d ms",Streamer_GetTickRate());
 }
 
 stock SendMes(playerid, color, const text[], {Float, _}:...)

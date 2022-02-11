@@ -43,7 +43,13 @@ enum E_HOUSE_DATA
 	house_icon,
 	house_improove,
 	house_product,
-	house_garage
+	house_garage,
+	house_objectFreez,
+	house_objectStore,
+	house_objectSafe,
+	Text3D:house_labelFreez,
+	Text3D:house_labelStore,
+	Text3D:house_labelSafe
 };
 new hData[1000][E_HOUSE_DATA];
 
@@ -88,7 +94,7 @@ hook OnGameModeInit()
 }
 hook OnPlayerPickUpDynPickup(playerid, pickupid)
 {
-	if(pickupid >=  pickup_garage_exit_to_house[0] && pickupid <= pickup_garage_exit_to_house[3])
+	if(pickup_garage_exit_to_house[0] <= pickupid <= pickup_garage_exit_to_house[3])
 	{
 		EnterHouse(playerid);
 		return Y_HOOKS_BREAK_RETURN_1;
@@ -231,11 +237,12 @@ DialogCreate:d_house_menu_improve(playerid)
 	new house = GetPVarInt(playerid, "house_id")-1;
 
 	new str_h_menu[512];
-	format(str_h_menu, sizeof str_h_menu, "%s\n%s\n%s",\
-	((hData[house][house_improove] & HOUSE_IMPROOVE_FREEZ) 	? ("{FFFFFF}Холодильник"):("{AFAFAF}Холодильник")),
-	((hData[house][house_improove] & HOUSE_IMPROOVE_SAFE) 	? ("{FFFFFF}Сейф"):("{AFAFAF}Сейф")),\
-	((hData[house][house_improove] & HOUSE_IMPROOVE_STORE) 	? ("{FFFFFF}Шкаф"):("{AFAFAF}Шкаф")) );
-	Dialog_Open(playerid, Dialog:d_house_menu_improve, 2,"Управление домом",str_h_menu,"Купить","Отмена");
+	format(str_h_menu, sizeof str_h_menu, "Холодильник\t\t%s\nСейф\t\t\t%s\nШкаф\t\t\t%s",\
+	((hData[house][house_improove] & HOUSE_IMPROOVE_FREEZ) 	? ("{FFFFFF}Есть"):("{e57373}Нет")),
+	((hData[house][house_improove] & HOUSE_IMPROOVE_SAFE) 	? ("{FFFFFF}Есть"):("{e57373}Нет")),\
+	((hData[house][house_improove] & HOUSE_IMPROOVE_STORE) 	? ("{FFFFFF}Есть"):("{e57373}Нет")) );
+
+	Dialog_Open(playerid, Dialog:d_house_menu_improve, DIALOG_STYLE_LIST, "Улучшения дома",str_h_menu,"Купить","Отмена");
 }
 
 DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
@@ -254,7 +261,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В холодильнике вы сможете хранить продукты и\n\
 		восстанавливать здоровье, не выходя из дома", correct_price(PRICE_IMPROOVE_FREEZ) );
-		Dialog_Open(playerid, Dialog:d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_FREEZ);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_FREEZ));
@@ -271,7 +278,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В сейфе ваши деньги и наркотики всегда будут\n\
 		в безопасности", correct_price(PRICE_IMPROOVE_SAFE) );
-		Dialog_Open(playerid, Dialog:d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_SAFE);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_SAFE));
@@ -288,7 +295,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В шкафу будет хранится ваша одежда, \n\
 		которую вы сможете сменить в любой момент", correct_price(PRICE_IMPROOVE_STORE) );
-		Dialog_Open(playerid, Dialog:d_house_menu_improve_buy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_STORE);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_STORE));
@@ -296,35 +303,26 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 	}
 	return 1;
 }
-DialogResponse:d_house_menu_improve_buy(playerid, response, listitem, inputtext[])
+DialogResponse:hMenuImprooveBuy(playerid, response, listitem, inputtext[])
 {
 	if(response)
 	{
 		new house = GetPVarInt(playerid, "house_id")-1;
-		new int = hData[house][house_interior];
 
-		if(pData[playerid][pCash] >= GetPVarInt(playerid, "buy_improve_price"))
+		if(pData[playerid][pCash] < GetPVarInt(playerid, "buy_improve_price"))
 		{
-			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_FREEZ)
-			{
-				CreateDynamicObject(2141, interior_Data[int][interior_freezX],interior_Data[int][interior_freezY], interior_Data[int][interior_freezZ], 0,0,interior_Data[int][interior_freezA], house);
-			}
-			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_SAFE)
-			{
-				CreateDynamicObject(2332, interior_Data[int][interior_safeX],interior_Data[int][interior_safeY], interior_Data[int][interior_safeZ], 0,0,interior_Data[int][interior_safeA], house);
-			}
-			if(GetPVarInt(playerid, "buy_improve_what") == HOUSE_IMPROOVE_STORE)
-			{
-				CreateDynamicObject(2708, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], 0,0,interior_Data[int][interior_storeA], house);
-			}
-			hData[house][house_improove] |= GetPVarInt(playerid, "buy_improve_what");
-			give_money(playerid, -GetPVarInt(playerid, "buy_improve_price"));
+			Dialog_Message(playerid, " ", "{ffffff}Недостаточно средств!", "Закрыть");
+			return 1;
 		}
+		hData[house][house_improove] |= GetPVarInt(playerid, "buy_improve_what");
+		give_money(playerid, -GetPVarInt(playerid, "buy_improve_price"));
+		HouseUpdateImproove(house);
 	}
 	DeletePVar(playerid, "buy_improve_what");
 	DeletePVar(playerid, "buy_improve_price");
 	return 1;
 }
+
 DialogResponse:d_house_exit(playerid, response, listitem, inputtext[])
 {
 	if(!response) 
@@ -385,10 +383,7 @@ CMD:buyhouse(playerid)
 	Dialog_Message(playerid, " ", str_d, "Готово");
 
 	UpdateHousePickup(houseid);
-	new str_buy_house[213];
-	mysql_format(g_sql, str_buy_house, sizeof str_buy_house, "UPDATE `"TABLE_HOUSES"` SET `house_owner`='%e' WHERE house_ID = %d",pData[playerid][pName], hData[houseid][house_ID]);
-	mysql_tquery(g_sql, str_buy_house);
-
+	UpdateHouseQuery(houseid);
 	//SpawnHouseCars(playerid);
 	return true;
 }
@@ -488,7 +483,7 @@ public HousesLoaded()
 	new r;
 	cache_get_row_count(r);
 
-	if(!r) printf("[! Ошибка !] Данные из "TABLE_HOUSES" не получены!");
+	if(!r) printf("!!  > HousesLoaded > Failed to load data from "TABLE_HOUSES"  !!");
 
 	for(new x = 0; x < r; x++)
 	{
@@ -510,6 +505,8 @@ public HousesLoaded()
 		cache_get_value_name_int 	(x, "house_lock", 		hData[x][house_lock]);
 		cache_get_value_name_int 	(x, "house_product", 	hData[x][house_product]);
 		cache_get_value_name_int 	(x, "house_garage", 	hData[x][house_garage]);
+		cache_get_value_name_int 	(x, "house_improove", 	hData[x][house_improove]);
+		
 
 		UpdateHousePickup(x);
 
@@ -520,13 +517,54 @@ public HousesLoaded()
 		_arrayData[1] = x;
 		Streamer_SetArrayData(STREAMER_TYPE_AREA, tmp_area, E_STREAMER_EXTRA_ID, _arrayData);
 
+		hData[x][house_objectFreez] = INVALID_OBJECT_ID;
+		hData[x][house_objectStore] = INVALID_OBJECT_ID;
+		hData[x][house_objectSafe]  = INVALID_OBJECT_ID;
+
+		hData[x][house_labelFreez]  = Text3D:INVALID_3DTEXT_ID;
+		hData[x][house_labelStore]  = Text3D:INVALID_3DTEXT_ID;
+		hData[x][house_labelSafe]  	= Text3D:INVALID_3DTEXT_ID;
+
+		HouseUpdateImproove(x);
+
 		TOTAL_HOUSES++;
 	}
-	printf("> Данные из "TABLE_HOUSES" успешно загружены! %d шт", TOTAL_HOUSES);
+	printf("> HousesLoaded > Data from "TABLE_HOUSES" successfully loaded! count = %d ", TOTAL_HOUSES);
 
 
 }
+stock HouseUpdateImproove(houseid)
+{
+	new int = hData[houseid][house_interior];
 
+	if(hData[houseid][house_improove] & HOUSE_IMPROOVE_STORE)
+	{
+		if(hData[houseid][house_objectStore] == INVALID_OBJECT_ID)
+		{
+			hData[houseid][house_objectStore] =
+				CreateDynamicObject(2167, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], 0,0,interior_Data[int][interior_storeA], houseid);
+
+			
+		}
+		if(hData[houseid][house_labelStore] == Text3D:INVALID_3DTEXT_ID)
+		{
+			hData[houseid][house_labelStore] =
+				CreateDynamic3DTextLabel("Шкаф\nИспользуйте 'Y' ", 0x6f79a8DD, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ]+1, 2.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, houseid);
+		}
+	}
+	else
+	{
+		if(hData[houseid][house_objectStore] != INVALID_OBJECT_ID)
+		{
+			DestroyDynamicObject(hData[houseid][house_objectStore]);
+			hData[houseid][house_objectStore] = INVALID_OBJECT_ID;
+		}
+		if(hData[houseid][house_labelStore] != Text3D:INVALID_3DTEXT_ID)
+		{
+			DestroyDynamic3DTextLabel(hData[houseid][house_labelStore]);
+		}
+	}
+}
 stock UpdateHousePickup(houseid)
 {
 	if(IsValidDynamicPickup(hData[houseid][house_pickup]))
@@ -575,4 +613,45 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
+}
+
+stock UpdateHouseQuery(houseid)
+{
+	new str_buy_house[1024];
+	new str_temp[123];
+
+	strcat(str_buy_house, "UPDATE `"TABLE_HOUSES"` SET ");
+	format(str_temp, sizeof(str_temp), "`house_owner`='%e',", hData[houseid][house_owner]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_enterX`='%f',", hData[houseid][house_enterX]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_enterY`='%f',", hData[houseid][house_enterY]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_enterZ`='%f',", hData[houseid][house_enterZ]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_carX`='%f',", hData[houseid][house_carX]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_carY`='%f',", hData[houseid][house_carY]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_carZ`='%f',", hData[houseid][house_carZ]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_carA`='%f',", hData[houseid][house_carA]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_price`='%d',", hData[houseid][house_price]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_interior`='%d',", hData[houseid][house_interior]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_lock`='%d',", hData[houseid][house_lock]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_product`='%d',", hData[houseid][house_product]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_garage`='%d',", hData[houseid][house_garage]);
+	strcat(str_buy_house, str_temp);
+	format(str_temp, sizeof(str_temp), "`house_improove`='%d' ", hData[houseid][house_improove]);
+	strcat(str_buy_house, str_temp);
+
+	format(str_temp, sizeof(str_temp), "WHERE house_ID = %d", hData[houseid][house_ID]);
+	strcat(str_buy_house, str_temp);
+	
+	mysql_tquery(g_sql, str_buy_house);
 }

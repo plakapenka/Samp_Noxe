@@ -203,7 +203,7 @@ public UnLoadingTrash(playerid)
     }
     vData[vehicleid][vLoad] = 0;
     UpdateTrashVeh(vehicleid);
-
+    return 1;
 }
 
 stock GetPlayerTrash(playerid)
