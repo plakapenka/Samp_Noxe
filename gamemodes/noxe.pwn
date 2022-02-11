@@ -59,6 +59,9 @@
 #include "sourc/textdraws/taxicall.pwn"
 
 #include "sourc/admin/commands.pwn"
+
+#include "sourc/other_system/clothes.pwn"
+
 #pragma dynamic 9999999
 // ============= מבתוךעû
 #include "sourc/objects/ls_spawn.pwn"

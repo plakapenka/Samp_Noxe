@@ -1,6 +1,7 @@
 #include <YSI_Coding\y_hooks>
 #define AREA_FOR_HOUSE 			5
 #define PICKUP_VEHICLE			8
+#define PICKUP_DRESSROOM		12
 //#define AREA_FOR_VEHICLE 		8
 
 public OnPlayerEnterDynamicArea(playerid, areaid)
@@ -37,6 +38,11 @@ public OnPlayerPickUpDynamicPickup(playerid, pickupid)
 	if(_arrayData[0] == PICKUP_VEHICLE)
 	{
 		EnterVehiclePickUP(playerid, _arrayData[1]);
+		return Y_HOOKS_BREAK_RETURN_1;
+	}
+	if(_arrayData[0] == PICKUP_DRESSROOM)
+	{
+		EnterDressRoomPickup(playerid);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;

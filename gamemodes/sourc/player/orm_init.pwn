@@ -11,6 +11,7 @@ enum
 
 enum E_PLAYERS
 {
+	Cache:pCache_ID,
 	ORM: ORM_ID,
 	pMySQL_ID,
 	pName[MAX_PLAYER_NAME],
@@ -26,7 +27,7 @@ enum E_PLAYERS
 	pSex,
 	pLvl,
 	pExp,
-	pSkin[6], // 0 - текущий скин персонажа
+	pSkin, // 0 - текущий скин персонажа
 	pTDSelect,
 	pAdmin,
 	pCash,
@@ -61,12 +62,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_int(ormid,pData[playerid][pSex], "pSex");
 	orm_addvar_int(ormid,pData[playerid][pLvl], "pLvl");
 	orm_addvar_int(ormid,pData[playerid][pExp], "pExp");
-	orm_addvar_int(ormid,pData[playerid][pSkin][0],"pSkin0");
-	orm_addvar_int(ormid,pData[playerid][pSkin][1],"pSkin1");
-	orm_addvar_int(ormid,pData[playerid][pSkin][2],"pSkin2");
-	orm_addvar_int(ormid,pData[playerid][pSkin][3],"pSkin3");
-	orm_addvar_int(ormid,pData[playerid][pSkin][4],"pSkin4");
-	orm_addvar_int(ormid,pData[playerid][pSkin][5],"pSkin5");
+	orm_addvar_int(ormid,pData[playerid][pSkin],"pSkin");
 	orm_addvar_int(ormid,pData[playerid][pAdmin],"pAdmin");
 	orm_addvar_int(ormid,pData[playerid][pCash], "pCash");
 	orm_addvar_int(ormid,pData[playerid][pBank], "pBank");

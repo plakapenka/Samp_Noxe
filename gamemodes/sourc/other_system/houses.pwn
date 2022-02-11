@@ -45,10 +45,9 @@ enum E_HOUSE_DATA
 	house_product,
 	house_garage,
 	house_objectFreez,
-	house_objectStore,
+	house_pickStore,
 	house_objectSafe,
 	Text3D:house_labelFreez,
-	Text3D:house_labelStore,
 	Text3D:house_labelSafe
 };
 new hData[1000][E_HOUSE_DATA];
@@ -100,7 +99,6 @@ hook OnPlayerPickUpDynPickup(playerid, pickupid)
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	return Y_HOOKS_CONTINUE_RETURN_1;
-	
 }
 
 // вызываетс€ когда игрок стал на какой-либо пикап дома. 
@@ -518,11 +516,9 @@ public HousesLoaded()
 		Streamer_SetArrayData(STREAMER_TYPE_AREA, tmp_area, E_STREAMER_EXTRA_ID, _arrayData);
 
 		hData[x][house_objectFreez] = INVALID_OBJECT_ID;
-		hData[x][house_objectStore] = INVALID_OBJECT_ID;
 		hData[x][house_objectSafe]  = INVALID_OBJECT_ID;
 
 		hData[x][house_labelFreez]  = Text3D:INVALID_3DTEXT_ID;
-		hData[x][house_labelStore]  = Text3D:INVALID_3DTEXT_ID;
 		hData[x][house_labelSafe]  	= Text3D:INVALID_3DTEXT_ID;
 
 		HouseUpdateImproove(x);
@@ -539,32 +535,28 @@ stock HouseUpdateImproove(houseid)
 
 	if(hData[houseid][house_improove] & HOUSE_IMPROOVE_STORE)
 	{
-		if(hData[houseid][house_objectStore] == INVALID_OBJECT_ID)
+		if(!hData[houseid][house_pickStore])
 		{
-			hData[houseid][house_objectStore] =
-				CreateDynamicObject(2167, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], 0,0,interior_Data[int][interior_storeA], houseid);
+			hData[houseid][house_pickStore] =
+				CreateDynamicPickup(1275, 23, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], houseid);
+
+			new _arrayData[2];
+			_arrayData[0] = PICKUP_DRESSROOM;
+			Streamer_SetArrayData(STREAMER_TYPE_PICKUP, hData[houseid][house_pickStore], E_STREAMER_EXTRA_ID, _arrayData);
 
 			
-		}
-		if(hData[houseid][house_labelStore] == Text3D:INVALID_3DTEXT_ID)
-		{
-			hData[houseid][house_labelStore] =
-				CreateDynamic3DTextLabel("Ўкаф\n»спользуйте 'Y' ", 0x6f79a8DD, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ]+1, 2.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, houseid);
 		}
 	}
 	else
 	{
-		if(hData[houseid][house_objectStore] != INVALID_OBJECT_ID)
+		if(hData[houseid][house_pickStore])
 		{
-			DestroyDynamicObject(hData[houseid][house_objectStore]);
-			hData[houseid][house_objectStore] = INVALID_OBJECT_ID;
-		}
-		if(hData[houseid][house_labelStore] != Text3D:INVALID_3DTEXT_ID)
-		{
-			DestroyDynamic3DTextLabel(hData[houseid][house_labelStore]);
+			DestroyDynamicPickup(hData[houseid][house_pickStore]);
+			hData[houseid][house_pickStore] = 0;
 		}
 	}
 }
+
 stock UpdateHousePickup(houseid)
 {
 	if(IsValidDynamicPickup(hData[houseid][house_pickup]))
