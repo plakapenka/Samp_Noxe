@@ -84,6 +84,12 @@
 #include "sourc/objects/houses/hint22.pwn"
 #include "sourc/objects/houses/hint23.pwn"
 #include "sourc/objects/houses/hint24.pwn"
+#include "sourc/objects/houses/hint25.pwn"
+#include "sourc/objects/houses/hint26.pwn"
+#include "sourc/objects/houses/hint27.pwn"
+#include "sourc/objects/houses/hint28.pwn"
+#include "sourc/objects/houses/hint29.pwn"
+#include "sourc/objects/houses/hint30.pwn"
 
 //#include "sourc/objects/houses/hint25.pwn"
 

@@ -6,8 +6,6 @@ hook OnGameModeInit()
 	new tmp_int = 13;
 	new tmp_obj;
 
-    tmp_obj = CreateDynamicObject(19552, 250.000000, 0.000000, 1500.000000, 0.000000, 0.000000, 0.000000, tmp_world, tmp_int); // 1
-    SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
     tmp_obj = CreateDynamicObject(19383, 246.942078, 4.948719, 1501.746704, -0.000014, -0.000004, -89.999947, tmp_world, tmp_int); // 1
     SetDynamicObjectMaterial(tmp_obj, 0, 17566, "contachou1_lae2", "mp_apt1_woodpanel", 0);
     tmp_obj = CreateDynamicObject(983, 246.957092, 4.964467, 1500.106445, 89.999992, 180.000031, -89.999962, tmp_world, tmp_int); // 6

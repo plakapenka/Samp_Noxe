@@ -1,16 +1,17 @@
 // == доп интерьеры
 #include <YSI_Coding\y_hooks>
 
-#define TOTAL_HOUSE_INTERIOR 24
+#define TOTAL_HOUSE_INTERIOR 31
 
 enum 
 {
     HOUSE_CLASS_ECONOM,
     HOUSE_CLASS_COMFORT, 
     HOUSE_CLASS_BUSINESS,
-    HOUSE_CLASS_PREMIUM
+    HOUSE_CLASS_PREMIUM,
+    HOUSE_TRAILER
 };
-new const house_className[][] = {"Эконом", "Комфорт", "Бизнес", "Премиум"};
+new const house_className[][] = {"Эконом", "Комфорт", "Бизнес", "Премиум","Трейлер"};
 
 enum E_HOUSE_INT
 {
@@ -107,8 +108,19 @@ public HouseInteriorsLoaded()
         cache_get_value_name(x, "safeCords", tmp_str);
         sscanf(tmp_str, "p<,>ffff", hintData[x][hint_safeX], hintData[x][hint_safeY], hintData[x][hint_safeZ], hintData[x][hint_safeA]);
 
-
-        CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ]+1, 5.0);
+        CreateDynamic3DTextLabel(
+            "Управление домом - клавиша 'ALT'\nлибо /hmenu", 
+            0x64b5f6EE, 
+            hintData[x][hint_exitX], 
+            hintData[x][hint_exitY], 
+            hintData[x][hint_exitZ]+1, 
+            5.0, 
+            INVALID_PLAYER_ID, 
+            INVALID_VEHICLE_ID, 
+            1, 
+            -1, 
+            hintData[x][hint_id]
+        );
 
 		hintData[x][hint_ExitArea] = CreatePick(19135, hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ], -1, hintData[x][hint_id]);
     }

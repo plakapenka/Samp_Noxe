@@ -6,12 +6,6 @@ hook OnGameModeInit()
 	new tmp_int = 12;
 	new tmp_obj;
 
-	tmp_obj = CreateDynamicObject(19552, 250.000000, 0.000000, 1500.000000, 0.000000, 0.000000, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(14397, 243.397797, 2.167877, 1501.317627, -0.000007, -90.000000, -179.999969, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14590, "mafcastopfoor", "donut_wall1", 0);
-	tmp_obj = CreateDynamicObject(14397, 243.343231, -1.510830, 1501.406982, -0.000014, -90.000000, -89.999924, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14415, "carter_block_2", "mp_gs_woodpanel1", 0);
 	tmp_obj = CreateDynamicObject(2306, 243.786469, -0.260953, 1499.974854, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14802, "lee_bdupsflat", "Bdup_cabinet", 0);
 	CreateDynamicObject(2689, 244.057220, -1.092496, 1500.469238, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 0
@@ -19,13 +13,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
 	SetDynamicObjectMaterial(tmp_obj, 1, 14581, "ab_mafiasuitea", "kit_door1", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(19482, 243.034760, 2.323517, 1501.329834, 90.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x22000000);
-	tmp_obj = CreateDynamicObject(19426, 243.584198, 2.421783, 1501.735107, -0.000023, 0.000045, -89.999840, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "casino_carp", 0);
-	tmp_obj = CreateDynamicObject(19482, 243.041107, 2.310090, 1501.571411, 89.999992, 89.999992, 0.000007, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x22000000);
-	CreateDynamicObject(19829, 244.388397, -1.907070, 1501.029419, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(1569, 242.945038, -0.498867, 1499.988892, 0.000014, 0.000000, 89.999954, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 9259, "presidio01_sfn", "sl_presdoor02", 0);
 	tmp_obj = CreateDynamicObject(1493, 242.967621, -0.594816, 1499.998901, 0.000014, 0.000000, 89.999954, tmp_world, tmp_int); // 3
@@ -36,8 +23,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 14415, "carter_block_2", "mp_gs_woodpanel1", 0);
 	tmp_obj = CreateDynamicObject(19426, 243.089935, 1.767853, 1501.735107, -0.000014, 0.000059, 0.000102, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "casino_carp", 0);
-	tmp_obj = CreateDynamicObject(3809, 244.249969, 2.487701, 1502.445679, 0.000000, 0.000000, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(2167, 243.181732, 1.777619, 1499.998901, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 2
 	SetDynamicObjectMaterial(tmp_obj, 1, 14802, "lee_bdupsflat", "Bdup_cabinet", 0);
 	SetDynamicObjectMaterial(tmp_obj, 0, 14806, "bdupshifi", "Bdup2_wood", 0);
@@ -52,91 +37,16 @@ hook OnGameModeInit()
 	CreateDynamicObject(19829, 244.388397, 2.483917, 1501.029419, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(19482, 243.034760, 2.323517, 1501.329834, 90.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x22000000);
-	tmp_obj = CreateDynamicObject(2026, 245.826385, 0.322420, 1503.135620, 0.000000, 0.000037, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14812, "lee_studhall", "WaterCooler", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.102386, 1.764924, 1498.373779, 0.000007, 180.000000, 179.999832, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.102386, 1.764924, 1503.645752, 0.000007, 360.000000, 179.999832, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
 	tmp_obj = CreateDynamicObject(19426, 243.584198, 2.421783, 1501.735107, -0.000023, 0.000045, -89.999840, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "casino_carp", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.106415, 1.762969, 1503.745850, 0.000007, 360.000000, 179.999832, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 5709, "melrose17_lawn", "shopface02bl_law", 0);
 	tmp_obj = CreateDynamicObject(19482, 243.041107, 2.310090, 1501.571411, 89.999992, 89.999992, 0.000007, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x22000000);
 	CreateDynamicObject(19829, 244.388397, -1.907070, 1501.029419, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(19426, 243.592499, 2.586091, 1498.544678, -0.000007, 0.000037, -89.999916, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14590, "mafcastopfoor", "donut_wall1", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.591034, 2.409332, 1498.373779, 0.000014, 180.000000, 89.999931, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.591034, 2.409332, 1503.645752, 0.000014, 360.000000, 89.999931, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
 	tmp_obj = CreateDynamicObject(19482, 243.034760, -1.737516, 1501.329834, 90.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x22000000);
 	tmp_obj = CreateDynamicObject(19426, 243.587372, -1.847744, 1501.735107, -0.000045, 0.000045, 90.000168, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14623, "mafcasmain", "casino_carp", 0);
-	tmp_obj = CreateDynamicObject(19426, 243.592987, 2.405303, 1503.745850, 0.000014, 360.000000, 89.999931, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 5709, "melrose17_lawn", "shopface02bl_law", 0);
-	tmp_obj = CreateDynamicObject(19929, 243.667084, -3.232145, 1499.998901, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 14385, "trailerkb", "tr_kit_1a", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 3531, "triadprops_lvs", "casinowall1", 0);
-	tmp_obj = CreateDynamicObject(2306, 243.656342, 4.159821, 1499.974854, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14802, "lee_bdupsflat", "Bdup_cabinet", 0);
-	tmp_obj = CreateDynamicObject(2515, 243.488251, -3.610196, 1500.909546, 0.000007, 0.000000, 89.999977, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(19445, 244.938202, 2.408112, 1504.415649, 0.000007, 360.000000, -90.000191, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 5709, "melrose17_lawn", "shopface02bl_law", 0);
-	tmp_obj = CreateDynamicObject(949, 247.988739, 1.677032, 1500.613281, 0.000007, 0.000007, 89.999947, tmp_world, tmp_int); // 3
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 1, 13590, "kickstart", "AH_barpanelM", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 3980, "cityhall_lan", "sl_LAbedingsoil", 0);
-	tmp_obj = CreateDynamicObject(631, 248.000946, 1.855012, 1501.053711, 0.000009, 0.000000, 134.999985, tmp_world, tmp_int); // 3
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 825, "gta_proc_bigbush", "veg_bush4", 0xFFFFFFFF);
 	CreateDynamicObject(19813, 244.268768, 2.669097, 1500.479248, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 0
-	CreateDynamicObject(19829, 248.699677, -0.745939, 1501.179321, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(2026, 245.826385, -3.598233, 1503.135620, 0.000000, 0.000029, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
-	tmp_obj = CreateDynamicObject(19426, 248.619232, 1.847931, 1501.735107, -0.000014, 0.000029, -179.999771, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14736, "whorerooms", "blu_paper", 0);
-	tmp_obj = CreateDynamicObject(3809, 248.222260, 2.497711, 1502.445679, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(19426, 248.623260, 1.845734, 1499.354858, -0.000014, 0.000044, -179.999771, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 6924, "vgnretail7", "vgnwedding1_256", 0);
-	tmp_obj = CreateDynamicObject(14397, 248.873016, 2.033844, 1501.507080, 0.000000, 90.000000, -89.999969, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14415, "carter_block_2", "mp_gs_woodpanel1", 0);
-	tmp_obj = CreateDynamicObject(14397, 248.873016, -1.432584, 1501.406982, 0.000000, -90.000000, -89.999969, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14415, "carter_block_2", "mp_gs_woodpanel1", 0);
-	tmp_obj = CreateDynamicObject(19426, 248.442474, 1.839141, 1503.745850, 0.000006, 360.000000, -0.000045, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 5709, "melrose17_lawn", "shopface02bl_law", 0);
-	tmp_obj = CreateDynamicObject(3061, 242.512421, 5.522614, 1501.611206, 0.000000, 0.000014, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 18028, "cj_bar2", "GB_nastybar13", 0);
-	CreateDynamicObject(11743, 245.785370, -4.958584, 1500.889526, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(19445, 247.544769, 2.587433, 1504.934814, 0.000007, 180.000000, 89.999977, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14590, "mafcastopfoor", "donut_wall1", 0);
-	tmp_obj = CreateDynamicObject(19426, 248.871185, 2.409332, 1498.373779, 0.000037, 180.000000, 89.999863, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
-	tmp_obj = CreateDynamicObject(19426, 248.870575, -1.835294, 1503.645752, 0.000012, 360.000000, -90.000038, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
-	tmp_obj = CreateDynamicObject(1735, 247.552338, 5.231965, 1499.970825, 0.000000, 0.000000, 200.000000, tmp_world, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 1716, "cj_seating", "CJ_SHINYWOOD", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 14808, "lee_strip2", "Strip_curtain", 0);
-	tmp_obj = CreateDynamicObject(19089, 249.821991, 4.123809, 1499.982910, 0.000000, 90.000000, -90.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14651, "ab_trukstpd", "Bow_bar_tabletop_wood", 0);
-	tmp_obj = CreateDynamicObject(19921, 245.571991, 7.172272, 1500.320923, -90.000000, 0.000000, -70.000000, tmp_world, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(2831, 245.894379, 7.241851, 1500.290283, 0.000000, 0.000000, 62.699997, tmp_world, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
-	tmp_obj = CreateDynamicObject(631, 250.715790, 3.300323, 1501.053711, 0.000000, 0.000000, 45.000000, tmp_world, tmp_int); // 3
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 1, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 825, "gta_proc_bigbush", "veg_bush4", 0xFFFFFFFF);
-	CreateDynamicObject(2749, 251.616058, -0.941007, 1501.542480, 0.000000, 0.000014, 0.000000, tmp_world, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(19445, 243.153900, -6.888272, 1498.544678, 0.000000, 0.000029, -179.999832, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 14590, "mafcastopfoor", "donut_wall1", 0);
 	tmp_obj = CreateDynamicObject(19426, 243.590424, 2.580108, 1501.735107, -0.000007, 0.000037, -89.999916, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 3049, "qrydrx", "ws_corr_1_red", 0);
 	tmp_obj = CreateDynamicObject(19426, 243.590424, -2.006069, 1501.735107, 0.000000, 0.000037, 90.000000, tmp_world, tmp_int); // 1
@@ -145,14 +55,9 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(19482, 243.041107, 2.680329, 1501.571411, 89.999992, 89.999992, 0.000007, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x55000000);
-	CreateDynamicObject(2752, 251.841278, -0.966153, 1501.548340, 0.000000, -0.000014, 179.999908, tmp_world, tmp_int); // 0
 	tmp_obj = CreateDynamicObject(14397, 245.663055, 2.167877, 1502.138550, -0.000007, 0.000000, -179.999969, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14590, "mafcastopfoor", "donut_wall1", 0);
 	CreateDynamicObject(19807, 243.787079, 3.040679, 1501.015747, 0.000000, 0.000000, 160.000000, tmp_world, tmp_int); // 0
-	tmp_obj = CreateDynamicObject(1208, 251.887543, -1.019253, 1500.004883, 0.000000, 0.000000, 0.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 1, 14718, "lasmall1int2", "washmchne_1", 0);
-	tmp_obj = CreateDynamicObject(1793, 248.405243, 6.969635, 1499.594604, 0.000000, 0.000000, 90.000000, tmp_world, tmp_int); // 1
-	SetDynamicObjectMaterial(tmp_obj, 0, 2669, "cj_chris", "CJ_Floral", 0);
 	tmp_obj = CreateDynamicObject(19482, 243.039276, -2.107511, 1501.571411, 89.999992, 89.999992, 180.000000, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 19063, "xmasorbs", "sphere", 0x55000000);
 	tmp_obj = CreateDynamicObject(19482, 245.826385, 0.322420, 1503.129639, 0.000037, 90.000000, 89.999886, tmp_world, tmp_int); // 1
@@ -260,9 +165,6 @@ hook OnGameModeInit()
 	SetDynamicObjectMaterial(tmp_obj, 0, 14702, "masmall3int2", "HS3_wall3", 0);
 	tmp_obj = CreateDynamicObject(19426, 248.619232, 1.847931, 1501.735107, -0.000014, 0.000029, -179.999771, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14736, "whorerooms", "blu_paper", 0);
-	tmp_obj = CreateDynamicObject(14804, 250.644135, 8.642486, 1500.795288, 0.000007, 0.000037, 89.999947, tmp_world, tmp_int); // 2
-	SetDynamicObjectMaterial(tmp_obj, 2, 19962, "samproadsigns", "materialtext1", 0);
-	SetDynamicObjectMaterial(tmp_obj, 0, 19962, "samproadsigns", "materialtext1", 0);
 	tmp_obj = CreateDynamicObject(19426, 248.619232, -1.242154, 1501.735107, -0.000014, 0.000044, -179.999771, tmp_world, tmp_int); // 1
 	SetDynamicObjectMaterial(tmp_obj, 0, 14736, "whorerooms", "blu_paper", 0);
 	tmp_obj = CreateDynamicObject(3809, 248.222260, 2.497711, 1502.445679, 0.000000, 0.000000, 180.000000, tmp_world, tmp_int); // 1
