@@ -1,7 +1,7 @@
 // == доп интерьеры
 #include <YSI_Coding\y_hooks>
 
-#define TOTAL_HOUSE_INTERIOR 31
+#define TOTAL_HOUSE_INTERIOR 32
 
 enum 
 {

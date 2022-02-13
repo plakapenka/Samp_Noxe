@@ -90,6 +90,7 @@
 #include "sourc/objects/houses/hint28.pwn"
 #include "sourc/objects/houses/hint29.pwn"
 #include "sourc/objects/houses/hint30.pwn"
+#include "sourc/objects/houses/hint31.pwn"
 
 //#include "sourc/objects/houses/hint25.pwn"
 
