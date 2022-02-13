@@ -1,90 +1,118 @@
 // == доп интерьеры
 #include <YSI_Coding\y_hooks>
 
-#define TOTAL_HOUSE_INTERIOR 22
+#define TOTAL_HOUSE_INTERIOR 24
 
-enum E_INTERIOR_DATA
+enum 
+{
+    HOUSE_CLASS_ECONOM,
+    HOUSE_CLASS_COMFORT, 
+    HOUSE_CLASS_BUSINESS,
+    HOUSE_CLASS_PREMIUM
+};
+new const house_className[][] = {"Эконом", "Комфорт", "Бизнес", "Премиум"};
+
+enum E_HOUSE_INT
 {
 	// сам инт
-	Float:interior_exitX,
-	Float:interior_exitY,
-	Float:interior_exitZ,
+	Float:hint_exitX,
+	Float:hint_exitY,
+	Float:hint_exitZ,
+    Float:hint_exitA,
 
-	interior_id,
-	interior_class,
-	interior_room,
+	hint_id,
+    hint_weather,
+	hint_class,
+	hint_room,
 	// шкаф
-	Float:interior_storeX,
-	Float:interior_storeY,
-	Float:interior_storeZ,
+	Float:hint_storeX,
+	Float:hint_storeY,
+	Float:hint_storeZ,
 	//холодильник
-	Float:interior_freezX,
-	Float:interior_freezY,
-	Float:interior_freezZ,
-	Float:interior_freezA,
+	Float:hint_freezX,
+	Float:hint_freezY,
+	Float:hint_freezZ,
+	Float:hint_freezA,
 	//сейф
-	Float:interior_safeX,
-	Float:interior_safeY,
-	Float:interior_safeZ,
-	Float:interior_safeA,
+	Float:hint_safeX,
+	Float:hint_safeY,
+	Float:hint_safeZ,
+	Float:hint_safeA,
+
+    hint_ExitArea
 };
+new hintData[TOTAL_HOUSE_INTERIOR][E_HOUSE_INT];
 
-new interior_exitArea[TOTAL_HOUSE_INTERIOR];
-//new interior_storeArea[TOTAL_HOUSE_INTERIOR];
-//new interior_freezArea[TOTAL_HOUSE_INTERIOR];
-//new interior_safeArea[TOTAL_HOUSE_INTERIOR];
+//new hint_exitArea[TOTAL_HOUSE_INTERIOR];
+//new hint_storeArea[TOTAL_HOUSE_INTERIOR];
+//new hint_freezArea[TOTAL_HOUSE_INTERIOR];
+//new hint_safeArea[TOTAL_HOUSE_INTERIOR];
 
 
-new interior_Data[TOTAL_HOUSE_INTERIOR][E_INTERIOR_DATA] = {
-    //--- x--------y--------z-------i--c---r----storeX------y--------z---------freeX------y--------z---------A-------safeX-------y-------z--------A
-    {2233.70, -1115.26, 1050.88,    5,  3, 2,  2231.56,-1112.24,1050.28,      2235.54, -1111.96, 1049.78, -90.00,     2235.46, -1110.52, 1051.09, -90.00},
-    {2196.85, -1204.36, 1049.02,    6,  2, 1,  2194.87,-1210.97,1049.04,      2181.62, -1201.43, 1048.01, 90.00,      2195.50, -1214.48, 1048.91, 90.00},
-    {2317.82, -1026.76, 1050.21,    9,  1, 1,  2316.15,-1010.61,1054.88,      2317.41, -1010.60, 1049.15, -90.00,     2328.34, -1016.67, 1055.11, 180.00},
-    {2259.37, -1135.85, 1050.64,    10, 3, 1,  2263.16,-1132.61,1050.28,      2259.57, -1140.93, 1049.59, 90.00,      2270.17, -1132.56, 1050.63, 0.00},
-    {2365.23, -1135.59, 1050.88,    8,  2, 4,  2363.76, -1127.47, 1050.86,    2374.50, -1135.40, 1049.81, -90.00,     2376.28, -1128.08, 1050.88, -90.00},
-    {2282.98, -1140.27, 1050.90,    11, 3, 1,  2286.28,-1137.61,1050.84,      2277.01, -1134.25, 1049.85, 90.00,      2286.08, -1136.59, 1050.31, -90.00},
-    {2218.39, -1076.31, 1050.47,    1,  3, 4,  2215.88,-1074.67,1050.44,      2207.18, -1078.04, 1049.43, -180.00,    2211.35, -1070.76, 1049.85, 0.00},
-    {243.74, 304.97, 999.14,        1,  3, 4,  248.81,303.93,999.14,          244.37, 306.54, 998.10, 0.00,           243.91, 300.85, 998.65, 180.00},
-    {266.51, 304.94, 999.14,        2,  3, 4,  270.68,303.40,999.15,          273.83, 303.53, 998.12, -90.00,         271.62, 308.80, 998.55, 0.00},
-    {2496.03, -1692.07, 1013.51,    3,  3, 4,  2492.38,-1708.56,1018.33,      2452.56, -1688.75, 1012.46, -90.00,     2448.11, -1707.19, 1013.90, -180.00},
-    {2270.41, -1210.48, 1047.56,    10, 2, 1,  2262.78,-1216.77,1049.02,      2252.35, -1214.11, 1048.02, -180.00,    2263.17, -1220.98, 1049.67, -90.00},
-    {226.29, 1114.30, 1081.00,      5,  2, 2,  233.78,1113.11,1085.00,        233.53, 1117.34, 1079.96, 90.40,        248.68, 1115.51, 1081.33, -90.00},
-    {223.15,1287.08,1082.14,        1,  3, 4,  229.18,1287.07,1082.14,        220.47, 1291.47, 1081.06, 180.00,       234.24, 1288.84, 1082.69, -90.00},
-    {2324.35, -1148.76, 1050.70,    12, 1, 3,  2332.65,-1144.47,1054.37,      2334.29, -1144.07, 1049.68, 180.00,     2311.00, -1143.00, 1054.80, 180.00},
-    {140.34, 1366.69, 1083.85,      5,  1, 2,  134.63,1379.93,1088.36,        153.77, 1378.26, 1082.83, 180.00,       147.88, 1365.46, 1083.69, -180.00},
-    {234.14, 1064.40, 1084.20,      6,  1, 1,  235.56,1079.48,1087.81,        222.81, 1079.80, 1083.21, 90.00,        237.14, 1083.83, 1087.23, 0.00},
-    {261.11, 1284.91, 1080.26,      4,  3, 4,  264.53,1285.91,1080.25,        266.89, 1295.56, 1079.27, 0.00,         258.42, 1285.07, 1081.09, -180.00},
-    {2237.53, -1081.09, 1049.02,    2,  2, 4,  2235.88,-1073.89,1049.02,      2240.23, -1070.65, 1047.96, 90.00,      2246.03, -1070.86, 1049.68, -89.99},
-    {260.60, 1237.93, 1084.26,      9,  3, 1,  254.85,1252.15,1084.25,        259.69, 1248.02, 1083.21, 90.39,        255.43, 1257.45, 1084.97, 0.00},
-    {422.14, 2536.35, 10.00,        10, 3, 1,  413.11,2536.75,10.00,          413.18, 2536.76, 8.94, 91.00,           421.15, 2543.28, 10.64, 0.00},
-    {324.24, -1578.98, 10.14,       5,  3, 7,  304.43,-1581.10,14.35,         315.26, -1584.56, 9.10, 180.00,         309.21, -1568.52, 15.00, 0.00},
-    {248.48, -6.3217, 1501.00,      2,  3, 2,  250.56,-8.78,1501.00,          248.65, 0.05, 1500.05, 90.00,           255.55, -4.98, 1500.67, 0.00}
-};
+
 CMD:goint(playerid, params[])
 {
     new int;
     if(sscanf(params, "d", int))
         return 1;
 
-    SetPlayerPos(playerid, interior_Data[int][interior_exitX], interior_Data[int][interior_exitY], interior_Data[int][interior_exitZ]);
-    SetPlayerInterior(playerid, interior_Data[int][interior_id]);
+    SetPlayerPosEx(
+        playerid, 
+        hintData[int][hint_exitX], 
+        hintData[int][hint_exitY], 
+        hintData[int][hint_exitZ], 
+        hintData[int][hint_exitA], 
+        hintData[int][hint_id], 
+        0, 
+        hintData[int][hint_weather]
+    );
     return 1;
-}
-stock HousesInteriorLoad()
-{
-	for(new x = 0; x < TOTAL_HOUSE_INTERIOR; x++)
-	{
-		CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, interior_Data[x][interior_exitX], interior_Data[x][interior_exitY], interior_Data[x][interior_exitZ]+1, 5.0);
-
-		CreateDynamicPickup(19135, 1, interior_Data[x][interior_exitX], interior_Data[x][interior_exitY], interior_Data[x][interior_exitZ]-0.5, -1, interior_Data[x][interior_id]);
-		interior_exitArea[x] = CreateDynamicSphere(interior_Data[x][interior_exitX], interior_Data[x][interior_exitY], interior_Data[x][interior_exitZ], 1.0, -1, interior_Data[x][interior_id]);
-
-	}
-    return 1;
-
 }
 
 hook OnGameModeInit()
 {
-    HousesInteriorLoad();
+    mysql_tquery(g_sql, "SELECT * FROM `house_interiors`", "HouseInteriorsLoaded");
+   // HousesInteriorLoad();
+}
+forward HouseInteriorsLoaded();
+public HouseInteriorsLoaded()
+{
+    new tmp_str[66];
+
+	new r;
+	cache_get_row_count(r);
+
+	if(!r) 
+        return printf("Ошибка! > Ошибка получения данных из `house_interiors`  !!");
+
+    if(r != TOTAL_HOUSE_INTERIOR) 
+        return printf("Ошибка! > Не верное значение TOTAL_HOUSE_INTERIOR  !!");
+
+	for(new x = 0; x < r; x++)
+	{
+        cache_get_value_name(x, "enterCords", tmp_str);
+        sscanf(tmp_str, "p<,>ffff", hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ], hintData[x][hint_exitA]);
+       
+        cache_get_value_name_int(x, "interior", hintData[x][hint_id]);
+        cache_get_value_name_int(x, "weather", hintData[x][hint_weather]);
+        cache_get_value_name_int(x, "class", hintData[x][hint_class]);
+        cache_get_value_name_int(x, "room", hintData[x][hint_room]);
+
+        cache_get_value_name(x, "dressCords", tmp_str);
+        sscanf(tmp_str, "p<,>fff", hintData[x][hint_storeX], hintData[x][hint_storeY], hintData[x][hint_storeZ]);
+
+        cache_get_value_name(x, "freezCords", tmp_str);
+        sscanf(tmp_str, "p<,>ffff", hintData[x][hint_freezX], hintData[x][hint_freezY], hintData[x][hint_freezZ], hintData[x][hint_freezA]);
+
+        cache_get_value_name(x, "safeCords", tmp_str);
+        sscanf(tmp_str, "p<,>ffff", hintData[x][hint_safeX], hintData[x][hint_safeY], hintData[x][hint_safeZ], hintData[x][hint_safeA]);
+
+
+        CreateDynamic3DTextLabel("Управление домом - клавиша 'ALT'\nлибо /hmenu", color16_dark, hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ]+1, 5.0);
+
+		hintData[x][hint_ExitArea] = CreatePick(19135, hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ], -1, hintData[x][hint_id]);
+    }
+
+    printf(">>> Интерьеры для домов успешно загружены. Количество: %d ", r);
+    return 1;
 }

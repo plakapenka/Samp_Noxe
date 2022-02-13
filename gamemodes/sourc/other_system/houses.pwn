@@ -1,18 +1,10 @@
 #include "sourc/other_system/house_interiors.pwn"
-#include "sourc/objects/houses/37hint.pwn"
-#include "sourc/objects/houses/38hint.pwn"
-
 
 #include <YSI_Coding\y_hooks>
 
 
 
 #define INVALID_HOUSE_ID 		99999
-
-#define HOUSE_CLASS_ECONOM 		1
-#define HOUSE_CLASS_COMFORT		2
-#define HOUSE_CLASS_BUSINESS	3
-#define HOUSE_CLASS_PREMIUM		4
 
 #define HOUSE_IMPROOVE_SAFE 		0b1 	//сейф
 #define HOUSE_IMPROOVE_STORE 		0b10    //шкаф
@@ -120,16 +112,10 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 	}
 	SetPVarInt(playerid, "house_id", houseid+1);
 
+	new hint = hData[houseid][house_interior];
 	new mes[312];
-	new classname[20];			
-	switch(interior_Data[hData[houseid][house_interior]][interior_class])
-	{
-		case HOUSE_CLASS_ECONOM:	classname = "{FF0000}Эконом";
-		case HOUSE_CLASS_COMFORT:	classname = "{ff6600}Комфорт";
-		case HOUSE_CLASS_BUSINESS:	classname = "{FFCC00}Бизнес";
-		case HOUSE_CLASS_PREMIUM:	classname = "{99ff00}Премиум";
-	}
-
+	
+	
 	if(!strcmp(hData[houseid][house_owner],"None",true)) // на продажу
 	{			
 		format(mes,sizeof(mes),"\
@@ -138,7 +124,7 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		{ffffff}Кол-о комнат:\t\t\t {"#COLOR_LIGHT"}%d\n\
 		{ffffff}Гараж: \t\t\t\t{"#COLOR_LIGHT"}%s\n\
 		{ffffff}Цена: \t\t\t\t{"#COLOR_LIGHT"}%d\n\n\
-		{ffffff}Введите: /buyhouse чтобы купить дом",houseid,classname, interior_Data[hData[houseid][house_interior]][interior_room],
+		{ffffff}Введите: /buyhouse чтобы купить дом", houseid, house_className[hintData[hint][hint_class]], hintData[hint][hint_room],
 		((hData[houseid][house_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), correct_price(hData[houseid][house_price]));
 	}
 	else
@@ -148,7 +134,7 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		{ffffff}Класс: {"#COLOR_LIGHT"}%s\n\
 		{ffffff}Кол-о комнат: {"#COLOR_LIGHT"}%d\n\
 		{ffffff}Гараж: {"#COLOR_LIGHT"}%s\n\
-		{ffffff}Владелец: {"#COLOR_LIGHT"}%s",houseid,classname,interior_Data[hData[houseid][house_interior]][interior_room],
+		{ffffff}Владелец: {"#COLOR_LIGHT"}%s",houseid, house_className[hintData[hint][hint_class]], hintData[hint][hint_room],
 		((hData[houseid][house_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][house_owner]);
 		
 	}
@@ -345,7 +331,10 @@ CMD:hmenu(playerid)
 	Dialog_Show(playerid, Dialog:d_house_menu_global);
 	return true;
 }
-
+CMD:test123(playerid, params[])
+{
+	SendMes(playerid, -1, "%d", GetPVarInt(playerid, "house_id"));
+}
 CMD:buyhouse(playerid)
 {
 	if(!GetPVarInt(playerid, "house_id"))
@@ -466,13 +455,19 @@ stock ExitHouseToStreet(playerid)
 }
 stock EnterHouse(playerid)
 {
-	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
 	new int = hData[house][house_interior];
 
-	SetPlayerPos(playerid, interior_Data[int][interior_exitX], interior_Data[int][interior_exitY], interior_Data[int][interior_exitZ]);
-	SetPlayerInterior(playerid, interior_Data[int][interior_id]);
-	SetPlayerVirtualWorld(playerid, house);
+	SetPlayerPosEx(
+		playerid, 
+		hintData[int][hint_exitX]+(2.5 * floatsin(-hintData[int][hint_exitA], degrees)), // чтобы тпшило не на пикапе, а за ним
+		hintData[int][hint_exitY]+(2.5 * floatcos(-hintData[int][hint_exitA], degrees)), // чтобы тпшило не на пикапе, а за ним
+		hintData[int][hint_exitZ],
+		hintData[int][hint_exitA],
+		hintData[int][hint_id],
+		house,
+		hintData[int][hint_weather]
+	);
 }
 
 forward HousesLoaded();
@@ -538,7 +533,7 @@ stock HouseUpdateImproove(houseid)
 		if(!hData[houseid][house_pickStore])
 		{
 			hData[houseid][house_pickStore] =
-				CreateDynamicPickup(1275, 23, interior_Data[int][interior_storeX], interior_Data[int][interior_storeY], interior_Data[int][interior_storeZ], houseid);
+				CreateDynamicPickup(1275, 23, hintData[int][hint_storeX], hintData[int][hint_storeY], hintData[int][hint_storeZ], houseid);
 
 			new _arrayData[2];
 			_arrayData[0] = PICKUP_DRESSROOM;
@@ -588,10 +583,10 @@ stock UpdateHousePickup(houseid)
 }
 
 
-
 hook OnPlayerEnterDynArea(playerid, areaid)
 {
-	if(areaid >= interior_exitArea[0] && areaid <= interior_exitArea[TOTAL_HOUSE_INTERIOR-1])
+	SendMes(playerid, -1, "%d <= %d <= %d", hintData[0][hint_ExitArea], areaid, hintData[TOTAL_HOUSE_INTERIOR-1][hint_ExitArea]);
+	if(hintData[0][hint_ExitArea] <= areaid <= hintData[TOTAL_HOUSE_INTERIOR-1][hint_ExitArea])
 	{
 		if(GetPVarInt(playerid, "no_show_dialog"))
 		{

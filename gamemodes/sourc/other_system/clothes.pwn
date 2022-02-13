@@ -70,6 +70,7 @@ hook OnPlayerClickTextDraw(playerid,  Text:clickedid)
             SetPVarInt(playerid, "selected_clothes", 0);
         }
         cache_get_value_int(GetPVarInt(playerid, "selected_clothes"), "pSkin", tmp_skin);
+		cache_unset_active(); 
 
         SetPlayerSkin(playerid, tmp_skin);
         return Y_HOOKS_BREAK_RETURN_1;
@@ -86,6 +87,7 @@ hook OnPlayerClickTextDraw(playerid,  Text:clickedid)
             SetPVarInt(playerid, "selected_clothes", cache_num_rows()-1);
         }
         cache_get_value_int(GetPVarInt(playerid, "selected_clothes"), "pSkin", tmp_skin);
+		cache_unset_active(); 
 
         SetPlayerSkin(playerid, tmp_skin);
         return Y_HOOKS_BREAK_RETURN_1;
@@ -98,15 +100,15 @@ hook OnPlayerClickTextDraw(playerid,  Text:clickedid)
     }
     if(clickedid == select_clothes_house[2])
     {// надеть
-        new skin_query[190];
+        new skin_query[220];
         format(skin_query, sizeof(skin_query), "INSERT INTO `clothes`(`pMySQL_ID`, `pSkin`) VALUES ('%d','%d')", pData[playerid][pMySQL_ID], pData[playerid][pSkin]);
         mysql_tquery(g_sql, skin_query);
 
         new tmp_skin;
         cache_set_active(pData[playerid][pCache_ID]);
         cache_get_value_int(GetPVarInt(playerid, "selected_clothes"), "pSkin", tmp_skin);
-
-        new skin_query[220];
+		cache_unset_active(); 
+//        new skin_query[220];
         format(skin_query, sizeof(skin_query), "DELETE FROM `clothes` WHERE pMySQL_ID = '%d' AND pSkin = '%d'", pData[playerid][pMySQL_ID], tmp_skin);
         mysql_tquery(g_sql, skin_query);
 

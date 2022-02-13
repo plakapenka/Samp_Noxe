@@ -6,14 +6,14 @@
 	"builds": [
 		{
 		  "name": "dev",
-		  "args": ["-;+", "-(+", "-d3", "-Z+"],
+		  "args": ["-;+", "-(+", "-d3"],
 		  "constants": {
 			"MAX_PLAYERS": "10"
 		  }
 		},
 		{
 		  "name": "live",
-		  "args": ["-;+", "-(+", "-O2", "-Z+"],
+		  "args": ["-;+", "-(+", "-O2"],
 		  "constants": {
 			"MAX_PLAYERS": "250"
 		  }
@@ -51,7 +51,7 @@
 		"sleep": 5,
 		"maxnpc": 0,
 		"stream_rate": 1000,
-		"stream_distance": 200,
+		"stream_distance": 300,
 		"onfoot_rate": 30,
 		"incar_rate": 30,
 		"weapon_rate": 30,

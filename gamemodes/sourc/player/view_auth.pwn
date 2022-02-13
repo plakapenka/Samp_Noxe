@@ -7,9 +7,6 @@
 
 #include <YSI_Coding\y_hooks>
 
-// Маппинг интерьера авторизации
-#include "sourc/objects/authorization.pwn"
-
 //
 #define	SECONDS_TO_LOGIN 	30 // ограничение на ввод пароля
 new time_for_login[MAX_PLAYERS];

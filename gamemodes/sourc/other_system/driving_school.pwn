@@ -4,11 +4,6 @@
 // шлагбаум
 // машины автошколы
 
-// Маппинг интерьера автошколы
-#include "sourc/objects/driving_school_interior.pwn"
-// Маппинг вокруг автошколы	
-#include "sourc/objects/driving_school_street.pwn"
-
 
 #include <YSI_Coding\y_hooks>
 

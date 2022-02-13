@@ -1,6 +1,3 @@
-
-#include "sourc/objects/bank.pwn" // маппинг банка
-
 #include <YSI_Coding\y_hooks>
 
 

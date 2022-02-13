@@ -1,6 +1,6 @@
 #define DEFAULT_TAXI_COLOR  228     // дефолтный цвет тачек такси
 
-#include "sourc/objects/taxi_park_LS.pwn"
+
 new taxiPark_area;
 #include <YSI_Coding\y_hooks>
 hook OnGameModeInit()

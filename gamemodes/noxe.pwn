@@ -61,10 +61,32 @@
 #include "sourc/admin/commands.pwn"
 
 #include "sourc/other_system/clothes.pwn"
+#include "sourc/other_system/gym.pwn"
 
 #pragma dynamic 9999999
 // ============= объекты
-#include "sourc/objects/ls_spawn.pwn"
+#include "sourc/objects/SpawnLs.pwn"
+#include "sourc/objects/bank.pwn" // маппинг банка
+#include "sourc/objects/drive_school_int.pwn"
+#include "sourc/objects/drive_school_street.pwn"
+#include "sourc/objects/gym.pwn"
+#include "sourc/objects/garage3.pwn"
+#include "sourc/objects/garage4.pwn"
+#include "sourc/objects/garage5.pwn"
+#include "sourc/objects/garage6.pwn"
+// Маппинг интерьера авторизации
+#include "sourc/objects/authorization.pwn"
+#include "sourc/objects/WorkCenter.pwn" // интерьер центра занятости
+#include "sourc/objects/TaxiParkLs.pwn"
+
+#include "sourc/objects/houses/hint20.pwn"
+#include "sourc/objects/houses/hint21.pwn"
+#include "sourc/objects/houses/hint22.pwn"
+#include "sourc/objects/houses/hint23.pwn"
+#include "sourc/objects/houses/hint24.pwn"
+
+//#include "sourc/objects/houses/hint25.pwn"
+
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там
 			
  
@@ -78,7 +100,8 @@
 
 main() 
 { 
-
+	
+	Streamer_VisibleItems(STREAMER_TYPE_OBJECT, 1000);
 	printf(">> Streamer TickRate = %d ms",Streamer_GetTickRate());
 }
 
@@ -130,7 +153,7 @@ public OnGameModeInit()
 	ShowPlayerMarkers(PLAYER_MARKERS_MODE_STREAMED);
 	DisableInteriorEnterExits();
 	EnableStuntBonusForAll(0);
-	return 1;
+	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
 // все команды в отдельном файле
@@ -215,7 +238,7 @@ stock player_second_update(playerid)
 
 }
 
-CreatePick(model, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, playerid = -1)
+stock CreatePick(model, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, playerid = -1)
 {
 	CreateDynamicPickup(model, 1, x, y, z, worldid, interiorid, playerid);
 	return CreateDynamicSphere(x, y, z, 1.0, worldid, interiorid, playerid);
