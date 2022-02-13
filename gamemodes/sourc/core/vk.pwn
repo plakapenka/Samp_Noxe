@@ -15,7 +15,7 @@ DialogCreate:VkConnect(playerid)
 {
     Dialog_Open(playerid, Dialog:VkConnect, DIALOG_STYLE_INPUT, "Привязка ВК", "\
     {ffffff}Чтобы привязать аккаунт выполните следующие действия:\n\n\n\
-    {90caf9}>{e8e8e8} Подпишитесь на наше сообщество {32a1f0}ВК{e8e8e8} - vk.com/noxe.samp\n\
+    {90caf9}>{e8e8e8} Подпишитесь на наше сообщество {32a1f0}ВК{e8e8e8} - vk.com/NoxeRP\n\
     {90caf9}>{e8e8e8} Нажмите 'Разрешить сообщения', под аватаркой сообщества\n\
     {90caf9}>{e8e8e8} Вставьте ссылку на свою страницу, в поле ниже\n\n", "Далее", "Отмена");
 }
