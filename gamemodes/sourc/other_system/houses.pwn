@@ -585,8 +585,6 @@ stock UpdateHousePickup(houseid)
 
 hook OnPlayerEnterDynArea(playerid, areaid)
 {
-	if(areaid >= area_House[0] && areaid <= area_House[TOTAL_HOUSE])
-	
 	if(hintData[0][hint_ExitArea] <= areaid <= hintData[TOTAL_HOUSE_INTERIOR-1][hint_ExitArea])
 	{
 		if(GetPVarInt(playerid, "no_show_dialog"))
