@@ -4,6 +4,9 @@
 #include <izcmd>
 #include <sscanf2>
 #include <rustext>
+
+#include "sourc/anticheat.pwn" 
+
 #include <YSI_Coding\y_hooks>
 #include <YSI_Data\y_iterate>
 #include <progress2>
@@ -232,7 +235,8 @@ public Timer1sec()
 	}
 	foreach (new playerid : Player)
 	{
-		player_second_update(playerid);		
+		if(pData[playerid][pLogged] == LOGIN_STATUS_ONLINE)
+			player_second_update(playerid);		
 	}
 	SetTimer("Timer1sec", 1000, false);
 }
