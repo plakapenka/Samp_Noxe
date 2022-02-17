@@ -5,7 +5,7 @@
 #include <sscanf2>
 #include <rustext>
 
-#include "sourc/anticheat.pwn" 
+#include "sourc/anticheats/tp_foot.pwn" 
 
 #include <YSI_Coding\y_hooks>
 #include <YSI_Data\y_iterate>
@@ -46,8 +46,6 @@
 #include "sourc/other_system/bank.pwn"			// Банк ЛС
 #include "sourc/other_system/speedometr.pwn"			// Спидометр
 #include "sourc/other_system/driving_school.pwn"		// Автошкола
-#include "sourc/other_system/houses.pwn"				// Дома
-#include "sourc/other_system/player_cars.pwn"
 
 #include "sourc/other_system/adv.pwn"		// объявления
 // ================= Работы
@@ -63,7 +61,6 @@
 
 #include "sourc/admin/commands.pwn"
 
-#include "sourc/other_system/clothes.pwn"
 #include "sourc/other_system/gym.pwn"
 
 #pragma dynamic 9999999
@@ -73,14 +70,17 @@
 #include "sourc/objects/drive_school_int.pwn"
 #include "sourc/objects/drive_school_street.pwn"
 #include "sourc/objects/gym.pwn"
-#include "sourc/objects/garage3.pwn"
-#include "sourc/objects/garage4.pwn"
-#include "sourc/objects/garage5.pwn"
-#include "sourc/objects/garage6.pwn"
+
 // Маппинг интерьера авторизации
 #include "sourc/objects/authorization.pwn"
 #include "sourc/objects/WorkCenter.pwn" // интерьер центра занятости
 #include "sourc/objects/TaxiParkLs.pwn"
+
+#include "sourc/houses/house_interiors.pwn"
+#include "sourc/houses/houses.pwn"				// Дома
+#include "sourc/houses/add.pwn"
+#include "sourc/houses/clothes.pwn"
+
 
 #include "sourc/objects/houses/hint20.pwn"
 #include "sourc/objects/houses/hint21.pwn"
@@ -94,6 +94,12 @@
 #include "sourc/objects/houses/hint29.pwn"
 #include "sourc/objects/houses/hint30.pwn"
 #include "sourc/objects/houses/hint31.pwn"
+
+#include "sourc/other_system/player_cars.pwn"
+#include "sourc/objects/garage3.pwn"
+#include "sourc/objects/garage4.pwn"
+#include "sourc/objects/garage5.pwn"
+#include "sourc/objects/garage6.pwn"
 
 //#include "sourc/objects/houses/hint25.pwn"
 

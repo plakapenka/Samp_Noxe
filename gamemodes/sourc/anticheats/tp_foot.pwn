@@ -4,9 +4,13 @@ new Float:player_PosX[MAX_PLAYERS];
 new Float:player_PosY[MAX_PLAYERS];
 new Float:player_PosZ[MAX_PLAYERS];
 
+new count_tpFoot[MAX_PLAYERS];
 
 hook function player_second_update(playerid)
 {
+    if(count_tpFoot[playerid])
+        count_tpFoot[playerid] --;
+
     if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
     {
         new Float:new_PosX, Float:new_PosY, Float:new_PosZ;
@@ -18,11 +22,14 @@ hook function player_second_update(playerid)
 
         if(dist > 11.0) // GetPlayerSurfingVehicleID(playerid) && GetPlayerSurfingObjectID
         {
-            SendClientMessage(playerid, 0xb61827FF, "Сработала антирассинхронизация. Вы были телепортированы [code: 1]");
-            SetPlayerPos(playerid, player_PosX[playerid], player_PosY[playerid], player_PosZ[playerid]);
-        }
-        else
-        {
+            count_tpFoot[playerid] += 2;
+            if(count_tpFoot[playerid] > 2)
+            {
+                SendClientMessage(playerid, 0xb61827FF, "Сработал античит. Вы были телепортированы [code: 1]");
+                SetPlayerPos(playerid, player_PosX[playerid], player_PosY[playerid], player_PosZ[playerid]);
+                return continue(playerid);
+            }
+           
             player_PosX[playerid] = new_PosX;
             player_PosY[playerid] = new_PosY;
             player_PosZ[playerid] = new_PosZ;

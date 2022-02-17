@@ -18,3 +18,9 @@ CMD:weather(playerid, params[])
 	SetWeather(serv_weather);
 	return true;
 }
+CMD:spawn(playerid, params[])
+{
+	if(pData[playerid][pAdmin] < 1) return true;
+	RespawnPlayer(playerid);
+	return 1;
+}

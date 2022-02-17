@@ -1,5 +1,3 @@
-#include "sourc/other_system/house_interiors.pwn"
-
 #include <YSI_Coding\y_hooks>
 
 
@@ -190,6 +188,7 @@ DialogCreate:d_house_menu_global(playerid)
 	{"#COLOR_GLOBAL"}> {"#COLOR_ERROR"}%s\n\
 	{"#COLOR_GLOBAL"}> {ffffff}%s\n\
 	{"#COLOR_GLOBAL"}> {ffffff}Улучшения\n\
+	{"#COLOR_GLOBAL"}> {ffffff}Сменить интерьер\n\
 	{"#COLOR_GLOBAL"}> {ffffff}Информация",
 
 	((strcmp(hData[houseid][house_owner],"None",true)) ? ("Продать дом"):("{43a047}Купить дом")),
@@ -213,6 +212,10 @@ DialogResponse:d_house_menu_global(playerid, response, listitem, inputtext[])
 	if(listitem == 2)
 	{// улучшения
 		Dialog_Show(playerid, Dialog:d_house_menu_improve);
+	}
+	if(listitem == 3)
+	{// сменить инт
+		//Dialog_Show(playerid, Dialog:d_house_menu_improve);
 	}
 	return 1;
 }
@@ -331,10 +334,7 @@ CMD:hmenu(playerid)
 	Dialog_Show(playerid, Dialog:d_house_menu_global);
 	return true;
 }
-CMD:test123(playerid, params[])
-{
-	SendMes(playerid, -1, "%d", GetPVarInt(playerid, "house_id"));
-}
+
 CMD:buyhouse(playerid)
 {
 	if(!GetPVarInt(playerid, "house_id"))
@@ -447,14 +447,21 @@ stock EnterGarageFromStreet(playerid)
 
 stock ExitHouseToStreet(playerid)
 {
+	if(!GetPVarInt(playerid, "house_id"))
+		return 1;
+
 	SetPVarInt(playerid, "no_show_dialog", 1);
 	new house = GetPVarInt(playerid, "house_id")-1;
 	SetPlayerPos(playerid, hData[house][house_enterX], hData[house][house_enterY], hData[house][house_enterZ]);
 	SetPlayerInterior(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 0);
+	return 1;
 }
 stock EnterHouse(playerid)
 {
+	if(!GetPVarInt(playerid, "house_id"))
+		return 1;
+
 	new house = GetPVarInt(playerid, "house_id")-1;
 	new int = hData[house][house_interior];
 
@@ -468,6 +475,7 @@ stock EnterHouse(playerid)
 		house,
 		hintData[int][hint_weather]
 	);
+	return 1;
 }
 
 forward HousesLoaded();
