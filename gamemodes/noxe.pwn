@@ -12,8 +12,6 @@
 #include <progress2>
 #include <mdialog>
 
-#pragma dynamic 999999
-#pragma warning disable 239, 214
 // ===============================================
 
 #include "config.pwn"

@@ -3,7 +3,7 @@
 new PlayerText:notification_text[MAX_PLAYERS][5] = {PlayerText:INVALID_TEXT_DRAW, ...};
 
 
-stock ShowNotification(playerid, colorbox, colortext, text[], time)
+stock ShowNotification(playerid, colorbox, colortext, const text[], time)
 {
 	if(notification_text[playerid][0] != PlayerText:INVALID_TEXT_DRAW)
 	{
@@ -71,7 +71,7 @@ stock DestroyNotificationText(playerid)
 	
 }
 
-stock CreateNotificationText(playerid, text[], colortext, colorbox)
+stock CreateNotificationText(playerid, const text[], colortext, colorbox)
 {
 	notification_text[playerid][0] = CreatePlayerTextDraw(playerid, 477.000000, 186.000000, "_");
 	PlayerTextDrawFont(playerid, notification_text[playerid][0], 1);
