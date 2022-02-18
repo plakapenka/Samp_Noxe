@@ -24,6 +24,7 @@ enum E_HOUSE_INT
     Float:hint_exitA,
 
 	hint_id,
+	hint_price,
     hint_weather,
 	hint_class,
 	hint_room,
@@ -45,13 +46,6 @@ enum E_HOUSE_INT
     hint_ExitArea
 };
 new hintData[TOTAL_HOUSE_INTERIOR][E_HOUSE_INT];
-
-//new hint_exitArea[TOTAL_HOUSE_INTERIOR];
-//new hint_storeArea[TOTAL_HOUSE_INTERIOR];
-//new hint_freezArea[TOTAL_HOUSE_INTERIOR];
-//new hint_safeArea[TOTAL_HOUSE_INTERIOR];
-
-
 
 CMD:goint(playerid, params[])
 {
@@ -75,7 +69,6 @@ CMD:goint(playerid, params[])
 hook OnGameModeInit()
 {
     mysql_tquery(g_sql, "SELECT * FROM `house_interiors`", "HouseInteriorsLoaded");
-   // HousesInteriorLoad();
 }
 
 forward HouseInteriorsLoaded();
@@ -97,6 +90,7 @@ public HouseInteriorsLoaded()
         cache_get_value_name(x, "enterCords", tmp_str);
         sscanf(tmp_str, "p<,>ffff", hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ], hintData[x][hint_exitA]);
        
+	   	cache_get_value_name_int(x, "price", hintData[x][hint_price]);
         cache_get_value_name_int(x, "interior", hintData[x][hint_id]);
         cache_get_value_name_int(x, "weather", hintData[x][hint_weather]);
         cache_get_value_name_int(x, "class", hintData[x][hint_class]);
