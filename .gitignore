@@ -26,6 +26,7 @@ server.cfg
 
 # Plugins directory
 plugins/
+filterscripts/
 
 # binaries
 *.exe

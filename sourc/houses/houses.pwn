@@ -136,10 +136,10 @@ stock OnPlayerEnterHouseArea(playerid, houseid)
 		((hData[houseid][house_garage]) ? ("{"#COLOR_GOOD"}Есть"):("{"#COLOR_BAD"}Нет")), hData[houseid][house_owner]);
 		
 	}
-	Dialog_Open(playerid, Dialog:d_house_enter, DIALOG_STYLE_MSGBOX," ",mes,"Войти","Отмена");
+	Dialog_Open(playerid, Dialog:HouseEnter, DIALOG_STYLE_MSGBOX," ",mes,"Войти","Отмена");
 	return true;
 }
-DialogResponse:d_house_enter(playerid, response, listitem, inputtext[])
+DialogResponse:HouseEnter(playerid, response, listitem, inputtext[])
 {
 	if(!response)
 		return 1;
@@ -147,7 +147,7 @@ DialogResponse:d_house_enter(playerid, response, listitem, inputtext[])
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 	if(hData[houseid][house_garage])
 	{
-		Dialog_Open(playerid, Dialog:d_house_enter_to, DIALOG_STYLE_LIST, "Вход", "\
+		Dialog_Open(playerid, Dialog:HouseEnterTo, DIALOG_STYLE_LIST, "Вход", "\
 		{"#COLOR_GLOBAL"}> {ffffff}В дом\n\
 		{"#COLOR_GLOBAL"}> {ffffff}В гараж", \
 		"Войти", "Отмена");
@@ -156,7 +156,7 @@ DialogResponse:d_house_enter(playerid, response, listitem, inputtext[])
 	EnterHouse(playerid);
 	return 1;
 }
-DialogResponse:d_house_enter_to(playerid, response, listitem, inputtext[])
+DialogResponse:HouseEnterTo(playerid, response, listitem, inputtext[])
 {
 	if(!response)
 		return 1;
@@ -180,7 +180,7 @@ hook function RespawnPlayer(playerid)
 	}
 	return continue(playerid);
 }
-DialogCreate:d_house_menu_global(playerid)
+DialogCreate:HouseMenuGlobal(playerid)
 {
 	new houseid = GetPVarInt(playerid, "house_id")-1;
 	new str_h_menu[512];
@@ -194,9 +194,9 @@ DialogCreate:d_house_menu_global(playerid)
 	((strcmp(hData[houseid][house_owner],"None",true)) ? ("Продать дом"):("{43a047}Купить дом")),
 	((hData[houseid][house_lock]) ? ("{FFFFFF}Открыть дверь"):("{AFAFAF}Закрыть дверь")) );
 
-	Dialog_Open(playerid, Dialog:d_house_menu_global, 2, "Меню дома", str_h_menu, "Выбор","Закрыть");
+	Dialog_Open(playerid, Dialog:HouseMenuGlobal, 2, "Меню дома", str_h_menu, "Выбор","Закрыть");
 }
-DialogResponse:d_house_menu_global(playerid, response, listitem, inputtext[])
+DialogResponse:HouseMenuGlobal(playerid, response, listitem, inputtext[])
 {
 	if(!response) 
 		return 1;
@@ -211,15 +211,15 @@ DialogResponse:d_house_menu_global(playerid, response, listitem, inputtext[])
 	}
 	if(listitem == 2)
 	{// улучшения
-		Dialog_Show(playerid, Dialog:d_house_menu_improve);
+		Dialog_Show(playerid, Dialog:HouseMenuImproove);
 	}
 	if(listitem == 3)
 	{// сменить инт
-		//Dialog_Show(playerid, Dialog:d_house_menu_improve);
+		//Dialog_Show(playerid, Dialog:HouseMenuImproove);
 	}
 	return 1;
 }
-DialogCreate:d_house_menu_improve(playerid)
+DialogCreate:HouseMenuImproove(playerid)
 {
 	new house = GetPVarInt(playerid, "house_id")-1;
 
@@ -229,10 +229,10 @@ DialogCreate:d_house_menu_improve(playerid)
 	((hData[house][house_improove] & HOUSE_IMPROOVE_SAFE) 	? ("{FFFFFF}Есть"):("{e57373}Нет")),\
 	((hData[house][house_improove] & HOUSE_IMPROOVE_STORE) 	? ("{FFFFFF}Есть"):("{e57373}Нет")) );
 
-	Dialog_Open(playerid, Dialog:d_house_menu_improve, DIALOG_STYLE_LIST, "Улучшения дома",str_h_menu,"Купить","Отмена");
+	Dialog_Open(playerid, Dialog:HouseMenuImproove, DIALOG_STYLE_LIST, "Улучшения дома",str_h_menu,"Купить","Отмена");
 }
 
-DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
+DialogResponse:HouseMenuImproove(playerid, response, listitem, inputtext[])
 {
 	new str_buy_improve[312];
 	new house = GetPVarInt(playerid, "house_id")-1;
@@ -248,7 +248,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В холодильнике вы сможете хранить продукты и\n\
 		восстанавливать здоровье, не выходя из дома", correct_price(PRICE_IMPROOVE_FREEZ) );
-		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:HouseMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_FREEZ);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_FREEZ));
@@ -265,7 +265,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В сейфе ваши деньги и наркотики всегда будут\n\
 		в безопасности", correct_price(PRICE_IMPROOVE_SAFE) );
-		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:HouseMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_SAFE);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_SAFE));
@@ -282,7 +282,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 		Стоимость: {"#COLOR_GLOBAL"}%d {ffffff}$\n\n\
 		{"#COLOR_LIGHT"}В шкафу будет хранится ваша одежда, \n\
 		которую вы сможете сменить в любой момент", correct_price(PRICE_IMPROOVE_STORE) );
-		Dialog_Open(playerid, Dialog:hMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
+		Dialog_Open(playerid, Dialog:HouseMenuImprooveBuy, DIALOG_STYLE_MSGBOX, " ", str_buy_improve, "Купить", "Отмена");
 
 		SetPVarInt(playerid, "buy_improve_what", HOUSE_IMPROOVE_STORE);
 		SetPVarInt(playerid, "buy_improve_price", correct_price(PRICE_IMPROOVE_STORE));
@@ -290,7 +290,7 @@ DialogResponse:d_house_menu_improve(playerid, response, listitem, inputtext[])
 	}
 	return 1;
 }
-DialogResponse:hMenuImprooveBuy(playerid, response, listitem, inputtext[])
+DialogResponse:HouseMenuImprooveBuy(playerid, response, listitem, inputtext[])
 {
 	if(response)
 	{
@@ -310,7 +310,7 @@ DialogResponse:hMenuImprooveBuy(playerid, response, listitem, inputtext[])
 	return 1;
 }
 
-DialogResponse:d_house_exit(playerid, response, listitem, inputtext[])
+DialogResponse:HouseExit(playerid, response, listitem, inputtext[])
 {
 	if(!response) 
 		return 1;
@@ -331,7 +331,7 @@ CMD:hmenu(playerid)
 	if(!GetPVarInt(playerid, "house_id"))
 		return SendClientMessage(playerid, COLOR_16ERROR, "Вы должны находиться возле/внутри дома!");
 
-	Dialog_Show(playerid, Dialog:d_house_menu_global);
+	Dialog_Show(playerid, Dialog:HouseMenuGlobal);
 	return true;
 }
 
@@ -600,7 +600,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 			DeletePVar(playerid, "no_show_dialog");
 			return Y_HOOKS_BREAK_RETURN_1;
 		}
-		Dialog_Open(playerid, Dialog:d_house_exit, DIALOG_STYLE_LIST, "Выход", "\
+		Dialog_Open(playerid, Dialog:HouseExit, DIALOG_STYLE_LIST, "Выход", "\
 		{"#COLOR_GLOBAL"}> {ffffff}На улицу\n\
 		{"#COLOR_GLOBAL"}> {ffffff}В гараж", \
 		"Выйти", "Отмена");
