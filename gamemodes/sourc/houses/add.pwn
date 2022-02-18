@@ -12,7 +12,6 @@ CMD:addhouse(playerid, params[])
     {
         case 0:
         {
-            hData[addhouse][house_price] = price;
             SendClientMessage(playerid, 0x836fa9FF, "Установите координаты авто или гаража и введите /addhouse");
 
             GetPlayerPos(playerid, tempX, tempY, tempZ);
@@ -28,6 +27,7 @@ CMD:addhouse(playerid, params[])
             new veh = GetPlayerVehicleID(playerid);
             new addhouse = TOTAL_HOUSES+1;
 
+            hData[addhouse][house_price] = price;
             GetVehiclePos(veh, hData[addhouse][house_carX], hData[addhouse][house_carY], hData[addhouse][house_carZ]);
             GetVehicleZAngle(veh, hData[addhouse][house_carA]);
             DestroyVehicle(veh);
