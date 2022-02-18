@@ -172,13 +172,9 @@ public OnGameModeInit()
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-// все команды в отдельном файле
-#include "sourc/commands.pwn" 
-
 // дефолт спавн сломаная хуйня. Лучше не юзать его и просто перемещать
 stock RespawnPlayer(playerid)
 {
-	SendMes(playerid, -1, "respawn = %d", GetTickCount());
 	SetPlayerSkin(playerid, pData[playerid][pSkin]);
 	update_money(playerid);
 	SetCameraBehindPlayer(playerid);
@@ -201,13 +197,7 @@ public OnPlayerSpawn(playerid)
 	if(IsPlayerNPC(playerid))
 		return 1;
 
-	SendMes(playerid, -1, "spawn = %d", GetTickCount());
 	RespawnPlayer(playerid);
-	return 1;
-}
-public OnPlayerDeath(playerid, killerid, reason)
-{
-	SendMes(playerid, -1, "death = %d", GetTickCount());
 	return 1;
 }
 
@@ -267,3 +257,4 @@ stock CreatePick(model, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1
 	CreateDynamicPickup(model, 1, x, y, z, worldid, interiorid, playerid);
 	return CreateDynamicSphere(x, y, z, 1.0, worldid, interiorid, playerid);
 }
+

@@ -28,10 +28,17 @@ enum e_vehicle
 	Text3D:vLabel,
 	vOwner_type,
 	vOwner_name,
-	vGarage_slot
+	vGarage_slot,
+	isTempCar,
 };
 new vData[MAX_VEHICLES][e_vehicle];
 
+stock CreateVeh(vehicletype, Float:x, Float:y, Float:z, Float:rotation, color1, color2, respawn_delay, bool:addsiren=false)
+{
+	new tmp_car = CreateVehicle(vehicletype, x, y, z, rotation, color1, color2, respawn_delay, addsiren);
+	vData[tmp_car][vFuell] = 100;
+	return tmp_car;
+}
 
 new Text:td_car_control_g[9];
 new PlayerText:td_car_control_p[MAX_PLAYERS][9];

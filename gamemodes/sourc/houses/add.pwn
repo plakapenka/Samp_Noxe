@@ -17,7 +17,7 @@ CMD:addhouse(playerid, params[])
             GetPlayerPos(playerid, tempX, tempY, tempZ);
             GetPlayerFacingAngle(playerid, tempA);
 
-            new tmp_car = CreateVehicle(560, tempX, tempY, tempZ, tempA, -1, -1, 600);
+            new tmp_car = CreateVeh(560, tempX, tempY, tempZ, tempA, -1, -1, 600);
             PutPlayerInVehicle(playerid, tmp_car, 0);
             SetSVarInt("addhouse", 1);
             return 1;
@@ -127,6 +127,12 @@ public HouseAdded(playerid, houseid)
     SetPlayerVirtualWorld(playerid, 0);
     SetPlayerInterior(playerid, 0);
     SendMes(playerid, 0xd1c4e9FF, "Дом успешно добавлен. MySQL ID = %d", hData[houseid][house_ID]);
+
+   
+    DeleteSVar("addhouse");
+    DeletePVar(playerid, "addhouse_hint");
+    HideHintTD(playerid);
+    CancelSelectTextDraw(playerid);
     return 1;
 }
 stock EnterHint(playerid, hint)
