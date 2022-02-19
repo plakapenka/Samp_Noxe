@@ -5,7 +5,7 @@ new PlayerText:SelectHintTD[MAX_PLAYERS][9];
 
 #define TOTAL_HOUSE_INTERIOR 32
 
-enum 
+enum E_HINT_CLASSES
 {
     HOUSE_CLASS_ECONOM,
     HOUSE_CLASS_COMFORT, 
@@ -14,6 +14,8 @@ enum
     HOUSE_TRAILER
 };
 new const house_className[][] = {"Эконом", "Комфорт", "Бизнес", "Премиум","Трейлер"};
+
+new Iterator:hInteriors[sizeof(house_className)]<TOTAL_HOUSE_INTERIOR>;
 
 enum E_HOUSE_INT
 {
@@ -74,6 +76,8 @@ hook OnGameModeInit()
 forward HouseInteriorsLoaded();
 public HouseInteriorsLoaded()
 {
+	Iter_Init(hInteriors);
+
     new tmp_str[66];
 
 	new r;
@@ -120,12 +124,67 @@ public HouseInteriorsLoaded()
         );
 
 		hintData[x][hint_ExitArea] = CreatePick(19135, hintData[x][hint_exitX], hintData[x][hint_exitY], hintData[x][hint_exitZ], -1, hintData[x][hint_id]);
+
+		Iter_Add(hInteriors[hintData[x][hint_class]], x);
     }
 
     printf(">>> Интерьеры для домов успешно загружены. Количество: %d ", r);
     return 1;
 }
+hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+{
+    if(GetPVarInt(playerid, "change_hint"))
+    {
+        if(PRESSED(KEY_SECONDARY_ATTACK))
+        {
+            SelectTextDraw(playerid, 0x836fa9FF);
+        }
+    }
+    
+}
 
+hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
+{
+    if(GetPVarInt(playerid, "change_hint"))
+    {
+        
+        if(playertextid == SelectHintTD[playerid][4])
+        {// назад
+            new cur_hint = GetPVarInt(playerid, "selected_hint");
+			new needclass = hintData[cur_hint][hint_class];
+			
+			new nexthint = Iter_Prev(hInteriors[needclass], cur_hint);
+
+			if(nexthint == Iter_Begin(hInteriors[needclass]))
+				nexthint = Iter_Last(hInteriors[needclass]);
+
+			EnterHint(playerid, nexthint);
+			SetPVarInt(playerid, "selected_hint", nexthint);
+
+			UpdateHintTD(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+    
+		if(playertextid == SelectHintTD[playerid][5])
+        {// вперед
+            new cur_hint = GetPVarInt(playerid, "selected_hint");
+			new needclass = hintData[cur_hint][hint_class];
+			
+			new nexthint = Iter_Next(hInteriors[needclass], cur_hint);
+
+			if(nexthint == Iter_End(hInteriors[needclass]))
+				nexthint = Iter_First(hInteriors[needclass]);
+
+			EnterHint(playerid, nexthint);
+			SetPVarInt(playerid, "selected_hint", nexthint);
+
+			UpdateHintTD(playerid);
+			return Y_HOOKS_BREAK_RETURN_1;
+		}
+        return Y_HOOKS_BREAK_RETURN_1;
+	}
+	return Y_HOOKS_CONTINUE_RETURN_1;
+}
 
 stock ShowHintTD(playerid)
 {
@@ -136,12 +195,25 @@ stock ShowHintTD(playerid)
         PlayerTextDrawShow(playerid, SelectHintTD[playerid][td]);
     }
 }
+
 stock HideHintTD(playerid)
 {
     for(new td = 0; td < sizeof(SelectHintTD[]); td++)
     {
         PlayerTextDrawDestroy(playerid, SelectHintTD[playerid][td]);
     }
+}
+
+stock UpdateHintTD(playerid)
+{
+	new hint = GetPVarInt(playerid, "selected_hint");
+	new str[123];
+
+	format(str, sizeof(str), "Цена: %d $", hintData[hint][hint_price]);
+	PlayerTextDrawSetString(playerid, SelectHintTD[playerid][2], str);
+
+	format(str, sizeof(str), "Количество комнат: %d", hintData[hint][hint_room]);
+	PlayerTextDrawSetString(playerid, SelectHintTD[playerid][2], str);
 }
 stock CreateSelectHintTD(playerid)
 {
@@ -208,7 +280,7 @@ stock CreateSelectHintTD(playerid)
 	PlayerTextDrawSetOutline(playerid, SelectHintTD[playerid][4], 0);
 	PlayerTextDrawSetShadow(playerid, SelectHintTD[playerid][4], 2);
 	PlayerTextDrawAlignment(playerid, SelectHintTD[playerid][4], 1);
-	PlayerTextDrawColor(playerid, SelectHintTD[playerid][4], -343080705);
+	PlayerTextDrawColor(playerid, SelectHintTD[playerid][4], 0x9575CDFF);
 	PlayerTextDrawBackgroundColor(playerid, SelectHintTD[playerid][4], 255);
 	PlayerTextDrawBoxColor(playerid, SelectHintTD[playerid][4], -2139062144);
 	PlayerTextDrawUseBox(playerid, SelectHintTD[playerid][4], 0);
@@ -222,7 +294,7 @@ stock CreateSelectHintTD(playerid)
 	PlayerTextDrawSetOutline(playerid, SelectHintTD[playerid][5], 0);
 	PlayerTextDrawSetShadow(playerid, SelectHintTD[playerid][5], 2);
 	PlayerTextDrawAlignment(playerid, SelectHintTD[playerid][5], 1);
-	PlayerTextDrawColor(playerid, SelectHintTD[playerid][5], -343080705);
+	PlayerTextDrawColor(playerid, SelectHintTD[playerid][5], 0x9575CDFF);
 	PlayerTextDrawBackgroundColor(playerid, SelectHintTD[playerid][5], 255);
 	PlayerTextDrawBoxColor(playerid, SelectHintTD[playerid][5], -2139062144);
 	PlayerTextDrawUseBox(playerid, SelectHintTD[playerid][5], 0);

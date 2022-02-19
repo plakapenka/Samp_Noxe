@@ -5,7 +5,7 @@
 #include <sscanf2>
 #include <rustext>
 
-#include "sourc/anticheats/tp_foot.pwn" 
+//#include "sourc/anticheats/tp_foot.pwn" 
 
 #include <YSI_Coding\y_hooks>
 #include <YSI_Data\y_iterate>
@@ -75,7 +75,10 @@
 #include "sourc/objects/TaxiParkLs.pwn"
 
 #include "sourc/houses/house_interiors.pwn"
-#include "sourc/houses/houses.pwn"				// Дома
+#include "sourc/houses/houses.pwn"	
+#include "sourc/houses/house_objects.pwn"
+
+			// Дома
 #include "sourc/houses/add.pwn"
 #include "sourc/houses/clothes.pwn"
 
@@ -114,7 +117,6 @@
 
 main() 
 { 
-	
 	Streamer_VisibleItems(STREAMER_TYPE_OBJECT, 1000);
 	printf(">> Streamer TickRate = %d ms",Streamer_GetTickRate());
 }

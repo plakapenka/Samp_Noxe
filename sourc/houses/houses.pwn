@@ -57,6 +57,21 @@ stock GetPlayerHouse(playerid)
 	pData[playerid][pHouse] = INVALID_HOUSE_ID;
 	return 1;
 }
+
+
+
+stock GetHouseWhereID(houseid)
+{
+	for(new house; house < TOTAL_HOUSES; house++)
+	{
+		if(hData[house][house_ID] == houseid)
+		{
+			return house;
+		}
+	}
+	//pData[playerid][pHouse] = INVALID_HOUSE_ID;
+}
+
 hook OnGameModeInit()
 {
 	mysql_tquery(g_sql, "SELECT * FROM `"TABLE_HOUSES"`", "HousesLoaded");
@@ -98,8 +113,10 @@ stock OnPlayerLeaveHouseArea(playerid)
 {
 	// Проверка на интерьер для того чтобы не удаляло при входе в дом
 	// т.к при тп в интерьер будет тоже LeaveArea
-	if(!GetPlayerInterior(playerid))
+	if(!GetPVarInt(playerid, "notExit"))
 		DeletePVar(playerid, "house_id");
+	else
+		DeletePVar(playerid, "notExit");
 }
 stock OnPlayerEnterHouseArea(playerid, houseid)
 {
@@ -215,7 +232,18 @@ DialogResponse:HouseMenuGlobal(playerid, response, listitem, inputtext[])
 	}
 	if(listitem == 3)
 	{// сменить инт
-		//Dialog_Show(playerid, Dialog:HouseMenuImproove);
+		ShowHintTD(playerid);
+		SelectTextDraw(playerid, 0x836fa9FF);
+
+		SetPVarInt(playerid, "change_hint", 1);
+
+		new houseid = pData[playerid][pHouse];
+		new hint = hData[houseid][house_interior];
+
+		hint = Iter_First(hInteriors[hintData[hint][hint_class]]);
+		EnterHint(playerid, hint);
+		SetPVarInt(playerid, "selected_hint", hint);
+		return 1;
 	}
 	return 1;
 }
@@ -412,6 +440,8 @@ stock EnterGarageFromHouse(playerid)
 
 stock EnterGarageFromStreet(playerid)
 {
+	SetPVarInt(playerid, "notExit", 1);
+
 	new house = GetPVarInt(playerid, "house_id")-1;
 
 	switch(hData[house][house_garage])
@@ -459,6 +489,8 @@ stock ExitHouseToStreet(playerid)
 }
 stock EnterHouse(playerid)
 {
+	SetPVarInt(playerid, "notExit", 1);
+
 	if(!GetPVarInt(playerid, "house_id"))
 		return 1;
 
@@ -529,8 +561,7 @@ public HousesLoaded()
 		TOTAL_HOUSES++;
 	}
 	printf("> HousesLoaded > Data from "TABLE_HOUSES" successfully loaded! count = %d ", TOTAL_HOUSES);
-
-
+	mysql_tquery(g_sql, "SELECT * FROM `houses_objects`", "HouseObjectsLoaded");
 }
 stock HouseUpdateImproove(houseid)
 {
@@ -615,7 +646,7 @@ stock UpdateHouseQuery(houseid)
 	new str_temp[123];
 
 	strcat(str_buy_house, "UPDATE `"TABLE_HOUSES"` SET ");
-	format(str_temp, sizeof(str_temp), "`house_owner`='%e',", hData[houseid][house_owner]);
+	format(str_temp, sizeof(str_temp), "`house_owner`='%s',", hData[houseid][house_owner]);
 	strcat(str_buy_house, str_temp);
 	format(str_temp, sizeof(str_temp), "`house_enterX`='%f',", hData[houseid][house_enterX]);
 	strcat(str_buy_house, str_temp);
