@@ -29,7 +29,7 @@ public HouseObjectsList()
     new tmp_model, tmp_objID;
     for(new x = 0; x < cache_num_rows(); x++)
     {
-        object
+    //    object
         cache_get_value_int(x, "model", tmp_int);
         
         format(tmp_str, sizeof(tmp_str), "%s\n", houseObjects[tmp_model][E_HOUSEOBJ_NAME]);

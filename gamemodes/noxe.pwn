@@ -76,7 +76,7 @@
 
 #include "sourc/houses/house_interiors.pwn"
 #include "sourc/houses/houses.pwn"	
-#include "sourc/houses/house_objects.pwn"
+//#include "sourc/houses/house_objects.pwn"
 
 			// Дома
 #include "sourc/houses/add.pwn"

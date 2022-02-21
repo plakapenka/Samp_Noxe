@@ -172,69 +172,40 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
   
     	if(clickedid == select_skin_td[4]) 
     	{// стрелка влево
-    		if(pData[playerid][pSex] == SEX_MALE) 
-	    	{// мужик
-	    		if(GetPVarInt(playerid, "cnt_skin_reg") == 0)
-	    		{//если скин первый в списке, начинаем список с конца
-	    			SetPVarInt(playerid, "cnt_skin_reg",sizeof(male_skin_reg)-1);
-	    		}
-	    		else
-	    		{// если нет то показываем предыдущий
-	    			SetPVarInt(playerid, "cnt_skin_reg",GetPVarInt(playerid, "cnt_skin_reg")-1);
-	    		}
-	    		pData[playerid][pSkin] = male_skin_reg[GetPVarInt(playerid, "cnt_skin_reg")];
-	    	}
-	    	else
-	    	{// если тянка. 
-	    		if(GetPVarInt(playerid, "cnt_skin_reg") == 0)
-	    		{//если скин первый в списке, начинаем список с конца
-	    			SetPVarInt(playerid, "cnt_skin_reg",sizeof(male_skin_reg)-1);
-	    		}
-	    		else
-	    		{// если нет то показываем предыдущий
-	    			SetPVarInt(playerid, "cnt_skin_reg",GetPVarInt(playerid, "cnt_skin_reg")-1);
-	    		}
-	    		pData[playerid][pSkin] = fem_skin_reg[GetPVarInt(playerid, "cnt_skin_reg")];
-	    	}
-	    	SetPlayerSkin(playerid, pData[playerid][pSkin]);
+			new sex = pData[playerid][pSex];
+    
+			if(-- Selected[playerid] < 0)
+				Selected[playerid] = !sex ? sizeof(fem_skin_reg)-1 : sizeof(male_skin_reg)-1;
+
+			new skinid = pData[playerid][pSkin] = !sex ? fem_skin_reg[Selected[playerid]] : male_skin_reg[Selected[playerid]];
+
+			SetPlayerSkin(
+				playerid,
+				skinid
+			);
 	    	return Y_HOOKS_BREAK_RETURN_1;
     	}
 
     	if(clickedid == select_skin_td[5]) 
     	{// стрелка вправо
-    		if(pData[playerid][pSex] == SEX_MALE) 
-    		{// мужик
-    			if(GetPVarInt(playerid, "cnt_skin_reg") == sizeof(male_skin_reg)-1)
-    			{//если скин последний в списке, начинаем список сначала
-    				SetPVarInt(playerid, "cnt_skin_reg",0);
-    			}
-    			else
-    			{// если нет то показываем следующий
-    				SetPVarInt(playerid, "cnt_skin_reg",GetPVarInt(playerid, "cnt_skin_reg")+1);
-    			}
-    			pData[playerid][pSkin] = male_skin_reg[GetPVarInt(playerid, "cnt_skin_reg")];
-    		}
-    		else
-    		{// если тянка. 
-    			if(GetPVarInt(playerid, "cnt_skin_reg") == sizeof(fem_skin_reg)-1)
-    			{//если скин последний в списке, начинаем список сначала
-    				SetPVarInt(playerid, "cnt_skin_reg",0);
-    			}
-    			else
-    			{// если нет то показываем следующий
-    				SetPVarInt(playerid, "cnt_skin_reg",GetPVarInt(playerid, "cnt_skin_reg")+1);
-    			}
-    			pData[playerid][pSkin] = fem_skin_reg[GetPVarInt(playerid, "cnt_skin_reg")];
-    		}
-    		SetPlayerSkin(playerid, pData[playerid][pSkin]);
-    		return Y_HOOKS_BREAK_RETURN_1;
+    		new sex = pData[playerid][pSex];
+    
+			if(++ Selected[playerid] > (sex ? sizeof(fem_skin_reg)-1 : sizeof(male_skin_reg)-1))
+				Selected[playerid] = 0;
+
+			new skinid = pData[playerid][pSkin] = !sex ? fem_skin_reg[Selected[playerid]] : male_skin_reg[Selected[playerid]];
+
+			SetPlayerSkin(
+				playerid,
+				skinid
+			);
+	    	return Y_HOOKS_BREAK_RETURN_1;
     	}
 
     	if(clickedid == select_skin_td[7]) 
     	{// кнопка SELECT
 			DeletePVar(playerid, "OnReg");
 
-    		strmid(pData[playerid][pIP_reg], pData[playerid][pIP_cur], 0, MAX_IP_LENGTH, MAX_IP_LENGTH);
 			orm_save(pData[playerid][ORM_ID], "PlayerLogged", "d", playerid);
 
     		hide_select_skin_td(playerid);

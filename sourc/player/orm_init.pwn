@@ -1,3 +1,5 @@
+new Selected[MAX_PLAYERS];
+
 enum
 {
 	JOB_CLEANER,
