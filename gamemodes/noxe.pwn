@@ -5,7 +5,7 @@
 #include <sscanf2>
 #include <rustext>
 
-//#include "sourc/anticheats/tp_foot.pwn" 
+#include "sourc/anticheats/tp_foot.pwn" 
 
 #include <YSI_Coding\y_hooks>
 #include <YSI_Data\y_iterate>
@@ -77,7 +77,6 @@
 #include "sourc/houses/house_interiors.pwn"
 #include "sourc/houses/houses.pwn"	
 //#include "sourc/houses/house_objects.pwn"
-
 			// Дома
 #include "sourc/houses/add.pwn"
 #include "sourc/houses/clothes.pwn"
@@ -183,10 +182,7 @@ stock RespawnPlayer(playerid)
 	{
 		if(pData[playerid][pLvl] >= 1)
 		{
-			SetPlayerPos(playerid, 1154.1310,-1769.4207,16.5938);
-			SetPlayerFacingAngle(playerid, 0.0);
-			SetPlayerInterior(playerid, 0);
-			SetPlayerVirtualWorld(playerid, 0);
+			SetPlayerPosEx(playerid, 1154.13, -1769.42, 16.59, 0.0);
 		}
 	}
 }
@@ -203,11 +199,11 @@ public OnPlayerSpawn(playerid)
 
 stock SetPlayerPosEx(playerid, Float:x, Float:y, Float:z, Float: a, int = 0, world = 0, weather=-1)
 {
-	if(int)
+	if(int || world)
 	{
-		Streamer_UpdateEx(playerid, x, y, z, world, int, 0, GetPlayerPing(playerid)*MULT_DELAY);
-		SetPlayerTime(playerid, 12,00);
+		Streamer_UpdateEx(playerid, x, y, z, world, int, -1, GetPlayerPing(playerid)*MULT_DELAY);
 
+		SetPlayerTime(playerid, 12,00);
 		if(weather == -1) 
 			SetPlayerWeather(playerid, serv_weather);
 		else 

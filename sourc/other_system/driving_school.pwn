@@ -279,22 +279,12 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 	}
 	if(areaid == a_autoschool_enter_main)
 	{// вход в интерьер √Ћј¬Ќџ…
-		Streamer_UpdateEx(playerid, -2025.9841,-104.7117,1041.6584, 2, 3, 0, GetPlayerPing(playerid)*MULT_DELAY);
-		SetPlayerFacingAngle(playerid,180.0);
-		SetPlayerInterior(playerid, 3);
-		SetPlayerVirtualWorld(playerid, 2);
-		SetPlayerTime(playerid, 12,00);
-		SetPlayerWeather(playerid, 12);
+		SetPlayerPosEx(playerid, -2025.98, -104.71, 1041.65, 180.0, 3, 2, 12);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	if(areaid == a_autoschool_enter_back)
 	{// вход в интерьер „≈–Ќџ…
-		Streamer_UpdateEx(playerid, -2026.0140,-118.8017,1041.6604, 2, 3, 0, GetPlayerPing(playerid)*MULT_DELAY);
-		SetPlayerFacingAngle(playerid,0.0);
-		SetPlayerInterior(playerid, 3);
-		SetPlayerVirtualWorld(playerid, 2);
-		SetPlayerTime(playerid, 12,00);
-		SetPlayerWeather(playerid, 12);
+		SetPlayerPosEx(playerid, -2026.01, -118.80, 1041.66, 0.0, 3, 2, 12);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	if(areaid == a_autoschool_exit_main)

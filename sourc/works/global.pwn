@@ -31,12 +31,7 @@ hook OnPlayerPickUpDynPickup(playerid, pickupid)
 {
 	if(pickupid == pickup_workCenter_enter)
 	{
-		Streamer_UpdateEx(playerid, -25.9109, -296.3059, 1007.4140, 55, 15, 0, GetPlayerPing(playerid)*MULT_DELAY);
-		SetPlayerFacingAngle(playerid, 0.0);
-		SetPlayerInterior(playerid, 15);
-		SetPlayerVirtualWorld(playerid, 55);
-		SetPlayerTime(playerid, 12,00);
-		SetPlayerWeather(playerid, 4);
+		SetPlayerPosEx(playerid, -25.91, -296.30, 1007.41, 0.0, 15, 55, 4);
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
 	if(pickupid == pickup_workCenter_exit)

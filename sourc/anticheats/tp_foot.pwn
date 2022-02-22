@@ -40,6 +40,7 @@ hook function player_second_update(playerid)
 
 hook function SetPlayerPos(playerid, Float:x, Float:y, Float:z)
 {
+    printf("setplayerpos");
     player_PosX[playerid] = x;
     player_PosY[playerid] = y;
     player_PosZ[playerid] = z;
