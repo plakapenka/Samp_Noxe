@@ -94,6 +94,10 @@
 #include "sourc/objects/houses/hint29.pwn"
 #include "sourc/objects/houses/hint30.pwn"
 #include "sourc/objects/houses/hint31.pwn"
+#include "sourc/objects/houses/hint32.pwn"
+#include "sourc/objects/houses/hint33.pwn"
+#include "sourc/objects/houses/hint34.pwn"
+#include "sourc/objects/houses/hint35.pwn"
 
 #include "sourc/other_system/player_cars.pwn"
 #include "sourc/objects/garage3.pwn"

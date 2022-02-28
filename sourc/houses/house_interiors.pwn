@@ -3,7 +3,7 @@
 
 new PlayerText:SelectHintTD[MAX_PLAYERS][9];
 
-#define TOTAL_HOUSE_INTERIOR 32
+#define TOTAL_HOUSE_INTERIOR 36
 
 enum E_HINT_CLASSES
 {
