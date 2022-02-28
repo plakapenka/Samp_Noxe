@@ -3,5 +3,5 @@
 // To update the version number for a new release, run "sampctl package release"
 
 #define NOXE_VERSION_MAJOR (0)
-#define NOXE_VERSION_MINOR (0)
+#define NOXE_VERSION_MINOR (1)
 #define NOXE_VERSION_PATCH (1)
