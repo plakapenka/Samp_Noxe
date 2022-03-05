@@ -105,6 +105,7 @@
 #include "sourc/objects/garage5.pwn"
 #include "sourc/objects/garage6.pwn"
 
+#include "sourc/boost.pwn"
 //#include "sourc/objects/houses/hint25.pwn"
 
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там

@@ -4,43 +4,43 @@ new Float:player_PosX[MAX_PLAYERS];
 new Float:player_PosY[MAX_PLAYERS];
 new Float:player_PosZ[MAX_PLAYERS];
 
-new count_tpFoot[MAX_PLAYERS];
+new tpFoot_nocheeck[MAX_PLAYERS];
 
 hook function player_second_update(playerid)
 {
-    if(count_tpFoot[playerid])
-        count_tpFoot[playerid] --;
-
-    if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
+    if(tpFoot_nocheeck[playerid])
+        tpFoot_nocheeck[playerid] --;
+    else
     {
-        new Float:new_PosX, Float:new_PosY, Float:new_PosZ;
-        GetPlayerPos(playerid, new_PosX, new_PosY, new_PosZ);
-
-        new Float:dist = VectorSize(new_PosX - player_PosX[playerid], new_PosY - player_PosY[playerid], 0.0);
-     
-       // SendMes(playerid, -1, "dist my - %f, dist default - %f", dist, GetPlayerDistanceFromPoint(playerid, player_PosX[playerid], player_PosY[playerid], player_PosZ[playerid]));
-
-        if(dist > 11.0) // GetPlayerSurfingVehicleID(playerid) && GetPlayerSurfingObjectID
+        if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
         {
-            count_tpFoot[playerid] += 2;
-            if(count_tpFoot[playerid] > 2)
+            new Float:new_PosX, Float:new_PosY, Float:new_PosZ;
+            GetPlayerPos(playerid, new_PosX, new_PosY, new_PosZ);
+
+            new Float:dist = VectorSize(new_PosX - player_PosX[playerid], new_PosY - player_PosY[playerid], 0.0);
+        
+        // SendMes(playerid, -1, "dist my - %f, dist default - %f", dist, GetPlayerDistanceFromPoint(playerid, player_PosX[playerid], player_PosY[playerid], player_PosZ[playerid]));
+
+            if(dist > 11.0) // GetPlayerSurfingVehicleID(playerid) && GetPlayerSurfingObjectID
             {
                 SendClientMessage(playerid, 0xb61827FF, "Сработал античит. Вы были телепортированы [code: 1]");
                 SetPlayerPos(playerid, player_PosX[playerid], player_PosY[playerid], player_PosZ[playerid]);
                 return continue(playerid);
             }
-           
+            
             player_PosX[playerid] = new_PosX;
             player_PosY[playerid] = new_PosY;
-            player_PosZ[playerid] = new_PosZ;
-        }    
+            player_PosZ[playerid] = new_PosZ;   
+        }
     }
+    
     return continue(playerid);
 }
 
 hook function SetPlayerPos(playerid, Float:x, Float:y, Float:z)
 {
     printf("setplayerpos");
+    tpFoot_nocheeck[playerid] = 1;
     player_PosX[playerid] = x;
     player_PosY[playerid] = y;
     player_PosZ[playerid] = z;
@@ -50,8 +50,10 @@ hook function SetPlayerPos(playerid, Float:x, Float:y, Float:z)
 
 hook function Streamer_UpdateEx(playerid, Float:x, Float:y, Float:z, worldid = -1, interiorid = -1, type = -1, compensatedtime = -1, freezeplayer = 1)
 {
+    tpFoot_nocheeck[playerid] = 1;
     player_PosX[playerid] = x;
     player_PosY[playerid] = y;
     player_PosZ[playerid] = z;
     return continue(playerid, Float:x, Float:y, Float:z, worldid, interiorid, type, compensatedtime, freezeplayer);
 }
+
