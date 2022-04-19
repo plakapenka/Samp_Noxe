@@ -17,7 +17,6 @@ hook OnPlayerConnect(playerid)
 }
 hook OnPlayerRequestClass(playerid, classid)
 {
-
 	if(IsPlayerNPC(playerid))
 	{
 		SpawnPlayer(playerid);
@@ -31,6 +30,11 @@ hook OnPlayerRequestClass(playerid, classid)
 	SendClientMessage(playerid, color16_light, "Добро пожаловать на сервер Noxe Role Play");
 
 	InitPlayerData(playerid);
+
+	// Спавним игрока чтобы убрать кнопки << >> SPAWN
+	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
+	SetSpawnInfo(playerid, 0, 0, 2072.1445, 2091.8442, 26.5499, 0.0, 0, 0, 0, 0, 0, 0);
+	SpawnPlayer(playerid);
 	return Y_HOOKS_BREAK_RETURN_1;
 	
 }
@@ -38,9 +42,7 @@ hook OnPlayerRequestClass(playerid, classid)
 forward OnPlayerDataLoaded(playerid);
 public OnPlayerDataLoaded(playerid)
 {
-	// Спавним игрока чтобы убрать кнопки << >> SPAWN
-	pData[playerid][pLogged] = LOGIN_STATUS_ENTER;
-	SpawnPlayer(playerid);
+	
 
 	orm_setkey(pData[playerid][ORM_ID], "pMySQL_ID");
 
@@ -73,25 +75,35 @@ public OnLoginTimeout(playerid)
 
 hook OnPlayerSpawn(playerid)
 {
+	printf("Spawn");
 	if(pData[playerid][pLogged] == LOGIN_STATUS_ENTER)
 	{
-		// актеры в интерьере авторизации
-		CreateAuthActor(playerid);
-
-		// Перемещаем в интерьер авторизации, чтобы прогрузились объекты
-		SetPlayerPos(playerid, 2072.1445, 2091.8442, 26.5499);
-		SetPlayerFacingAngle(playerid, 272.12);
-		SetPlayerVirtualWorld(playerid, playerid);
-
-		// Хитрость чтобы скрыть Худ т.к игрок заспавнен
-		SelectTextDraw(playerid, 0xFF4040AA); 
-
-		// Перемещаем камеру
+		printf("Spawn ok");
 		SetPlayerCameraPos(playerid, 2076.843018, 2086.007080, 27.014999);
-		SetPlayerCameraLookAt(playerid, 2080.626953, 2089.272949, 27.093000);
+	 	SetPlayerCameraLookAt(playerid, 2080.626953, 2089.272949, 27.093000);
 
+		SelectTextDraw(playerid, 0xFF4040AA); 
 		return Y_HOOKS_BREAK_RETURN_1;
 	}
+	// if(pData[playerid][pLogged] == LOGIN_STATUS_ENTER)
+	// {
+	// 	// актеры в интерьере авторизации
+	// 	CreateAuthActor(playerid);
+
+	// 	// Перемещаем в интерьер авторизации, чтобы прогрузились объекты
+	// 	SetPlayerPos(playerid, 2072.1445, 2091.8442, 26.5499);
+	// 	SetPlayerFacingAngle(playerid, 272.12);
+	// 	SetPlayerVirtualWorld(playerid, playerid);
+
+	// 	// Хитрость чтобы скрыть Худ т.к игрок заспавнен
+	// 	SelectTextDraw(playerid, 0xFF4040AA); 
+
+	// 	// Перемещаем камеру
+	// 	SetPlayerCameraPos(playerid, 2076.843018, 2086.007080, 27.014999);
+	// 	SetPlayerCameraLookAt(playerid, 2080.626953, 2089.272949, 27.093000);
+
+	// 	return Y_HOOKS_BREAK_RETURN_1;
+	// }
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 

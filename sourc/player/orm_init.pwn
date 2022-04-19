@@ -41,6 +41,7 @@ enum E_PLAYERS
 	pJob,
 	pJob_Skill[4],
 	pNumber,
+	pMember,
 	gg
 };
 new pData[MAX_PLAYERS][E_PLAYERS];
@@ -55,7 +56,7 @@ stock InitPlayerData(playerid)
 	orm_addvar_string(ormid, pData[playerid][pName], MAX_PLAYER_NAME, "pName");
 	orm_addvar_string(ormid, pData[playerid][pPassword], 65, "pPassword");
 	orm_addvar_string(ormid, pData[playerid][pSalt], 17, "pSalt");
-	orm_addvar_int(ormid,pData[playerid][pLogged], "pLogged");
+//	orm_addvar_int(ormid,pData[playerid][pLogged], "pLogged");
 	orm_addvar_string(ormid,pData[playerid][pVK], MAX_VK_LENGHT, "pVK");
 	orm_addvar_string(ormid,pData[playerid][pIP_reg], MAX_IP_LENGTH, "pIP_reg");
 	orm_addvar_string(ormid,pData[playerid][pIP_last], MAX_IP_LENGTH, "pIP_last");
@@ -96,7 +97,7 @@ stock ResetPlayerData(playerid)
 
 	pData[playerid][ORM_ID] 					= MYSQL_INVALID_ORM;
 	pData[playerid][pMySQL_ID] 					= 0;
-	pData[playerid][pLogged]					= LOGIN_STATUS_OFFLINE;
+	//pData[playerid][pLogged]					= LOGIN_STATUS_OFFLINE;
 	pData[playerid][pSex]						= 0;
 	pData[playerid][pLvl]						= 1;
 	pData[playerid][pExp]						= 0;

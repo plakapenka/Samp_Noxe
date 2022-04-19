@@ -3,38 +3,23 @@
 	"repo": "noxe",
 	"entry": "gamemodes//noxe.pwn",
 	"output": "gamemodes//noxe.amx",
-	"builds": [
-		{
-		  "name": "dev",
-		  "args": ["-;+", "-(+", "-d3"],
-		  "constants": {
-			"MAX_PLAYERS": "10"
-		  }
-		},
-		{
-		  "name": "live",
-		  "args": ["-;+", "-(+", "-O2"],
-		  "constants": {
-			"MAX_PLAYERS": "250"
-		  }
-		}
-	],
 	"dependencies": [
 		"Zeex/samp-plugin-crashdetect:v4.19.4",
 		"sampctl/samp-stdlib",
-		"samp-incognito/samp-streamer-plugin",
+		"samp-incognito/samp-streamer-plugin:v2.9.5",
 		"YashasSamaga/I-ZCMD",
-		"maddinat0r/sscanf",
-		"ziggi/rustext",
-		"pawn-lang/YSI-Includes",
-		"Southclaws/progress2",
-		"Open-GTO/mdialog",
-		"pBlueG/SA-MP-MySQL"
+		"Y-Less/sscanf:v2.11.4",
+		"ziggi/rustext:v2.0.8",
+		"pawn-lang/YSI-Includes:v5.05.0505",
+		"Southclaws/progress2:2.3.0",
+		"Open-GTO/mdialog:1.4.3",
+		"pBlueG/SA-MP-MySQL:R41-4",
+		"pawn-lang/YSI-Includes@5.x:v5.05.0505"
 	],
 	"local": true,
 	"runtime": {
-		"mode": "noxe",
 		"version": "0.3.7",
+		"mode": "noxe",
 		"rcon_password": "password",
 		"port": 7777,
 		"hostname": "Noxe",
@@ -69,5 +54,31 @@
 		"conncookies": true,
 		"cookielogging": false,
 		"output": true
-	}
+	},
+	"builds": [
+		{
+			"name": "dev",
+			"args": [
+				"-;+",
+				"-(+",
+				"-d3"
+			],
+			"constants": {
+				"MAX_PLAYERS": "10"
+			},
+			"compiler": {}
+		},
+		{
+			"name": "live",
+			"args": [
+				"-;+",
+				"-(+",
+				"-O2"
+			],
+			"constants": {
+				"MAX_PLAYERS": "250"
+			},
+			"compiler": {}
+		}
+	]
 }

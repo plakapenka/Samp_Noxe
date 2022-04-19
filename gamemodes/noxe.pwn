@@ -2,13 +2,14 @@
 #include <a_http>
 #include <streamer>
 #include <izcmd>
-#include <sscanf2>
 #include <rustext>
+#include <sscanf2>
 
-#include "sourc/anticheats/tp_foot.pwn" 
+//#include "sourc/anticheats/tp_foot.pwn" 
 
 #include <YSI_Coding\y_hooks>
 #include <YSI_Data\y_iterate>
+
 #include <progress2>
 #include <mdialog>
 
@@ -105,7 +106,6 @@
 #include "sourc/objects/garage5.pwn"
 #include "sourc/objects/garage6.pwn"
 
-#include "sourc/boost.pwn"
 //#include "sourc/objects/houses/hint25.pwn"
 
 // здесь не все объекты. То что относится к какой-либо системе подключается непосредственно там
@@ -118,6 +118,8 @@
 //#include "//sourc/other_system/shit/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "//sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
 //#include "//sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
+
+
 
 main() 
 { 
