@@ -10,7 +10,7 @@
 #define MYSQL_HOST      "localhost"
 #define MYSQL_USER      "root"
 #define MYSQL_PASS      ""
-#define MYSQK_DATABASE  "new_mode"
+#define MYSQK_DATABASE  "noxe"
 
 #define VK_URL_SCRIPT "localhost/vk_acces.php"
 

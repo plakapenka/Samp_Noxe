@@ -14,7 +14,7 @@
                 "reveal": "silent",
                 "panel": "dedicated"
             },
-            "problemMatcher": "$sampctl"
+            "problemMatcher": []
         },
         {
             "label": "build live",

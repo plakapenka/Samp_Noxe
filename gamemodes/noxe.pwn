@@ -31,7 +31,7 @@
 #include "sourc/player/registration.pwn" 		// система регистрации
 #include "sourc/player/authorization.pwn"		// система авторизации
 #include "sourc/player/licenses.pwn"			// Лицензии игрока
-#include "sourc/player/payday.pwn"			// Лицензии игрока
+#include "sourc/player/payday.pwn"				// Лицензии игрока
 
 
 #include "sourc/core/vk.pwn"					// vk
@@ -46,7 +46,7 @@
 #include "sourc/other_system/speedometr.pwn"			// Спидометр
 #include "sourc/other_system/driving_school.pwn"		// Автошкола
 
-#include "sourc/other_system/adv.pwn"		// объявления
+#include "sourc/other_system/adv.pwn"			// объявления
 // ================= Работы
 #include "sourc/works/global.pwn"
 #include "sourc/works/taxi.pwn"
@@ -118,6 +118,8 @@
 //#include "//sourc/other_system/shit/bot_bus_ls_sf.pwn"		// Бот автобусник ЛС
 #include "//sourc/other_system/shit/casino_wheels.pwn"		// Игра колесо фортуны
 //#include "//sourc/other_system/shit/blow.pwn"				// Игра колесо фортуны
+
+#include "//sourc/mp.pwn"		// Игра колесо фортуны
 
 
 
