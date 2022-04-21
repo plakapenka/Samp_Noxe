@@ -1,4 +1,121 @@
 #include <YSI_Coding\y_hooks>
+#include <ColAndreas>
+
+#define HG_MAX_PLAYERS 40   // макс кол-о участников
+#define HG_MIN_PLAYERS 2    // мин кол-о участников
+
+#define HG_DEER_COUNT 10    // кол-о оленей на территории
+
+#define HG_MIN_X -1963.0    // зона
+#define HG_MAX_X -1281.0    // зона
+#define HG_MIN_Y -2323.0    // зона
+#define HG_MAX_Y -1831.0    // зона
+
+#define HG_MAX_DROPS    200 // макс кол-о предметов на земле
+
+new hgSkins[] = {55, 123, 11, 15, 19, 22}; // скины
+
+new hgDeer[HG_DEER_COUNT];  // олени
+
+new PlayerText:hgTD[MAX_PLAYERS][5];    // табличка слева с инфой
+new PlayerBar:hgHungerTD[MAX_PLAYERS];  // сытость
+new PlayerBar:hgThirstTD[MAX_PLAYERS];  // жажда
+new PlayerText:hgSkinTD[MAX_PLAYERS][3];// выбор ски
+
+
+enum
+{
+    DROP_TYPE_DEAGLE,
+    DROP_TYPE_KNIFE,
+    DROP_TYPE_AK,
+    DROP_TYPE_M4,
+    DROP_TYPE_SAW,
+    DROP_TYPE_LIGHTER,
+    DROP_TYPE_FIREWOOD,
+    DROP_TYPE_MEAT_RAW,
+    DROP_TYPE_MEAT_GRILLED,
+    DROP_TYPE_MEAT_BOTTLE,
+    DROP_TYPE_MEAT_BOTTLE_FULL
+};
+
+new drop_names[][] = {
+    "Дигл",
+    "Нож",
+    "AK-47",
+    "M4",
+    "Пила",
+    "Зажигалка",
+    "Дрова",
+    "Сырое мясо",
+    "Готовое мясо",
+    "Пустая бутылка",
+    "Бутылка с водой"
+};
+
+enum E_DROPS
+{
+    dropStatus,
+    dropTime,
+    dropType,
+    dropCount
+}
+new dropData[HG_MAX_DROPS][E_DROPS];
+
+stock GetDropFreeIndex()
+{
+    for(new i = 0; i < HG_MAX_DROPS; i++)
+    {
+        if(dropData[i][dropStatus] == 0)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+stock DropAdd(droptype = -1)
+{
+    new dropID = GetDropFreeIndex();
+
+    if(droptype == -1)
+    {
+        droptype = random(DROP_TYPE_MEAT_BOTTLE_FULL);
+    }
+    dropData[dropID][dropType] = droptype;
+    
+    new Float:dX, Float:dY, Float:dZ;
+    GetRandHgCords(dX, dY, dZ);
+
+    new _str[125];
+    format(_str, sizeof(_str), "В земле что-то похожее на %s\n{ffffff}(( Нажмите 'N' что-бы посмотреть ))", drop_names[droptype]);
+
+    CreateDynamic3DTextLabel(
+        .text = _str, 
+        .color = 0x97b498FF, 
+        .x = dX, 
+        .y = dY, 
+        .z = dZ, 
+        .drawdistance = 50.0, 
+        .attachedplayer = INVALID_PLAYER_ID, 
+        .attachedvehicle = INVALID_VEHICLE_ID, 
+        .testlos = 0
+    );
+}
+
+enum 
+{
+    HG_STATUS_OFF,
+    HG_STATUS_REG,
+    HG_STATUS_ON
+}
+
+enum E_HG_GAME
+{
+    hgTime,
+    hgStatus
+}
+new hgData[E_HG_GAME];
+new Iterator:hgMembers<40>;
 
 enum
 {
@@ -8,28 +125,52 @@ enum
     SIDE_BACK
 }
 
-new Float:hgZone_points[] = 
-{
-	-2060.0,-2025.0,-1956.0,-1825.0,-1708.0,-1673.0,-1668.0,-1675.0,-1610.0,-1695.0,-1560.0,-1688.0,-1526.0,-1678.0,-1459.0,-1704.0,-1412.0,-1716.0,-1369.0,-1752.0,
-	-1351.0,-1783.0,-1343.0,-1840.0,-1332.0,-1903.0,-1325.0,-1935.0,-1343.0,-1968.0,-1441.0,-2068.0,-1493.0,-2145.0,-1513.0,-2277.0,-1531.0,-2337.0,-1595.0,-2385.0,
-	-1825.0,-2299.0,-1943.0,-2275.0,-2053.0,-2151.0,-2060.0,-2025.0
-};
-new hgZone;
+new hgZoneSphere;
+new hgZoneGZ;
 
 hook OnGameModeInit()
 {
+    CA_Init();
 	printf("--------------------------------------");
 	printf("Голодные игры!!!!!!!!!!!!111111111");
 	printf("--------------------------------------");
 
-	hgZone = CreateDynamicPolygon(hgZone_points);
+	//hgZone = CreateDynamicPolygon(hgZone_points);
+    hgZoneSphere = CreateDynamicRectangle(HG_MIN_X, HG_MIN_Y, HG_MAX_X, HG_MAX_Y);
+    hgZoneGZ = GangZoneCreate(HG_MIN_X, HG_MIN_Y, HG_MAX_X, HG_MAX_Y);
 
+    for(new i = 0; i < 100; i++)
+    {
+        DropAdd();
+    }
+    for(new i = 0; i < HG_DEER_COUNT; i++)
+    {
+        new Float:_x, Float:_y, Float:_z;
+        GetRandHgCords(_x, _y, _z);
+
+        hgDeer[i] = CreateObject(19315, _x, _y, _z+0.5, 0.0, 0.0, 0.0);
+        printf("%f, %f, %f", _x, _y, _z);
+    }
 	return Y_HOOKS_CONTINUE_RETURN_1;
+}
+
+hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+{
+    if(hittype == 3)
+    {
+        new Float:X, Float:Y, Float:Z;
+        GetObjectPos(hitid, X, Y, Z);
+        SetObjectRot(hitid, 90, 0, 0);
+        SetObjectPos(hitid, X, Y, Z-0.4);
+//        SendClientMessage(playerid, blue, "[{ffff00}i{0000ff}] {f0f0f0}You hit the deer!");
+        return 1;
+    }
+    return 1;
 }
 
 hook OnPlayerEnterDyncArea(playerid, areaid)
 {
-    if(areaid == hgZone)
+    if(areaid == hgZoneSphere)
     {
         return Y_HOOKS_BREAK_RETURN_1;
     }
@@ -38,7 +179,7 @@ hook OnPlayerEnterDyncArea(playerid, areaid)
 
 hook OnPlayerLeaveDynArea(playerid, areaid)
 {
-    if(areaid == hgZone)
+    if(areaid == hgZoneSphere)
     {
         new Float:x, Float:y, Float:z, Float: a;
         GetPlayerSidePos(playerid, SIDE_BACK, x, y, z, 3.0);
@@ -53,6 +194,40 @@ hook OnPlayerLeaveDynArea(playerid, areaid)
         return Y_HOOKS_BREAK_RETURN_1;
     }
     return Y_HOOKS_CONTINUE_RETURN_1;
+}
+
+stock StartHG(playerid)
+{
+    if(hgData[hgStatus] != HG_STATUS_OFF)
+    {
+        SendClientMessage(playerid, 0xe53935FF, "Игра уже начата!");
+        return 1;
+    }
+    hgData[hgStatus]    = HG_STATUS_REG;
+    hgData[hgTime]      = 5*60;
+
+    SendClientMessageToAll(0x00897bFF, "Начало 'Голодных игр' через 5 минут. Регистрация хуй знает где..");
+    return 1;
+}
+
+hook function Timer1sec()
+{
+    if(hgData[hgStatus] == HG_STATUS_REG)
+    {
+        hgData[hgTime] --;
+        if(hgData[hgTime] < 0)
+        {
+            if(Iter_Count(hgMembers) < HG_MIN_PLAYERS)
+            {
+                SendClientMessageToAll(0x00897bFF, "'Голодные игры' отменены из-за недостаточного кол-а участников");
+            }
+            else
+            {
+
+            }
+        }
+    }
+    return continue();
 }
 
 stock GetPlayerSidePos(playerid, side, &Float:p_x, &Float:p_y, &Float:p_z, Float:distance)
@@ -86,4 +261,270 @@ stock GetPlayerSidePos(playerid, side, &Float:p_x, &Float:p_y, &Float:p_z, Float
         }
     }
   
+}
+
+hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
+{
+    if(playertextid == hgSkinTD[playerid][0])
+    {// вправо
+        new skinid = GetPVarInt(playerid, "hgSkinSelected");
+
+        skinid ++;
+        if(skinid >= sizeof(hgSkins))
+        {
+            skinid = 0;
+        }
+        SetPlayerSkin(playerid, hgSkins[skinid]);
+
+        SetPVarInt(playerid, "hgSkinSelected", skinid);
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    if(playertextid == hgSkinTD[playerid][1])
+    {// влево
+        new skinid = GetPVarInt(playerid, "hgSkinSelected");
+
+        skinid --;
+        if(skinid < 0)
+        {
+            skinid = sizeof(hgSkins)-1;
+        }
+        SetPlayerSkin(playerid, hgSkins[skinid]);
+
+        SetPVarInt(playerid, "hgSkinSelected", skinid);
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    if(playertextid == hgSkinTD[playerid][2])
+    {// start
+        new Float:_x, Float:_y, Float:_z;
+        GetRandHgCords(_x, _y, _z);
+        SetPlayerPos(playerid, _x, _y, _z+1);
+
+        GangZoneShowForPlayer(playerid, hgZoneGZ, 0x7f0000CC);
+
+        HideHgSkinTD(playerid);
+        CancelSelectTextDraw(playerid);
+        SetCameraBehindPlayer(playerid);
+        TogglePlayerControllable(playerid, true);
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    return Y_HOOKS_CONTINUE_RETURN_1;
+}
+
+stock PlayerStartHG(playerid)
+{
+    InterpolateCameraPos(playerid, -1648.961914, -2245.073486, 33.665901, -1648.961914, -2245.073486, 33.665901, 1000);
+    InterpolateCameraLookAt(playerid, -1644.050781, -2245.768066, 33.034778, -1644.050781, -2245.768066, 33.034778, 1000);
+
+    SetPlayerPos(playerid, -1640.7860,-2246.3562,31.4766);
+    SetPlayerFacingAngle(playerid, 70.5);
+
+    TogglePlayerControllable(playerid, false);
+
+    ShowHgSkinTD(playerid);
+    SelectTextDraw(playerid, 0xFF0000FF);
+}
+CMD:starthg(playerid)
+{
+    PlayerStartHG(playerid);
+    return 1;
+}
+
+stock ShowHgSkinTD(playerid)
+{
+    CreateHgSkinTD(playerid);
+
+    PlayerTextDrawShow(playerid, hgSkinTD[playerid][0]);
+	PlayerTextDrawShow(playerid, hgSkinTD[playerid][1]);
+	PlayerTextDrawShow(playerid, hgSkinTD[playerid][2]);
+}
+
+stock HideHgSkinTD(playerid)
+{
+    PlayerTextDrawDestroy(playerid, hgSkinTD[playerid][0]);
+	PlayerTextDrawDestroy(playerid, hgSkinTD[playerid][1]);
+	PlayerTextDrawDestroy(playerid, hgSkinTD[playerid][2]); 
+}
+
+stock CreateHgSkinTD(playerid)
+{
+    hgSkinTD[playerid][0] = CreatePlayerTextDraw(playerid, 386.000000, 363.000000, ">>");
+	PlayerTextDrawFont(playerid, hgSkinTD[playerid][0], 1);
+	PlayerTextDrawLetterSize(playerid, hgSkinTD[playerid][0], 0.283333, 1.600000);
+	PlayerTextDrawTextSize(playerid, hgSkinTD[playerid][0], 400.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgSkinTD[playerid][0], 1);
+	PlayerTextDrawSetShadow(playerid, hgSkinTD[playerid][0], 0);
+	PlayerTextDrawAlignment(playerid, hgSkinTD[playerid][0], 1);
+	PlayerTextDrawColor(playerid, hgSkinTD[playerid][0], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgSkinTD[playerid][0], 255);
+	PlayerTextDrawBoxColor(playerid, hgSkinTD[playerid][0], 50);
+	PlayerTextDrawUseBox(playerid, hgSkinTD[playerid][0], 1);
+	PlayerTextDrawSetProportional(playerid, hgSkinTD[playerid][0], 1);
+	PlayerTextDrawSetSelectable(playerid, hgSkinTD[playerid][0], 1);
+
+	hgSkinTD[playerid][1] = CreatePlayerTextDraw(playerid, 235.000000, 363.000000, "<<");
+	PlayerTextDrawFont(playerid, hgSkinTD[playerid][1], 1);
+	PlayerTextDrawLetterSize(playerid, hgSkinTD[playerid][1], 0.283333, 1.600000);
+	PlayerTextDrawTextSize(playerid, hgSkinTD[playerid][1], 248.500000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgSkinTD[playerid][1], 1);
+	PlayerTextDrawSetShadow(playerid, hgSkinTD[playerid][1], 0);
+	PlayerTextDrawAlignment(playerid, hgSkinTD[playerid][1], 1);
+	PlayerTextDrawColor(playerid, hgSkinTD[playerid][1], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgSkinTD[playerid][1], 255);
+	PlayerTextDrawBoxColor(playerid, hgSkinTD[playerid][1], 50);
+	PlayerTextDrawUseBox(playerid, hgSkinTD[playerid][1], 1);
+	PlayerTextDrawSetProportional(playerid, hgSkinTD[playerid][1], 1);
+	PlayerTextDrawSetSelectable(playerid, hgSkinTD[playerid][1], 1);
+
+	hgSkinTD[playerid][2] = CreatePlayerTextDraw(playerid, 280.000000, 403.000000, "Start");
+	PlayerTextDrawFont(playerid, hgSkinTD[playerid][2], 2);
+	PlayerTextDrawLetterSize(playerid, hgSkinTD[playerid][2], 0.600000, 2.000000);
+	PlayerTextDrawTextSize(playerid, hgSkinTD[playerid][2], 361.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgSkinTD[playerid][2], 1);
+	PlayerTextDrawSetShadow(playerid, hgSkinTD[playerid][2], 0);
+	PlayerTextDrawAlignment(playerid, hgSkinTD[playerid][2], 1);
+	PlayerTextDrawColor(playerid, hgSkinTD[playerid][2], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgSkinTD[playerid][2], 255);
+	PlayerTextDrawBoxColor(playerid, hgSkinTD[playerid][2], 50);
+	PlayerTextDrawUseBox(playerid, hgSkinTD[playerid][2], 1);
+	PlayerTextDrawSetProportional(playerid, hgSkinTD[playerid][2], 1);
+	PlayerTextDrawSetSelectable(playerid, hgSkinTD[playerid][2], 1);
+}
+
+stock ShowHgTD(playerid)
+{
+    PlayerTextDrawShow(playerid, hgTD[playerid][0]);
+	PlayerTextDrawShow(playerid, hgTD[playerid][1]);
+	PlayerTextDrawShow(playerid, hgTD[playerid][2]);
+	PlayerTextDrawShow(playerid, hgTD[playerid][3]);
+	PlayerTextDrawShow(playerid, hgTD[playerid][4]);
+	ShowPlayerProgressBar(playerid, hgHungerTD[playerid]);
+	ShowPlayerProgressBar(playerid, hgThirstTD[playerid]);
+}
+
+stock HideHgTD(playerid)
+{
+    PlayerTextDrawDestroy(playerid, hgTD[playerid][0]);
+	PlayerTextDrawDestroy(playerid, hgTD[playerid][1]);
+	PlayerTextDrawDestroy(playerid, hgTD[playerid][2]);
+	PlayerTextDrawDestroy(playerid, hgTD[playerid][3]);
+	PlayerTextDrawDestroy(playerid, hgTD[playerid][4]);
+	DestroyPlayerProgressBar(playerid, hgHungerTD[playerid]);
+	DestroyPlayerProgressBar(playerid, hgThirstTD[playerid]);
+}
+
+stock CreateHgTD(playerid)
+{
+    hgTD[playerid][0] = CreatePlayerTextDraw(playerid, 28.000000, 165.000000, "_");
+	PlayerTextDrawFont(playerid, hgTD[playerid][0], 2);
+	PlayerTextDrawLetterSize(playerid, hgTD[playerid][0], 0.600000, 8.250002);
+	PlayerTextDrawTextSize(playerid, hgTD[playerid][0], 136.500000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgTD[playerid][0], 1);
+	PlayerTextDrawSetShadow(playerid, hgTD[playerid][0], 0);
+	PlayerTextDrawAlignment(playerid, hgTD[playerid][0], 1);
+	PlayerTextDrawColor(playerid, hgTD[playerid][0], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgTD[playerid][0], 255);
+	PlayerTextDrawBoxColor(playerid, hgTD[playerid][0], 101);
+	PlayerTextDrawUseBox(playerid, hgTD[playerid][0], 1);
+	PlayerTextDrawSetProportional(playerid, hgTD[playerid][0], 1);
+	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][0], 0);
+
+	hgTD[playerid][1] = CreatePlayerTextDraw(playerid, 33.000000, 165.000000, "Time left: 01:50");
+	PlayerTextDrawFont(playerid, hgTD[playerid][1], 1);
+	PlayerTextDrawLetterSize(playerid, hgTD[playerid][1], 0.200000, 0.800000);
+	PlayerTextDrawTextSize(playerid, hgTD[playerid][1], 400.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgTD[playerid][1], 0);
+	PlayerTextDrawSetShadow(playerid, hgTD[playerid][1], 0);
+	PlayerTextDrawAlignment(playerid, hgTD[playerid][1], 1);
+	PlayerTextDrawColor(playerid, hgTD[playerid][1], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgTD[playerid][1], 255);
+	PlayerTextDrawBoxColor(playerid, hgTD[playerid][1], 50);
+	PlayerTextDrawUseBox(playerid, hgTD[playerid][1], 0);
+	PlayerTextDrawSetProportional(playerid, hgTD[playerid][1], 1);
+	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][1], 0);
+
+	hgTD[playerid][2] = CreatePlayerTextDraw(playerid, 33.000000, 178.000000, "Players left: 5/20");
+	PlayerTextDrawFont(playerid, hgTD[playerid][2], 1);
+	PlayerTextDrawLetterSize(playerid, hgTD[playerid][2], 0.200000, 0.800000);
+	PlayerTextDrawTextSize(playerid, hgTD[playerid][2], 400.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgTD[playerid][2], 0);
+	PlayerTextDrawSetShadow(playerid, hgTD[playerid][2], 0);
+	PlayerTextDrawAlignment(playerid, hgTD[playerid][2], 1);
+	PlayerTextDrawColor(playerid, hgTD[playerid][2], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgTD[playerid][2], 255);
+	PlayerTextDrawBoxColor(playerid, hgTD[playerid][2], 50);
+	PlayerTextDrawUseBox(playerid, hgTD[playerid][2], 0);
+	PlayerTextDrawSetProportional(playerid, hgTD[playerid][2], 1);
+	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][2], 0);
+
+	hgTD[playerid][3] = CreatePlayerTextDraw(playerid, 33.000000, 199.000000, "hgHungerTD");
+	PlayerTextDrawFont(playerid, hgTD[playerid][3], 2);
+	PlayerTextDrawLetterSize(playerid, hgTD[playerid][3], 0.200000, 0.800000);
+	PlayerTextDrawTextSize(playerid, hgTD[playerid][3], 400.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgTD[playerid][3], 0);
+	PlayerTextDrawSetShadow(playerid, hgTD[playerid][3], 0);
+	PlayerTextDrawAlignment(playerid, hgTD[playerid][3], 1);
+	PlayerTextDrawColor(playerid, hgTD[playerid][3], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgTD[playerid][3], 255);
+	PlayerTextDrawBoxColor(playerid, hgTD[playerid][3], 50);
+	PlayerTextDrawUseBox(playerid, hgTD[playerid][3], 0);
+	PlayerTextDrawSetProportional(playerid, hgTD[playerid][3], 1);
+	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][3], 0);
+
+	hgTD[playerid][4] = CreatePlayerTextDraw(playerid, 33.000000, 217.000000, "hgThirstTD");
+	PlayerTextDrawFont(playerid, hgTD[playerid][4], 2);
+	PlayerTextDrawLetterSize(playerid, hgTD[playerid][4], 0.200000, 0.800000);
+	PlayerTextDrawTextSize(playerid, hgTD[playerid][4], 400.000000, 17.000000);
+	PlayerTextDrawSetOutline(playerid, hgTD[playerid][4], 0);
+	PlayerTextDrawSetShadow(playerid, hgTD[playerid][4], 0);
+	PlayerTextDrawAlignment(playerid, hgTD[playerid][4], 1);
+	PlayerTextDrawColor(playerid, hgTD[playerid][4], -1);
+	PlayerTextDrawBackgroundColor(playerid, hgTD[playerid][4], 255);
+	PlayerTextDrawBoxColor(playerid, hgTD[playerid][4], 50);
+	PlayerTextDrawUseBox(playerid, hgTD[playerid][4], 0);
+	PlayerTextDrawSetProportional(playerid, hgTD[playerid][4], 1);
+	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][4], 0);
+
+	hgHungerTD[playerid] = CreatePlayerProgressBar(playerid, 33.000000, 209.000000, 99.000000, 2.500000, 852308735, 100.000000, 0);
+	SetPlayerProgressBarValue(playerid, hgHungerTD[playerid], 50.000000);
+
+	hgThirstTD[playerid] = CreatePlayerProgressBar(playerid, 33.000000, 227.000000, 99.000000, 2.500000, -1378294017, 100.000000, 0);
+	SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 50.000000);
+}
+
+CMD:zareg(playerid, params[])
+{
+    if(Iter_Contains(hgMembers, playerid))
+    {
+        SendClientMessage(playerid, 0xe53935FF, "Вы уже зарегистрированы на 'Голодные игры'");
+        return 1;
+    }
+    if(Iter_Count(hgMembers) > HG_MAX_PLAYERS)
+    {
+        SendClientMessage(playerid, 0xe53935FF, "Все места заняты!");
+        return 1;
+    }
+    Iter_Add(hgMembers, playerid);
+    SendClientMessage(playerid, -1, "зареган");
+    return 1;
+}
+
+CMD:zapusk(playerid)
+{
+    StartHG(playerid);
+    return 1;
+}
+
+// stock Float:frand(Float:min, Float:max) 
+// {
+//     return float(random(0)) / (float(cellmax) / (max - min)) + min; 
+// } 
+
+stock GetRandHgCords(&Float:x, &Float:y, &Float:z)
+{
+    x = frand(HG_MIN_X, HG_MAX_X);
+    y = frand(HG_MIN_Y, HG_MAX_Y);
+
+    // x = HG_MAX_X + random((HG_MIN_X)-(HG_MAX_X));
+    // y = HG_MAX_Y + random((HG_MIN_Y)-(HG_MAX_Y));
+    CA_FindZ_For2DCoord(x, y, z);
 }

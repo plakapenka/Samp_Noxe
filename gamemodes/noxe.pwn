@@ -191,7 +191,7 @@ stock RespawnPlayer(playerid)
 	{
 		if(pData[playerid][pLvl] >= 1)
 		{
-			SetPlayerPosEx(playerid, 1154.13, -1769.42, 16.59, 0.0);
+			SetPlayerPosEx(playerid, -1631.2426,-2233.2764,31.4766, 0.0);
 		}
 	}
 }

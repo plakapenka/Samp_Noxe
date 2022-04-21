@@ -14,7 +14,8 @@
 		"Southclaws/progress2:2.3.0",
 		"Open-GTO/mdialog:1.4.3",
 		"pBlueG/SA-MP-MySQL:R41-4",
-		"pawn-lang/YSI-Includes@5.x:v5.05.0505"
+		"pawn-lang/YSI-Includes@5.x:v5.05.0505",
+		"Pottus/ColAndreas:v1.4.0.3"
 	],
 	"local": true,
 	"runtime": {
