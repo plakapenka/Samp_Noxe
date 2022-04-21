@@ -10,12 +10,11 @@
 		"YashasSamaga/I-ZCMD",
 		"Y-Less/sscanf:v2.11.4",
 		"ziggi/rustext:v2.0.8",
-		"pawn-lang/YSI-Includes:v5.05.0505",
-		"Southclaws/progress2:2.3.0",
+		"Southclaws/progress2",
 		"Open-GTO/mdialog:1.4.3",
 		"pBlueG/SA-MP-MySQL:R41-4",
-		"pawn-lang/YSI-Includes@5.x:v5.05.0505",
-		"Pottus/ColAndreas:v1.4.0.3"
+		"pawn-lang/YSI-Includes",
+		"Pottus/ColAndreas"
 	],
 	"local": true,
 	"runtime": {

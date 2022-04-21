@@ -1,5 +1,9 @@
 #include <YSI_Coding\y_hooks>
-#include <ColAndreas>
+#include <colandreas> // coolandreas
+
+#define HG_VIRTUAL_WORLD    -1
+#define INVALID_DROP_ID     -1
+#define AREA_FOR_HG         555
 
 #define HG_MAX_PLAYERS 40   // макс кол-о участников
 #define HG_MIN_PLAYERS 2    // мин кол-о участников
@@ -22,6 +26,7 @@ new PlayerBar:hgHungerTD[MAX_PLAYERS];  // сытость
 new PlayerBar:hgThirstTD[MAX_PLAYERS];  // жажда
 new PlayerText:hgSkinTD[MAX_PLAYERS][3];// выбор ски
 
+new playerItem[MAX_PLAYERS][7];
 
 enum
 {
@@ -57,7 +62,9 @@ enum E_DROPS
     dropStatus,
     dropTime,
     dropType,
-    dropCount
+    dropCount,
+    dropSphere,
+    Text3D:dropText
 }
 new dropData[HG_MAX_DROPS][E_DROPS];
 
@@ -65,23 +72,30 @@ stock GetDropFreeIndex()
 {
     for(new i = 0; i < HG_MAX_DROPS; i++)
     {
-        if(dropData[i][dropStatus] == 0)
+        if(!dropData[i][dropStatus])
         {
             return i;
         }
     }
-    return -1;
+    return INVALID_DROP_ID;
 }
 
 stock DropAdd(droptype = -1)
 {
     new dropID = GetDropFreeIndex();
 
+    if(dropID == INVALID_DROP_ID)
+    {
+        printf("INVALID_DROP_ID");
+        return 1;
+    }
+
     if(droptype == -1)
     {
         droptype = random(DROP_TYPE_MEAT_BOTTLE_FULL);
     }
     dropData[dropID][dropType] = droptype;
+    dropData[dropID][dropStatus] = true;
     
     new Float:dX, Float:dY, Float:dZ;
     GetRandHgCords(dX, dY, dZ);
@@ -89,7 +103,7 @@ stock DropAdd(droptype = -1)
     new _str[125];
     format(_str, sizeof(_str), "В земле что-то похожее на %s\n{ffffff}(( Нажмите 'N' что-бы посмотреть ))", drop_names[droptype]);
 
-    CreateDynamic3DTextLabel(
+    dropData[dropID][dropText] = CreateDynamic3DTextLabel(
         .text = _str, 
         .color = 0x97b498FF, 
         .x = dX, 
@@ -98,8 +112,17 @@ stock DropAdd(droptype = -1)
         .drawdistance = 50.0, 
         .attachedplayer = INVALID_PLAYER_ID, 
         .attachedvehicle = INVALID_VEHICLE_ID, 
-        .testlos = 0
+        .testlos = 0,
+        .worldid = HG_VIRTUAL_WORLD
     );
+   
+    dropData[dropID][dropSphere] = CreateDynamicSphere(dX, dY, dZ, 1.5, HG_VIRTUAL_WORLD);
+
+    new _tmp[2];
+    _tmp[0] = AREA_FOR_HG;
+    _tmp[1] = dropID;
+    Streamer_SetArrayData(STREAMER_TYPE_AREA, dropData[dropID][dropSphere], E_STREAMER_EXTRA_ID, _tmp);
+    return 1;
 }
 
 enum 
@@ -127,6 +150,36 @@ enum
 
 new hgZoneSphere;
 new hgZoneGZ;
+
+hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+{
+    if(GetPVarType(playerid, "getDropID") != PLAYER_VARTYPE_NONE)
+    {
+        if(PRESSED(KEY_NO))
+        {
+            new dropID = GetPVarInt(playerid, "getDropID");
+
+            new _str[512];
+            format(_str, sizeof(_str), "\
+                Наименование\tКол-о\n\
+                %s\t%d", drop_names[dropData[dropID][dropType]], dropData[dropID][dropCount]);
+
+            Dialog_Open(playerid, Dialog:DropGet, DIALOG_STYLE_TABLIST_HEADERS, " ", _str, "Взять", "Закрыть");
+            return Y_HOOKS_BREAK_RETURN_1;
+        }
+    }
+    return Y_HOOKS_CONTINUE_RETURN_1;   
+}
+
+OnDialogResponse:DropGet(playerid, response, listitem, inputtext[])
+{
+    if(!response)
+    {
+        return 1;
+    }
+
+
+}
 
 hook OnGameModeInit()
 {
@@ -168,15 +221,34 @@ hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, 
     return 1;
 }
 
-hook OnPlayerEnterDyncArea(playerid, areaid)
+hook OnPlayerEnterDynArea(playerid, areaid)
 {
+    new _tmp[2];
+    Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _tmp);
+
+    SendMes(playerid, -1, "%d = %d", _tmp[0], _tmp[1]);
+    if(_tmp[0] == AREA_FOR_HG)
+    {
+        SetPVarInt(playerid, "getDropID", _tmp[1]);
+        
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    
     if(areaid == hgZoneSphere)
     {
         return Y_HOOKS_BREAK_RETURN_1;
     }
     return Y_HOOKS_CONTINUE_RETURN_1;
 }
-
+DialogResponse:DropGet(playerid, response, listitem, inputtext[])
+{
+    if(!listitem)
+    {
+        return 1;
+    }
+    
+    return 1;
+}
 hook OnPlayerLeaveDynArea(playerid, areaid)
 {
     if(areaid == hgZoneSphere)
@@ -322,6 +394,8 @@ stock PlayerStartHG(playerid)
 
     ShowHgSkinTD(playerid);
     SelectTextDraw(playerid, 0xFF0000FF);
+
+    ShowHgTD(playerid);
 }
 CMD:starthg(playerid)
 {
@@ -392,6 +466,8 @@ stock CreateHgSkinTD(playerid)
 
 stock ShowHgTD(playerid)
 {
+    CreateHgTD(playerid);
+
     PlayerTextDrawShow(playerid, hgTD[playerid][0]);
 	PlayerTextDrawShow(playerid, hgTD[playerid][1]);
 	PlayerTextDrawShow(playerid, hgTD[playerid][2]);
