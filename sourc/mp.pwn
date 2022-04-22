@@ -1,6 +1,10 @@
 #include <YSI_Coding\y_hooks>
 #include <colandreas> // coolandreas
 
+#define HG_HP_SUB       0.5 // кол-о хп отнимаемое в секунду ( когда нет сытости или жажды )
+#define HG_HUNGRY_SUB   0.5 // кол-о отнимаемой сытости в секунду
+#define HG_THIRST_SUB   1.0 // кол-о отнимаемой жажды в секунду
+
 #define HG_VIRTUAL_WORLD    -1
 #define INVALID_DROP_ID     -1
 #define AREA_FOR_HG         555
@@ -20,6 +24,25 @@
 new hgSkins[] = {55, 123, 11, 15, 19, 22}; // скины
 
 new hgDeer[HG_DEER_COUNT];  // олени
+
+enum E_FIREWOOD
+{
+    fwoodStatus,
+    fwoodObject,
+    fwoodSphere
+}
+new fwoodData[HG_MAX_DROPS];
+
+enum E_FIRE
+{
+    fireTime,
+    fireObject,
+    Text3D:fireText,
+    fireStatus,
+    fireSphere
+}
+new dataFire[HG_MAX_DROPS];
+//new playerHunger[MAX_PLAYERS];
 
 new PlayerText:hgTD[MAX_PLAYERS][5];    // табличка слева с инфой
 new PlayerBar:hgHungerTD[MAX_PLAYERS];  // сытость
@@ -84,6 +107,23 @@ stock GetDropFreeIndex()
         }
     }
     return INVALID_DROP_ID;
+}
+
+stock GetFireFreeIndex()
+{
+    for(new i = 0; i < HG_MAX_DROPS; i++)
+    {
+        if(!fireData[i][fireStatus])
+        {
+            return i;
+        }
+    }
+    return INVALID_DROP_ID;
+}
+
+stock FireCreate()
+{
+
 }
 
 stock DropAdd(type = -1)
@@ -195,10 +235,49 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         }
         
 
-        Dialog_Open(playerid, Dialog:DropGet, DIALOG_STYLE_TABLIST_HEADERS, " ", _str, "Далее", "Закрыть");
+        Dialog_Open(playerid, Dialog:DropMenu, DIALOG_STYLE_TABLIST_HEADERS, " ", _str, "Далее", "Закрыть");
         return Y_HOOKS_BREAK_RETURN_1;
     }
     return Y_HOOKS_CONTINUE_RETURN_1;   
+}
+
+DialogResponse:DropMenu(playerid, response, listitem, inputtext[])
+{
+    if(!listitem)
+    {
+        return 1;
+    }
+    SetPVarInt(playerid, "playerDropID", listitem);
+
+    Dialog_Open(playerid, Dialog:DropUse, DIALOG_STYLE_LIST, " ", "\
+        > Использовать\n\
+        > Выбросить\n\
+        > Информация\
+        ", "Далее", "Закрыть"
+    );
+    
+    return 1;
+}
+
+DialogResponse:DropUse(playerid, response, listitem, inputtext[])
+{
+    if(!listitem)
+    {
+        return 1;
+    }
+    new type = GetPVarInt(playerid, "playerDropID");
+
+    if(listitem == 0)
+    {
+        switch(type)
+        {
+            case DROP_TYPE_FIREWOOD:
+            {
+                
+                return 1;
+            }
+        }
+    }
 }
 
 DialogResponse:DropGet(playerid, response, listitem, inputtext[])
@@ -312,8 +391,49 @@ stock StartHG(playerid)
     return 1;
 }
 
-hook function Timer1sec()
+hook function OnSecondUpdate()
 {
+    foreach(new playerid : hgMembers)
+    {
+        if(IsValidPlayerProgressBar(playerid, hgHungerTD[playerid]))
+        {
+            new Float:hunger = GetPlayerProgressBarValue(playerid, hgHungerTD[playerid]);
+            if(hunger <= 0)
+            {
+                new Float:_health;
+                GetPlayerHealth(playerid, _health);
+                SetPlayerHealth(playerid, _health-HG_HP_SUB);
+            }
+            else
+            {
+                SetPlayerProgressBarValue(playerid, hgHungerTD[playerid], hunger-HG_HUNGRY_SUB);
+            }
+            if(hunger == 1.0)
+            {
+                SendClientMessage(playerid, 0xef9a9aff, "Вы проголадались! Срочно поешьте, иначе вы умрете!");
+            }
+        }
+        if(IsValidPlayerProgressBar(playerid, hgThirstTD[playerid]))
+        {
+            new Float:thirst = GetPlayerProgressBarValue(playerid, hgThirstTD[playerid]);
+            if(thirst <= 0)
+            {
+                new Float:_health;
+                GetPlayerHealth(playerid, _health);
+                SetPlayerHealth(playerid, _health-HG_HP_SUB);
+            }
+            else
+            {
+                SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], thirst-HG_THIRST_SUB);
+            }
+            if(hunger == 1.0)
+            {
+                SendClientMessage(playerid, 0xef9a9aff, "Ваша жажда на исходе! Найдите и используйте воду, иначе вы умрете!");
+            }
+        }
+    }
+    
+    
     if(hgData[hgStatus] == HG_STATUS_REG)
     {
         hgData[hgTime] --;
@@ -562,7 +682,7 @@ stock CreateHgTD(playerid)
 	PlayerTextDrawSetProportional(playerid, hgTD[playerid][2], 1);
 	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][2], 0);
 
-	hgTD[playerid][3] = CreatePlayerTextDraw(playerid, 33.000000, 199.000000, "hgHungerTD");
+	hgTD[playerid][3] = CreatePlayerTextDraw(playerid, 33.000000, 199.000000, "Hunger");
 	PlayerTextDrawFont(playerid, hgTD[playerid][3], 2);
 	PlayerTextDrawLetterSize(playerid, hgTD[playerid][3], 0.200000, 0.800000);
 	PlayerTextDrawTextSize(playerid, hgTD[playerid][3], 400.000000, 17.000000);
@@ -576,7 +696,7 @@ stock CreateHgTD(playerid)
 	PlayerTextDrawSetProportional(playerid, hgTD[playerid][3], 1);
 	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][3], 0);
 
-	hgTD[playerid][4] = CreatePlayerTextDraw(playerid, 33.000000, 217.000000, "hgThirstTD");
+	hgTD[playerid][4] = CreatePlayerTextDraw(playerid, 33.000000, 217.000000, "Thirst");
 	PlayerTextDrawFont(playerid, hgTD[playerid][4], 2);
 	PlayerTextDrawLetterSize(playerid, hgTD[playerid][4], 0.200000, 0.800000);
 	PlayerTextDrawTextSize(playerid, hgTD[playerid][4], 400.000000, 17.000000);
@@ -591,10 +711,10 @@ stock CreateHgTD(playerid)
 	PlayerTextDrawSetSelectable(playerid, hgTD[playerid][4], 0);
 
 	hgHungerTD[playerid] = CreatePlayerProgressBar(playerid, 33.000000, 209.000000, 99.000000, 2.500000, 852308735, 100.000000, 0);
-	SetPlayerProgressBarValue(playerid, hgHungerTD[playerid], 50.000000);
+	SetPlayerProgressBarValue(playerid, hgHungerTD[playerid], 100.000000);
 
 	hgThirstTD[playerid] = CreatePlayerProgressBar(playerid, 33.000000, 227.000000, 99.000000, 2.500000, -1378294017, 100.000000, 0);
-	SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 50.000000);
+	SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 100.000000);
 }
 
 CMD:zareg(playerid, params[])
@@ -643,8 +763,6 @@ stock PlayerLookTree(playerid)
     new Float:nX, Float:nY, Float:nZ;
     GetPlayerSidePos(playerid, SIDE_FRONT, nX, nY, nZ, 1.0);
 
-    
-
     new model = CA_RayCastLine(_x, _y, _z, nX, nY, nZ, nX, nY, nZ);
 
     // SendMes(playerid, -1, "model = %d", model);
@@ -653,3 +771,4 @@ stock PlayerLookTree(playerid)
 
     return 0;
 }
+
