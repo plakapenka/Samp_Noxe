@@ -26,36 +26,41 @@ new PlayerBar:hgHungerTD[MAX_PLAYERS];  // сытость
 new PlayerBar:hgThirstTD[MAX_PLAYERS];  // жажда
 new PlayerText:hgSkinTD[MAX_PLAYERS][3];// выбор ски
 
-new playerItem[MAX_PLAYERS][7];
+#define HG_PLAYER_DROP_COUNT 11 // КОЛ-О ВИДОВ ДРОПА
+#define HG_PLAYER_DROP_SHOW_COUNT 7 // кол-о показываемых в инвентаре
 
-enum
+enum 
 {
-    DROP_TYPE_DEAGLE,
-    DROP_TYPE_KNIFE,
-    DROP_TYPE_AK,
-    DROP_TYPE_M4,
     DROP_TYPE_SAW,
     DROP_TYPE_LIGHTER,
     DROP_TYPE_FIREWOOD,
     DROP_TYPE_MEAT_RAW,
     DROP_TYPE_MEAT_GRILLED,
     DROP_TYPE_MEAT_BOTTLE,
-    DROP_TYPE_MEAT_BOTTLE_FULL
+    DROP_TYPE_MEAT_BOTTLE_FULL,
+    DROP_TYPE_DEAGLE,
+    DROP_TYPE_KNIFE,
+    DROP_TYPE_AK,
+    DROP_TYPE_M4,
 };
 
+new playerDrop[MAX_PLAYERS][HG_PLAYER_DROP_COUNT];
+
 new drop_names[][] = {
-    "Дигл",
-    "Нож",
-    "AK-47",
-    "M4",
     "Пила",
     "Зажигалка",
     "Дрова",
     "Сырое мясо",
     "Готовое мясо",
     "Пустая бутылка",
-    "Бутылка с водой"
+    "Бутылка с водой",
+    "Дигл",
+    "Нож",
+    "AK-47",
+    "M4"
 };
+
+new drop_objects[] = {341, 19998, 19793, 2803, 2803, 1484, 1484, 348, 335, 355, 356};
 
 enum E_DROPS
 {
@@ -64,7 +69,8 @@ enum E_DROPS
     dropType,
     dropCount,
     dropSphere,
-    Text3D:dropText
+    Text3D:dropText,
+    dropObject
 }
 new dropData[HG_MAX_DROPS][E_DROPS];
 
@@ -80,7 +86,7 @@ stock GetDropFreeIndex()
     return INVALID_DROP_ID;
 }
 
-stock DropAdd(droptype = -1)
+stock DropAdd(type = -1)
 {
     new dropID = GetDropFreeIndex();
 
@@ -90,31 +96,33 @@ stock DropAdd(droptype = -1)
         return 1;
     }
 
-    if(droptype == -1)
+    if(type == -1)
     {
-        droptype = random(DROP_TYPE_MEAT_BOTTLE_FULL);
+        type = random(HG_PLAYER_DROP_COUNT);
     }
-    dropData[dropID][dropType] = droptype;
+    dropData[dropID][dropType] = type;
     dropData[dropID][dropStatus] = true;
+    dropData[dropID][dropCount] = random(3);
     
     new Float:dX, Float:dY, Float:dZ;
     GetRandHgCords(dX, dY, dZ);
 
     new _str[125];
-    format(_str, sizeof(_str), "В земле что-то похожее на %s\n{ffffff}(( Нажмите 'N' что-бы посмотреть ))", drop_names[droptype]);
+    format(_str, sizeof(_str), "В земле что-то похожее на %s\n{ffffff}(( Нажмите 'N' что-бы посмотреть ))", drop_names[type]);
 
     dropData[dropID][dropText] = CreateDynamic3DTextLabel(
         .text = _str, 
-        .color = 0x97b498FF, 
+        .color = 0x97b498EE, 
         .x = dX, 
         .y = dY, 
-        .z = dZ, 
+        .z = dZ+1, 
         .drawdistance = 50.0, 
         .attachedplayer = INVALID_PLAYER_ID, 
         .attachedvehicle = INVALID_VEHICLE_ID, 
-        .testlos = 0,
+        .testlos = 1,
         .worldid = HG_VIRTUAL_WORLD
     );
+    dropData[dropID][dropObject] = CreateDynamicObject(drop_objects[type], dX, dY, dZ, 0.0, 0.0, 0.0, HG_VIRTUAL_WORLD);
    
     dropData[dropID][dropSphere] = CreateDynamicSphere(dX, dY, dZ, 1.5, HG_VIRTUAL_WORLD);
 
@@ -153,6 +161,10 @@ new hgZoneGZ;
 
 hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
+    if(PRESSED(KEY_SPRINT))
+    {
+        PlayerLookTree(playerid);
+    }
     if(GetPVarType(playerid, "getDropID") != PLAYER_VARTYPE_NONE)
     {
         if(PRESSED(KEY_NO))
@@ -168,17 +180,43 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             return Y_HOOKS_BREAK_RETURN_1;
         }
     }
+    if(PRESSED(KEY_YES))
+    {
+      //  new dropID = GetPVarInt(playerid, "getDropID");
+
+        new _str[512];
+        new _tmp[123];
+
+        strcat(_str, "Наименование\tКол-о\n");
+        for(new i = 0; i < HG_PLAYER_DROP_SHOW_COUNT; i++)
+        {
+            format(_tmp, sizeof(_tmp), "%s\t%d\n", drop_names[i], playerDrop[playerid][i]);
+            strcat(_str, _tmp);
+        }
+        
+
+        Dialog_Open(playerid, Dialog:DropGet, DIALOG_STYLE_TABLIST_HEADERS, " ", _str, "Далее", "Закрыть");
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
     return Y_HOOKS_CONTINUE_RETURN_1;   
 }
 
-OnDialogResponse:DropGet(playerid, response, listitem, inputtext[])
+DialogResponse:DropGet(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
         return 1;
-    }
+    }   
+    new id = GetPVarInt(playerid, "getDropID");
+    new type = dropData[id][dropType];
 
+    playerDrop[playerid][type] += dropData[id][dropCount];
 
+    new _str[123];
+    format(_str, sizeof(_str), "В ваш инвентарь добавлен(а) {ffffff}'%s'{98ee99}. Используйте 'Y' ", drop_names[type]);
+    SendClientMessage(playerid, 0x98ee99ff, _str);
+
+    return 1;
 }
 
 hook OnGameModeInit()
@@ -240,15 +278,7 @@ hook OnPlayerEnterDynArea(playerid, areaid)
     }
     return Y_HOOKS_CONTINUE_RETURN_1;
 }
-DialogResponse:DropGet(playerid, response, listitem, inputtext[])
-{
-    if(!listitem)
-    {
-        return 1;
-    }
-    
-    return 1;
-}
+
 hook OnPlayerLeaveDynArea(playerid, areaid)
 {
     if(areaid == hgZoneSphere)
@@ -603,4 +633,23 @@ stock GetRandHgCords(&Float:x, &Float:y, &Float:z)
     // x = HG_MAX_X + random((HG_MIN_X)-(HG_MAX_X));
     // y = HG_MAX_Y + random((HG_MIN_Y)-(HG_MAX_Y));
     CA_FindZ_For2DCoord(x, y, z);
+}
+
+stock PlayerLookTree(playerid)
+{
+    new Float:_x, Float:_y, Float:_z;
+    GetPlayerPos(playerid, _x, _y, _z);
+
+    new Float:nX, Float:nY, Float:nZ;
+    GetPlayerSidePos(playerid, SIDE_FRONT, nX, nY, nZ, 1.0);
+
+    
+
+    new model = CA_RayCastLine(_x, _y, _z, nX, nY, nZ, nX, nY, nZ);
+
+    // SendMes(playerid, -1, "model = %d", model);
+    if(model == 791)
+        return 1;
+
+    return 0;
 }
