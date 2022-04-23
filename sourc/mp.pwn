@@ -7,7 +7,9 @@
 
 #define HG_VIRTUAL_WORLD    -1
 #define INVALID_DROP_ID     -1
-#define AREA_FOR_HG         555
+#define AREA_FOR_HG_DROP    555
+#define AREA_FOR_HG_FIRE    165
+#define INVALID_FIRE_ID     -1
 
 #define HG_MAX_PLAYERS 40   // макс кол-о участников
 #define HG_MIN_PLAYERS 2    // мин кол-о участников
@@ -20,28 +22,31 @@
 #define HG_MAX_Y -1831.0    // зона
 
 #define HG_MAX_DROPS    200 // макс кол-о предметов на земле
+#define HG_MAX_FIRES    15  // макс кол-о костров
 
 new hgSkins[] = {55, 123, 11, 15, 19, 22}; // скины
 
 new hgDeer[HG_DEER_COUNT];  // олени
 
-enum E_FIREWOOD
+enum 
 {
-    fwoodStatus,
-    fwoodObject,
-    fwoodSphere
+    FIRE_STATUS_NONE,
+    FIRE_STATUS_READY,
+    FIRE_STATUS_LIGHT
 }
-new fwoodData[HG_MAX_DROPS];
 
 enum E_FIRE
 {
     fireTime,
-    fireObject,
+    fireObject_wood,
+    fireObject_fire,
     Text3D:fireText,
     fireStatus,
     fireSphere
 }
-new dataFire[HG_MAX_DROPS];
+new fireData[HG_MAX_FIRES][E_FIRE];
+
+
 //new playerHunger[MAX_PLAYERS];
 
 new PlayerText:hgTD[MAX_PLAYERS][5];    // табличка слева с инфой
@@ -109,24 +114,7 @@ stock GetDropFreeIndex()
     return INVALID_DROP_ID;
 }
 
-stock GetFireFreeIndex()
-{
-    for(new i = 0; i < HG_MAX_DROPS; i++)
-    {
-        if(!fireData[i][fireStatus])
-        {
-            return i;
-        }
-    }
-    return INVALID_DROP_ID;
-}
-
-stock FireCreate()
-{
-
-}
-
-stock DropAdd(type = -1)
+stock DropCreate(type = -1, playerid = INVALID_PLAYER_ID, count = -1)
 {
     new dropID = GetDropFreeIndex();
 
@@ -142,10 +130,24 @@ stock DropAdd(type = -1)
     }
     dropData[dropID][dropType] = type;
     dropData[dropID][dropStatus] = true;
-    dropData[dropID][dropCount] = random(3);
-    
+    if(count == -1)
+    {
+        dropData[dropID][dropCount] = random(3);
+    }
+    else
+    {
+        dropData[dropID][dropCount] = count;
+    }
     new Float:dX, Float:dY, Float:dZ;
-    GetRandHgCords(dX, dY, dZ);
+    if(playerid == INVALID_PLAYER_ID)
+    {
+        GetRandHgCords(dX, dY, dZ);
+    }
+    else
+    {
+        GetPlayerPos(playerid, dX, dY, dZ);
+        CA_FindZ_For2DCoord(dX, dY, dZ);
+    }
 
     new _str[125];
     format(_str, sizeof(_str), "В земле что-то похожее на %s\n{ffffff}(( Нажмите 'N' что-бы посмотреть ))", drop_names[type]);
@@ -167,7 +169,7 @@ stock DropAdd(type = -1)
     dropData[dropID][dropSphere] = CreateDynamicSphere(dX, dY, dZ, 1.5, HG_VIRTUAL_WORLD);
 
     new _tmp[2];
-    _tmp[0] = AREA_FOR_HG;
+    _tmp[0] = AREA_FOR_HG_DROP;
     _tmp[1] = dropID;
     Streamer_SetArrayData(STREAMER_TYPE_AREA, dropData[dropID][dropSphere], E_STREAMER_EXTRA_ID, _tmp);
     return 1;
@@ -243,7 +245,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
 DialogResponse:DropMenu(playerid, response, listitem, inputtext[])
 {
-    if(!listitem)
+    if(!response)
     {
         return 1;
     }
@@ -259,9 +261,19 @@ DialogResponse:DropMenu(playerid, response, listitem, inputtext[])
     return 1;
 }
 
+forward WoodLoaded(playerid);
+public WoodLoaded(playerid)
+{    
+    RemovePlayerAttachedObject(playerid,0);    
+    ClearAnimations(playerid);
+
+    DropCreate(DROP_TYPE_FIREWOOD, playerid);
+}
+
 DialogResponse:DropUse(playerid, response, listitem, inputtext[])
 {
-    if(!listitem)
+    
+    if(!response)
     {
         return 1;
     }
@@ -271,13 +283,71 @@ DialogResponse:DropUse(playerid, response, listitem, inputtext[])
     {
         switch(type)
         {
+            case DROP_TYPE_SAW:
+            {
+                if(!PlayerLookTree(playerid))
+                {
+                    SendClientMessage(playerid, 0xe57373ff, "Вы должны находиться рядом с деревом!");
+                    return 1;
+                }
+                // if(playerDrop[playerid][DROP_TYPE_SAW] < 1)
+                // {
+                //     SendClientMessage(playerid, 0xef5350ff, "У вас нет бензопилы!");
+                //     return 1;
+                // }
+                SetPlayerAttachedObject(playerid, 0, 341, 6);
+                ApplyAnimation(playerid,"CHAINSAW","WEAPON_csaw", 1.0, 1, 0, 0, 0, 6000, 0);
+                SetTimerEx("WoodLoaded", 6000, false, "i", playerid);
+                return 1;
+            }
             case DROP_TYPE_FIREWOOD:
             {
-                
+                FireCreate(playerid);
+                return 1;
+            }
+            case DROP_TYPE_LIGHTER:
+            {// зажигалка
+                if(playerDrop[playerid][DROP_TYPE_LIGHTER] < 1)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "У вас нет зажигалки!");
+                    return 1;
+                }
+                if(GetPVarType(playerid, "getFireID") == PLAYER_VARTYPE_NONE)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "Вы должны находиться рядом с костром! Используйте дрова");
+                    return 1;
+                }
+                new fire = GetPVarInt(playerid, "getFireID");
+
+                if(fireData[fire][fireStatus] != FIRE_STATUS_READY)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "Костер не готов/уже горит!");
+                    return 1;
+                }
+                playerDrop[playerid][DROP_TYPE_LIGHTER] --;
+
+                new Float: _x, Float: _y, Float: _z;
+                GetDynamicObjectPos(fireData[fire][fireObject_wood], _x, _y, _z);
+
+                fireData[fire][fireObject_fire] = CreateDynamicObject(18691, _x, _y, _z-2, 0.0, 0.0, 0.0, HG_VIRTUAL_WORLD);
+                fireData[fire][fireTime] = 300;
+                fireData[fire][fireStatus] = FIRE_STATUS_LIGHT;
                 return 1;
             }
         }
     }
+    if(listitem == 1)
+    {// выбросить
+        if(playerDrop[playerid][type] < 1)
+        {
+            SendClientMessage(playerid, 0xef5350ff, "Нечего выбрасывать же ..");
+            return 1;
+        }
+        DropCreate(type, playerid, playerDrop[playerid][type]);
+        playerDrop[playerid][type] = 0;
+        return 1;
+    }
+    return 1;
 }
 
 DialogResponse:DropGet(playerid, response, listitem, inputtext[])
@@ -311,7 +381,7 @@ hook OnGameModeInit()
 
     for(new i = 0; i < 100; i++)
     {
-        DropAdd();
+        DropCreate();
     }
     for(new i = 0; i < HG_DEER_COUNT; i++)
     {
@@ -343,14 +413,16 @@ hook OnPlayerEnterDynArea(playerid, areaid)
     new _tmp[2];
     Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _tmp);
 
-    SendMes(playerid, -1, "%d = %d", _tmp[0], _tmp[1]);
-    if(_tmp[0] == AREA_FOR_HG)
+    if(_tmp[0] == AREA_FOR_HG_DROP)
     {
         SetPVarInt(playerid, "getDropID", _tmp[1]);
-        
         return Y_HOOKS_BREAK_RETURN_1;
     }
-    
+    if(_tmp[0] == AREA_FOR_HG_FIRE)
+    {
+        SetPVarInt(playerid, "getFireID", _tmp[1]);   
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
     if(areaid == hgZoneSphere)
     {
         return Y_HOOKS_BREAK_RETURN_1;
@@ -391,8 +463,34 @@ stock StartHG(playerid)
     return 1;
 }
 
+stock TimeConverter(second)
+{
+    new _str[15];
+
+    new _min = (second/60);
+    new _sec = second - (_min*60);
+
+    format(_str, sizeof(_str), "%02d:%02d", _min, _sec);
+    return _str;
+}
+
 hook function OnSecondUpdate()
 {
+    for(new i = 0; i < HG_MAX_FIRES; i++)
+    {
+        if(fireData[i][fireStatus] == FIRE_STATUS_LIGHT)
+        {
+            fireData[i][fireTime] --;
+            new _str[250];
+            format(_str, sizeof(_str), "Костер\n {ffffff}Будет гореть: %s", TimeConverter(fireData[i][fireTime]));
+            UpdateDynamic3DTextLabelText(fireData[i][fireText], 0xffe54cff, _str);
+
+            if(fireData[i][fireTime] < 1)
+            {
+                DestroyFire(i);
+            }
+        }
+    }
     foreach(new playerid : hgMembers)
     {
         if(IsValidPlayerProgressBar(playerid, hgHungerTD[playerid]))
@@ -426,7 +524,7 @@ hook function OnSecondUpdate()
             {
                 SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], thirst-HG_THIRST_SUB);
             }
-            if(hunger == 1.0)
+            if(thirst == 1.0)
             {
                 SendClientMessage(playerid, 0xef9a9aff, "Ваша жажда на исходе! Найдите и используйте воду, иначе вы умрете!");
             }
@@ -772,3 +870,72 @@ stock PlayerLookTree(playerid)
     return 0;
 }
 
+//============ КОСТРЫЫЫ
+stock GetFireFreeIndex()
+{
+    for(new i = 0; i < HG_MAX_FIRES; i++)
+    {
+        if(!fireData[i][fireStatus])
+        {
+            return i;
+        }
+    }
+    return INVALID_FIRE_ID;
+}
+
+stock FireCreate(playerid)
+{
+    new fire = GetFireFreeIndex();
+
+    if(fire == INVALID_FIRE_ID)
+    {
+        printf("INVALID_FIRE_ID");
+        return 1;
+    }
+    new Float:_x, Float:_y, Float:_z;
+    GetPlayerPos(playerid, _x, _y, _z);
+
+    fireData[fire][fireStatus] = FIRE_STATUS_READY;
+    fireData[fire][fireText] = CreateDynamic3DTextLabel(
+        .text = "Костер", 
+        .color = 0xffd149EE, 
+        .x = _x, 
+        .y = _y, 
+        .z = _z, 
+        .drawdistance = 50.0, 
+        .attachedplayer = INVALID_PLAYER_ID, 
+        .attachedvehicle = INVALID_VEHICLE_ID, 
+        .testlos = 1,
+        .worldid = HG_VIRTUAL_WORLD
+    );
+    fireData[fire][fireObject_wood] = CreateDynamicObject(19793, _x, _y, _z-1, 0.0, 0.0, 0.0, HG_VIRTUAL_WORLD);
+
+    fireData[fire][fireSphere] = CreateDynamicSphere(_x, _y, _z, 1.5, HG_VIRTUAL_WORLD);
+
+    new _tmp[2];
+    _tmp[0] = AREA_FOR_HG_FIRE;
+    _tmp[1] = fire;
+    Streamer_SetArrayData(STREAMER_TYPE_AREA, fireData[fire][fireSphere], E_STREAMER_EXTRA_ID, _tmp);
+    return 1;
+}
+
+stock DestroyFire(fireid)
+{
+    if(IsValidDynamic3DTextLabel(fireData[fireid][fireText]))
+    {
+        DestroyDynamic3DTextLabel(fireData[fireid][fireText]);
+        fireData[fireid][fireText] = Text3D:INVALID_3DTEXT_ID;
+    }
+    if(IsValidDynamicObject(fireData[fireid][fireObject_fire]))
+    {
+        DestroyDynamicObject(fireData[fireid][fireObject_fire]);
+        fireData[fireid][fireObject_fire] = -51;
+    }
+    if(IsValidDynamicObject(fireData[fireid][fireObject_wood]))
+    {
+        DestroyDynamicObject(fireData[fireid][fireObject_wood]);
+        fireData[fireid][fireObject_wood] = -51;
+    }
+    fireData[fireid][fireStatus] = FIRE_STATUS_NONE;
+    fireData[fireid][fireTime] = 0;
+}
