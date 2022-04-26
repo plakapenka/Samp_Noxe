@@ -114,6 +114,26 @@ stock GetDropFreeIndex()
     return INVALID_DROP_ID;
 }
 
+stock DestroyDrop(dropID)
+{
+    dropData[dropID][dropStatus] = false;
+    if(IsValidDynamic3DTextLabel(dropData[dropID][dropText]))
+    {
+        DestroyDynamic3DTextLabel(dropData[dropID][dropText]);
+        dropData[dropID][dropText] = Text3D:INVALID_3DTEXT_ID;
+    }
+    if(IsValidDynamicObject(dropData[dropID][dropObject]))
+    {
+        DestroyDynamicObject(dropData[dropID][dropObject]);
+        dropData[dropID][dropObject] = -1;
+    }
+    if(IsValidDynamicArea(dropData[dropID][dropSphere]))
+    {
+        DestroyDynamicArea(dropData[dropID][dropSphere]);
+        dropData[dropID][dropSphere] = -1;
+    }
+}
+
 stock DropCreate(type = -1, playerid = INVALID_PLAYER_ID, count = -1)
 {
     new dropID = GetDropFreeIndex();
@@ -365,6 +385,9 @@ DialogResponse:DropGet(playerid, response, listitem, inputtext[])
     format(_str, sizeof(_str), "В ваш инвентарь добавлен(а) {ffffff}'%s'{98ee99}. Используйте 'Y' ", drop_names[type]);
     SendClientMessage(playerid, 0x98ee99ff, _str);
 
+
+    DestroyDrop(id);
+    DeletePVar(playerid, "getDropID");
     return 1;
 }
 
