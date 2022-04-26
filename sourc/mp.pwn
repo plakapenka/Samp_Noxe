@@ -14,7 +14,7 @@
 #define HG_MAX_PLAYERS 40   // макс кол-о участников
 #define HG_MIN_PLAYERS 1    // мин кол-о участников
 
-#define HG_DEER_COUNT 10    // кол-о оленей на территории
+#define HG_DEER_COUNT 55    // кол-о оленей на территории
 
 #define HG_MIN_X -1963.0    // зона
 #define HG_MAX_X -1281.0    // зона
@@ -55,7 +55,7 @@ new PlayerBar:hgHungerTD[MAX_PLAYERS];  // сытость
 new PlayerBar:hgThirstTD[MAX_PLAYERS];  // жажда
 new PlayerText:hgSkinTD[MAX_PLAYERS][3];// выбор ски
 
-#define HG_PLAYER_DROP_COUNT 11 // КОЛ-О ВИДОВ ДРОПА
+#define HG_PLAYER_DROP_COUNT 10 // КОЛ-О ВИДОВ ДРОПА
 #define HG_PLAYER_DROP_SHOW_COUNT 7 // кол-о показываемых в инвентаре
 
 enum 
@@ -233,6 +233,8 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 %s\t%d", drop_names[dropData[dropID][dropType]], dropData[dropID][dropCount]);
 
             Dialog_Open(playerid, Dialog:DropGet, DIALOG_STYLE_TABLIST_HEADERS, " ", _str, "Взять", "Закрыть");
+
+            ApplyAnimation(playerid, "BOMBER", "BOM_PLANT_LOOP", 1.0, 1, 0, 0, 0, 6000, 0);
             return Y_HOOKS_BREAK_RETURN_1;
         }
     }
@@ -481,6 +483,7 @@ DialogResponse:DropUse(playerid, response, listitem, inputtext[])
 
 DialogResponse:DropGet(playerid, response, listitem, inputtext[])
 {
+    ClearAnimations(playerid);
     if(!response)
     {
         return 1;
@@ -502,8 +505,14 @@ DialogResponse:DropGet(playerid, response, listitem, inputtext[])
 
 hook OnPlayerPickUpPickup(playerid, pickupid)
 {
+    printf("asd");
     if(pickupid == hgRegPickUP)
     {
+        if(hgData[hgStatus] != HG_STATUS_REG)
+        {
+            SendClientMessage(playerid, 0xe53935FF, "Регистрация закрыта!");
+            return 1;
+        }
         if(Iter_Contains(hgMembers, playerid))
         {
             SendClientMessage(playerid, 0xe53935FF, "Вы уже зарегистрированы на 'Голодные игры'");
@@ -523,7 +532,7 @@ hook OnPlayerPickUpPickup(playerid, pickupid)
 
 hook OnGameModeInit()
 {
-    hgRegPickUP = CreatePick(1314, -1640.5404,-2234.2800,31.4766);
+    hgRegPickUP = CreatePickup(1314, 23, -1640.5404,-2234.2800,31.4766);
     CA_Init();
 	printf("--------------------------------------");
 	printf("Голодные игры!!!!!!!!!!!!111111111");
@@ -543,7 +552,6 @@ hook OnGameModeInit()
         GetRandHgCords(_x, _y, _z);
 
         hgDeer[i] = CreateObject(19315, _x, _y, _z+0.5, 0.0, 0.0, 0.0);
-        printf("%f, %f, %f", _x, _y, _z);
     }
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
@@ -642,13 +650,16 @@ stock StartHG()
         }
         else
         {
+            SendClientMessageToAll(0x00897bFF, "'Голодные игры' начаты!");
+            hgData[hgStatus] = HG_STATUS_ON;
+            hgData[hgTime] = 1800;
             foreach(new i : hgMembers)
             {
                 InterpolateCameraPos(i, -1648.961914, -2245.073486, 33.665901, -1648.961914, -2245.073486, 33.665901, 1000);
                 InterpolateCameraLookAt(i, -1644.050781, -2245.768066, 33.034778, -1644.050781, -2245.768066, 33.034778, 1000);
 
                 SetPlayerPos(i, -1640.7860,-2246.3562,31.4766);
-                SetPlayerVirtualWorld(playerid, HG_VIRTUAL_WORLD);
+                SetPlayerVirtualWorld(i, HG_VIRTUAL_WORLD);
                 SetPlayerFacingAngle(i, 70.5);
 
                 TogglePlayerControllable(i, false);
@@ -1120,4 +1131,10 @@ hook OnPlayerDeath(playerid, killerid, reason)
     }
     
     
+}
+
+CMD:starthg(playerid)
+{
+    StartHG();
+    return 1;
 }
