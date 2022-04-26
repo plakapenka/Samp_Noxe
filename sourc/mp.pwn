@@ -551,22 +551,23 @@ hook OnGameModeInit()
         new Float:_x, Float:_y, Float:_z;
         GetRandHgCords(_x, _y, _z);
 
-        hgDeer[i] = CreateObject(19315, _x, _y, _z+0.5, 0.0, 0.0, 0.0);
+        hgDeer[i] = CreateDynamicObject(19315, _x, _y, _z+0.5, 0.0, 0.0, 0.0, HG_VIRTUAL_WORLD);
+        
     }
 	return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, Float:fZ)
+hook OnPlayerShootDynObject(playerid, weaponid, hitid, Float:fX, Float:fY, Float:fZ)
 {
-    if(hittype == 3)
+    if(Streamer_GetIntData(STREAMER_TYPE_OBJECT, hitid, E_STREAMER_MODEL_ID) == 19315)
     {
         new Float:X, Float:Y, Float:Z;
-        GetObjectRot(hitid, X, Y, Z);
+        GetDynamicObjectRot(hitid, X, Y, Z);
         if(X < 90)
         {
-            GetObjectPos(hitid, X, Y, Z);
-            SetObjectRot(hitid, 90, 0, 0);
-            SetObjectPos(hitid, X, Y, Z-0.4);
+            GetDynamicObjectPos(hitid, X, Y, Z);
+            SetDynamicObjectRot(hitid, 90, 0, 0);
+            SetDynamicObjectPos(hitid, X, Y, Z-0.4);
             CA_FindZ_For2DCoord(X, Y, Z);
             DropCreate(DROP_TYPE_MEAT_RAW, 1+random(2), X, Y, Z);
         //  SendClientMessage(playerid, -1, "[{ffff00}i{0000ff}] {f0f0f0}You hit the deer!");
