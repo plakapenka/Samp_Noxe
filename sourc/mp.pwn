@@ -64,10 +64,9 @@ enum
     DROP_TYPE_FIREWOOD,
     DROP_TYPE_MEAT_RAW,
     DROP_TYPE_MEAT_GRILLED,
-    DROP_TYPE_MEAT_BOTTLE,
-    DROP_TYPE_MEAT_BOTTLE_FULL,
+    DROP_TYPE_BOTTLE,
+    DROP_TYPE_BOTTLE_FULL,
     DROP_TYPE_DEAGLE,
-    DROP_TYPE_KNIFE,
     DROP_TYPE_AK,
     DROP_TYPE_M4,
 };
@@ -83,7 +82,6 @@ new drop_names[][] = {
     "Пустая бутылка",
     "Бутылка с водой",
     "Дигл",
-    "Нож",
     "AK-47",
     "M4"
 };
@@ -134,7 +132,7 @@ stock DestroyDrop(dropID)
     }
 }
 
-stock DropCreate(type = -1, playerid = INVALID_PLAYER_ID, count = -1)
+stock DropCreate(type = -1, count = -1, Float:dX = 0.0, Float:dY = 0.0, Float:dZ = 0.0)
 {
     new dropID = GetDropFreeIndex();
 
@@ -158,15 +156,10 @@ stock DropCreate(type = -1, playerid = INVALID_PLAYER_ID, count = -1)
     {
         dropData[dropID][dropCount] = count;
     }
-    new Float:dX, Float:dY, Float:dZ;
-    if(playerid == INVALID_PLAYER_ID)
+
+    if(dX == 0.0)
     {
         GetRandHgCords(dX, dY, dZ);
-    }
-    else
-    {
-        GetPlayerPos(playerid, dX, dY, dZ);
-        CA_FindZ_For2DCoord(dX, dY, dZ);
     }
 
     new _str[125];
@@ -287,7 +280,56 @@ public WoodLoaded(playerid)
     RemovePlayerAttachedObject(playerid,0);    
     ClearAnimations(playerid);
 
-    DropCreate(DROP_TYPE_FIREWOOD, playerid);
+    new Float:_x, Float:_y, Float:_z;
+    GetPlayerPos(playerid, _x, _y, _z);
+    CA_FindZ_For2DCoord(_x, _y, _z);
+    DropCreate(DROP_TYPE_FIREWOOD, 1, _x, _y, _z);
+}
+
+forward BottleLoaded(playerid);
+public BottleLoaded(playerid)
+{    
+    RemovePlayerAttachedObject(playerid,0);    
+    ClearAnimations(playerid);
+
+    playerDrop[playerid][DROP_TYPE_BOTTLE] --;
+    playerDrop[playerid][DROP_TYPE_BOTTLE_FULL] ++;
+    SendClientMessage(playerid, 0x5d99c6ff, "Вы успешно заполнили бутылку водой!");
+}
+
+forward BottleDrinked(playerid);
+public BottleDrinked(playerid)
+{    
+    RemovePlayerAttachedObject(playerid,0);    
+    ClearAnimations(playerid);
+
+    playerDrop[playerid][DROP_TYPE_BOTTLE] ++;
+    playerDrop[playerid][DROP_TYPE_BOTTLE_FULL] --;
+    SendClientMessage(playerid, 0x5d99c6ff, "Ваша шкала жажды пополнена!");
+    SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 100.0);
+}
+
+forward MeatReady(playerid);
+public MeatReady(playerid)
+{    
+    RemovePlayerAttachedObject(playerid,0);    
+    ClearAnimations(playerid);
+
+    playerDrop[playerid][DROP_TYPE_MEAT_RAW] --;
+    playerDrop[playerid][DROP_TYPE_MEAT_GRILLED] ++;
+    SendClientMessage(playerid, 0x5d99c6ff, "Вы успешно приготовили мясо");
+   // SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 100.0);
+}
+
+forward MeatEat(playerid);
+public MeatEat(playerid)
+{    
+    RemovePlayerAttachedObject(playerid,0);    
+    ClearAnimations(playerid);
+
+    playerDrop[playerid][DROP_TYPE_MEAT_GRILLED] --;
+    SendClientMessage(playerid, 0x5d99c6ff, "Ваша шкала голода пополнена!");
+    SetPlayerProgressBarValue(playerid, hgHungerTD[playerid], 100.0);
 }
 
 DialogResponse:DropUse(playerid, response, listitem, inputtext[])
@@ -303,6 +345,50 @@ DialogResponse:DropUse(playerid, response, listitem, inputtext[])
     {
         switch(type)
         {
+            case DROP_TYPE_MEAT_GRILLED:
+            {
+                if(playerDrop[playerid][DROP_TYPE_MEAT_GRILLED] < 1)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "У вас нет готового мяса!");
+                    return 1;
+                }
+                //PlayerPlaySound(playerid, 42600, 0.0, 0.0, 0.0);
+                ApplyAnimation(playerid,"FOOD","EAT_BURGER", 2.0,0,0,0,0,5000,1);
+                SetPlayerAttachedObject(playerid, 0, 2806, 5, 0.6149, -0.0080, 0.0579, -73.3999, -166.5999, 0.1999, 0.3199, 0.6729, 0.6620, 0, 0); // "abc" от Egor_Plakapenka (Skin:0)
+                SetTimerEx("MeatEat", 3800, false, "ii", playerid, 1);
+                return 1;
+            }
+            case DROP_TYPE_BOTTLE_FULL:
+            {
+                if(playerDrop[playerid][DROP_TYPE_BOTTLE_FULL] < 1)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "У вас нет бутылки с водой!");
+                    return 1;
+                }
+                PlayerPlaySound(playerid, 42600, 0.0, 0.0, 0.0);
+                ApplyAnimation(playerid,"VENDING","VEND_DRINK_P", 2.0,0,0,0,0,5000,1);
+                SetPlayerAttachedObject(playerid, 0, 1509, 5, 0.6149, -0.0080, 0.0579, -73.3999, -166.5999, 0.1999, 0.3199, 0.6729, 0.6620, 0, 0); // "abc" от Egor_Plakapenka (Skin:0)
+                SetTimerEx("BottleDrinked", 3800, false, "ii", playerid, 1);
+                return 1;
+            }
+            case DROP_TYPE_BOTTLE:
+            {
+                if(playerDrop[playerid][DROP_TYPE_BOTTLE] < 1)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "У вас нет пустой бутылки!");
+                    return 1;
+                }
+                if(!CA_IsPlayerFacingWater(playerid))
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "Вы должны находиться возле воды!");
+                    return 1;
+                }
+                //SetPlayerAttachedObject(playerid, 0, 341, 6);
+                SetPlayerAttachedObject(playerid, 0, 1509, 5, 0.6149, -0.0080, 0.0579, -73.3999, -166.5999, 0.1999, 0.3199, 0.6729, 0.6620, 0, 0);
+                ApplyAnimation(playerid, "BOMBER", "BOM_PLANT_LOOP", 1.0, 1, 0, 0, 0, 6000, 0);
+                SetTimerEx("BottleLoaded", 3000, false, "i", playerid);
+                return 1;
+            }
             case DROP_TYPE_SAW:
             {
                 if(!PlayerLookTree(playerid))
@@ -323,6 +409,25 @@ DialogResponse:DropUse(playerid, response, listitem, inputtext[])
             case DROP_TYPE_FIREWOOD:
             {
                 FireCreate(playerid);
+                return 1;
+            }
+            case DROP_TYPE_MEAT_RAW:
+            {
+                if(playerDrop[playerid][DROP_TYPE_MEAT_RAW] < 1)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "У вас нет сырого мяса!");
+                    return 1;
+                }
+                if(GetPVarType(playerid, "getFireID") == PLAYER_VARTYPE_NONE)
+                {
+                    SendClientMessage(playerid, 0xef5350ff, "Вы должны находиться рядом с костром! Используйте дрова");
+                    return 1;
+                }
+                SetPlayerAttachedObject(playerid, 0, 2806, 5, 0.6149, -0.0080, 0.0579, -73.3999, -166.5999, 0.1999, 0.3199, 0.6729, 0.6620, 0, 0);
+                ApplyAnimation(playerid, "BOMBER", "BOM_PLANT_LOOP", 1.0, 1, 0, 0, 0, 6000, 0);
+                SetTimerEx("MeatReady", 30000, false, "i", playerid);
+
+                GameTextForPlayer(playerid, "Lost 30 sec", 5000, 2);
                 return 1;
             }
             case DROP_TYPE_LIGHTER:
@@ -363,7 +468,10 @@ DialogResponse:DropUse(playerid, response, listitem, inputtext[])
             SendClientMessage(playerid, 0xef5350ff, "Нечего выбрасывать же ..");
             return 1;
         }
-        DropCreate(type, playerid, playerDrop[playerid][type]);
+        new Float:_x, Float:_y, Float:_z;
+        GetPlayerPos(playerid, _x, _y, _z);
+        CA_FindZ_For2DCoord(_x, _y, _z);
+        DropCreate(type, playerDrop[playerid][type], _x, _y, _z);
         playerDrop[playerid][type] = 0;
         return 1;
     }
@@ -422,10 +530,17 @@ hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, 
     if(hittype == 3)
     {
         new Float:X, Float:Y, Float:Z;
-        GetObjectPos(hitid, X, Y, Z);
-        SetObjectRot(hitid, 90, 0, 0);
-        SetObjectPos(hitid, X, Y, Z-0.4);
-//        SendClientMessage(playerid, blue, "[{ffff00}i{0000ff}] {f0f0f0}You hit the deer!");
+        GetObjectRot(hitid, X, Y, Z);
+        if(X < 90)
+        {
+            GetObjectPos(hitid, X, Y, Z);
+            SetObjectRot(hitid, 90, 0, 0);
+            SetObjectPos(hitid, X, Y, Z-0.4);
+            CA_FindZ_For2DCoord(X, Y, Z);
+            DropCreate(DROP_TYPE_MEAT_RAW, 1+random(2), X, Y, Z);
+        //  SendClientMessage(playerid, -1, "[{ffff00}i{0000ff}] {f0f0f0}You hit the deer!");
+        }
+        
         return 1;
     }
     return 1;
