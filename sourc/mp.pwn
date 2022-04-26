@@ -5,14 +5,14 @@
 #define HG_HUNGRY_SUB   0.5 // кол-о отнимаемой сытости в секунду
 #define HG_THIRST_SUB   1.0 // кол-о отнимаемой жажды в секунду
 
-#define HG_VIRTUAL_WORLD    -1
+#define HG_VIRTUAL_WORLD    228
 #define INVALID_DROP_ID     -1
 #define AREA_FOR_HG_DROP    555
 #define AREA_FOR_HG_FIRE    165
 #define INVALID_FIRE_ID     -1
 
 #define HG_MAX_PLAYERS 40   // макс кол-о участников
-#define HG_MIN_PLAYERS 2    // мин кол-о участников
+#define HG_MIN_PLAYERS 1    // мин кол-о участников
 
 #define HG_DEER_COUNT 10    // кол-о оленей на территории
 
@@ -24,6 +24,7 @@
 #define HG_MAX_DROPS    200 // макс кол-о предметов на земле
 #define HG_MAX_FIRES    15  // макс кол-о костров
 
+new hgRegPickUP;
 new hgSkins[] = {55, 123, 11, 15, 19, 22}; // скины
 
 new hgDeer[HG_DEER_COUNT];  // олени
@@ -499,8 +500,30 @@ DialogResponse:DropGet(playerid, response, listitem, inputtext[])
     return 1;
 }
 
+hook OnPlayerPickUpPickup(playerid, pickupid)
+{
+    if(pickupid == hgRegPickUP)
+    {
+        if(Iter_Contains(hgMembers, playerid))
+        {
+            SendClientMessage(playerid, 0xe53935FF, "Вы уже зарегистрированы на 'Голодные игры'");
+            return 1;
+        }
+        if(Iter_Count(hgMembers) > HG_MAX_PLAYERS)
+        {
+            SendClientMessage(playerid, 0xe53935FF, "Все места заняты!");
+            return 1;
+        }
+        Iter_Add(hgMembers, playerid);
+        SendClientMessage(playerid, -1, "зареган");
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    return Y_HOOKS_CONTINUE_RETURN_1;
+}
+
 hook OnGameModeInit()
 {
+    hgRegPickUP = CreatePick(1314, -1640.5404,-2234.2800,31.4766);
     CA_Init();
 	printf("--------------------------------------");
 	printf("Голодные игры!!!!!!!!!!!!111111111");
@@ -570,6 +593,19 @@ hook OnPlayerEnterDynArea(playerid, areaid)
 
 hook OnPlayerLeaveDynArea(playerid, areaid)
 {
+    new _tmp[2];
+    Streamer_GetArrayData(STREAMER_TYPE_AREA, areaid, E_STREAMER_EXTRA_ID, _tmp);
+
+    if(_tmp[0] == AREA_FOR_HG_DROP)
+    {
+        DeletePVar(playerid, "getDropID");
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
+    if(_tmp[0] == AREA_FOR_HG_FIRE)
+    {
+        DeletePVar(playerid, "getFireID");  
+        return Y_HOOKS_BREAK_RETURN_1;
+    }
     if(areaid == hgZoneSphere)
     {
         new Float:x, Float:y, Float:z, Float: a;
@@ -587,17 +623,43 @@ hook OnPlayerLeaveDynArea(playerid, areaid)
     return Y_HOOKS_CONTINUE_RETURN_1;
 }
 
-stock StartHG(playerid)
+stock StartHG()
 {
-    if(hgData[hgStatus] != HG_STATUS_OFF)
+    if(hgData[hgStatus] == HG_STATUS_OFF)
     {
-        SendClientMessage(playerid, 0xe53935FF, "Игра уже начата!");
+        hgData[hgStatus]    = HG_STATUS_REG;
+        hgData[hgTime]      = 5*60;
+
+        SendClientMessageToAll(0x00897bFF, "Начало 'Голодных игр' через 5 минут. Регистрация хуй знает где..");
         return 1;
     }
-    hgData[hgStatus]    = HG_STATUS_REG;
-    hgData[hgTime]      = 5*60;
+    if(hgData[hgStatus] == HG_STATUS_REG)
+    {
+        if(Iter_Count(hgMembers) < HG_MIN_PLAYERS)
+        {
+            SendClientMessageToAll(0x00897bFF, "'Голодные игры' отменены из-за недостаточного кол-а участников");
+            Iter_Clear(hgMembers);
+        }
+        else
+        {
+            foreach(new i : hgMembers)
+            {
+                InterpolateCameraPos(i, -1648.961914, -2245.073486, 33.665901, -1648.961914, -2245.073486, 33.665901, 1000);
+                InterpolateCameraLookAt(i, -1644.050781, -2245.768066, 33.034778, -1644.050781, -2245.768066, 33.034778, 1000);
 
-    SendClientMessageToAll(0x00897bFF, "Начало 'Голодных игр' через 5 минут. Регистрация хуй знает где..");
+                SetPlayerPos(i, -1640.7860,-2246.3562,31.4766);
+                SetPlayerVirtualWorld(playerid, HG_VIRTUAL_WORLD);
+                SetPlayerFacingAngle(i, 70.5);
+
+                TogglePlayerControllable(i, false);
+
+                ShowHgSkinTD(i);
+                SelectTextDraw(i, 0xFF0000FF);
+
+                ShowHgTD(i);
+            }
+        }
+    }
     return 1;
 }
 
@@ -669,20 +731,27 @@ hook function OnSecondUpdate()
         }
     }
     
-    
+    if(hgData[hgStatus] == HG_STATUS_ON)
+    {
+        hgData[hgTime] --;
+
+        new _str[25];
+        format(_str, sizeof(_str), "Time left: %s", TimeConverter(hgData[hgTime]));
+
+        new _str2[25];
+        format(_str, sizeof(_str), "Players left: %d/%d", Iter_Count(hgMembers), HG_MAX_PLAYERS);
+        foreach(new i : hgMembers)
+        {
+            PlayerTextDrawSetString(i, hgTD[i][1], _str);
+            PlayerTextDrawSetString(i, hgTD[i][2], _str2);
+        }  
+    }
     if(hgData[hgStatus] == HG_STATUS_REG)
     {
         hgData[hgTime] --;
         if(hgData[hgTime] < 0)
         {
-            if(Iter_Count(hgMembers) < HG_MIN_PLAYERS)
-            {
-                SendClientMessageToAll(0x00897bFF, "'Голодные игры' отменены из-за недостаточного кол-а участников");
-            }
-            else
-            {
-
-            }
+            StartHG();
         }
     }
     return continue();
@@ -766,27 +835,6 @@ hook OnPlayerClickPlayerTD(playerid, PlayerText:playertextid)
         return Y_HOOKS_BREAK_RETURN_1;
     }
     return Y_HOOKS_CONTINUE_RETURN_1;
-}
-
-stock PlayerStartHG(playerid)
-{
-    InterpolateCameraPos(playerid, -1648.961914, -2245.073486, 33.665901, -1648.961914, -2245.073486, 33.665901, 1000);
-    InterpolateCameraLookAt(playerid, -1644.050781, -2245.768066, 33.034778, -1644.050781, -2245.768066, 33.034778, 1000);
-
-    SetPlayerPos(playerid, -1640.7860,-2246.3562,31.4766);
-    SetPlayerFacingAngle(playerid, 70.5);
-
-    TogglePlayerControllable(playerid, false);
-
-    ShowHgSkinTD(playerid);
-    SelectTextDraw(playerid, 0xFF0000FF);
-
-    ShowHgTD(playerid);
-}
-CMD:starthg(playerid)
-{
-    PlayerStartHG(playerid);
-    return 1;
 }
 
 stock ShowHgSkinTD(playerid)
@@ -953,28 +1001,7 @@ stock CreateHgTD(playerid)
 	SetPlayerProgressBarValue(playerid, hgThirstTD[playerid], 100.000000);
 }
 
-CMD:zareg(playerid, params[])
-{
-    if(Iter_Contains(hgMembers, playerid))
-    {
-        SendClientMessage(playerid, 0xe53935FF, "Вы уже зарегистрированы на 'Голодные игры'");
-        return 1;
-    }
-    if(Iter_Count(hgMembers) > HG_MAX_PLAYERS)
-    {
-        SendClientMessage(playerid, 0xe53935FF, "Все места заняты!");
-        return 1;
-    }
-    Iter_Add(hgMembers, playerid);
-    SendClientMessage(playerid, -1, "зареган");
-    return 1;
-}
 
-CMD:zapusk(playerid)
-{
-    StartHG(playerid);
-    return 1;
-}
 
 // stock Float:frand(Float:min, Float:max) 
 // {
@@ -1076,4 +1103,21 @@ stock DestroyFire(fireid)
     }
     fireData[fireid][fireStatus] = FIRE_STATUS_NONE;
     fireData[fireid][fireTime] = 0;
+}
+
+hook OnPlayerDeath(playerid, killerid, reason)
+{
+    if(Iter_Contains(hgMembers, playerid))
+    {
+        Iter_Remove(hgMembers, playerid);
+
+        foreach(new i : hgMembers)
+        {
+            SendMes(i, 0xffa4a2ff, "%s выбыл из 'голодных игр'", pData[playerid][pName]);
+        }
+
+        HideHgTD(playerid);
+    }
+    
+    
 }
